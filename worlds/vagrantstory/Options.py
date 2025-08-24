@@ -15,8 +15,7 @@ class GuaranteedItemsOption(ItemDict):
 
 class GoalOption(Choice):
     """Lets the user choose the completion goal
-    Defeat Zarok - Beat the boss at the end
-    Chalices - Collect all chalices (Collect all chalices doesn't work right now)"""
+    Defeat Final Boss - Beat the boss at the end"""
     display_name = "Completion Goal"
     default = GoalOptions.DEFEAT_FINAL_BOSS
     option_defeat_final_boss = GoalOptions.DEFEAT_FINAL_BOSS
@@ -37,7 +36,7 @@ class DeathLinkToggle(Toggle):
     option_false = 0
 
 @dataclass
-class MedievilOption(PerGameCommonOptions):
+class VagrantStoryOption(PerGameCommonOptions):
     goal: GoalOption
     progression_option: ProgressionOption
     deathlink: DeathLinkToggle
