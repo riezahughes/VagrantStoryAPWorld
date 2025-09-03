@@ -15,8 +15,13 @@ class VagrantStoryItemCategory(IntEnum):
     CHAIN_ABILITY = 7
     DEFENCE_ABILITY = 8
     BREAK_ARTS = 9
-    TRAP = 10
-    SKIP = 11
+    NAMED_WEAPON = 10
+    BLADE_PARTS = 11
+    GRIP_PARTS = 12
+    SHIELD_PARTS = 13
+    ARMOUR = 14
+    TRAP = 15
+    SKIP = 16
 
 
 class VagrantStoryItemData(NamedTuple):
@@ -193,79 +198,262 @@ _all_items: List[VagrantStoryItemData] = [
     VagrantStoryItemData("Verbana Sigil", 116, VagrantStoryItemCategory.SIGILS, True),
 
     # Chain Abilities
-    VagrantStoryItemData("Crimson Pain Chain Ability", 0, VagrantStoryItemCategory.CHAIN_ABILITY, False),
-    VagrantStoryItemData("Dulling Impact Chain Ability", 0, VagrantStoryItemCategory.CHAIN_ABILITY, False),
-    VagrantStoryItemData("Gain Life Chain Ability", 0, VagrantStoryItemCategory.CHAIN_ABILITY, False),
-    VagrantStoryItemData("Gain Magic Chain Ability", 0, VagrantStoryItemCategory.CHAIN_ABILITY, False),
-    VagrantStoryItemData("Heavy Shot Chain Ability", 0, VagrantStoryItemCategory.CHAIN_ABILITY, False),
-    VagrantStoryItemData("Instill Chain Ability", 0, VagrantStoryItemCategory.CHAIN_ABILITY, False),
-    VagrantStoryItemData("Mind Ache Chain Ability", 0, VagrantStoryItemCategory.CHAIN_ABILITY, False),
-    VagrantStoryItemData("Mind Assault Chain Ability", 0, VagrantStoryItemCategory.CHAIN_ABILITY, False),
-    VagrantStoryItemData("Numbing Claw Chain Ability", 0, VagrantStoryItemCategory.CHAIN_ABILITY, False),
-    VagrantStoryItemData("Paralysis Pulse Chain Ability", 0, VagrantStoryItemCategory.CHAIN_ABILITY, False),
-    VagrantStoryItemData("Phantom Pain Chain Ability", 0, VagrantStoryItemCategory.CHAIN_ABILITY, False),
-    VagrantStoryItemData("Raging Ache Chain Ability", 0, VagrantStoryItemCategory.CHAIN_ABILITY, False),
-    VagrantStoryItemData("Snake Venom Chain Ability", 0, VagrantStoryItemCategory.CHAIN_ABILITY, False),
-    VagrantStoryItemData("Temper Chain Ability", 0, VagrantStoryItemCategory.CHAIN_ABILITY, False),
+    VagrantStoryItemData("Crimson Pain Chain Ability", 117, VagrantStoryItemCategory.CHAIN_ABILITY, False),
+    VagrantStoryItemData("Dulling Impact Chain Ability", 118, VagrantStoryItemCategory.CHAIN_ABILITY, False),
+    VagrantStoryItemData("Gain Life Chain Ability", 119, VagrantStoryItemCategory.CHAIN_ABILITY, False),
+    VagrantStoryItemData("Gain Magic Chain Ability", 120, VagrantStoryItemCategory.CHAIN_ABILITY, False),
+    VagrantStoryItemData("Heavy Shot Chain Ability", 121, VagrantStoryItemCategory.CHAIN_ABILITY, False),
+    VagrantStoryItemData("Instill Chain Ability", 122, VagrantStoryItemCategory.CHAIN_ABILITY, False),
+    VagrantStoryItemData("Mind Ache Chain Ability", 123, VagrantStoryItemCategory.CHAIN_ABILITY, False),
+    VagrantStoryItemData("Mind Assault Chain Ability", 124, VagrantStoryItemCategory.CHAIN_ABILITY, False),
+    VagrantStoryItemData("Numbing Claw Chain Ability", 125, VagrantStoryItemCategory.CHAIN_ABILITY, False),
+    VagrantStoryItemData("Paralysis Pulse Chain Ability", 126, VagrantStoryItemCategory.CHAIN_ABILITY, False),
+    VagrantStoryItemData("Phantom Pain Chain Ability", 127, VagrantStoryItemCategory.CHAIN_ABILITY, False),
+    VagrantStoryItemData("Raging Ache Chain Ability", 128, VagrantStoryItemCategory.CHAIN_ABILITY, False),
+    VagrantStoryItemData("Snake Venom Chain Ability", 129, VagrantStoryItemCategory.CHAIN_ABILITY, False),
+    VagrantStoryItemData("Temper Chain Ability", 130, VagrantStoryItemCategory.CHAIN_ABILITY, False),
 
     # Defence Abilities
-    VagrantStoryItemData("Absorb Damage Defence Ability", 0, VagrantStoryItemCategory.DEFENCE_ABILITY, False),
-    VagrantStoryItemData("Absorb Magic Defence Ability", 0, VagrantStoryItemCategory.DEFENCE_ABILITY, False),
-    VagrantStoryItemData("Aqua Ward Defence Ability", 0, VagrantStoryItemCategory.DEFENCE_ABILITY, False),
-    VagrantStoryItemData("Demonscale Defence Ability", 0, VagrantStoryItemCategory.DEFENCE_ABILITY, False),
-    VagrantStoryItemData("Fireproof Defence Ability", 0, VagrantStoryItemCategory.DEFENCE_ABILITY, False),
-    VagrantStoryItemData("Impact Guard Defence Ability", 0, VagrantStoryItemCategory.DEFENCE_ABILITY, False),
-    VagrantStoryItemData("Phantom Shield Defence Ability", 0, VagrantStoryItemCategory.DEFENCE_ABILITY, False),
-    VagrantStoryItemData("Reflect Damage Defence Ability", 0, VagrantStoryItemCategory.DEFENCE_ABILITY, False),
-    VagrantStoryItemData("Reflect Magic Defence Ability", 0, VagrantStoryItemCategory.DEFENCE_ABILITY, False),
-    VagrantStoryItemData("Shadow Guard Defence Ability", 0, VagrantStoryItemCategory.DEFENCE_ABILITY, False),
-    VagrantStoryItemData("Siphon Soul Defence Ability", 0, VagrantStoryItemCategory.DEFENCE_ABILITY, False),
-    VagrantStoryItemData("Terra Ward Defence Ability", 0, VagrantStoryItemCategory.DEFENCE_ABILITY, False),
-    VagrantStoryItemData("Ward Defence Ability", 0, VagrantStoryItemCategory.DEFENCE_ABILITY, False),
-    VagrantStoryItemData("Windbreak Defence Ability", 0, VagrantStoryItemCategory.DEFENCE_ABILITY, False),
+    VagrantStoryItemData("Absorb Damage Defence Ability", 131, VagrantStoryItemCategory.DEFENCE_ABILITY, False),
+    VagrantStoryItemData("Absorb Magic Defence Ability", 132, VagrantStoryItemCategory.DEFENCE_ABILITY, False),
+    VagrantStoryItemData("Aqua Ward Defence Ability", 133, VagrantStoryItemCategory.DEFENCE_ABILITY, False),
+    VagrantStoryItemData("Demonscale Defence Ability", 134, VagrantStoryItemCategory.DEFENCE_ABILITY, False),
+    VagrantStoryItemData("Fireproof Defence Ability", 135, VagrantStoryItemCategory.DEFENCE_ABILITY, False),
+    VagrantStoryItemData("Impact Guard Defence Ability", 136, VagrantStoryItemCategory.DEFENCE_ABILITY, False),
+    VagrantStoryItemData("Phantom Shield Defence Ability", 137, VagrantStoryItemCategory.DEFENCE_ABILITY, False),
+    VagrantStoryItemData("Reflect Damage Defence Ability", 138, VagrantStoryItemCategory.DEFENCE_ABILITY, False),
+    VagrantStoryItemData("Reflect Magic Defence Ability", 139, VagrantStoryItemCategory.DEFENCE_ABILITY, False),
+    VagrantStoryItemData("Shadow Guard Defence Ability", 140, VagrantStoryItemCategory.DEFENCE_ABILITY, False),
+    VagrantStoryItemData("Siphon Soul Defence Ability", 141, VagrantStoryItemCategory.DEFENCE_ABILITY, False),
+    VagrantStoryItemData("Terra Ward Defence Ability", 142, VagrantStoryItemCategory.DEFENCE_ABILITY, False),
+    VagrantStoryItemData("Ward Defence Ability", 143, VagrantStoryItemCategory.DEFENCE_ABILITY, False),
+    VagrantStoryItemData("Windbreak Defence Ability", 144, VagrantStoryItemCategory.DEFENCE_ABILITY, False),
 
 
     # Break Arts
-    VagrantStoryItemData("Mistral Edge Break Art", 0, VagrantStoryItemCategory.BREAK_ARTS, False), # Axe and Mace
-    VagrantStoryItemData("Glacial Gale Break Art", 0, VagrantStoryItemCategory.BREAK_ARTS, False), # Axe and Mace
-    VagrantStoryItemData("Killer Mantis Break Art", 0, VagrantStoryItemCategory.BREAK_ARTS, False), # Axe and Mace
-    VagrantStoryItemData("Black Nebula Break Art", 0, VagrantStoryItemCategory.BREAK_ARTS, False), # Axe and Mace
-    VagrantStoryItemData("Lotus Palm Break Art", 0, VagrantStoryItemCategory.BREAK_ARTS, False), # Bare Hands
-    VagrantStoryItemData("Vertigo Break Art", 0, VagrantStoryItemCategory.BREAK_ARTS, False), # Bare Hands
-    VagrantStoryItemData("Vermillion Aura Break Art", 0, VagrantStoryItemCategory.BREAK_ARTS, False), # Bare Hands
-    VagrantStoryItemData("Retribution Break Art", 0, VagrantStoryItemCategory.BREAK_ARTS, False), # Bare Hands
-    VagrantStoryItemData("Brimstone Hail Break Art", 0, VagrantStoryItemCategory.BREAK_ARTS, False), # Crossbow
-    VagrantStoryItemData("Heaven's Scorn Break Art", 0, VagrantStoryItemCategory.BREAK_ARTS, False), # Crossbow
-    VagrantStoryItemData("Death Wail Break Art", 0, VagrantStoryItemCategory.BREAK_ARTS, False), # Crossbow
-    VagrantStoryItemData("Sanctus Flare Break Art", 0, VagrantStoryItemCategory.BREAK_ARTS, False), # Crossbow
-    VagrantStoryItemData("Whistle Sting Break Art", 0, VagrantStoryItemCategory.BREAK_ARTS, False), # Dagger
-    VagrantStoryItemData("Shadowweave Break Art", 0, VagrantStoryItemCategory.BREAK_ARTS, False), # Dagger
-    VagrantStoryItemData("Double Fang Break Art", 0, VagrantStoryItemCategory.BREAK_ARTS, False), # Dagger
-    VagrantStoryItemData("Wyrm Scorn Break Art", 0, VagrantStoryItemCategory.BREAK_ARTS, False), # Dagger
-    VagrantStoryItemData("Bear Claw Break Art", 0, VagrantStoryItemCategory.BREAK_ARTS, False), # Great Axe
-    VagrantStoryItemData("Accursed Umbra Break Art", 0, VagrantStoryItemCategory.BREAK_ARTS, False), # Great Axe
-    VagrantStoryItemData("Iron Ripper Break Art", 0, VagrantStoryItemCategory.BREAK_ARTS, False), # Great Axe
-    VagrantStoryItemData("Emetic Bomb Break Art", 0, VagrantStoryItemCategory.BREAK_ARTS, False), # Great Axe
-    VagrantStoryItemData("Sunder Break Art", 0, VagrantStoryItemCategory.BREAK_ARTS, False), # Great Sword
-    VagrantStoryItemData("Thunderwave Break Art", 0, VagrantStoryItemCategory.BREAK_ARTS, False), # Great Sword
-    VagrantStoryItemData("Swallow Slash Break Art", 0, VagrantStoryItemCategory.BREAK_ARTS, False), # Great Sword
-    VagrantStoryItemData("Advent Sign Break Art", 0, VagrantStoryItemCategory.BREAK_ARTS, False), # Great Sword
-    VagrantStoryItemData("Bonecrusher Break Art", 0, VagrantStoryItemCategory.BREAK_ARTS, False), # Heavy Mace
-    VagrantStoryItemData("Quickshock Break Art", 0, VagrantStoryItemCategory.BREAK_ARTS, False), # Heavy Mace
-    VagrantStoryItemData("Ignis Wheel Break Art", 0, VagrantStoryItemCategory.BREAK_ARTS, False), # Heavy Mace
-    VagrantStoryItemData("Hex Flux Break Art", 0, VagrantStoryItemCategory.BREAK_ARTS, False), # Heavy Mace
-    VagrantStoryItemData("Ruination Break Art", 0, VagrantStoryItemCategory.BREAK_ARTS, False), # Polearm
-    VagrantStoryItemData("Scythe Wind Break Art", 0, VagrantStoryItemCategory.BREAK_ARTS, False), # Polearm
-    VagrantStoryItemData("Giga Tempest Break Art", 0, VagrantStoryItemCategory.BREAK_ARTS, False), # Polearm
-    VagrantStoryItemData("Spiral Scourge Break Art", 0, VagrantStoryItemCategory.BREAK_ARTS, False), # Polearm
-    VagrantStoryItemData("Sirocco Break Art", 0, VagrantStoryItemCategory.BREAK_ARTS, False), # Staff
-    VagrantStoryItemData("Riskbreak Break Art", 0, VagrantStoryItemCategory.BREAK_ARTS, False), # Staff
-    VagrantStoryItemData("Gravis Aether Break Art", 0, VagrantStoryItemCategory.BREAK_ARTS, False), # Staff
-    VagrantStoryItemData("Trinity Pulse Break Art", 0, VagrantStoryItemCategory.BREAK_ARTS, False), # Staff
-    VagrantStoryItemData("Rending Gale Break Art", 0, VagrantStoryItemCategory.BREAK_ARTS, False), # Sword
-    VagrantStoryItemData("Vile Scar Break Art", 0, VagrantStoryItemCategory.BREAK_ARTS, False), # Sword
-    VagrantStoryItemData("Cherry Ronde Break Art", 0, VagrantStoryItemCategory.BREAK_ARTS, False), # Sword
-    VagrantStoryItemData("Papillon Reel Break Art", 0, VagrantStoryItemCategory.BREAK_ARTS, False), # Sword
+    VagrantStoryItemData("Mistral Edge Break Art", 145, VagrantStoryItemCategory.BREAK_ARTS, False), # Axe and Mace
+    VagrantStoryItemData("Glacial Gale Break Art", 146, VagrantStoryItemCategory.BREAK_ARTS, False), # Axe and Mace
+    VagrantStoryItemData("Killer Mantis Break Art", 147, VagrantStoryItemCategory.BREAK_ARTS, False), # Axe and Mace
+    VagrantStoryItemData("Black Nebula Break Art", 148, VagrantStoryItemCategory.BREAK_ARTS, False), # Axe and Mace
+    VagrantStoryItemData("Lotus Palm Break Art", 149, VagrantStoryItemCategory.BREAK_ARTS, False), # Bare Hands
+    VagrantStoryItemData("Vertigo Break Art", 150, VagrantStoryItemCategory.BREAK_ARTS, False), # Bare Hands
+    VagrantStoryItemData("Vermillion Aura Break Art", 151, VagrantStoryItemCategory.BREAK_ARTS, False), # Bare Hands
+    VagrantStoryItemData("Retribution Break Art", 152, VagrantStoryItemCategory.BREAK_ARTS, False), # Bare Hands
+    VagrantStoryItemData("Brimstone Hail Break Art", 153, VagrantStoryItemCategory.BREAK_ARTS, False), # Crossbow
+    VagrantStoryItemData("Heaven's Scorn Break Art", 154, VagrantStoryItemCategory.BREAK_ARTS, False), # Crossbow
+    VagrantStoryItemData("Death Wail Break Art", 155, VagrantStoryItemCategory.BREAK_ARTS, False), # Crossbow
+    VagrantStoryItemData("Sanctus Flare Break Art", 156, VagrantStoryItemCategory.BREAK_ARTS, False), # Crossbow
+    VagrantStoryItemData("Whistle Sting Break Art", 157, VagrantStoryItemCategory.BREAK_ARTS, False), # Dagger
+    VagrantStoryItemData("Shadowweave Break Art", 158, VagrantStoryItemCategory.BREAK_ARTS, False), # Dagger
+    VagrantStoryItemData("Double Fang Break Art", 159, VagrantStoryItemCategory.BREAK_ARTS, False), # Dagger
+    VagrantStoryItemData("Wyrm Scorn Break Art", 160, VagrantStoryItemCategory.BREAK_ARTS, False), # Dagger
+    VagrantStoryItemData("Bear Claw Break Art", 161, VagrantStoryItemCategory.BREAK_ARTS, False), # Great Axe
+    VagrantStoryItemData("Accursed Umbra Break Art", 162, VagrantStoryItemCategory.BREAK_ARTS, False), # Great Axe
+    VagrantStoryItemData("Iron Ripper Break Art", 163, VagrantStoryItemCategory.BREAK_ARTS, False), # Great Axe
+    VagrantStoryItemData("Emetic Bomb Break Art", 164, VagrantStoryItemCategory.BREAK_ARTS, False), # Great Axe
+    VagrantStoryItemData("Sunder Break Art", 165, VagrantStoryItemCategory.BREAK_ARTS, False), # Great Sword
+    VagrantStoryItemData("Thunderwave Break Art", 166, VagrantStoryItemCategory.BREAK_ARTS, False), # Great Sword
+    VagrantStoryItemData("Swallow Slash Break Art", 167, VagrantStoryItemCategory.BREAK_ARTS, False), # Great Sword
+    VagrantStoryItemData("Advent Sign Break Art", 168, VagrantStoryItemCategory.BREAK_ARTS, False), # Great Sword
+    VagrantStoryItemData("Bonecrusher Break Art", 169, VagrantStoryItemCategory.BREAK_ARTS, False), # Heavy Mace
+    VagrantStoryItemData("Quickshock Break Art", 170, VagrantStoryItemCategory.BREAK_ARTS, False), # Heavy Mace
+    VagrantStoryItemData("Ignis Wheel Break Art", 171, VagrantStoryItemCategory.BREAK_ARTS, False), # Heavy Mace
+    VagrantStoryItemData("Hex Flux Break Art", 172, VagrantStoryItemCategory.BREAK_ARTS, False), # Heavy Mace
+    VagrantStoryItemData("Ruination Break Art", 173, VagrantStoryItemCategory.BREAK_ARTS, False), # Polearm
+    VagrantStoryItemData("Scythe Wind Break Art", 174, VagrantStoryItemCategory.BREAK_ARTS, False), # Polearm
+    VagrantStoryItemData("Giga Tempest Break Art", 175, VagrantStoryItemCategory.BREAK_ARTS, False), # Polearm
+    VagrantStoryItemData("Spiral Scourge Break Art", 176, VagrantStoryItemCategory.BREAK_ARTS, False), # Polearm
+    VagrantStoryItemData("Sirocco Break Art", 177, VagrantStoryItemCategory.BREAK_ARTS, False), # Staff
+    VagrantStoryItemData("Riskbreak Break Art", 178, VagrantStoryItemCategory.BREAK_ARTS, False), # Staff
+    VagrantStoryItemData("Gravis Aether Break Art", 179, VagrantStoryItemCategory.BREAK_ARTS, False), # Staff
+    VagrantStoryItemData("Trinity Pulse Break Art", 180, VagrantStoryItemCategory.BREAK_ARTS, False), # Staff
+    VagrantStoryItemData("Rending Gale Break Art", 181, VagrantStoryItemCategory.BREAK_ARTS, False), # Sword
+    VagrantStoryItemData("Vile Scar Break Art", 182, VagrantStoryItemCategory.BREAK_ARTS, False), # Sword
+    VagrantStoryItemData("Cherry Ronde Break Art", 183, VagrantStoryItemCategory.BREAK_ARTS, False), # Sword
+    VagrantStoryItemData("Papillon Reel Break Art", 184, VagrantStoryItemCategory.BREAK_ARTS, False), # Sword
+
+    # Unique Named Weapons
+    VagrantStoryItemData("Fandango", 185, VagrantStoryItemCategory.NAMED_WEAPON, False),
+    VagrantStoryItemData("Tovarisch", 187, VagrantStoryItemCategory.NAMED_WEAPON, False),
+    VagrantStoryItemData("Seventh Heaven", 188, VagrantStoryItemCategory.NAMED_WEAPON, False),
+    VagrantStoryItemData("Rusty Nail", 189, VagrantStoryItemCategory.NAMED_WEAPON, False),
+    VagrantStoryItemData("Pink Squirrel", 190, VagrantStoryItemCategory.NAMED_WEAPON, False),
+    VagrantStoryItemData("Shandy Gaff", 191, VagrantStoryItemCategory.NAMED_WEAPON, False),
+    VagrantStoryItemData("Soul Kiss", 192, VagrantStoryItemCategory.NAMED_WEAPON, False),
+    VagrantStoryItemData("Bosom Cleaver", 193, VagrantStoryItemCategory.NAMED_WEAPON, False),
+    VagrantStoryItemData("Stinger", 194, VagrantStoryItemCategory.NAMED_WEAPON, False),
+    VagrantStoryItemData("White Cargo", 195, VagrantStoryItemCategory.NAMED_WEAPON, False),
+    VagrantStoryItemData("Balin's Revenge", 196, VagrantStoryItemCategory.NAMED_WEAPON, False),
+    VagrantStoryItemData("Sweet Death", 197, VagrantStoryItemCategory.NAMED_WEAPON, False),
+    VagrantStoryItemData("Corpse Reviver", 198, VagrantStoryItemCategory.NAMED_WEAPON, False),
+    VagrantStoryItemData("Sweet Sorrow", 199, VagrantStoryItemCategory.NAMED_WEAPON, False),
+    VagrantStoryItemData("Eviscerator", 200, VagrantStoryItemCategory.NAMED_WEAPON, False),
+    VagrantStoryItemData("Affinity", 201, VagrantStoryItemCategory.NAMED_WEAPON, False),
+    VagrantStoryItemData("Dog's Nose", 202, VagrantStoryItemCategory.NAMED_WEAPON, False),
+    VagrantStoryItemData("Pirate's Mate", 203, VagrantStoryItemCategory.NAMED_WEAPON, False),
+    VagrantStoryItemData("Klondike", 204, VagrantStoryItemCategory.NAMED_WEAPON, False),
+    VagrantStoryItemData("Ribsplitter", 205, VagrantStoryItemCategory.NAMED_WEAPON, False),
+    VagrantStoryItemData("Mojito", 206, VagrantStoryItemCategory.NAMED_WEAPON, False),
+    VagrantStoryItemData("Matador", 207, VagrantStoryItemCategory.NAMED_WEAPON, False),
+    VagrantStoryItemData("Death Sentence", 208, VagrantStoryItemCategory.NAMED_WEAPON, False),
+    VagrantStoryItemData("White Lady", 209, VagrantStoryItemCategory.NAMED_WEAPON, False),
+    VagrantStoryItemData("Angel Face", 210, VagrantStoryItemCategory.NAMED_WEAPON, False),
+    VagrantStoryItemData("Frost Maiden", 211, VagrantStoryItemCategory.NAMED_WEAPON, False),
+    VagrantStoryItemData("White Rose", 212, VagrantStoryItemCategory.NAMED_WEAPON, False),
+    VagrantStoryItemData("Bellini", 213, VagrantStoryItemCategory.NAMED_WEAPON, False),
+    VagrantStoryItemData("Balalaika", 214, VagrantStoryItemCategory.NAMED_WEAPON, False),
+    VagrantStoryItemData("Bull Shot", 215, VagrantStoryItemCategory.NAMED_WEAPON, False),
+    VagrantStoryItemData("Sonora", 216, VagrantStoryItemCategory.NAMED_WEAPON, False),
+    VagrantStoryItemData("Red Viking", 217, VagrantStoryItemCategory.NAMED_WEAPON, False),
+    VagrantStoryItemData("Angel Lance", 218, VagrantStoryItemCategory.NAMED_WEAPON, False),
+    VagrantStoryItemData("Magnolia Frau", 219, VagrantStoryItemCategory.NAMED_WEAPON, False),
+    VagrantStoryItemData("Shillelagh", 220, VagrantStoryItemCategory.NAMED_WEAPON, False),
+    VagrantStoryItemData("Czarine", 221, VagrantStoryItemCategory.NAMED_WEAPON, False),
+    VagrantStoryItemData("Pussyfoot", 222, VagrantStoryItemCategory.NAMED_WEAPON, False),
+    VagrantStoryItemData("Angel Kiss", 223, VagrantStoryItemCategory.NAMED_WEAPON, False),
+    VagrantStoryItemData("Diki Diki", 224, VagrantStoryItemCategory.NAMED_WEAPON, False),
+    VagrantStoryItemData("Blackthorn", 225, VagrantStoryItemCategory.NAMED_WEAPON, False),
+    VagrantStoryItemData("Fallen Angel", 226, VagrantStoryItemCategory.NAMED_WEAPON, False),
+    VagrantStoryItemData("Excalibur", 227, VagrantStoryItemCategory.NAMED_WEAPON, False),
+    VagrantStoryItemData("Brionac", 228, VagrantStoryItemCategory.NAMED_WEAPON, False),
+    VagrantStoryItemData("Isolde", 229, VagrantStoryItemCategory.NAMED_WEAPON, False),
+    VagrantStoryItemData("Mjolnir", 230, VagrantStoryItemCategory.NAMED_WEAPON, False),
+    VagrantStoryItemData("Pinaka", 231, VagrantStoryItemCategory.NAMED_WEAPON, False),
+    VagrantStoryItemData("Sarnga", 232, VagrantStoryItemCategory.NAMED_WEAPON, False),
+    VagrantStoryItemData("Izanagi", 233, VagrantStoryItemCategory.NAMED_WEAPON, False),
+    VagrantStoryItemData("Dainslaif", 234, VagrantStoryItemCategory.NAMED_WEAPON, False),
+    VagrantStoryItemData("Ascalon", 235, VagrantStoryItemCategory.NAMED_WEAPON, False),
+    VagrantStoryItemData("Angel Wing", 236, VagrantStoryItemCategory.NAMED_WEAPON, False),
+
+    # Blade Parts
+
+    VagrantStoryItemData("Battle Knife", 257, VagrantStoryItemCategory.BLADE_PARTS, False, ), # Daggers
+    VagrantStoryItemData("Scramasax", 258, VagrantStoryItemCategory.BLADE_PARTS, False, ),
+    VagrantStoryItemData("Dirk", 259, VagrantStoryItemCategory.BLADE_PARTS, False, ),
+    VagrantStoryItemData("Throwing Knife", 260, VagrantStoryItemCategory.BLADE_PARTS, False, ),
+    VagrantStoryItemData("Kudi", 261, VagrantStoryItemCategory.BLADE_PARTS, False, ),
+    VagrantStoryItemData("Cinquedea", 262, VagrantStoryItemCategory.BLADE_PARTS, False, ),
+    VagrantStoryItemData("Kris", 263, VagrantStoryItemCategory.BLADE_PARTS, False, ),
+    VagrantStoryItemData("Hatchet", 264, VagrantStoryItemCategory.BLADE_PARTS, False, ),
+    VagrantStoryItemData("Khukuri", 265, VagrantStoryItemCategory.BLADE_PARTS, False, ),
+    VagrantStoryItemData("Baselard", 266, VagrantStoryItemCategory.BLADE_PARTS, False, ),
+    VagrantStoryItemData("Stiletto", 267, VagrantStoryItemCategory.BLADE_PARTS, False, ),
+    VagrantStoryItemData("Jamadhar", 268, VagrantStoryItemCategory.BLADE_PARTS, False, ),
+    VagrantStoryItemData("Spatha", 269, VagrantStoryItemCategory.BLADE_PARTS, False, ), # Swords
+    VagrantStoryItemData("Scimitar", 270, VagrantStoryItemCategory.BLADE_PARTS, False, ),
+    VagrantStoryItemData("Rapier", 271, VagrantStoryItemCategory.BLADE_PARTS, False, ),
+    VagrantStoryItemData("Short Sword", 272, VagrantStoryItemCategory.BLADE_PARTS, False, ),
+    VagrantStoryItemData("Firangi", 273, VagrantStoryItemCategory.BLADE_PARTS, False, ),
+    VagrantStoryItemData("Shamshir", 274, VagrantStoryItemCategory.BLADE_PARTS, False, ),
+    VagrantStoryItemData("Falchion", 275, VagrantStoryItemCategory.BLADE_PARTS, False, ),
+    VagrantStoryItemData("Shotel", 276, VagrantStoryItemCategory.BLADE_PARTS, False, ),
+    VagrantStoryItemData("Khora", 277, VagrantStoryItemCategory.BLADE_PARTS, False, ),
+    VagrantStoryItemData("Khopesh", 278, VagrantStoryItemCategory.BLADE_PARTS, False, ),
+    VagrantStoryItemData("Wakizashi", 279, VagrantStoryItemCategory.BLADE_PARTS, False, ),
+    VagrantStoryItemData("Rhomphaia", 280, VagrantStoryItemCategory.BLADE_PARTS, False, ),
+    VagrantStoryItemData("Broad Sword", 281, VagrantStoryItemCategory.BLADE_PARTS, False, ), # Great Swords
+    VagrantStoryItemData("Norse Sword", 282, VagrantStoryItemCategory.BLADE_PARTS, False, ),
+    VagrantStoryItemData("Katana", 283, VagrantStoryItemCategory.BLADE_PARTS, False, ),
+    VagrantStoryItemData("Executioner", 284, VagrantStoryItemCategory.BLADE_PARTS, False, ),
+    VagrantStoryItemData("Claymore", 285, VagrantStoryItemCategory.BLADE_PARTS, False, ),
+    VagrantStoryItemData("Schiavona", 286, VagrantStoryItemCategory.BLADE_PARTS, False, ),
+    VagrantStoryItemData("Bastard Sword", 287, VagrantStoryItemCategory.BLADE_PARTS, False, ),
+    VagrantStoryItemData("Nodachi", 288, VagrantStoryItemCategory.BLADE_PARTS, False, ),
+    VagrantStoryItemData("Rune Blade", 289, VagrantStoryItemCategory.BLADE_PARTS, False, ),
+    VagrantStoryItemData("Holy Win", 290, VagrantStoryItemCategory.BLADE_PARTS, False, ),
+    VagrantStoryItemData("Hand Axe", 291, VagrantStoryItemCategory.BLADE_PARTS, False, ), # Axes and Maces
+    VagrantStoryItemData("Goblin Club", 292, VagrantStoryItemCategory.BLADE_PARTS, False, ),
+    VagrantStoryItemData("Battle Axe", 293, VagrantStoryItemCategory.BLADE_PARTS, False, ),
+    VagrantStoryItemData("Spiked Club", 294, VagrantStoryItemCategory.BLADE_PARTS, False, ),
+    VagrantStoryItemData("Francisca", 295, VagrantStoryItemCategory.BLADE_PARTS, False, ),
+    VagrantStoryItemData("Ball Mace", 296, VagrantStoryItemCategory.BLADE_PARTS, False, ),
+    VagrantStoryItemData("Tabarzin", 297, VagrantStoryItemCategory.BLADE_PARTS, False, ),
+    VagrantStoryItemData("Footman's Mace", 298, VagrantStoryItemCategory.BLADE_PARTS, False, ),
+    VagrantStoryItemData("Chamkaq", 299, VagrantStoryItemCategory.BLADE_PARTS, False, ),
+    VagrantStoryItemData("Morning Star", 300, VagrantStoryItemCategory.BLADE_PARTS, False, ),
+    VagrantStoryItemData("Tabar", 301, VagrantStoryItemCategory.BLADE_PARTS, False, ),
+    VagrantStoryItemData("War Hammer", 302, VagrantStoryItemCategory.BLADE_PARTS, False, ),
+    VagrantStoryItemData("Bullova", 303, VagrantStoryItemCategory.BLADE_PARTS, False, ),
+    VagrantStoryItemData("Bec de Corbin", 304, VagrantStoryItemCategory.BLADE_PARTS, False, ),
+    VagrantStoryItemData("Crescent", 305, VagrantStoryItemCategory.BLADE_PARTS, False, ),
+    VagrantStoryItemData("War Maul", 306, VagrantStoryItemCategory.BLADE_PARTS, False, ),
+    VagrantStoryItemData("Guisarme", 307, VagrantStoryItemCategory.BLADE_PARTS, False, ), # Great Axes
+    VagrantStoryItemData("Large Crescent", 308, VagrantStoryItemCategory.BLADE_PARTS, False, ),
+    VagrantStoryItemData("Sabre Halberd", 309, VagrantStoryItemCategory.BLADE_PARTS, False, ),
+    VagrantStoryItemData("Balbriggan", 310, VagrantStoryItemCategory.BLADE_PARTS, False, ),
+    VagrantStoryItemData("Double Blade", 311, VagrantStoryItemCategory.BLADE_PARTS, False, ),
+    VagrantStoryItemData("Halberd", 312, VagrantStoryItemCategory.BLADE_PARTS, False, ),
+    VagrantStoryItemData("Wizard Staff", 313, VagrantStoryItemCategory.BLADE_PARTS, False, ), # Staves
+    VagrantStoryItemData("Clergy Rod", 314, VagrantStoryItemCategory.BLADE_PARTS, False, ),
+    VagrantStoryItemData("Summoner Baton", 315, VagrantStoryItemCategory.BLADE_PARTS, False, ),
+    VagrantStoryItemData("Shamanic Staff", 316, VagrantStoryItemCategory.BLADE_PARTS, False, ),
+    VagrantStoryItemData("Bishop's Crosier", 317, VagrantStoryItemCategory.BLADE_PARTS, False, ),
+    VagrantStoryItemData("Sage Cane", 318, VagrantStoryItemCategory.BLADE_PARTS, False, ),
+    VagrantStoryItemData("Langdebeve", 319, VagrantStoryItemCategory.BLADE_PARTS, False, ), # Heavy Maces
+    VagrantStoryItemData("Sabre Mace", 320, VagrantStoryItemCategory.BLADE_PARTS, False, ),
+    VagrantStoryItemData("Footman's Mace", 321, VagrantStoryItemCategory.BLADE_PARTS, False, ),
+    VagrantStoryItemData("Gloomwing", 322, VagrantStoryItemCategory.BLADE_PARTS, False, ),
+    VagrantStoryItemData("Mjolnir", 323, VagrantStoryItemCategory.BLADE_PARTS, False, ),
+    VagrantStoryItemData("Hand of Light", 324, VagrantStoryItemCategory.BLADE_PARTS, False, ),
+    VagrantStoryItemData("Griever", 325, VagrantStoryItemCategory.BLADE_PARTS, False, ),
+    VagrantStoryItemData("Destroyer", 326, VagrantStoryItemCategory.BLADE_PARTS, False, ),
+    VagrantStoryItemData("Spear", 327, VagrantStoryItemCategory.BLADE_PARTS, False, ), # Polearms
+    VagrantStoryItemData("Glaive", 328, VagrantStoryItemCategory.BLADE_PARTS, False, ),
+    VagrantStoryItemData("Scorpion", 329, VagrantStoryItemCategory.BLADE_PARTS, False, ),
+    VagrantStoryItemData("Corcesca", 330, VagrantStoryItemCategory.BLADE_PARTS, False, ),
+    VagrantStoryItemData("Trident", 331, VagrantStoryItemCategory.BLADE_PARTS, False, ),
+    VagrantStoryItemData("Awl Pike", 332, VagrantStoryItemCategory.BLADE_PARTS, False, ),
+    VagrantStoryItemData("Boar Spear", 333, VagrantStoryItemCategory.BLADE_PARTS, False, ),
+    VagrantStoryItemData("Fauchard", 334, VagrantStoryItemCategory.BLADE_PARTS, False, ),
+    VagrantStoryItemData("Voulge", 335, VagrantStoryItemCategory.BLADE_PARTS, False, ),
+    VagrantStoryItemData("Pole Axe", 336, VagrantStoryItemCategory.BLADE_PARTS, False, ),
+    VagrantStoryItemData("Bardysh", 337, VagrantStoryItemCategory.BLADE_PARTS, False, ),
+    VagrantStoryItemData("Brandestoc", 338, VagrantStoryItemCategory.BLADE_PARTS, False, ),
+    VagrantStoryItemData("Gastraph Bow", 339, VagrantStoryItemCategory.BLADE_PARTS, False, ), # crossbows
+    VagrantStoryItemData("Light Crossbow", 340, VagrantStoryItemCategory.BLADE_PARTS, False, ),
+    VagrantStoryItemData("Target Bow", 341, VagrantStoryItemCategory.BLADE_PARTS, False, ),
+    VagrantStoryItemData("Windlass", 342, VagrantStoryItemCategory.BLADE_PARTS, False, ),
+    VagrantStoryItemData("Cranequin", 343, VagrantStoryItemCategory.BLADE_PARTS, False, ),
+    VagrantStoryItemData("Lug Crossbow", 344, VagrantStoryItemCategory.BLADE_PARTS, False, ),
+    VagrantStoryItemData("Siege Bow", 345, VagrantStoryItemCategory.BLADE_PARTS, False, ),
+    VagrantStoryItemData("Arbalest", 346, VagrantStoryItemCategory.BLADE_PARTS, False, ),
+
+    # Grip Parts
+
+    VagrantStoryItemData("Short Hilt", 347, VagrantStoryItemCategory.GRIP_PARTS, False), # Daggers, Swords and GreatSwords
+    VagrantStoryItemData("Swept Hilt", 348, VagrantStoryItemCategory.GRIP_PARTS, False),
+    VagrantStoryItemData("Cross Guard", 349, VagrantStoryItemCategory.GRIP_PARTS, False),
+    VagrantStoryItemData("Knuckle Guard", 350, VagrantStoryItemCategory.GRIP_PARTS, False),
+    VagrantStoryItemData("Counter Guard", 351, VagrantStoryItemCategory.GRIP_PARTS, False),
+    VagrantStoryItemData("Side Ring", 352, VagrantStoryItemCategory.GRIP_PARTS, False),
+    VagrantStoryItemData("Power Palm", 353, VagrantStoryItemCategory.GRIP_PARTS, False),
+    VagrantStoryItemData("Murderer's Hilt", 354, VagrantStoryItemCategory.GRIP_PARTS, False),
+    VagrantStoryItemData("Spiral Hilt", 355, VagrantStoryItemCategory.GRIP_PARTS, False),
+    VagrantStoryItemData("Wooden Grip", 356, VagrantStoryItemCategory.GRIP_PARTS, False), # Axes, Maces and Staves
+    VagrantStoryItemData("Sand Face", 357, VagrantStoryItemCategory.GRIP_PARTS, False),
+    VagrantStoryItemData("Grimoire Grip", 358, VagrantStoryItemCategory.GRIP_PARTS, False),
+    VagrantStoryItemData("Czekan Type", 359, VagrantStoryItemCategory.GRIP_PARTS, False),
+    VagrantStoryItemData("Sarissa Grip", 360, VagrantStoryItemCategory.GRIP_PARTS, False),
+    VagrantStoryItemData("Heavy Grip", 361, VagrantStoryItemCategory.GRIP_PARTS, False),
+    VagrantStoryItemData("Gendarme", 362, VagrantStoryItemCategory.GRIP_PARTS, False),
+    VagrantStoryItemData("Runkasyle", 363, VagrantStoryItemCategory.GRIP_PARTS, False),
+    VagrantStoryItemData("Bhuj Type", 364, VagrantStoryItemCategory.GRIP_PARTS, False),
+    VagrantStoryItemData("Elephant", 365, VagrantStoryItemCategory.GRIP_PARTS, False),
+    VagrantStoryItemData("Wooden Pole", 366, VagrantStoryItemCategory.GRIP_PARTS, False), # Polearms
+    VagrantStoryItemData("Spiculum Pole", 367, VagrantStoryItemCategory.GRIP_PARTS, False),
+    VagrantStoryItemData("Winged Pole", 368, VagrantStoryItemCategory.GRIP_PARTS, False),
+    VagrantStoryItemData("Ahlspies", 369, VagrantStoryItemCategory.GRIP_PARTS, False),
+    VagrantStoryItemData("Framea Pole", 370, VagrantStoryItemCategory.GRIP_PARTS, False),
+    VagrantStoryItemData("Spiral Pole", 371, VagrantStoryItemCategory.GRIP_PARTS, False),
+    VagrantStoryItemData("Simple Bolt", 372, VagrantStoryItemCategory.GRIP_PARTS, False), # CrossBow
+    VagrantStoryItemData("Steel Bolt", 373, VagrantStoryItemCategory.GRIP_PARTS, False),
+    VagrantStoryItemData("Stone Bullet", 374, VagrantStoryItemCategory.GRIP_PARTS, False),
+    VagrantStoryItemData("Javelin Bolt", 375, VagrantStoryItemCategory.GRIP_PARTS, False),
+    VagrantStoryItemData("Falarica Bolt", 376, VagrantStoryItemCategory.GRIP_PARTS, False),
+    VagrantStoryItemData("Sonic Bullet", 377, VagrantStoryItemCategory.GRIP_PARTS, False),
+
+
+    # Shield Parts
 
 ]
 # Convert raw list of tuples into MedievilItemData NamedTuple instances
