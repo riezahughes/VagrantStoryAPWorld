@@ -7,11 +7,13 @@ from .Items import VagrantStoryItem
 class VagrantStoryLocationCategory(IntEnum):
     FILLER = 0
     PROGRESSION = 1
-    BOSS = 2
-    GRIMOIRE = 3
-    KEYS = 4
-    SIGILS = 5
-    LEVEL_END = 6
+    CHEST = 2
+    BOSS = 3
+    BOSS_PLUS = 4
+    GRIMOIRE = 5
+    KEYS = 6
+    SIGILS = 7
+    LEVEL_END = 8
 
 class VagrantStoryLocationData(NamedTuple):
     name: str
@@ -102,77 +104,162 @@ class VagrantStoryLocation(Location):
 # 31	unused (Snowfly Forest)
 
 location_tables = {
-    "Wine Cellar": [],
-    "Catacombs": [],
-    "Sanctum": [],
-    "Abandoned Mines B1": [],
-    "Abandoned Mines B2": [],
-    "Limestone Quarry": [],
-    "Temple of Kiltia": [],
-    "Great Cathedral B1": [],
-    "Great Cathedral L1": [],
-    "Great Cathedral L2": [],
-    "Great Cathedral L3": [],
-    "Great Cathedral L4": [],
-    "Forgotten Pathway": [],
-    "Escapeway": [],
-    "Iron Maiden B1": [],
-    "Iron Maiden B2": [],
-    "Iron Maiden B3": [],
-    "Undercity West": [],
-    "Undercity East": [],
-    "The Keep": [],
-    "City Walls West": [],
-    "City Walls South": [],
+    "Wine Cellar": [
+        VagrantStoryLocationData("Chest: Wine Cellar - Workers Breakroom", "Vera Root", VagrantStoryLocationCategory.CHEST),
+        VagrantStoryLocationData("Chest: Wine Cellar - The Reckoning Room", "Vera Root", VagrantStoryLocationCategory.CHEST),
+        VagrantStoryLocationData("Chest: Wine Cellar - Blackmarket of Wines", "Vera Root", VagrantStoryLocationCategory.CHEST),  
+        VagrantStoryLocationData("Chest: Wine Cellar - The Gallows", "Vera Root", VagrantStoryLocationCategory.CHEST),
+        VagrantStoryLocationData("Chest: Wine Cellar - The Hero's Winehall", "Vera Root", VagrantStoryLocationCategory.CHEST),
+        VagrantStoryLocationData("Chest: Wine Cellar - The Gallows (Locked)", "Vera Root", VagrantStoryLocationCategory.CHEST),
+        VagrantStoryLocationData("Boss: Minotaur - Wine Cellar", "Vera Root", VagrantStoryLocationCategory.BOSS),
+        VagrantStoryLocationData("Boss: Dullahan - Wine Cellar", "Vera Root", VagrantStoryLocationCategory.BOSS),
+        VagrantStoryLocationData("Boss: Minotaur Zombie - Wine Cellar", "Vera Root", VagrantStoryLocationCategory.BOSS),        
+
+    ],
+    "Catacombs": [
+        VagrantStoryLocationData("Chest: Catacombs - Rodent-Ridden Chamber", "Vera Root", VagrantStoryLocationCategory.CHEST),
+        VagrantStoryLocationData("Chest: Catacombs - The Lamenting Mother", "Vera Root", VagrantStoryLocationCategory.CHEST),
+        VagrantStoryLocationData("Chest: Catacombs - Bandits Hideout", "Vera Root", VagrantStoryLocationCategory.CHEST),
+    ],
+    "Sanctum": [
+        VagrantStoryLocationData("Chest: Sanctum - Alchemists Laboratory", "Vera Root", VagrantStoryLocationCategory.CHEST),
+        VagrantStoryLocationData("Boss: Golem - Sanctum", "Vera Root", VagrantStoryLocationCategory.BOSS),
+        VagrantStoryLocationData("Boss: Dragon - Sanctum", "Vera Root", VagrantStoryLocationCategory.BOSS),        
+
+    ],
+    "Abandoned Mines B1": [
+        VagrantStoryLocationData("Chest: Abandoned Mines B1 - Miners Resting Hall (Magic Lock)", "Vera Root", VagrantStoryLocationCategory.CHEST),
+        VagrantStoryLocationData("Chest: Abandoned Mines B1 - Coal Mine Storage", "Vera Root", VagrantStoryLocationCategory.CHEST),
+        VagrantStoryLocationData("Chest: Abandoned Mines B1 - Rust in Peace (Magic Lock)", "Vera Root", VagrantStoryLocationCategory.CHEST),     
+        VagrantStoryLocationData("Chest: Abandoned Mines B1 - Mining Regrets", "Vera Root", VagrantStoryLocationCategory.CHEST),
+    ],
+    "Abandoned Mines B2": [
+        VagrantStoryLocationData("Chest: Abandoned Mines B2 - Delusions of Happiness", "Vera Root", VagrantStoryLocationCategory.CHEST),
+        VagrantStoryLocationData("Chest: Abandoned Mines B2 - Hidden Resources (Locked)", "Vera Root", VagrantStoryLocationCategory.CHEST),
+        VagrantStoryLocationData("Chest: Abandoned Mines B2 - Acolytes Burial Vault", "Vera Root", VagrantStoryLocationCategory.CHEST),
+        VagrantStoryLocationData("Chest: Abandoned Mines B2 - Suicidal Desires", "Vera Root", VagrantStoryLocationCategory.CHEST),     
+        VagrantStoryLocationData("Boss: Wyvern - Abandoned Mines B2", "Vera Root", VagrantStoryLocationCategory.BOSS),
+        VagrantStoryLocationData("Boss: Fire Elemental - Abandoned Mines B2", "Vera Root", VagrantStoryLocationCategory.BOSS),
+        VagrantStoryLocationData("Boss: Ogre - Abandoned Mines B2", "Vera Root", VagrantStoryLocationCategory.BOSS),
+        VagrantStoryLocationData("Boss: Sky Dragon - Abandoned Mines B2", "Vera Root", VagrantStoryLocationCategory.BOSS),        
+    ],
+    "Limestone Quarry": [
+        VagrantStoryLocationData("Chest: Limestone Quarry - Bonds of Friendship", "Vera Root", VagrantStoryLocationCategory.CHEST),
+        VagrantStoryLocationData("Chest: Limestone Quarry - Stone and Sulsurous Fire", "Vera Root", VagrantStoryLocationCategory.CHEST),
+        VagrantStoryLocationData("Chest: Limestone Quarry - Excavated Hollow", "Vera Root", VagrantStoryLocationCategory.CHEST),
+        VagrantStoryLocationData("Chest: Limestone Quarry - Drowned in Fleeting Joy", "Vera Root", VagrantStoryLocationCategory.CHEST),
+        VagrantStoryLocationData("Chest: Limestone Quarry - Companion in Arms (Magic Lock)", "Vera Root", VagrantStoryLocationCategory.CHEST),   
+        VagrantStoryLocationData("Boss: Water Elemental - Limestone Quarry", "Vera Root", VagrantStoryLocationCategory.BOSS),
+        VagrantStoryLocationData("Boss: Air Elemental - Limestone Quarry", "Vera Root", VagrantStoryLocationCategory.BOSS),
+        VagrantStoryLocationData("Boss: Earth Elemental - Limestone Quarry", "Vera Root", VagrantStoryLocationCategory.BOSS),
+        VagrantStoryLocationData("Boss: Ogre Lord - Limestone Quarry", "Vera Root", VagrantStoryLocationCategory.BOSS),
+        VagrantStoryLocationData("Boss: Snow Dragon - Limestone Quarry", "Vera Root", VagrantStoryLocationCategory.BOSS),        
+    ],
+    "Temple of Kiltia": [
+        VagrantStoryLocationData("Chest: Temple of Kiltia - The Chapel of Meschaunce", "Vera Root", VagrantStoryLocationCategory.CHEST),
+        VagrantStoryLocationData("Boss: Last Crusader - Temple of Kiltia", "Vera Root", VagrantStoryLocationCategory.BOSS),
+        VagrantStoryLocationData("Boss: Minotaur Lord - Temple of Kiltia", "Vera Root", VagrantStoryLocationCategory.BOSS),
+        VagrantStoryLocationData("Boss: Kali - Temple of Kiltia", "Vera Root", VagrantStoryLocationCategory.BOSS),        
+    ],
+    "Great Cathedral B1": [
+        VagrantStoryLocationData("Boss: Marid - Great Cathedral B1", "Vera Root", VagrantStoryLocationCategory.BOSS),
+        VagrantStoryLocationData("Boss: Ifrit - Great Cathedral B1", "Vera Root", VagrantStoryLocationCategory.BOSS),
+        VagrantStoryLocationData("Boss: Iron Crab - Great Cathedral B1", "Vera Root", VagrantStoryLocationCategory.BOSS),
+    ],
+    "Great Cathedral L1": [
+        VagrantStoryLocationData("Chest: The Great Cathedral L1 - Where Darkness Spreads", "Vera Root", VagrantStoryLocationCategory.CHEST),
+        VagrantStoryLocationData("Chest: The Great Cathedral L1 - The Flayed Confessional", "Vera Root", VagrantStoryLocationCategory.CHEST),            
+        VagrantStoryLocationData("Boss: Arch Dragon - Great Cathedral L1", "Vera Root", VagrantStoryLocationCategory.BOSS),
+        VagrantStoryLocationData("Boss: Djinn - Great Cathedral L1", "Vera Root", VagrantStoryLocationCategory.BOSS),        
+    ],
+    "Great Cathedral L2": [
+        VagrantStoryLocationData("Chest: The Great Cathedral L2 - An Arrow into Darkness", "Vera Root", VagrantStoryLocationCategory.CHEST),   
+        VagrantStoryLocationData("Boss: Flame Dragon - Great Cathedral L2", "Vera Root", VagrantStoryLocationCategory.BOSS),        
+        VagrantStoryLocationData("Boss: Nightmare - Great Cathedral L2", "Vera Root", VagrantStoryLocationCategory.BOSS),        
+    ],
+    "Great Cathedral L3": [
+            VagrantStoryLocationData("Boss: Dao - Great Cathedral L3", "Vera Root", VagrantStoryLocationCategory.BOSS),
+    ],
+    "Great Cathedral L4": [
+        VagrantStoryLocationData("Boss: Guildenstern - Great Cathedral L4", "Vera Root", VagrantStoryLocationCategory.BOSS),
+        VagrantStoryLocationData("Boss: Guildenstern, Dark Angel - Great Cathedral L4", "Vera Root", VagrantStoryLocationCategory.BOSS),        
+    ],
+    "Forgotten Pathway": [
+        VagrantStoryLocationData("Chest: Forgotten Pathway - The Fallen Knight", "Vera Root", VagrantStoryLocationCategory.CHEST),
+        VagrantStoryLocationData("Chest: Forgotten Pathway - Awaiting Retribution", "Vera Root", VagrantStoryLocationCategory.CHEST), 
+    ],
+    "Escapeway": [
+        VagrantStoryLocationData("Chest: Escapeway - Where Body and Soul Part (Magic Lock)", "Vera Root", VagrantStoryLocationCategory.CHEST),
+        VagrantStoryLocationData("Chest: Escapeway - Buried Alice", "Vera Root", VagrantStoryLocationCategory.CHEST),        
+    ],
+    "Iron Maiden B1": [
+        VagrantStoryLocationData("Chest: Iron Maiden B1 - The Wheel (Magic Lock)", "Vera Root", VagrantStoryLocationCategory.CHEST),
+        VagrantStoryLocationData("Chest: Iron Maiden B1 - The Judas Cradle", "Vera Root", VagrantStoryLocationCategory.CHEST),
+        VagrantStoryLocationData("Chest: Iron Maiden B1 - The Ducking Stool", "Vera Root", VagrantStoryLocationCategory.CHEST),
+        VagrantStoryLocationData("Chest: Iron Maiden B1 - The Branks (Locked)", "Vera Root", VagrantStoryLocationCategory.CHEST),
+        VagrantStoryLocationData("Boss: Wyvern Knight - Iron Maiden B1", "Vera Root", VagrantStoryLocationCategory.BOSS),
+        VagrantStoryLocationData("Boss: Iron Golem - Iron Maiden B1", "Vera Root", VagrantStoryLocationCategory.BOSS),        
+    ],
+    "Iron Maiden B2": [
+        VagrantStoryLocationData("Chest: Iron Maiden B2 - Lead Sprinkler", "Vera Root", VagrantStoryLocationCategory.CHEST),
+        VagrantStoryLocationData("Chest: Iron Maiden B2 - Squassation", "Vera Root", VagrantStoryLocationCategory.CHEST),        
+    ],
+    "Iron Maiden B3": [
+        VagrantStoryLocationData("Chest: Iron Maiden B3 - Saint Elmos Belt", "Vera Root", VagrantStoryLocationCategory.CHEST),
+        VagrantStoryLocationData("Chest: Iron Maiden B3 - Dunking the Witch", "Vera Root", VagrantStoryLocationCategory.CHEST),        
+    ],
+    "Undercity West": [
+        VagrantStoryLocationData("Chest: Undercity West - The Childrens Hideout", "Vera Root", VagrantStoryLocationCategory.CHEST),
+        VagrantStoryLocationData("Chest: Undercity West - Larder for a Lean Winter", "Vera Root", VagrantStoryLocationCategory.CHEST),
+        VagrantStoryLocationData("Chest: Undercity West - The Crumbling Market", "Vera Root", VagrantStoryLocationCategory.CHEST),
+        VagrantStoryLocationData("Boss: Dark Elemental - Undercity West", "Vera Root", VagrantStoryLocationCategory.BOSS),
+        VagrantStoryLocationData("Boss: Shadow - Undercity West", "Vera Root", VagrantStoryLocationCategory.BOSS),
+        VagrantStoryLocationData("Boss: Giant Crab - Undercity West", "Vera Root", VagrantStoryLocationCategory.BOSS),        
+    ],
+    "Undercity East": [
+        VagrantStoryLocationData("Chest: Undercity East - Weapons Not Allowed", "Vera Root", VagrantStoryLocationCategory.CHEST),
+        VagrantStoryLocationData("Chest: Undercity East - Sale of the Sword", "Vera Root", VagrantStoryLocationCategory.CHEST),
+        VagrantStoryLocationData("Chest: Undercity East - Catspaw Blackmarket", "Vera Root", VagrantStoryLocationCategory.CHEST),
+        VagrantStoryLocationData("Boss: Harpy - Undercity East", "Vera Root", VagrantStoryLocationCategory.BOSS),
+        VagrantStoryLocationData("Boss: Nightstalker - Undercity East", "Vera Root", VagrantStoryLocationCategory.BOSS),
+        VagrantStoryLocationData("Boss: Neesa and Tieger - Undercity East", "Vera Root", VagrantStoryLocationCategory.BOSS),
+
+    ],
+    "The Keep": [
+        VagrantStoryLocationData("Chest: The Keep - The Warriors Rest (Locked)", "Vera Root", VagrantStoryLocationCategory.CHEST),
+    ],
+    "City Walls West": [
+        VagrantStoryLocationData("Boss: Duane + 2 Crimson Knights - City Walls West", "Vera Root", VagrantStoryLocationCategory.BOSS),
+    ],
+    "City Walls South": [
+        VagrantStoryLocationData("Boss: Jan Rosencrantz - City Walls South", "Vera Root", VagrantStoryLocationCategory.BOSS),
+    ],
     "City Walls East": [],
     "City Walls North": [],
-    "Snowfly Forest": [],
-    "Snowfly Forest East": [],
+    "Snowfly Forest": [
+        VagrantStoryLocationData("Chest: Snowfly Forest - Forest River", "Vera Root", VagrantStoryLocationCategory.CHEST),
+        VagrantStoryLocationData("Chest: Snowfly Forest - Hewn from Nature", "Vera Root", VagrantStoryLocationCategory.CHEST),
+        VagrantStoryLocationData("Boss: Earth Dragon - Snowfly Forest", "Vera Root", VagrantStoryLocationCategory.BOSS), 
+        VagrantStoryLocationData("Boss: Grissom and Dark Crusader - Snowfly Forest", "Vera Root", VagrantStoryLocationCategory.BOSS),        
+
+    ],
+    "Snowfly Forest East": [
+        VagrantStoryLocationData("Chest: Snowfly Forest East - Natures Womb", "Vera Root", VagrantStoryLocationCategory.CHEST),
+        VagrantStoryLocationData("Boss: Damascus Crab NG+ - Snowfly Forest", "Vera Root", VagrantStoryLocationCategory.BOSS),        
+    ],
+    "Town Center East": [
+        VagrantStoryLocationData("Chest: Town Center East - Gharmes Walk (Locked)", "Vera Root", VagrantStoryLocationCategory.CHEST),
+        VagrantStoryLocationData("Chest: Town Center East - The House Gilgitte", "Vera Root", VagrantStoryLocationCategory.CHEST),
+    ],
+    "Town Center South": [
+        VagrantStoryLocationData("Chest: Town Center South - The House Khazabas (Magic Lock)", "Vera Root", VagrantStoryLocationCategory.CHEST),
+    ],
     "Town Center West": [],
 
     # Temporary Holder
     "Bosses": [
-        VagrantStoryLocationData("Minotaur - Boss", "Vera Root", VagrantStoryLocationCategory.BOSS),
-        VagrantStoryLocationData("Dullahan - Boss", "Vera Root", VagrantStoryLocationCategory.BOSS),
-        VagrantStoryLocationData("Golem - Boss", "Vera Root", VagrantStoryLocationCategory.BOSS),
-        VagrantStoryLocationData("Dragon - Boss", "Vera Root", VagrantStoryLocationCategory.BOSS),
-        VagrantStoryLocationData("Duane + 2 Crimson Knights - Boss", "Vera Root", VagrantStoryLocationCategory.BOSS),
-        VagrantStoryLocationData("Wyvern - Boss", "Vera Root", VagrantStoryLocationCategory.BOSS),
-        VagrantStoryLocationData("Fire Elemental - Boss", "Vera Root", VagrantStoryLocationCategory.BOSS),
-        VagrantStoryLocationData("Ogre - Boss", "Vera Root", VagrantStoryLocationCategory.BOSS),
-        VagrantStoryLocationData("Giant Crab - Boss", "Vera Root", VagrantStoryLocationCategory.BOSS),
-        VagrantStoryLocationData("Earth Dragon - Boss", "Vera Root", VagrantStoryLocationCategory.BOSS),
-        VagrantStoryLocationData("Father Grissom and Dark Crusader - Boss", "Vera Root", VagrantStoryLocationCategory.BOSS),
-        VagrantStoryLocationData("Jan Rosencrantz - Boss", "Vera Root", VagrantStoryLocationCategory.BOSS),
-        VagrantStoryLocationData("Dark Elemental - Boss", "Vera Root", VagrantStoryLocationCategory.BOSS),
-        VagrantStoryLocationData("Shadow - Boss", "Vera Root", VagrantStoryLocationCategory.BOSS),
-        VagrantStoryLocationData("Wyvern Knight - Boss", "Vera Root", VagrantStoryLocationCategory.BOSS),
-        VagrantStoryLocationData("Iron Golem - Boss", "Vera Root", VagrantStoryLocationCategory.BOSS),
-        VagrantStoryLocationData("Harpy - Boss", "Vera Root", VagrantStoryLocationCategory.BOSS),
-        VagrantStoryLocationData("Lich - Boss", "Vera Root", VagrantStoryLocationCategory.BOSS),
-        VagrantStoryLocationData("Nightstalker - Boss", "Vera Root", VagrantStoryLocationCategory.BOSS),
-        VagrantStoryLocationData("Lady Neesa and Sir Tieger - Boss", "Vera Root", VagrantStoryLocationCategory.BOSS),
-        VagrantStoryLocationData("Minotaur Zombie - Boss", "Vera Root", VagrantStoryLocationCategory.BOSS),
-        VagrantStoryLocationData("Water Elemental - Boss", "Vera Root", VagrantStoryLocationCategory.BOSS),
-        VagrantStoryLocationData("Air Elemental - Boss", "Vera Root", VagrantStoryLocationCategory.BOSS),
-        VagrantStoryLocationData("Earth Elemental - Boss", "Vera Root", VagrantStoryLocationCategory.BOSS),
-        VagrantStoryLocationData("Ogre Lord - Boss", "Vera Root", VagrantStoryLocationCategory.BOSS),
-        VagrantStoryLocationData("Snow Dragon - Boss", "Vera Root", VagrantStoryLocationCategory.BOSS),
-        VagrantStoryLocationData("Last Crusader - Boss", "Vera Root", VagrantStoryLocationCategory.BOSS),
-        VagrantStoryLocationData("Minotaur Lord - Boss", "Vera Root", VagrantStoryLocationCategory.BOSS),
-        VagrantStoryLocationData("Kali - Boss", "Vera Root", VagrantStoryLocationCategory.BOSS),
-        VagrantStoryLocationData("Marid - Boss", "Vera Root", VagrantStoryLocationCategory.BOSS),
-        VagrantStoryLocationData("Ifrit - Boss", "Vera Root", VagrantStoryLocationCategory.BOSS),
-        VagrantStoryLocationData("Iron Crab - Boss", "Vera Root", VagrantStoryLocationCategory.BOSS),
-        VagrantStoryLocationData("Djinn - Boss", "Vera Root", VagrantStoryLocationCategory.BOSS),
-        VagrantStoryLocationData("Flame Dragon - Boss", "Vera Root", VagrantStoryLocationCategory.BOSS),
-        VagrantStoryLocationData("Arch Dragon - Boss", "Vera Root", VagrantStoryLocationCategory.BOSS),
-        VagrantStoryLocationData("Dao - Boss", "Vera Root", VagrantStoryLocationCategory.BOSS),
-        VagrantStoryLocationData("Nightmare - Boss", "Vera Root", VagrantStoryLocationCategory.BOSS),
-        VagrantStoryLocationData("Romeo Guildenstern Part 1 - Boss", "Vera Root", VagrantStoryLocationCategory.BOSS),
-        VagrantStoryLocationData("Romeo Guildenstern, Dark Angel - Boss", "Vera Root", VagrantStoryLocationCategory.BOSS),
+        # VagrantStoryLocationData("Lich - Boss", "Vera Root", VagrantStoryLocationCategory.BOSS), ?
         VagrantStoryLocationData("Marid and Ifrit - NG+", "Vera Root", VagrantStoryLocationCategory.BOSS),
-        VagrantStoryLocationData("Damascus Crab - NG+", "Vera Root", VagrantStoryLocationCategory.BOSS),
         VagrantStoryLocationData("Damascus Golem - NG+", "Vera Root", VagrantStoryLocationCategory.BOSS),
         VagrantStoryLocationData("Wyvern Queen - NG+", "Vera Root", VagrantStoryLocationCategory.BOSS),
         VagrantStoryLocationData("Dark Dragon - NG+", "Vera Root", VagrantStoryLocationCategory.BOSS),
