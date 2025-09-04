@@ -1027,7 +1027,7 @@ _all_items: List[VagrantStoryItemData] = [
     VagrantStoryItemData("Silver Dread Shield", 1048, VagrantStoryItemCategory.SHIELDS, False),
     VagrantStoryItemData("Damascus Dread Shield", 1049, VagrantStoryItemCategory.SHIELDS, False),
 
-
+    VagrantStoryItemData("Rood Inverse", 1050, VagrantStoryItemCategory.SHIELDS, False),    
 
 
 ]

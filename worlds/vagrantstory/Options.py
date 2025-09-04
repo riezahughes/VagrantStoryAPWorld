@@ -3,7 +3,7 @@ from dataclasses import dataclass
 from Options import Toggle, DefaultOnToggle, Option, Range, Choice, ItemDict, DeathLink, PerGameCommonOptions
 
 class GoalOptions():
-    DEFEAT_FINAL_BOSS = 1
+    DEFEAT_ANGEL = 1
 
 class ProgressionOptions():
     VANILLA = 0
@@ -17,8 +17,8 @@ class GoalOption(Choice):
     """Lets the user choose the completion goal
     Defeat Final Boss - Beat the boss at the end"""
     display_name = "Completion Goal"
-    default = GoalOptions.DEFEAT_FINAL_BOSS
-    option_defeat_final_boss = GoalOptions.DEFEAT_FINAL_BOSS
+    default = GoalOptions.DEFEAT_ANGEL
+    option_defeat_final_boss = GoalOptions.DEFEAT_ANGEL
     
 class ProgressionOption(Choice):
     """Lets users choose how they wish to progress
@@ -31,6 +31,18 @@ class ProgressionOption(Choice):
 class DeathLinkToggle(Toggle):
     """Sets if you want deathlink or not"""
     display_name = "Death Link"
+    default = 0
+    option_true = 1
+    option_false = 0
+
+class IncludeNewGamePlusItems(Toggle):
+    display_name = "Include New Game Plus Items"
+    default = 1
+    option_true = 1
+    option_false = 0
+
+class AllDoorsUnlocked(Toggle):
+    display_name = "All Doors Unlocked"
     default = 0
     option_true = 1
     option_false = 0

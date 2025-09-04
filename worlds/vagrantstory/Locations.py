@@ -10,10 +10,11 @@ class VagrantStoryLocationCategory(IntEnum):
     CHEST = 2
     BOSS = 3
     BOSS_PLUS = 4
-    GRIMOIRE = 5
-    KEYS = 6
-    SIGILS = 7
-    LEVEL_END = 8
+    GRIMOIRES = 5
+    KEY_UNLOCKS = 6
+    SIGIL_UNLOCKS = 7
+    ROOD_INVERSE_UNLOCKS = 8
+    LEVEL_END = 9
 
 class VagrantStoryLocationData(NamedTuple):
     name: str
@@ -103,7 +104,14 @@ class VagrantStoryLocation(Location):
 # 30	Town Center West
 # 31	unused (Snowfly Forest)
 
+
+# VagrantStoryLocationData("Key Unlock: Rood Inverse - To Undercity West", "Vera Root", VagrantStoryLocationCategory.KEY_UNLOCKS), NEED TO FIND WHERE THIS IS USED
+
+
 location_tables = {
+    "Prologue": [
+        VagrantStoryLocationData("Boss: Injured Wyvern - Prologue", "Vera Root", VagrantStoryLocationCategory.BOSS),
+    ],
     "Wine Cellar": [
         VagrantStoryLocationData("Chest: Wine Cellar - Workers Breakroom", "Vera Root", VagrantStoryLocationCategory.CHEST),
         VagrantStoryLocationData("Chest: Wine Cellar - The Reckoning Room", "Vera Root", VagrantStoryLocationCategory.CHEST),
@@ -113,13 +121,17 @@ location_tables = {
         VagrantStoryLocationData("Chest: Wine Cellar - The Gallows (Locked)", "Vera Root", VagrantStoryLocationCategory.CHEST),
         VagrantStoryLocationData("Boss: Minotaur - Wine Cellar", "Vera Root", VagrantStoryLocationCategory.BOSS),
         VagrantStoryLocationData("Boss: Dullahan - Wine Cellar", "Vera Root", VagrantStoryLocationCategory.BOSS),
-        VagrantStoryLocationData("Boss: Minotaur Zombie - Wine Cellar", "Vera Root", VagrantStoryLocationCategory.BOSS),        
+        VagrantStoryLocationData("Boss: Minotaur Zombie - Wine Cellar", "Vera Root", VagrantStoryLocationCategory.BOSS),
+        VagrantStoryLocationData("Sigil Unlock: Chamomile Sigil - Smokebarrel Stair", "Vera Root", VagrantStoryLocationCategory.SIGIL_UNLOCKS),
+        VagrantStoryLocationData("Sigil Unlock: Stock Sigil - Reopens The Gallows", "Vera Root", VagrantStoryLocationCategory.SIGIL_UNLOCKS),
+        VagrantStoryLocationData("Key Unlock: Chest Key - Wine Cellar", "Vera Root", VagrantStoryLocationCategory.KEY_UNLOCKS),                
 
     ],
     "Catacombs": [
         VagrantStoryLocationData("Chest: Catacombs - Rodent-Ridden Chamber", "Vera Root", VagrantStoryLocationCategory.CHEST),
         VagrantStoryLocationData("Chest: Catacombs - The Lamenting Mother", "Vera Root", VagrantStoryLocationCategory.CHEST),
         VagrantStoryLocationData("Chest: Catacombs - Bandits Hideout", "Vera Root", VagrantStoryLocationCategory.CHEST),
+        VagrantStoryLocationData("Sigil Unlock: Lily Sigil - The Withered Spring", "Vera Root", VagrantStoryLocationCategory.SIGIL_UNLOCKS),        
     ],
     "Sanctum": [
         VagrantStoryLocationData("Chest: Sanctum - Alchemists Laboratory", "Vera Root", VagrantStoryLocationCategory.CHEST),
@@ -132,6 +144,9 @@ location_tables = {
         VagrantStoryLocationData("Chest: Abandoned Mines B1 - Coal Mine Storage", "Vera Root", VagrantStoryLocationCategory.CHEST),
         VagrantStoryLocationData("Chest: Abandoned Mines B1 - Rust in Peace (Magic Lock)", "Vera Root", VagrantStoryLocationCategory.CHEST),     
         VagrantStoryLocationData("Chest: Abandoned Mines B1 - Mining Regrets", "Vera Root", VagrantStoryLocationCategory.CHEST),
+        VagrantStoryLocationData("Sigil Unlock: Fern Sigil - Live Long and Prosper", "Vera Root", VagrantStoryLocationCategory.SIGIL_UNLOCKS),
+        VagrantStoryLocationData("Sigil Unlock: Hyacinth Sigil - The Earthquake's Mark", "Vera Root", VagrantStoryLocationCategory.SIGIL_UNLOCKS),
+        VagrantStoryLocationData("Key Unlock: Silver Key - Abandoned Mines B1", "Vera Root", VagrantStoryLocationCategory.KEY_UNLOCKS),                
     ],
     "Abandoned Mines B2": [
         VagrantStoryLocationData("Chest: Abandoned Mines B2 - Delusions of Happiness", "Vera Root", VagrantStoryLocationCategory.CHEST),
@@ -141,7 +156,9 @@ location_tables = {
         VagrantStoryLocationData("Boss: Wyvern - Abandoned Mines B2", "Vera Root", VagrantStoryLocationCategory.BOSS),
         VagrantStoryLocationData("Boss: Fire Elemental - Abandoned Mines B2", "Vera Root", VagrantStoryLocationCategory.BOSS),
         VagrantStoryLocationData("Boss: Ogre - Abandoned Mines B2", "Vera Root", VagrantStoryLocationCategory.BOSS),
-        VagrantStoryLocationData("Boss: Sky Dragon - Abandoned Mines B2", "Vera Root", VagrantStoryLocationCategory.BOSS),        
+        VagrantStoryLocationData("Boss: Sky Dragon - Abandoned Mines B2", "Vera Root", VagrantStoryLocationCategory.BOSS), 
+        VagrantStoryLocationData("Key Unlock: Iron Key - Abandoned Mines B2", "Vera Root", VagrantStoryLocationCategory.KEY_UNLOCKS),
+        VagrantStoryLocationData("Key Unlock: Chest Key - Abandoned Mines B2", "Vera Root", VagrantStoryLocationCategory.KEY_UNLOCKS),                        
     ],
     "Limestone Quarry": [
         VagrantStoryLocationData("Chest: Limestone Quarry - Bonds of Friendship", "Vera Root", VagrantStoryLocationCategory.CHEST),
@@ -153,13 +170,19 @@ location_tables = {
         VagrantStoryLocationData("Boss: Air Elemental - Limestone Quarry", "Vera Root", VagrantStoryLocationCategory.BOSS),
         VagrantStoryLocationData("Boss: Earth Elemental - Limestone Quarry", "Vera Root", VagrantStoryLocationCategory.BOSS),
         VagrantStoryLocationData("Boss: Ogre Lord - Limestone Quarry", "Vera Root", VagrantStoryLocationCategory.BOSS),
-        VagrantStoryLocationData("Boss: Snow Dragon - Limestone Quarry", "Vera Root", VagrantStoryLocationCategory.BOSS),        
+        VagrantStoryLocationData("Boss: Snow Dragon - Limestone Quarry", "Vera Root", VagrantStoryLocationCategory.BOSS),
+        VagrantStoryLocationData("Sigil Unlock: Aster Sigil - Limestone Quarry", "Vera Root", VagrantStoryLocationCategory.SIGIL_UNLOCKS),
+        VagrantStoryLocationData("Sigil Unlock: Eulelia Sigil - Limestone Quarry", "Vera Root", VagrantStoryLocationCategory.SIGIL_UNLOCKS),
+        VagrantStoryLocationData("Sigil Unlock: Melissa Sigil - Limestone Quarry", "Vera Root", VagrantStoryLocationCategory.SIGIL_UNLOCKS),
+        VagrantStoryLocationData("Key Unlock: Gold Key 1 - Limestone Quarry", "Vera Root", VagrantStoryLocationCategory.KEY_UNLOCKS),  
+        VagrantStoryLocationData("Key Unlock: Gold Key 2 - Limestone Quarry", "Vera Root", VagrantStoryLocationCategory.KEY_UNLOCKS),                                                 
     ],
     "Temple of Kiltia": [
         VagrantStoryLocationData("Chest: Temple of Kiltia - The Chapel of Meschaunce", "Vera Root", VagrantStoryLocationCategory.CHEST),
         VagrantStoryLocationData("Boss: Last Crusader - Temple of Kiltia", "Vera Root", VagrantStoryLocationCategory.BOSS),
         VagrantStoryLocationData("Boss: Minotaur Lord - Temple of Kiltia", "Vera Root", VagrantStoryLocationCategory.BOSS),
-        VagrantStoryLocationData("Boss: Kali - Temple of Kiltia", "Vera Root", VagrantStoryLocationCategory.BOSS),        
+        VagrantStoryLocationData("Boss: Kali - Temple of Kiltia", "Vera Root", VagrantStoryLocationCategory.BOSS),
+        VagrantStoryLocationData("Key Unlock: Silver Key - Temple of Kiltia", "Vera Root", VagrantStoryLocationCategory.KEY_UNLOCKS),                
     ],
     "Great Cathedral B1": [
         VagrantStoryLocationData("Boss: Marid - Great Cathedral B1", "Vera Root", VagrantStoryLocationCategory.BOSS),
@@ -170,12 +193,16 @@ location_tables = {
         VagrantStoryLocationData("Chest: The Great Cathedral L1 - Where Darkness Spreads", "Vera Root", VagrantStoryLocationCategory.CHEST),
         VagrantStoryLocationData("Chest: The Great Cathedral L1 - The Flayed Confessional", "Vera Root", VagrantStoryLocationCategory.CHEST),            
         VagrantStoryLocationData("Boss: Arch Dragon - Great Cathedral L1", "Vera Root", VagrantStoryLocationCategory.BOSS),
-        VagrantStoryLocationData("Boss: Djinn - Great Cathedral L1", "Vera Root", VagrantStoryLocationCategory.BOSS),        
+        VagrantStoryLocationData("Boss: Djinn - Great Cathedral L1", "Vera Root", VagrantStoryLocationCategory.BOSS),
+        VagrantStoryLocationData("Sigil Unlock: Laurel Sigil - Great Cathedral L1", "Vera Root", VagrantStoryLocationCategory.SIGIL_UNLOCKS),                
     ],
     "Great Cathedral L2": [
         VagrantStoryLocationData("Chest: The Great Cathedral L2 - An Arrow into Darkness", "Vera Root", VagrantStoryLocationCategory.CHEST),   
         VagrantStoryLocationData("Boss: Flame Dragon - Great Cathedral L2", "Vera Root", VagrantStoryLocationCategory.BOSS),        
-        VagrantStoryLocationData("Boss: Nightmare - Great Cathedral L2", "Vera Root", VagrantStoryLocationCategory.BOSS),        
+        VagrantStoryLocationData("Boss: Nightmare - Great Cathedral L2", "Vera Root", VagrantStoryLocationCategory.BOSS),
+        VagrantStoryLocationData("Sigil Unlock: Calla Sigil - Great Cathedral L2", "Vera Root", VagrantStoryLocationCategory.SIGIL_UNLOCKS),        
+        VagrantStoryLocationData("Sigil Unlock: Acacia Sigil - Great Cathedral L2", "Vera Root", VagrantStoryLocationCategory.SIGIL_UNLOCKS),
+        VagrantStoryLocationData("Sigil Unlock: Palm Sigil - Great Cathedral L2", "Vera Root", VagrantStoryLocationCategory.SIGIL_UNLOCKS),                
     ],
     "Great Cathedral L3": [
             VagrantStoryLocationData("Boss: Dao - Great Cathedral L3", "Vera Root", VagrantStoryLocationCategory.BOSS),
@@ -190,7 +217,10 @@ location_tables = {
     ],
     "Escapeway": [
         VagrantStoryLocationData("Chest: Escapeway - Where Body and Soul Part (Magic Lock)", "Vera Root", VagrantStoryLocationCategory.CHEST),
-        VagrantStoryLocationData("Chest: Escapeway - Buried Alice", "Vera Root", VagrantStoryLocationCategory.CHEST),        
+        VagrantStoryLocationData("Chest: Escapeway - Buried Alice", "Vera Root", VagrantStoryLocationCategory.CHEST),
+        VagrantStoryLocationData("Key Unlock: Silver Key - Escapeway", "Vera Root", VagrantStoryLocationCategory.KEY_UNLOCKS),
+        VagrantStoryLocationData("Key Unlock: Gold Key - Escapeway", "Vera Root", VagrantStoryLocationCategory.KEY_UNLOCKS),                  
+        
     ],
     "Iron Maiden B1": [
         VagrantStoryLocationData("Chest: Iron Maiden B1 - The Wheel (Magic Lock)", "Vera Root", VagrantStoryLocationCategory.CHEST),
@@ -199,7 +229,10 @@ location_tables = {
         VagrantStoryLocationData("Chest: Iron Maiden B1 - The Branks (Locked)", "Vera Root", VagrantStoryLocationCategory.CHEST),
         VagrantStoryLocationData("Boss: Wyvern Knight - Iron Maiden B1", "Vera Root", VagrantStoryLocationCategory.BOSS),
         VagrantStoryLocationData("Boss: Iron Golem - Iron Maiden B1", "Vera Root", VagrantStoryLocationCategory.BOSS),        
-        VagrantStoryLocationData("Boss: Wyvern Queen NG+ - Iron Maiden B1", "Vera Root", VagrantStoryLocationCategory.BOSS_PLUS),        
+        VagrantStoryLocationData("Boss: Wyvern Queen NG+ - Iron Maiden B1", "Vera Root", VagrantStoryLocationCategory.BOSS_PLUS),
+        VagrantStoryLocationData("Sigil Unlock: Tearose Sigil - Iron Maiden B1", "Vera Root", VagrantStoryLocationCategory.SIGIL_UNLOCKS),
+        VagrantStoryLocationData("Key Unlock: Chest Key - Iron Maiden B1", "Vera Root", VagrantStoryLocationCategory.KEY_UNLOCKS),
+        VagrantStoryLocationData("Key Unlock: Steel Key - Iron Maiden B1", "Vera Root", VagrantStoryLocationCategory.KEY_UNLOCKS),                                  
     ],
     "Iron Maiden B2": [
         VagrantStoryLocationData("Chest: Iron Maiden B2 - Lead Sprinkler", "Vera Root", VagrantStoryLocationCategory.CHEST),
@@ -221,7 +254,13 @@ location_tables = {
         VagrantStoryLocationData("Chest: Undercity West - The Crumbling Market", "Vera Root", VagrantStoryLocationCategory.CHEST),
         VagrantStoryLocationData("Boss: Dark Elemental - Undercity West", "Vera Root", VagrantStoryLocationCategory.BOSS),
         VagrantStoryLocationData("Boss: Shadow - Undercity West", "Vera Root", VagrantStoryLocationCategory.BOSS),
-        VagrantStoryLocationData("Boss: Giant Crab - Undercity West", "Vera Root", VagrantStoryLocationCategory.BOSS),        
+        VagrantStoryLocationData("Boss: Giant Crab - Undercity West", "Vera Root", VagrantStoryLocationCategory.BOSS),
+        VagrantStoryLocationData("Key Unlock: Iron Key - Undercity West", "Vera Root", VagrantStoryLocationCategory.KEY_UNLOCKS), 
+        VagrantStoryLocationData("Key Unlock: Silver Key - Undercity West", "Vera Root", VagrantStoryLocationCategory.KEY_UNLOCKS),
+        VagrantStoryLocationData("Key Unlock: Gold Key 1 - Undercity West", "Vera Root", VagrantStoryLocationCategory.KEY_UNLOCKS),  
+        VagrantStoryLocationData("Key Unlock: Gold Key 2 - Undercity West", "Vera Root", VagrantStoryLocationCategory.KEY_UNLOCKS),                   
+        VagrantStoryLocationData("Sigil Unlock: Mandrake Sigil - Undercity West", "Vera Root", VagrantStoryLocationCategory.SIGIL_UNLOCKS),
+        VagrantStoryLocationData("Sigil Unlock: Cattleya Sigil - Undercity West", "Vera Root", VagrantStoryLocationCategory.SIGIL_UNLOCKS),                               
     ],
     "Undercity East": [
         VagrantStoryLocationData("Chest: Undercity East - Weapons Not Allowed", "Vera Root", VagrantStoryLocationCategory.CHEST),
@@ -230,11 +269,22 @@ location_tables = {
         VagrantStoryLocationData("Boss: Harpy - Undercity East", "Vera Root", VagrantStoryLocationCategory.BOSS),
         VagrantStoryLocationData("Boss: Nightstalker - Undercity East", "Vera Root", VagrantStoryLocationCategory.BOSS),
         VagrantStoryLocationData("Boss: Neesa and Tieger - Undercity East", "Vera Root", VagrantStoryLocationCategory.BOSS),
+        VagrantStoryLocationData("Key Unlock: Iron Key - Undercity East", "Vera Root", VagrantStoryLocationCategory.KEY_UNLOCKS),        
 
     ],
     "The Keep": [
         VagrantStoryLocationData("Chest: The Keep - The Warriors Rest (Locked)", "Vera Root", VagrantStoryLocationCategory.CHEST),
         VagrantStoryLocationData("Boss: Damascus Golem NG+ - The Keep", "Vera Root", VagrantStoryLocationCategory.BOSS_PLUS),
+        VagrantStoryLocationData("Sigil Unlock: Kalmia Sigil - The Keep", "Vera Root", VagrantStoryLocationCategory.SIGIL_UNLOCKS),        
+        VagrantStoryLocationData("Key Unlock: Chest Key - The Keep", "Vera Root", VagrantStoryLocationCategory.KEY_UNLOCKS),
+        VagrantStoryLocationData("Key Unlock: Platinum Key - To Snowfly Forest East", "Vera Root", VagrantStoryLocationCategory.KEY_UNLOCKS),        
+        VagrantStoryLocationData("Sigil Unlock: Anemone Sigil - The Keep", "Vera Root", VagrantStoryLocationCategory.SIGIL_UNLOCKS),
+        VagrantStoryLocationData("Sigil Unlock: Colombine Sigil - The Keep", "Vera Root", VagrantStoryLocationCategory.SIGIL_UNLOCKS),
+        VagrantStoryLocationData("Sigil Unlock: Marigold Sigil - The Keep", "Vera Root", VagrantStoryLocationCategory.SIGIL_UNLOCKS),
+        VagrantStoryLocationData("Sigil Unlock: Schirra Sigil - The Keep", "Vera Root", VagrantStoryLocationCategory.SIGIL_UNLOCKS),
+        VagrantStoryLocationData("Sigil Unlock: Tigertail Sigil - The Keep", "Vera Root", VagrantStoryLocationCategory.SIGIL_UNLOCKS),
+        VagrantStoryLocationData("Sigil Unlock: Verbena Sigil - The Keep", "Vera Root", VagrantStoryLocationCategory.SIGIL_UNLOCKS),                       
+        VagrantStoryLocationData("Sigil Unlock: Azalea Sigil - The Keep", "Vera Root", VagrantStoryLocationCategory.SIGIL_UNLOCKS),        
     ],
     "City Walls West": [
         VagrantStoryLocationData("Boss: Duane + 2 Crimson Knights - City Walls West", "Vera Root", VagrantStoryLocationCategory.BOSS),
@@ -243,7 +293,10 @@ location_tables = {
         VagrantStoryLocationData("Boss: Jan Rosencrantz - City Walls South", "Vera Root", VagrantStoryLocationCategory.BOSS),
     ],
     "City Walls East": [],
-    "City Walls North": [],
+    "City Walls North": [
+        VagrantStoryLocationData("Key Unlock: Iron Key - City Walls North", "Vera Root", VagrantStoryLocationCategory.KEY_UNLOCKS),
+        VagrantStoryLocationData("Sigil Unlock: Clematis Sigil - A Welcome Invasion", "Vera Root", VagrantStoryLocationCategory.SIGIL_UNLOCKS),                
+    ],
     "Snowfly Forest": [
         VagrantStoryLocationData("Chest: Snowfly Forest - Forest River", "Vera Root", VagrantStoryLocationCategory.CHEST),
         VagrantStoryLocationData("Chest: Snowfly Forest - Hewn from Nature", "Vera Root", VagrantStoryLocationCategory.CHEST),
@@ -258,12 +311,16 @@ location_tables = {
     "Town Center East": [
         VagrantStoryLocationData("Chest: Town Center East - Gharmes Walk (Locked)", "Vera Root", VagrantStoryLocationCategory.CHEST),
         VagrantStoryLocationData("Chest: Town Center East - The House Gilgitte", "Vera Root", VagrantStoryLocationCategory.CHEST),
+        VagrantStoryLocationData("Key Unlock: Bronze Key - Town Center East", "Vera Root", VagrantStoryLocationCategory.KEY_UNLOCKS),
+        VagrantStoryLocationData("Key Unlock: Chest Key - Town Center East", "Vera Root", VagrantStoryLocationCategory.KEY_UNLOCKS),                
     ],
     "Town Center South": [
         VagrantStoryLocationData("Chest: Town Center South - The House Khazabas (Magic Lock)", "Vera Root", VagrantStoryLocationCategory.CHEST),
+        VagrantStoryLocationData("Key Unlock: Bronze Key - Town Center South", "Vera Root", VagrantStoryLocationCategory.KEY_UNLOCKS),        
     ],
     "Town Center West": [
-        VagrantStoryLocationData("Boss: Marid and Ifrit NG+", "Vera Root", VagrantStoryLocationCategory.BOSS_PLUS),        
+        VagrantStoryLocationData("Boss: Marid and Ifrit NG+", "Vera Root", VagrantStoryLocationCategory.BOSS_PLUS),
+        VagrantStoryLocationData("Key Unlock: Crimson Key - To Town Center West", "Vera Root", VagrantStoryLocationCategory.KEY_UNLOCKS),              
     ],
 }
 
