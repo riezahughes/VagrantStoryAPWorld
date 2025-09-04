@@ -45,7 +45,37 @@ class VagrantStoryLocation(Location):
         base_id = 99250000
         region_offset = 1000        
         table_order = [
-            "Map",
+            "Prologue",
+            "Wine Cellar",
+            "Catacombs",
+            "Sanctum",
+            "Abandoned Mines B1",
+            "Abandoned Mines B2",
+            "Limestone Quarry",
+            "Temple of Kiltia",
+            "Great Cathedral B1",
+            "Great Cathedral L1",
+            "Great Cathedral L2",
+            "Great Cathedral L3",
+            "Great Cathedral L4",
+            "Forgotten Pathway",
+            "Escapeway",
+            "Iron Maiden B1",
+            "Iron Maiden B2",
+            "Iron Maiden B3",
+            "Undercity West",
+            "Undercity East",
+            "The Keep",
+            "City Walls West",
+            "City Walls South",
+            "City Walls East",
+            "City Walls North",
+            "Snowfly Forest",
+            "Snowfly Forest East",
+            "Town Center West",
+            "Town Center East",
+            "Town Center South",
+            "Credits"
         ]
 
         output = {}
@@ -321,6 +351,9 @@ location_tables = {
     "Town Center West": [
         VagrantStoryLocationData("Boss: Marid and Ifrit NG+", "Vera Root", VagrantStoryLocationCategory.BOSS_PLUS),
         VagrantStoryLocationData("Key Unlock: Crimson Key - To Town Center West", "Vera Root", VagrantStoryLocationCategory.KEY_UNLOCKS),              
+    ],
+    "Credits": [
+        VagrantStoryLocationData("Level End: Credits", "Vera Root", VagrantStoryLocationCategory.LEVEL_END),
     ],
 }
 

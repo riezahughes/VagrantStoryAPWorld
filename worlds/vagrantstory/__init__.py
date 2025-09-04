@@ -59,10 +59,14 @@ class VagrantStoryWorld(World):
 
     def generate_early(self):
         self.enabled_location_categories.add(VagrantStoryLocationCategory.PROGRESSION)
-        self.enabled_location_categories.add(VagrantStoryLocationCategory.GRIMOIRE)
-        self.enabled_location_categories.add(VagrantStoryLocationCategory.KEYS)
+        self.enabled_location_categories.add(VagrantStoryLocationCategory.CHEST)        
+        self.enabled_location_categories.add(VagrantStoryLocationCategory.GRIMOIRES)
+        self.enabled_location_categories.add(VagrantStoryLocationCategory.BOSS)
+        self.enabled_location_categories.add(VagrantStoryLocationCategory.BOSS_PLUS)        
+        self.enabled_location_categories.add(VagrantStoryLocationCategory.SIGIL_UNLOCKS)
+        self.enabled_location_categories.add(VagrantStoryLocationCategory.KEY_UNLOCKS)        
+        self.enabled_location_categories.add(VagrantStoryLocationCategory.ROOD_INVERSE_UNLOCKS)               
         self.enabled_location_categories.add(VagrantStoryLocationCategory.LEVEL_END)
-        self.enabled_location_categories.add(VagrantStoryLocationCategory.SIGILS)
 
     def create_regions(self):
         # Create Regions
@@ -71,7 +75,37 @@ class VagrantStoryWorld(World):
         regions["Menu"] = self.create_region("Menu", [])
         
         list_of_regions = [
-            "Map",
+            "Prologue",
+            "Wine Cellar",
+            "Catacombs",
+            "Sanctum",
+            "Abandoned Mines B1",
+            "Abandoned Mines B2",
+            "Limestone Quarry",
+            "Temple of Kiltia",
+            "Great Cathedral B1",
+            "Great Cathedral L1",
+            "Great Cathedral L2",
+            "Great Cathedral L3",
+            "Great Cathedral L4",
+            "Forgotten Pathway",
+            "Escapeway",
+            "Iron Maiden B1",
+            "Iron Maiden B2",
+            "Iron Maiden B3",
+            "Undercity West",
+            "Undercity East",
+            "The Keep",
+            "City Walls West",
+            "City Walls South",
+            "City Walls East",
+            "City Walls North",
+            "Snowfly Forest",
+            "Snowfly Forest East",
+            "Town Center West",
+            "Town Center East",
+            "Town Center South",
+            "Credits"
         ]
         
         # ALTER IF CHANGED BASED ON OPTIONS LIKE SO        
@@ -88,7 +122,37 @@ class VagrantStoryWorld(World):
             regions[from_region].exits.append(connection)
             connection.connect(regions[to_region])
             
-        create_connection("Menu", "Map")
+        create_connection("Menu", "Prologue")
+        create_connection("Prologue", "Wine Cellar")
+        create_connection("Wine Cellar", "Catacombs")
+        create_connection("Catacombs", "Sanctum")
+        create_connection("Sanctum", "Abandoned Mines B1")
+        create_connection("Abandoned Mines B1", "Abandoned Mines B2")
+        create_connection("Abandoned Mines B2", "Limestone Quarry")
+        create_connection("Limestone Quarry", "Temple of Kiltia")
+        create_connection("Temple of Kiltia", "Great Cathedral B1")
+        create_connection("Great Cathedral B1", "Great Cathedral L1")
+        create_connection("Great Cathedral L1", "Great Cathedral L2")
+        create_connection("Great Cathedral L2", "Great Cathedral L3")
+        create_connection("Great Cathedral L3", "Great Cathedral L4")
+        create_connection("Great Cathedral L4", "Forgotten Pathway")
+        create_connection("Great Cathedral L4", "Credits")
+        create_connection("Forgotten Pathway", "Escapeway")
+        create_connection("Escapeway", "Iron Maiden B1")
+        create_connection("Iron Maiden B1", "Iron Maiden B2")
+        create_connection("Iron Maiden B2", "Iron Maiden B3")
+        create_connection("Iron Maiden B3", "Undercity West")
+        create_connection("Undercity West", "Undercity East")
+        create_connection("Undercity East", "The Keep")
+        create_connection("The Keep", "City Walls West")
+        create_connection("City Walls West", "City Walls South")
+        create_connection("City Walls South", "City Walls East")
+        create_connection("City Walls East", "City Walls North")
+        create_connection("City Walls North", "Snowfly Forest")
+        create_connection("Snowfly Forest", "Snowfly Forest East")
+        create_connection("Snowfly Forest East", "Town Center West")
+        create_connection("Town Center West", "Town Center East")
+        create_connection("Town Center East", "Town Center South")
                                                                                                                    
     # For each region, add the associated locations retrieved from the corresponding location_table
     def create_region(self, region_name, location_table) -> Region:
@@ -196,8 +260,8 @@ class VagrantStoryWorld(World):
                     set_rule(location, lambda state: True)
                     
       
-        if self.options.goal.value == GoalOptions.DEFEAT_FINAL_BOSS:
-            self.multiworld.completion_condition[self.player] = lambda state: state.can_reach_location("Boss: Final Boss", self.player)
+        if self.options.goal.value == GoalOptions.DEFEAT_ANGEL:
+            self.multiworld.completion_condition[self.player] = lambda state: state.can_reach_location("Level End: Credits", self.player)
         # Map rules
         
         # ITEM SPECIFIC RULES
