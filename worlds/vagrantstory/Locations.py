@@ -199,14 +199,21 @@ location_tables = {
         VagrantStoryLocationData("Chest: Iron Maiden B1 - The Branks (Locked)", "Vera Root", VagrantStoryLocationCategory.CHEST),
         VagrantStoryLocationData("Boss: Wyvern Knight - Iron Maiden B1", "Vera Root", VagrantStoryLocationCategory.BOSS),
         VagrantStoryLocationData("Boss: Iron Golem - Iron Maiden B1", "Vera Root", VagrantStoryLocationCategory.BOSS),        
+        VagrantStoryLocationData("Boss: Wyvern Queen NG+ - Iron Maiden B1", "Vera Root", VagrantStoryLocationCategory.BOSS_PLUS),        
     ],
     "Iron Maiden B2": [
         VagrantStoryLocationData("Chest: Iron Maiden B2 - Lead Sprinkler", "Vera Root", VagrantStoryLocationCategory.CHEST),
         VagrantStoryLocationData("Chest: Iron Maiden B2 - Squassation", "Vera Root", VagrantStoryLocationCategory.CHEST),        
+        VagrantStoryLocationData("Boss: Dark Dragon NG+ - Iron Maiden B2", "Vera Root", VagrantStoryLocationCategory.BOSS_PLUS),
+        VagrantStoryLocationData("Boss: Ravana NG+ - Iron Maiden B2", "Vera Root", VagrantStoryLocationCategory.BOSS_PLUS),
+        VagrantStoryLocationData("Boss: Dragon Zombie NG+ - Iron Maiden B2", "Vera Root", VagrantStoryLocationCategory.BOSS_PLUS),
+        VagrantStoryLocationData("Boss: Ogre Zombie NG+ - Iron Maiden B2", "Vera Root", VagrantStoryLocationCategory.BOSS_PLUS),
+        VagrantStoryLocationData("Boss: Death NG+ - Iron Maiden B2", "Vera Root", VagrantStoryLocationCategory.BOSS_PLUS),
     ],
     "Iron Maiden B3": [
         VagrantStoryLocationData("Chest: Iron Maiden B3 - Saint Elmos Belt", "Vera Root", VagrantStoryLocationCategory.CHEST),
         VagrantStoryLocationData("Chest: Iron Maiden B3 - Dunking the Witch", "Vera Root", VagrantStoryLocationCategory.CHEST),        
+        VagrantStoryLocationData("Boss: Asura NG+ - Iron Maiden B3", "Vera Root", VagrantStoryLocationCategory.BOSS_PLUS),
     ],
     "Undercity West": [
         VagrantStoryLocationData("Chest: Undercity West - The Childrens Hideout", "Vera Root", VagrantStoryLocationCategory.CHEST),
@@ -227,6 +234,7 @@ location_tables = {
     ],
     "The Keep": [
         VagrantStoryLocationData("Chest: The Keep - The Warriors Rest (Locked)", "Vera Root", VagrantStoryLocationCategory.CHEST),
+        VagrantStoryLocationData("Boss: Damascus Golem NG+ - The Keep", "Vera Root", VagrantStoryLocationCategory.BOSS_PLUS),
     ],
     "City Walls West": [
         VagrantStoryLocationData("Boss: Duane + 2 Crimson Knights - City Walls West", "Vera Root", VagrantStoryLocationCategory.BOSS),
@@ -245,7 +253,7 @@ location_tables = {
     ],
     "Snowfly Forest East": [
         VagrantStoryLocationData("Chest: Snowfly Forest East - Natures Womb", "Vera Root", VagrantStoryLocationCategory.CHEST),
-        VagrantStoryLocationData("Boss: Damascus Crab NG+ - Snowfly Forest", "Vera Root", VagrantStoryLocationCategory.BOSS),        
+        VagrantStoryLocationData("Boss: Damascus Crab NG+ - Snowfly Forest", "Vera Root", VagrantStoryLocationCategory.BOSS_PLUS),        
     ],
     "Town Center East": [
         VagrantStoryLocationData("Chest: Town Center East - Gharmes Walk (Locked)", "Vera Root", VagrantStoryLocationCategory.CHEST),
@@ -254,21 +262,8 @@ location_tables = {
     "Town Center South": [
         VagrantStoryLocationData("Chest: Town Center South - The House Khazabas (Magic Lock)", "Vera Root", VagrantStoryLocationCategory.CHEST),
     ],
-    "Town Center West": [],
-
-    # Temporary Holder
-    "Bosses": [
-        # VagrantStoryLocationData("Lich - Boss", "Vera Root", VagrantStoryLocationCategory.BOSS), ?
-        VagrantStoryLocationData("Marid and Ifrit - NG+", "Vera Root", VagrantStoryLocationCategory.BOSS),
-        VagrantStoryLocationData("Damascus Golem - NG+", "Vera Root", VagrantStoryLocationCategory.BOSS),
-        VagrantStoryLocationData("Wyvern Queen - NG+", "Vera Root", VagrantStoryLocationCategory.BOSS),
-        VagrantStoryLocationData("Dark Dragon - NG+", "Vera Root", VagrantStoryLocationCategory.BOSS),
-        VagrantStoryLocationData("Ravana - NG+", "Vera Root", VagrantStoryLocationCategory.BOSS),
-        VagrantStoryLocationData("Dragon Zombie - NG+", "Vera Root", VagrantStoryLocationCategory.BOSS),
-        VagrantStoryLocationData("Ogre Zombie - NG+", "Vera Root", VagrantStoryLocationCategory.BOSS),
-        VagrantStoryLocationData("Death - NG+", "Vera Root", VagrantStoryLocationCategory.BOSS),
-        VagrantStoryLocationData("Asura - NG+", "Vera Root", VagrantStoryLocationCategory.BOSS),
-
+    "Town Center West": [
+        VagrantStoryLocationData("Boss: Marid and Ifrit NG+", "Vera Root", VagrantStoryLocationCategory.BOSS_PLUS),        
     ],
 }
 
