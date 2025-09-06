@@ -465,7 +465,7 @@ location_tables = {
         VagrantStoryLocationData("Ability: Unlock Level 25", "Vera Root", VagrantStoryLocationCategory.ABILITY_UNLOCKS),
         VagrantStoryLocationData("Ability: Unlock Level 26", "Vera Root", VagrantStoryLocationCategory.ABILITY_UNLOCKS),
         VagrantStoryLocationData("Ability: Unlock Level 27", "Vera Root", VagrantStoryLocationCategory.ABILITY_UNLOCKS),
-        VagrantStoryLocationData("Ability: Unlock Level 28", "Vera Root", VagrantStoryLocationCategory.ABILITY_UNLOCKS)            
+        VagrantStoryLocationData("Ability: Unlock Level 28", "Vera Root", VagrantStoryLocationCategory.ABILITY_UNLOCKS),         
 
         # Break Skill Unlocks
         VagrantStoryLocationData("Break: Unlock Dagger Level 1", "Vera Root", VagrantStoryLocationCategory.BREAK_UNLOCKS),
