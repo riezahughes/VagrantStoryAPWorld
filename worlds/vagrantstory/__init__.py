@@ -65,7 +65,10 @@ class VagrantStoryWorld(World):
         self.enabled_location_categories.add(VagrantStoryLocationCategory.BOSS_PLUS)        
         self.enabled_location_categories.add(VagrantStoryLocationCategory.SIGIL_UNLOCKS)
         self.enabled_location_categories.add(VagrantStoryLocationCategory.KEY_UNLOCKS)        
-        self.enabled_location_categories.add(VagrantStoryLocationCategory.ROOD_INVERSE_UNLOCKS)               
+        self.enabled_location_categories.add(VagrantStoryLocationCategory.ROOD_INVERSE_UNLOCKS)  
+        self.enabled_location_categories.add(VagrantStoryLocationCategory.ABILITY_UNLOCKS)
+        self.enabled_location_categories.add(VagrantStoryLocationCategory.BREAK_UNLOCKS)
+        self.enabled_location_categories.add(VagrantStoryLocationCategory.FLOOR_TRAPS)             
         self.enabled_location_categories.add(VagrantStoryLocationCategory.LEVEL_END)
 
     def create_regions(self):
@@ -105,7 +108,8 @@ class VagrantStoryWorld(World):
             "Town Center West",
             "Town Center East",
             "Town Center South",
-            "Credits"
+            "Credits",
+            "Ashley"
         ]
         
         # ALTER IF CHANGED BASED ON OPTIONS LIKE SO        
@@ -122,6 +126,7 @@ class VagrantStoryWorld(World):
             regions[from_region].exits.append(connection)
             connection.connect(regions[to_region])
             
+        create_connection("Menu", "Ashley")
         create_connection("Menu", "Prologue")
         create_connection("Prologue", "Wine Cellar")
         create_connection("Wine Cellar", "Catacombs")
