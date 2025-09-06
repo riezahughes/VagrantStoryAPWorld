@@ -1,7 +1,7 @@
 from enum import IntEnum
 from typing import NamedTuple, List, Optional
 import random
-from BaseClasses import Item, ItemClassification # ItemClassification is used for internal logic, but not directly in MedievilItemData itself.
+from BaseClasses import Item, ItemClassification
 
 
 class VagrantStoryItemCategory(IntEnum):
@@ -34,7 +34,7 @@ class VagrantStoryItemData(NamedTuple):
 class VagrantStoryItem(Item):
     game: str = "Vagrant Story"
     category:VagrantStoryItemCategory
-    v_code: Optional[int] # Make m_code an instance attribute for MedievilItem
+    v_code: Optional[int]
 
     def __init__(self, name: str, classification: ItemClassification, code: Optional[int], player: int):
         super().__init__(name, classification, code, player)
@@ -1048,7 +1048,7 @@ def BuildItemPool(count: int, options) -> List[str]:
     """
     Generates a list of item names to be used for the item pool.
     This function does NOT create Archipelago Item objects; it only provides their names.
-    The actual Item objects are created in MedievilWorld.create_items.
+    The actual Item objects are created in VagrantStoryWorld.create_items.
 
     Args:
         count (int): The total number of item names to generate.
@@ -1087,7 +1087,7 @@ def BuildItemPool(count: int, options) -> List[str]:
             item_name_to_add = random.choice(filler_item_names)
             item_pool_names.append(item_name_to_add)
         else:
-            print("Warning: Ran out of filler items for Medievil. Duplicating from all available items.")
+            print("Warning: Ran out of filler items for Vagrant Story. Duplicating from all available items.")
             # Fallback: if no specific filler items left, pick from any available item
             item_pool_names.append(random.choice(list(item_dictionary.keys())))
 

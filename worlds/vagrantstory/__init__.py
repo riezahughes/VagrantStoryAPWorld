@@ -286,7 +286,7 @@ class VagrantStoryWorld(World):
         slot_data: Dict[str, object] = {}
 
 
-        name_to_medievil_code = {item.name: item.v_code for item in item_dictionary.values()}
+        name_to_vagrant_story_code = {item.name: item.v_code for item in item_dictionary.values()}
         # Create the mandatory lists to generate the player's output file
         items_id = []
         items_address = []
@@ -299,7 +299,7 @@ class VagrantStoryWorld(World):
                 if location.item.player == self.player:
                     #we are the receiver of the item
                     items_id.append(location.item.code)
-                    items_address.append(name_to_medievil_code[location.item.name])
+                    items_address.append(name_to_vagrant_story_code[location.item.name])
 
 
             if location.player == self.player:
@@ -308,7 +308,7 @@ class VagrantStoryWorld(World):
                 locations_id.append(location.address)
                 if location.item is not None:
                     if location.item.player == self.player:
-                        locations_target.append(name_to_medievil_code[location.item.name])
+                        locations_target.append(name_to_vagrant_story_code[location.item.name])
                     else:
                         locations_target.append(0)
 
