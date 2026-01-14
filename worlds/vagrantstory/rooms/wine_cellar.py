@@ -20,3 +20,12 @@ room_data = {
     "The Greedy One's Den": {"exits": [("Room of Cheap White Wine", None), ("The Hero's Winehall", None)]},
     "The Hero's Winehall": {"exits": [("The Greedy One's Den", None), ("Hall of Sworn Revenge", None)]},
 }
+
+# """
+#     For each room
+#         create an exit
+#         for each exit
+#             create a requirement of "has item" if an item is specified
+#         for each latch
+#             create an entrance, not an exit.
+# """

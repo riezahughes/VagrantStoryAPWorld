@@ -10,6 +10,7 @@ from worlds.generic.Rules import set_rule, add_rule, add_item_rule
 from .Items import VagrantStoryItem, VagrantStoryItemCategory, item_dictionary, key_item_names, item_descriptions, BuildItemPool
 from .Locations import VagrantStoryLocation, VagrantStoryLocationCategory, VagrantStoryLocationData, location_tables, location_dictionary
 from .Options import VagrantStoryOption, GoalOptions
+from .rooms import all_minor_regions
 
 
 class VagrantStoryWeb(WebWorld):
@@ -74,40 +75,40 @@ class VagrantStoryWorld(World):
 
         regions["Menu"] = self.create_region("Menu", [])
 
-        list_of_regions = [
-            "Prologue",
-            "Wine Cellar",
-            "Catacombs",
-            "Sanctum",
-            "Abandoned Mines B1",
-            "Abandoned Mines B2",
-            "Limestone Quarry",
-            "Temple of Kiltia",
-            "Great Cathedral B1",
-            "Great Cathedral L1",
-            "Great Cathedral L2",
-            "Great Cathedral L3",
-            "Great Cathedral L4",
-            "Forgotten Pathway",
-            "Escapeway",
-            "Iron Maiden B1",
-            "Iron Maiden B2",
-            "Iron Maiden B3",
-            "Undercity West",
-            "Undercity East",
-            "The Keep",
-            "City Walls West",
-            "City Walls South",
-            "City Walls East",
-            "City Walls North",
-            "Snowfly Forest",
-            "Snowfly Forest East",
-            "Town Center West",
-            "Town Center East",
-            "Town Center South",
-            "Credits",
-            "Ashley",
-        ]
+        # list_of_regions = [
+        #     "Prologue",
+        #     "Wine Cellar",
+        #     "Catacombs",
+        #     "Sanctum",
+        #     "Abandoned Mines B1",
+        #     "Abandoned Mines B2",
+        #     "Limestone Quarry",
+        #     "Temple of Kiltia",
+        #     "Great Cathedral B1",
+        #     "Great Cathedral L1",
+        #     "Great Cathedral L2",
+        #     "Great Cathedral L3",
+        #     "Great Cathedral L4",
+        #     "Forgotten Pathway",
+        #     "Escapeway",
+        #     "Iron Maiden B1",
+        #     "Iron Maiden B2",
+        #     "Iron Maiden B3",
+        #     "Undercity West",
+        #     "Undercity East",
+        #     "The Keep",
+        #     "City Walls West",
+        #     "City Walls South",
+        #     "City Walls East",
+        #     "City Walls North",
+        #     "Snowfly Forest",
+        #     "Snowfly Forest East",
+        #     "Town Center West",
+        #     "Town Center East",
+        #     "Town Center South",
+        #     "Credits",
+        #     "Ashley",
+        # ]
 
         # ALTER IF CHANGED BASED ON OPTIONS LIKE SO
         # if(self.options.include_ant_hill_in_checks.value == IncludeAntHillInChecksToggle.option_true):
@@ -115,7 +116,10 @@ class VagrantStoryWorld(World):
         # else:
         #     location_tables.pop("Ant Hill")
 
-        regions.update({region_name: self.create_region(region_name, location_tables[region_name]) for region_name in list_of_regions})
+        # a new region is created for every minor region
+        regions.update({region_name: self.create_region(region_name, location_tables[region_name]) for region_name in all_minor_regions})
+
+        regions.update({room_name: self.create_region(room_name, location_tables[room_name]) for room_name, room_data in all_minor_regions.items()})
 
         def create_connection(from_region: str, to_region: str):
             connection = Entrance(self.player, f"{from_region} -> {to_region}", regions[from_region])
@@ -220,11 +224,7 @@ class VagrantStoryWorld(World):
         # Determine the Archipelago ItemClassification based on VagrantStoryItemData.
         item_classification: ItemClassification
 
-        if (
-            item_data.progression
-            or item_data.category == VagrantStoryItemCategory.KEYS
-            or item_data.category == VagrantStoryItemCategory.SIGILS
-        ):
+        if item_data.progression or item_data.category == VagrantStoryItemCategory.KEYS or item_data.category == VagrantStoryItemCategory.SIGILS:
             item_classification = ItemClassification.progression
         elif (
             item_data.category == VagrantStoryItemCategory.GRIMOIRE
