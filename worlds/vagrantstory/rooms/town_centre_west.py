@@ -11,7 +11,7 @@ room_data = {
     "The Rene Coastroad": {
         "exits": [
             ("Rue Vermillion", None),
-            ('Workshop "Magic Hammer"', None),
+            ("Workshop 'Magic Hammer'", None),
             ("Rue Mal Fallde", None),
         ]
     },

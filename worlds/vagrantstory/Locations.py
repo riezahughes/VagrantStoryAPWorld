@@ -1060,7 +1060,7 @@ location_tables = {
     # Forgotten Pathway
     "Stair to the Sinners": [VagrantStoryLocationData("FP - Stair to the Sinners Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED)],
     "Slaughter of the Innocent": [
-        VagrantStoryLocationData("FP - Slaugher of the Innocent - Damascus Golem Boss", "Vera Root", VagrantStoryLocationCategory.BOSS),
+        VagrantStoryLocationData("FP - Slaughter of the Innocent - Damascus Golem Boss", "Vera Root", VagrantStoryLocationCategory.BOSS),
         VagrantStoryLocationData("FP - Slaughter of the Innocent Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
     ],
     "The Oracle Sins No More": [

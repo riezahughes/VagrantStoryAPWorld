@@ -97,29 +97,31 @@ class VagrantStoryWorld(World):
             connection.connect(regions[to_region])
 
         # loop hell for the fucking hundreds of regions
-        # 1. Create all regions first so they exist in the 'regions' dict
-        for region_name in all_minor_regions:
-            regions[region_name] = self.create_region(region_name, location_tables.get(region_name, []))
-
-        # 2. Now create connections
         for region_name, data in all_minor_regions.items():
+            exit_targets = [ex[0] for ex in data["exits"]]
             used_counts = {}
-            for exit_data in data.get("exits", []):
-                target_name = exit_data[0]
-
-                if target_name not in regions:
-                    print(f"Skipping connection: {target_name} does not exist in regions!")
-                    continue
-
-                # Handle duplicate exit names
-                count = used_counts.get(target_name, 0) + 1
-                used_counts[target_name] = count
-                name = f"{region_name} -> {target_name}" + (f" ({count})" if count > 1 else "")
-
-                create_room_connections(region_name, target_name, name)
+            ## all this is not looping how you want it to.
+            # it should be for every region name in the exits,
+            # if the exit targets name exists as an exit twice
+            # then add a number
+            # otherwise continue
+            for exit_target in data["exits"]:
+                if exit_target[0] in all_minor_regions:
+                    if exit_targets.count(exit_target[0]) > 1:
+                        count = used_counts.get(exit_target[0], 1)
+                        name = f"{region_name} -> {exit_target[0]} ({count})"
+                        print(name)
+                        used_counts[exit_target[0]] = count + 1
+                    else:
+                        name = f"{region_name} -> {exit_target[0]}"
+                        print(name)
+                    create_room_connections(region_name, exit_target[0], name)
 
         create_connection("Menu", "Ashley")
+        create_connection("Ashley", "Menu")
         create_connection("Menu", "Prologue")
+        create_connection("Prologue", "Menu")
+        create_connection("Menu", "Entrance to Darkness")
         create_connection("Prologue", "Entrance to Darkness")
         create_connection("Dome", "Credits")
 

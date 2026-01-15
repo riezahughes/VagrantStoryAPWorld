@@ -1,40 +1,50 @@
 room_data = {
-    # --- ABANDONED MINES B2 ---
-    "Subtellurian Horrors": {
-        "exits": [
-            ("The Crumbling Market (South)", None),  # Connection to Undercity West
-            ("Dining in Darkness", None),
-        ]
-    },
-    "Dining in Darkness": {"exits": [("Subtellurian Horrors", None), ("Bandit's Hollow", None)]},
+    "Subtellurian Horrors": {"exits": [("The Crumbling Market (South)", None), ("Dining in Darkness", None)]},
+    "Dining in Darkness": {"exits": [("Bandit's Hollow", None), ("Subtellurian Horrors", None)], "boss": "Sky Dragon"},
     "Bandit's Hollow": {
-        "exits": [
-            ("Dining in Darkness", None),
-            ("Delusions of Happiness", "Iron Key"),
-            # Note: The one-way paths from 'The Lunatic Veins' and 'Work, Then Die'
-            # only lead INTO this room, so they aren't listed as exits here.
-        ]
+        "exits": [("Delusions of Happiness", "Iron Key"), ("Dining in Darkness", None)],
+        "save_point": True,
+        "notes": "One-way entrance from Lunatic Veins and Work, Then Die",
     },
     "Delusions of Happiness": {"exits": [("Bandit's Hollow", None)]},
-    "Work, Then Die": {
-        "exits": [
-            ("The Crossing", None),  # Connection to Undercity West
-            ("Bandit's Hollow", None),  # One-way drop
-            ("Rock Bottom", None),
-        ]
+    "Work, Then Die": {"exits": [("Bandit's Hollow", "One-Way"), ("Hope Obstructed", None)]},
+    "The Lunatic Veins": {"exits": [("Bandit's Hollow", "One-Way"), ("Tomb of the Reborn", None)]},
+    "Tomb of the Reborn": {"exits": [("The Lunatic Veins", None), ("Fool's Gold, Fool's Loss", None)], "boss": "Earth Elemental"},
+    "Fool's Gold, Fool's Loss": {
+        "exits": [("Tomb of the Reborn", None), ("Kilroy Was Here", None), ("Crossing of Blood", None)],
+        "traps": ["Paralysis Panel"],
     },
-    "Rock Bottom": {"exits": [("Work, Then Die", None), ("Senses Lost", None)]},
-    "Senses Lost": {"exits": [("Rock Bottom", None), ("Desire's Passage", None), ("The Lunatic Veins", None)]},
-    "The Lunatic Veins": {
-        "exits": [
-            ("Senses Lost", None),
-            ("Bandit's Hollow", None),  # One-way drop
-        ]
+    "Kilroy Was Here": {"exits": [("Fool's Gold, Fool's Loss", None), ("A Wager of Noble Gold", None)]},
+    "A Wager of Noble Gold": {"exits": [("Kilroy Was Here", None), ("Lambs to the Slaughter", None)]},
+    "Lambs to the Slaughter": {"exits": [("A Wager of Noble Gold", None), ("The Ore of Legend", None)], "traps": ["Heal Panel"]},
+    "The Ore of Legend": {"exits": [("Lambs to the Slaughter", None), ("Cry of the Beast", None), ("Suicidal Desires", None)]},
+    "Suicidal Desires": {
+        "exits": [("The Ore of Legend", None)],
+        "traps": ["Death Vapor", "Paralysis Panel", "Holy Light", "Terra Thrust", "Gust", "Freeze", "Eruption", "Trap Clear"],
     },
-    "Desire's Passage": {"exits": [("Senses Lost", None), ("Way of Lost Children", None)]},
-    "Way of Lost Children": {"exits": [("Desire's Passage", None), ("Treaty Room", None), ("Hidden Resources", None)]},
+    "Cry of the Beast": {"exits": [("The Ore of Legend", None), ("The Fallen Bricklayer", None)]},
+    "The Fallen Bricklayer": {"exits": [("Cry of the Beast", None), ("Hall of Contemplation", None), ("Crossing of Blood", None)]},
+    "Hall of Contemplation": {
+        "exits": [("The Fallen Bricklayer", None), ("The Abandoned Catspaw", None), ("Hall of the Empty Sconce", None)],
+        "traps": ["Eruption"],
+    },
+    "Hall of the Empty Sconce": {"exits": [("Hall of Contemplation", None), ("Acolyte's Burial Vault", None)]},
+    "Acolyte's Burial Vault": {"exits": [("Hall of the Empty Sconce", None)]},
+    "The Abandoned Catspaw": {"exits": [("Hall of Contemplation", None), ("Crossing of Blood", None)]},
+    "Crossing of Blood": {
+        "exits": [("The Abandoned Catspaw", None), ("Senses Lost", None), ("The Fallen Bricklayer", None), ("Fool's Gold, Fool's Loss", None)],
+        "traps": ["Holy Light", "Diabolos"],
+    },
+    "Senses Lost": {"exits": [("Crossing of Blood", None), ("Desire's Passage", None)], "traps": ["Eruption", "Poison Panel"]},
+    "Desire's Passage": {"exits": [("Senses Lost", None), ("Way of Lost Children", None)], "traps": ["Cure Panel"]},
+    "Way of Lost Children": {
+        "exits": [("Desire's Passage", None), ("Treaty Room", None), ("Hidden Resources", None)],
+        "notes": "Entering from North starts time trial.",
+    },
     "Hidden Resources": {"exits": [("Way of Lost Children", None)]},
-    "Treaty Room": {"exits": [("Way of Lost Children", None), ("The Miner's End", None)]},
-    "The Miner's End": {"exits": [("Treaty Room", None), ("Gambler's Passage", None)]},
-    "Gambler's Passage": {"exits": [("The Miner's End", None), ("The Poor Man's Ward", None)]},
+    "Treaty Room": {"exits": [("Way of Lost Children", None), ("The Miner's End", None)], "save_point": True},
+    "The Miner's End": {"exits": [("Treaty Room", None), ("Gambler's Passage", None)], "boss": "Air Elemental"},
+    "Gambler's Passage": {"exits": [("The Miner's End", None), ("Revelation Shaft", None)]},
+    "Revelation Shaft": {"exits": [("Gambler's Passage", None), ("Corridor of Shade", None)]},
+    "Corridor of Shade": {"exits": [("Revelation Shaft", None), ("Rue Morgue", None)]},
 }
