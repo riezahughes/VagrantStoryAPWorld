@@ -417,7 +417,9 @@ location_tables = {
     "Where Black Waters Ran": [
         VagrantStoryLocationData("UEN - Where Black Waters Ran Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED)
     ],
-    "Arms Against Invaders": [],
+    "Arms Against Invaders": [
+        VagrantStoryLocationData("UEN - Arms Against Invaders Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED)
+    ],
     "Catspaw Blackmarket": [
         VagrantStoryLocationData("UEN - Catspaw Blackmarket - Diabolos Floor Trap", "Vera Root", VagrantStoryLocationCategory.FLOOR_TRAPS),
         VagrantStoryLocationData("UEN - Catspaw Blackmarket - Trap Clear Floor Trap", "Vera Root", VagrantStoryLocationCategory.FLOOR_TRAPS),

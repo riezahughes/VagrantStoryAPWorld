@@ -57,17 +57,21 @@ class VagrantStoryWorld(World):
         self.enabled_location_categories = set()
 
     def generate_early(self):
+        self.enabled_location_categories.add(VagrantStoryLocationCategory.FILLER)
         self.enabled_location_categories.add(VagrantStoryLocationCategory.PROGRESSION)
         self.enabled_location_categories.add(VagrantStoryLocationCategory.CHEST)
-        self.enabled_location_categories.add(VagrantStoryLocationCategory.GRIMOIRES)
         self.enabled_location_categories.add(VagrantStoryLocationCategory.BOSS)
         self.enabled_location_categories.add(VagrantStoryLocationCategory.BOSS_PLUS)
-        self.enabled_location_categories.add(VagrantStoryLocationCategory.SIGIL_UNLOCKS)
+        self.enabled_location_categories.add(VagrantStoryLocationCategory.BOSS_UNLOCKS_PLUS)
+        self.enabled_location_categories.add(VagrantStoryLocationCategory.GRIMOIRES)
         self.enabled_location_categories.add(VagrantStoryLocationCategory.KEY_UNLOCKS)
+        self.enabled_location_categories.add(VagrantStoryLocationCategory.SIGIL_UNLOCKS)
         self.enabled_location_categories.add(VagrantStoryLocationCategory.ROOD_INVERSE_UNLOCKS)
         self.enabled_location_categories.add(VagrantStoryLocationCategory.ABILITY_UNLOCKS)
         self.enabled_location_categories.add(VagrantStoryLocationCategory.BREAK_UNLOCKS)
         self.enabled_location_categories.add(VagrantStoryLocationCategory.FLOOR_TRAPS)
+        self.enabled_location_categories.add(VagrantStoryLocationCategory.PUZZLE_CLEAR)
+        self.enabled_location_categories.add(VagrantStoryLocationCategory.ROOM_ENTERED)
         self.enabled_location_categories.add(VagrantStoryLocationCategory.GAME_END)
 
     def create_regions(self):
@@ -75,49 +79,9 @@ class VagrantStoryWorld(World):
         regions: Dict[str, Region] = {}
 
         regions["Menu"] = self.create_region("Menu", [])
-        regions["Prologue"] = self.create_region("Prologue", [])
+        regions["Prologue"] = self.create_region("Prologue", location_tables["Prologue"])
         regions["Ashley"] = self.create_region("Ashley", location_tables["Ashley"])
         regions["Credits"] = self.create_region("Credits", location_tables["Credits"])
-        # list_of_regions = [
-        #     "Prologue",
-        #     "Wine Cellar",
-        #     "Catacombs",
-        #     "Sanctum",
-        #     "Abandoned Mines B1",
-        #     "Abandoned Mines B2",
-        #     "Limestone Quarry",
-        #     "Temple of Kiltia",
-        #     "Great Cathedral B1",
-        #     "Great Cathedral L1",
-        #     "Great Cathedral L2",
-        #     "Great Cathedral L3",
-        #     "Great Cathedral L4",
-        #     "Forgotten Pathway",
-        #     "Escapeway",
-        #     "Iron Maiden B1",
-        #     "Iron Maiden B2",
-        #     "Iron Maiden B3",
-        #     "Undercity West",
-        #     "Undercity East",
-        #     "The Keep",
-        #     "City Walls West",
-        #     "City Walls South",
-        #     "City Walls East",
-        #     "City Walls North",
-        #     "Snowfly Forest",
-        #     "Snowfly Forest East",
-        #     "Town Center West",
-        #     "Town Center East",
-        #     "Town Center South",
-        #     "Credits",
-        #     "Ashley",
-        # ]
-
-        # ALTER IF CHANGED BASED ON OPTIONS LIKE SO
-        # if(self.options.include_ant_hill_in_checks.value == IncludeAntHillInChecksToggle.option_true):
-        #     list_of_regions.insert(8, "Ant Hill")
-        # else:
-        #     location_tables.pop("Ant Hill")
 
         # a new region is created for every minor region
         regions.update({region_name: self.create_region(region_name, location_tables[region_name]) for region_name in all_minor_regions})
@@ -132,9 +96,8 @@ class VagrantStoryWorld(World):
             regions[from_region].exits.append(connection)
             connection.connect(regions[to_region])
 
-        # The Loop
+        # loop hell for the fucking hundreds of regions
         for region_name, data in all_minor_regions.items():
-            # 1. Map out all targets to identify duplicates
             exit_targets = [ex[0] for ex in data["exits"]]
             used_counts = {}
 
@@ -156,13 +119,8 @@ class VagrantStoryWorld(World):
     # For each region, add the associated locations retrieved from the corresponding location_table
     def create_region(self, region_name, location_table) -> Region:
         new_region = Region(region_name, self.player, self.multiworld)
-
+        print(new_region.name, len(location_table))
         for location in location_table:
-            # CAN ALTER INDIVIDUAL LOCATIONS TO REMOVE THEM FROM THE POOL HERE
-            # if self.options.include_ant_hill_in_checks.value == IncludeAntHillInChecksToggle.option_false and location.name == "Energy Vial: Megwynne Stormbinder - HH":
-            #     continue
-            # if self.options.include_chalices_in_checks.value == IncludeChalicesInChecksToggle.option_false and location.category == MedievilLocationCategory.CHALICE:
-            #     continue
             if location.category in self.enabled_location_categories:
                 new_location = VagrantStoryLocation(
                     self.player,
@@ -241,25 +199,6 @@ class VagrantStoryWorld(World):
 
         if self.options.goal.value == GoalOptions.DEFEAT_ANGEL:
             self.multiworld.completion_condition[self.player] = lambda state: state.can_reach_location("Game End: Credits", self.player)
-        # Map rules
-
-        # ITEM SPECIFIC RULES
-
-        # for location in self.multiworld.get_locations(self.player):
-        #     if location.parent_region.name in ["Dan's Crypt", "Locked Items DC"]:
-        #         add_item_rule(location, lambda item: item.name != "Equipment: Hammer")
-
-        # options rule setup
-
-        # set_rule(self.get_entrance("Enchanted Earth -> Ant Hill"))
-
-        # Get a birds eye view of everything
-
-        # from Utils import visualize_regions
-        # state = self.multiworld.get_all_state(False)
-        # state.update_reachable_regions(self.player)
-        # visualize_regions(self.get_region("Menu"), "medievil_layout.puml", show_entrance_names=True,
-        #                 regions_to_highlight=state.reachable_regions[self.player])
 
     def fill_slot_data(self) -> Dict[str, object]:
         slot_data: Dict[str, object] = {}
