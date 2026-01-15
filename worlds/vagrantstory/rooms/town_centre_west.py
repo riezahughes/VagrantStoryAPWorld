@@ -15,7 +15,7 @@ room_data = {
             ("Rue Mal Fallde", None),
         ]
     },
-    'Workshop "Magic Hammer"': {
+    "Workshop 'Magic Hammer'": {
         "exits": [
             ("The Rene Coastroad", None),
         ]

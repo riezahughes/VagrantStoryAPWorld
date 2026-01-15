@@ -5,6 +5,5 @@ room_data = {
     "Wooden Horse": {"exits": [("The Cauldron", None), ("Starvation", None)]},
     "Starvation": {"exits": [("Wooden Horse", None), ("The Breast Ripper", None)]},
     "The Breast Ripper": {"exits": [("Starvation", None), ("The Wheel", None), ("The Branks", None), ("The Pear", None)]},
-    "The Pear": {"exits": [("The Breast Ripper", None), ("Iron Maiden B1 Exit", None)]},  # Leads to B2
-    "Iron Maiden B1 Exit": {"exits": [("The Eunics' Lot", None)]},
+    "The Pear": {"exits": [("The Breast Ripper", None)]},
 }

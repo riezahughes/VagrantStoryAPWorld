@@ -7,7 +7,12 @@ from . import city_walls_south
 from . import city_walls_west
 from . import escapeway
 from . import forgotten_pathway
-from . import great_cathedral
+from . import great_cathedral_B1
+from . import great_cathedral_L1
+from . import great_cathedral_L2
+from . import great_cathedral_L3
+from . import great_cathedral_L4
+from . import great_cathedral_dome
 from . import iron_maiden_b1
 from . import iron_maiden_b2
 from . import iron_maiden_b3
@@ -34,7 +39,12 @@ all_major_regions = {
     "city_walls_west": city_walls_west.room_data,
     "escapeway": escapeway.room_data,
     "forgotten_pathway": forgotten_pathway.room_data,
-    "great_cathedral": great_cathedral.room_data,
+    "great_cathedral_B1": great_cathedral_B1.room_data,
+    "great_cathedral_L1": great_cathedral_L1.room_data,
+    "great_cathedral_L2": great_cathedral_L2.room_data,
+    "great_cathedral_L3": great_cathedral_L3.room_data,
+    "great_cathedral_L4": great_cathedral_L4.room_data,
+    "great_cathedral_dome": great_cathedral_dome.room_data,
     "iron_miden_b1": iron_maiden_b1.room_data,
     "iron_miden_b2": iron_maiden_b2.room_data,
     "iron_miden_b3": iron_maiden_b3.room_data,

@@ -10,6 +10,7 @@ from worlds.generic.Rules import set_rule, add_rule, add_item_rule
 from .Items import VagrantStoryItem, VagrantStoryItemCategory, item_dictionary, key_item_names, item_descriptions, BuildItemPool
 from .Locations import VagrantStoryLocation, VagrantStoryLocationCategory, VagrantStoryLocationData, location_tables, location_dictionary
 from .Options import VagrantStoryOption, GoalOptions
+from .VictoryConditions import defeat_guildenstern_dark_angel_victory
 from .rooms import all_minor_regions
 
 
@@ -67,14 +68,16 @@ class VagrantStoryWorld(World):
         self.enabled_location_categories.add(VagrantStoryLocationCategory.ABILITY_UNLOCKS)
         self.enabled_location_categories.add(VagrantStoryLocationCategory.BREAK_UNLOCKS)
         self.enabled_location_categories.add(VagrantStoryLocationCategory.FLOOR_TRAPS)
-        self.enabled_location_categories.add(VagrantStoryLocationCategory.LEVEL_END)
+        self.enabled_location_categories.add(VagrantStoryLocationCategory.GAME_END)
 
     def create_regions(self):
         # Create Regions
         regions: Dict[str, Region] = {}
 
         regions["Menu"] = self.create_region("Menu", [])
-
+        regions["Prologue"] = self.create_region("Prologue", [])
+        regions["Ashley"] = self.create_region("Ashley", location_tables["Ashley"])
+        regions["Credits"] = self.create_region("Credits", location_tables["Credits"])
         # list_of_regions = [
         #     "Prologue",
         #     "Wine Cellar",
@@ -119,45 +122,36 @@ class VagrantStoryWorld(World):
         # a new region is created for every minor region
         regions.update({region_name: self.create_region(region_name, location_tables[region_name]) for region_name in all_minor_regions})
 
-        regions.update({room_name: self.create_region(room_name, location_tables[room_name]) for room_name, room_data in all_minor_regions.items()})
-
         def create_connection(from_region: str, to_region: str):
             connection = Entrance(self.player, f"{from_region} -> {to_region}", regions[from_region])
             regions[from_region].exits.append(connection)
             connection.connect(regions[to_region])
 
+        def create_room_connections(from_region: str, to_region: str, connection_name: str):
+            connection = Entrance(self.player, connection_name, regions[from_region])
+            regions[from_region].exits.append(connection)
+            connection.connect(regions[to_region])
+
+        # The Loop
+        for region_name, data in all_minor_regions.items():
+            # 1. Map out all targets to identify duplicates
+            exit_targets = [ex[0] for ex in data["exits"]]
+            used_counts = {}
+
+            for exit_target in data["exits"]:
+                if exit_target in all_minor_regions:
+                    if exit_targets.count(exit_target) > 1:
+                        count = used_counts.get(exit_target, 1)
+                        name = f"{region_name} -> {exit_target} ({count})"
+                        used_counts[exit_target] = count + 1
+                    else:
+                        name = f"{region_name} -> {exit_target}"
+                    create_room_connections(region_name, exit_target, name)
+
         create_connection("Menu", "Ashley")
         create_connection("Menu", "Prologue")
-        create_connection("Prologue", "Wine Cellar")
-        create_connection("Wine Cellar", "Catacombs")
-        create_connection("Catacombs", "Sanctum")
-        create_connection("Sanctum", "Abandoned Mines B1")
-        create_connection("Abandoned Mines B1", "Abandoned Mines B2")
-        create_connection("Abandoned Mines B2", "Limestone Quarry")
-        create_connection("Limestone Quarry", "Temple of Kiltia")
-        create_connection("Temple of Kiltia", "Great Cathedral B1")
-        create_connection("Great Cathedral B1", "Great Cathedral L1")
-        create_connection("Great Cathedral L1", "Great Cathedral L2")
-        create_connection("Great Cathedral L2", "Great Cathedral L3")
-        create_connection("Great Cathedral L3", "Great Cathedral L4")
-        create_connection("Great Cathedral L4", "Forgotten Pathway")
-        create_connection("Great Cathedral L4", "Credits")
-        create_connection("Forgotten Pathway", "Escapeway")
-        create_connection("Escapeway", "Iron Maiden B1")
-        create_connection("Iron Maiden B1", "Iron Maiden B2")
-        create_connection("Iron Maiden B2", "Iron Maiden B3")
-        create_connection("Iron Maiden B3", "Undercity West")
-        create_connection("Undercity West", "Undercity East")
-        create_connection("Undercity East", "The Keep")
-        create_connection("The Keep", "City Walls West")
-        create_connection("City Walls West", "City Walls South")
-        create_connection("City Walls South", "City Walls East")
-        create_connection("City Walls East", "City Walls North")
-        create_connection("City Walls North", "Snowfly Forest")
-        create_connection("Snowfly Forest", "Snowfly Forest East")
-        create_connection("Snowfly Forest East", "Town Center West")
-        create_connection("Town Center West", "Town Center East")
-        create_connection("Town Center East", "Town Center South")
+        create_connection("Prologue", "Entrance to Darkness")
+        create_connection("Dome", "Credits")
 
     # For each region, add the associated locations retrieved from the corresponding location_table
     def create_region(self, region_name, location_table) -> Region:
@@ -241,25 +235,12 @@ class VagrantStoryWorld(World):
         return "Gil (50)"  # this clearly needs looked into
 
     def set_rules(self) -> None:
-        def is_level_cleared(self, location: str, state: CollectionState):
-            return state.can_reach_location("Cleared: " + location, self.player)
-
-        def is_boss_defeated(self, boss: str, state: CollectionState):  # can used later
-            return state.has("Boss: " + boss, self.player, 1)
-
-        def has_keyitems_required(self, items: list[str], state: CollectionState):
-            passed_check = True
-            for item in items:
-                if state.has("Key Item: " + item, self.player, 1) is False:
-                    passed_check = False
-            return passed_check
-
         for region in self.multiworld.get_regions(self.player):
             for location in region.locations:
                 set_rule(location, lambda state: True)
 
         if self.options.goal.value == GoalOptions.DEFEAT_ANGEL:
-            self.multiworld.completion_condition[self.player] = lambda state: state.can_reach_location("Level End: Credits", self.player)
+            self.multiworld.completion_condition[self.player] = lambda state: state.can_reach_location("Game End: Credits", self.player)
         # Map rules
 
         # ITEM SPECIFIC RULES

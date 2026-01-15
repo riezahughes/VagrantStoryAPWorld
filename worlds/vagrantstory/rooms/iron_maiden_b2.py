@@ -1,23 +1,24 @@
-room_data = {
-    # --- IRON MAIDEN B2 ---
-    "The Eunics' Lot": {"exits": [("Iron Maiden B1 Exit", None), ("Ordeal By Fire", None)]},
+room_data = iron_maiden_b2 = {
+    "The Eunics' Lot": {"exits": [("Knotting", None), ("Ordeal By Fire", None)]},
     "Ordeal By Fire": {"exits": [("The Eunics' Lot", None), ("The Oven at Neisse", None)]},
     "The Oven at Neisse": {"exits": [("Ordeal By Fire", None), ("Pressing", None)]},
     "Pressing": {"exits": [("The Oven at Neisse", None), ("The Mind Burns", None)]},
     "The Mind Burns": {"exits": [("Pressing", None), ("The Rack", None)]},
     "The Rack": {"exits": [("The Mind Burns", None), ("The Saw", None)]},
     "The Saw": {"exits": [("The Rack", None), ("The Cold's Bridle", None)]},
-    "The Cold's Bridle": {"exits": [("The Saw", None), ("The Scavenger's Curse", None)]},
-    "The Scavenger's Curse": {"exits": [("The Cold's Bridle", None), ("The Whack of Despair", None)]},
-    "The Whack of Despair": {"exits": [("The Scavenger's Curse", None), ("The Dragging", None)]},
-    "The Dragging": {"exits": [("The Whack of Despair", None), ("Ordeal by Water", None)]},
-    "Ordeal by Water": {"exits": [("The Dragging", None), ("Tablillas", None), ("Strangulation", None)]},
-    "Tablillas": {"exits": [("Ordeal by Water", None), ("The Strappado", None), ("Tormentum Insomniae", None)]},
-    "Tormentum Insomniae": {
-        "exits": [
-            ("Tablillas", None),
-            ("The Rack", None),
-            ("The Iron Maiden", None),  # To B3 Boss
-        ]
-    },
+    "The Cold's Bridle": {"exits": [("The Saw", None), ("The Shin-Vice", None)]},
+    "The Shin-Vice": {"exits": [("The Cold's Bridle", None), ("The Spider", None)]},
+    "The Spider": {"exits": [("The Shin-Vice", None), ("Lead Sprinkler", None), ("Squassation", None), ("The Strappado", None)]},
+    "Lead Sprinkler": {"exits": [("The Spider", None)]},
+    "Squassation": {"exits": [("The Spider", None)]},
+    "The Strappado": {"exits": [("The Spider", None), ("Thumbscrews", None), ("Tablillas", None), ("Tongue Slicer", None)]},
+    "Thumbscrews": {"exits": [("The Strappado", None), ("Pendulum", None), ("Pendulum", None), ("Brank", None)]},
+    "Pendulum": {"exits": [("Thumbscrews", None), ("Thumbscrews", None), ("Brank", None), ("Dragging", None)]},
+    "Dragging": {"exits": [("Pendulum", None), ("Strangulation", None), ("Ordeal by Water", None), ("The Rack", None)]},
+    "Strangulation": {"exits": [("Dragging", None), ("Tablillas", None), ("Ordeal by Water", None), ("Tongue Slicer", None)]},
+    "Tablillas": {"exits": [("The Strappado", None), ("Tormentum Insomniae", None), ("Ordeal by Water", None), ("Strangulation", None)]},
+    "Tongue Slicer": {"exits": [("The Strappado", None), ("Strangulation", None), ("Ordeal by Water", None), ("Brank", None)]},
+    "Ordeal by Water": {"exits": [("Tongue Slicer", None), ("Strangulation", None), ("Dragging", None), ("Tablillas", None)]},
+    "Brank": {"exits": [("Tongue Slicer", None), ("Tormentum Insomniae", None), ("Pendulum", None), ("Thumbscrews", None)]},
+    "Tormentum Insomniae": {"exits": [("Tablillas", None), ("Brank", None), ("The Rack", None), ("The Iron Maiden", None)]},
 }

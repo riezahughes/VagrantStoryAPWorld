@@ -37,13 +37,4 @@ room_data = {
     "Treaty Room": {"exits": [("Way of Lost Children", None), ("The Miner's End", None)]},
     "The Miner's End": {"exits": [("Treaty Room", None), ("Gambler's Passage", None)]},
     "Gambler's Passage": {"exits": [("The Miner's End", None), ("The Poor Man's Ward", None)]},
-    "The Poor Man's Ward": {"exits": [("Gambler's Passage", None), ("Where Water Is Born", None)]},
-    "Where Water Is Born": {"exits": [("The Poor Man's Ward", None), ("Hall of the Empty Bells", None)]},
-    "Hall of the Empty Bells": {"exits": [("Where Water Is Born", None), ("Cul-de-Sac", None)]},
-    "Cul-de-Sac": {
-        "exits": [
-            ("Hall of the Empty Bells", None),
-            ("Forcas Rise", None),  # Connection to Town Centre South
-        ]
-    },
 }

@@ -1,6 +1,6 @@
 room_data = {
-    # --- IRON MAIDEN B3 ---
-    "The Iron Maiden": {"exits": [("Tormentum Insomniae", None)]},  # B3 Boss Room
-    "Saint Elmo's Belt": {"exits": [("The Garotte", None), ("Dunking the Witch", None)]},
-    "Dunking the Witch": {"exits": [("Saint Elmo's Belt", None), ("The Judgement", None)]},
+    "The Iron Maiden": {"exits": [("Tormentum Insomniae", None)]},
+    "Judgement": {"exits": [("The Iron Maiden", None), ("Saint Elmo's Belt", None), ("Dunking the Witch", None), ("The Soldier's Bedding", None)]},
+    "Saint Elmo's Belt": {"exits": [("Judgement", None)]},
+    "Dunking the Witch": {"exits": [("Judgement", None)]},
 }
