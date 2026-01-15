@@ -97,29 +97,42 @@ class VagrantStoryWorld(World):
             connection.connect(regions[to_region])
 
         # loop hell for the fucking hundreds of regions
-        for region_name, data in all_minor_regions.items():
-            exit_targets = [ex[0] for ex in data["exits"]]
-            used_counts = {}
+        # 1. Create all regions first so they exist in the 'regions' dict
+        for region_name in all_minor_regions:
+            regions[region_name] = self.create_region(region_name, location_tables.get(region_name, []))
 
-            for exit_target in data["exits"]:
-                if exit_target in all_minor_regions:
-                    if exit_targets.count(exit_target) > 1:
-                        count = used_counts.get(exit_target, 1)
-                        name = f"{region_name} -> {exit_target} ({count})"
-                        used_counts[exit_target] = count + 1
-                    else:
-                        name = f"{region_name} -> {exit_target}"
-                    create_room_connections(region_name, exit_target, name)
+        # 2. Now create connections
+        for region_name, data in all_minor_regions.items():
+            used_counts = {}
+            for exit_data in data.get("exits", []):
+                target_name = exit_data[0]
+
+                if target_name not in regions:
+                    print(f"Skipping connection: {target_name} does not exist in regions!")
+                    continue
+
+                # Handle duplicate exit names
+                count = used_counts.get(target_name, 0) + 1
+                used_counts[target_name] = count
+                name = f"{region_name} -> {target_name}" + (f" ({count})" if count > 1 else "")
+
+                create_room_connections(region_name, target_name, name)
 
         create_connection("Menu", "Ashley")
         create_connection("Menu", "Prologue")
         create_connection("Prologue", "Entrance to Darkness")
         create_connection("Dome", "Credits")
 
+        # Temporary Debugging
+        for region in self.multiworld.get_regions(self.player):
+            if not region.entrances:
+                print(f"CRITICAL: Region {region.name} has no way to enter it!")
+            if not region.exits:
+                print(f"Warning: Region {region.name} is a dead end.")
+
     # For each region, add the associated locations retrieved from the corresponding location_table
     def create_region(self, region_name, location_table) -> Region:
         new_region = Region(region_name, self.player, self.multiworld)
-        print(new_region.name, len(location_table))
         for location in location_table:
             if location.category in self.enabled_location_categories:
                 new_location = VagrantStoryLocation(
