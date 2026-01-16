@@ -125,13 +125,6 @@ class VagrantStoryWorld(World):
         create_connection("Prologue", "Entrance to Darkness")
         create_connection("Dome", "Credits")
 
-        # Temporary Debugging
-        for region in self.multiworld.get_regions(self.player):
-            if not region.entrances:
-                print(f"CRITICAL: Region {region.name} has no way to enter it!")
-            if not region.exits:
-                print(f"Warning: Region {region.name} is a dead end.")
-
     # For each region, add the associated locations retrieved from the corresponding location_table
     def create_region(self, region_name, location_table) -> Region:
         new_region = Region(region_name, self.player, self.multiworld)
@@ -215,6 +208,16 @@ class VagrantStoryWorld(World):
         if self.options.goal.value == GoalOptions.DEFEAT_ANGEL:
             self.multiworld.completion_condition[self.player] = lambda state: state.can_reach_location("Game End: Credits", self.player)
 
+        # Get a birds eye view of everything
+
+        # from Utils import visualize_regions
+
+        # state = self.multiworld.get_all_state(False)
+        # state.update_reachable_regions(self.player)
+        # visualize_regions(
+        #     self.get_region("Menu"), "vs_layout.puml", show_entrance_names=True, regions_to_highlight=state.reachable_regions[self.player]
+        # )
+
     def fill_slot_data(self) -> Dict[str, object]:
         slot_data: Dict[str, object] = {}
 
@@ -247,9 +250,9 @@ class VagrantStoryWorld(World):
                 "guaranteed_items": self.options.guaranteed_items.value,
                 "goal": self.options.goal.value,
                 "deathlink": self.options.deathlink.value,
+                "roomsanity": self.options.roomsanity.value,
                 "include_new_game_plus": self.options.include_new_game_plus.value,
-                "include_puzzle_mode_checks": self.options.include_puzzle_mode_checks,
-                "include_mid_boss_checks": self.options.include_mid_boss_checks.value,
+                "include_puzzle_mode_checks": self.options.include_puzzle_mode_checks.value,
                 "progression_option": self.options.progression_option.value,
             },
             "seed": self.multiworld.seed_name,  # to verify the server's multiworld
