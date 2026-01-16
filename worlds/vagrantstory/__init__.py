@@ -213,7 +213,7 @@ class VagrantStoryWorld(World):
                 set_rule(location, lambda state: True)
 
         if self.options.goal.value == GoalOptions.DEFEAT_ANGEL:
-            self.multiworld.completion_condition[self.player] = lambda state: state.can_reach_location("Game End: Credits", self.player)
+            self.multiworld.completion_condition[self.player] = lambda state: defeat_guildenstern_dark_angel_victory(self, state)
 
         set_vanilla_progression(self)
         # Get a birds eye view of everything
