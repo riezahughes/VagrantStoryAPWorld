@@ -2,12 +2,12 @@ from worlds.generic.Rules import set_rule, add_rule
 from BaseClasses import CollectionState, Iterable
 
 
-def has_key_required(self, location: str, state: CollectionState):
-    return state.has("Cleared: " + location, self.player)
+def has_key_required(self, key: str, state: CollectionState):
+    return state.has(key, self.player)
 
 
-def has_sigil_required(self, item, state: CollectionState):
-    return state.has(item, self.player)
+def has_sigil_required(self, sigil, state: CollectionState):
+    return state.has(sigil, self.player)
 
 
 def has_rood_inverse(self, state):
@@ -83,7 +83,7 @@ def set_vanilla_progression(self):
     )
     set_rule(self.get_entrance("The Cauldron -> Wooden Horse"), lambda state: has_sigil_required(self, "Tearose Sigil", state))
     set_rule(self.get_entrance("Wiping Blood from Blades -> Time Trial (Asura)"), lambda state: has_sigil_required(self, "Tigertail Sigil", state))
-    set_rule(self.get_entrance("Urge the Boy On -> Time Trial (Snow Dragon)"), lambda state: has_sigil_required(self, "Verbena Sigil", state))
+    set_rule(self.get_entrance("Urge the Boy On -> Time Trial (Snow Dragon)"), lambda state: has_sigil_required(self, "Verbana Sigil", state))
 
 
 def set_new_game_plus_rules(self, state):
