@@ -9,7 +9,7 @@ from worlds.generic.Rules import set_rule, add_rule, add_item_rule
 
 from .Items import VagrantStoryItem, VagrantStoryItemCategory, item_dictionary, key_item_names, item_descriptions, BuildItemPool
 from .Locations import VagrantStoryLocation, VagrantStoryLocationCategory, VagrantStoryLocationData, location_tables, location_dictionary
-from .Options import VagrantStoryOption, GoalOptions
+from .Options import VagrantStoryOption, GoalOptions, NewGamePlusToggle, IncludePuzzleModeChecks, PanelSanityToggle, RoomSanityToggle
 from .Rules import set_vanilla_progression
 from .VictoryConditions import defeat_guildenstern_dark_angel_victory
 from .rooms import all_minor_regions
@@ -130,6 +130,14 @@ class VagrantStoryWorld(World):
     def create_region(self, region_name, location_table) -> Region:
         new_region = Region(region_name, self.player, self.multiworld)
         for location in location_table:
+            if self.options.panelsanity.value == PanelSanityToggle.option_false and location.category == VagrantStoryLocationCategory.FLOOR_TRAPS:
+                continue
+            if self.options.roomsanity.value == RoomSanityToggle.option_false and location.category == VagrantStoryLocationCategory.ROOM_ENTERED:
+                continue
+            if self.options.include_new_game_plus.value == NewGamePlusToggle.option_false and (
+                location.category == VagrantStoryLocationCategory.BOSS_PLUS or location.category == VagrantStoryLocationCategory.BOSS_UNLOCKS_PLUS
+            ):
+                continue
             if location.category in self.enabled_location_categories:
                 new_location = VagrantStoryLocation(
                     self.player,

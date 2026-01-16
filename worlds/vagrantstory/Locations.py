@@ -507,11 +507,11 @@ location_tables = {
         VagrantStoryLocationData("KEP - A Storm of Arrows Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
     ],
     "Time Trial (Minotaur)": [
-        VagrantStoryLocationData("TK - Time Trial (Minotaur) - Minotaur Boss", "Vera Root", VagrantStoryLocationCategory.BOSS),
+        VagrantStoryLocationData("KEP - Time Trial (Minotaur) - Minotaur Boss", "Vera Root", VagrantStoryLocationCategory.BOSS),
         VagrantStoryLocationData("KEP - Time Trial (Minotaur) Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
     ],
     "Time Trial (Dragon)": [
-        VagrantStoryLocationData("TK - Time Trial (Dragon) - Dragon Boss", "Vera Root", VagrantStoryLocationCategory.BOSS),
+        VagrantStoryLocationData("KEP - Time Trial (Dragon) - Dragon Boss", "Vera Root", VagrantStoryLocationCategory.BOSS),
         VagrantStoryLocationData("KEP - Time Trial (Dragon) Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
     ],
     "Urge the Boy On": [

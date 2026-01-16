@@ -73,7 +73,7 @@ class PanelSanityToggle(Toggle):
     option_false = 0
 
 
-class IncludeNewGamePlusItems(Toggle):
+class NewGamePlusToggle(Toggle):
     """Adds new game plus locations (rood inverse doors, extra bosses, etc)"""
 
     display_name = "New Game Plus Locations"
@@ -86,7 +86,7 @@ class IncludeNewGamePlusItems(Toggle):
 class VagrantStoryOption(PerGameCommonOptions):
     goal: GoalOption
     progression_option: ProgressionOption
-    include_new_game_plus: IncludeNewGamePlusItems
+    include_new_game_plus: NewGamePlusToggle
     include_puzzle_mode_checks: IncludePuzzleModeChecks
     roomsanity: RoomSanityToggle
     panelsanity: PanelSanityToggle
