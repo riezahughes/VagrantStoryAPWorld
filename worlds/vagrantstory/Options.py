@@ -38,7 +38,7 @@ class ProgressionOption(Choice):
 
 
 class DeathLinkToggle(Toggle):
-    """Sets if you want deathlink or not"""
+    """Sets if you want deathlink or not (DOES NOT WORK)"""
 
     display_name = "Death Link"
     default = 0
@@ -64,6 +64,15 @@ class RoomSanityToggle(Toggle):
     option_false = 0
 
 
+class PanelSanityToggle(Toggle):
+    """Include every trap floor in the game as a check. If you have put on NG+ options, then it will include those as well."""
+
+    display_name = "Panelsanity"
+    default = 0
+    option_true = 1
+    option_false = 0
+
+
 class IncludeNewGamePlusItems(Toggle):
     """Adds new game plus locations (rood inverse doors, extra bosses, etc)"""
 
@@ -80,5 +89,6 @@ class VagrantStoryOption(PerGameCommonOptions):
     include_new_game_plus: IncludeNewGamePlusItems
     include_puzzle_mode_checks: IncludePuzzleModeChecks
     roomsanity: RoomSanityToggle
+    panelsanity: PanelSanityToggle
     deathlink: DeathLinkToggle
     guaranteed_items: GuaranteedItemsOption

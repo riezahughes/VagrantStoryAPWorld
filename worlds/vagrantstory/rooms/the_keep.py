@@ -47,4 +47,12 @@ room_data = {
             ("Forcas Rise", None),  # To Town Centre South
         ]
     },
+    "Time Trial (Minotaur)": {"exits": [("A Storm of Arrows", None)]},
+    "Time Trial (Dragon)": {"exits": [("A Storm of Arrows", None)]},
+    "Time Trial (Earth Dragon)": {"exits": [("Urge the Boy On", None)]},
+    "Time Trial (Snow Dragon)": {"exits": [("Urge the Boy On", None)]},
+    "Time Trial (Damascus Golem)": {"exits": [("A Taste of the Spoils", None)]},
+    "Time Trial (Damascus Crab)": {"exits": [("A Taste of the Spoils", None)]},
+    "Time Trial (Death + Ogre Zombie)": {"exits": [("Wiping Blood from Blades", None)]},
+    "Time Trial (Asura)": {"exits": [("Wiping Blood from Blades", None)]},
 }

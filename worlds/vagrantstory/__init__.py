@@ -10,6 +10,7 @@ from worlds.generic.Rules import set_rule, add_rule, add_item_rule
 from .Items import VagrantStoryItem, VagrantStoryItemCategory, item_dictionary, key_item_names, item_descriptions, BuildItemPool
 from .Locations import VagrantStoryLocation, VagrantStoryLocationCategory, VagrantStoryLocationData, location_tables, location_dictionary
 from .Options import VagrantStoryOption, GoalOptions
+from .Rules import set_vanilla_progression
 from .VictoryConditions import defeat_guildenstern_dark_angel_victory
 from .rooms import all_minor_regions
 
@@ -110,8 +111,8 @@ class VagrantStoryWorld(World):
                     if exit_targets.count(exit_target[0]) > 1:
                         count = used_counts.get(exit_target[0], 1)
                         name = f"{region_name} -> {exit_target[0]} ({count})"
-                        print(name)
                         used_counts[exit_target[0]] = count + 1
+                        print(name)
                     else:
                         name = f"{region_name} -> {exit_target[0]}"
                         print(name)
@@ -142,11 +143,9 @@ class VagrantStoryWorld(World):
                 event_item = self.create_item(location.default_item)
                 new_location = VagrantStoryLocation(self.player, location.name, location.category, location.default_item, None, new_region)
                 event_item.code = None
-                # Cast the item to the correct type
+
                 if isinstance(event_item, VagrantStoryItem):
                     new_location.place_locked_item(event_item)
-            # Uncomment to print all locations
-            # print(f"{self.location_name_to_id[location.name]}: {location.name}")
             new_region.locations.append(new_location)
 
         self.multiworld.regions.append(new_region)
@@ -208,15 +207,16 @@ class VagrantStoryWorld(World):
         if self.options.goal.value == GoalOptions.DEFEAT_ANGEL:
             self.multiworld.completion_condition[self.player] = lambda state: state.can_reach_location("Game End: Credits", self.player)
 
+        set_vanilla_progression(self)
         # Get a birds eye view of everything
 
-        # from Utils import visualize_regions
+        from Utils import visualize_regions
 
-        # state = self.multiworld.get_all_state(False)
-        # state.update_reachable_regions(self.player)
-        # visualize_regions(
-        #     self.get_region("Menu"), "vs_layout.puml", show_entrance_names=True, regions_to_highlight=state.reachable_regions[self.player]
-        # )
+        state = self.multiworld.get_all_state(False)
+        state.update_reachable_regions(self.player)
+        visualize_regions(
+            self.get_region("Menu"), "vs_layout.puml", show_entrance_names=True, regions_to_highlight=state.reachable_regions[self.player]
+        )
 
     def fill_slot_data(self) -> Dict[str, object]:
         slot_data: Dict[str, object] = {}
@@ -251,6 +251,7 @@ class VagrantStoryWorld(World):
                 "goal": self.options.goal.value,
                 "deathlink": self.options.deathlink.value,
                 "roomsanity": self.options.roomsanity.value,
+                "panelsanity": self.options.panelsanity.value,
                 "include_new_game_plus": self.options.include_new_game_plus.value,
                 "include_puzzle_mode_checks": self.options.include_puzzle_mode_checks.value,
                 "progression_option": self.options.progression_option.value,
