@@ -64,7 +64,7 @@ class VagrantStoryWorld(World):
         self.enabled_location_categories.add(VagrantStoryLocationCategory.BOSS)
         self.enabled_location_categories.add(VagrantStoryLocationCategory.BOSS_PLUS)
         self.enabled_location_categories.add(VagrantStoryLocationCategory.BOSS_UNLOCKS_PLUS)
-        self.enabled_location_categories.add(VagrantStoryLocationCategory.GRIMOIRES)
+        self.enabled_location_categories.add(VagrantStoryLocationCategory.GRIMOIRE_UNLOCKS)
         self.enabled_location_categories.add(VagrantStoryLocationCategory.KEY_UNLOCKS)
         self.enabled_location_categories.add(VagrantStoryLocationCategory.SIGIL_UNLOCKS)
         self.enabled_location_categories.add(VagrantStoryLocationCategory.ROOD_INVERSE_UNLOCKS)
