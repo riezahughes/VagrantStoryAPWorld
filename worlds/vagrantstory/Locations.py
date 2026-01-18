@@ -242,7 +242,7 @@ location_tables = {
         VagrantStoryLocationData("Break: Retribution", "Vera Root", VagrantStoryLocationCategory.BREAK_UNLOCKS),
     ],
     "Prologue": [
-        VagrantStoryLocationData("Boss: Injured Wyvern - Prologue", "Vera Root", VagrantStoryLocationCategory.BOSS),
+        VagrantStoryLocationData("PR - Prologue - Injured Wyvern Boss", "Vera Root", VagrantStoryLocationCategory.BOSS),
         # two soldiers at start?
     ],
     # Wine Cellar
@@ -951,6 +951,7 @@ location_tables = {
         VagrantStoryLocationData("IM2 - Squassation - Terra Thrust Floor Trap", "Vera Root", VagrantStoryLocationCategory.FLOOR_TRAPS),
         VagrantStoryLocationData("IM2 - Squassation Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
     ],
+    ## ////////////////////////////////////////////////////
     "The Strappado": [VagrantStoryLocationData("IM2 - The Strappado Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED)],
     "Thumbscrews": [VagrantStoryLocationData("IM2 - Thumbscrews Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED)],
     "Pendulum": [
@@ -983,7 +984,6 @@ location_tables = {
     ],
     # The Great Cathedral L1
     "Into Holy Battle": [
-        VagrantStoryLocationData("GC1 - Into Holy Battle - Truth and Lies Unlock", "Vera Root", VagrantStoryLocationCategory.SIGIL_UNLOCKS),
         VagrantStoryLocationData("GC1 - Into Holy Battle Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
     ],
     "The Poisoned Chapel": [
@@ -995,6 +995,7 @@ location_tables = {
         VagrantStoryLocationData("GC1 - Sin and Punishment - Eruption Floor Trap", "Vera Root", VagrantStoryLocationCategory.FLOOR_TRAPS),
         VagrantStoryLocationData("GC1 - Sin and Punishment Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
     ],
+    # //////////////////////////////////////////
     "A Light in the Dark": [
         VagrantStoryLocationData("GC1 - A Light in the Dark - Arch Dragon Boss", "Vera Root", VagrantStoryLocationCategory.BOSS),
         VagrantStoryLocationData("GC1 - A Light in the Dark Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
@@ -1347,7 +1348,6 @@ location_tables = {
     ],
     "Work, Then Die": [VagrantStoryLocationData("AM2 - Work, Then Die Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED)],
     "Rock Bottom": [VagrantStoryLocationData("AM2 - Rock Bottom Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED)],
-    "Senses Lost": [VagrantStoryLocationData("AM2 - Senses Lost Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED)],
     "The Lunatic Veins": [VagrantStoryLocationData("AM2 - The Lunatic Veins Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED)],
     "Tomb of the Reborn": [
         VagrantStoryLocationData("AM2 - Tomb of the Reborn - Earth Elemental Boss", "Vera Root", VagrantStoryLocationCategory.BOSS),
