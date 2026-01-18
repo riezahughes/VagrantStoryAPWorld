@@ -112,10 +112,8 @@ class VagrantStoryWorld(World):
                         count = used_counts.get(exit_target[0], 1)
                         name = f"{region_name} -> {exit_target[0]} ({count})"
                         used_counts[exit_target[0]] = count + 1
-                        print(name)
                     else:
                         name = f"{region_name} -> {exit_target[0]}"
-                        print(name)
                     create_room_connections(region_name, exit_target[0], name)
 
         create_connection("Menu", "Ashley")
