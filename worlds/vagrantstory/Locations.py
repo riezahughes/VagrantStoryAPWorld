@@ -165,7 +165,6 @@ location_tables = {
         VagrantStoryLocationData("Grimoire: Aero Guard", "Vera Root", VagrantStoryLocationCategory.GRIMOIRE_UNLOCKS),
         VagrantStoryLocationData("Grimoire: Pyro Guard", "Vera Root", VagrantStoryLocationCategory.GRIMOIRE_UNLOCKS),
         VagrantStoryLocationData("Grimoire: Terra Guard", "Vera Root", VagrantStoryLocationCategory.GRIMOIRE_UNLOCKS),
-        VagrantStoryLocationData("Grimoire: Aero Guard", "Vera Root", VagrantStoryLocationCategory.GRIMOIRE_UNLOCKS),
         VagrantStoryLocationData("Grimoire: Silence", "Vera Root", VagrantStoryLocationCategory.GRIMOIRE_UNLOCKS),
         VagrantStoryLocationData("Grimoire: Magic Ward", "Vera Root", VagrantStoryLocationCategory.GRIMOIRE_UNLOCKS),
         VagrantStoryLocationData("Grimoire: Surging Balm", "Vera Root", VagrantStoryLocationCategory.GRIMOIRE_UNLOCKS),
