@@ -4,6 +4,7 @@ room_data = {
     "Bandit's Hollow": {"exits": [("Delusions of Happiness", "Iron Key"), ("Dining in Darkness", None)]},
     "Delusions of Happiness": {"exits": [("Bandit's Hollow", None)]},
     "Work, Then Die": {"exits": [("Bandit's Hollow", "One-Way"), ("Hope Obstructed", None)]},
+    "Senses Lost": {"exits": [("Crossing of Blood", None), ("Desire's Passage", None)]},
     "The Lunatic Veins": {"exits": [("Bandit's Hollow", "One-Way"), ("Tomb of the Reborn", None)]},
     "Tomb of the Reborn": {"exits": [("The Lunatic Veins", None), ("Fool's Gold, Fool's Loss", None)]},
     "Fool's Gold, Fool's Loss": {"exits": [("Tomb of the Reborn", None), ("Kilroy Was Here", None), ("Crossing of Blood", None)]},
@@ -21,7 +22,6 @@ room_data = {
     "Crossing of Blood": {
         "exits": [("The Abandoned Catspaw", None), ("Senses Lost", None), ("The Fallen Bricklayer", None), ("Fool's Gold, Fool's Loss", None)]
     },
-    "Senses Lost": {"exits": [("Crossing of Blood", None), ("Desire's Passage", None)]},
     "Desire's Passage": {"exits": [("Senses Lost", None), ("Way of Lost Children", None)]},
     "Way of Lost Children": {"exits": [("Desire's Passage", None), ("Treaty Room", None), ("Hidden Resources", None)]},
     "Hidden Resources": {"exits": [("Way of Lost Children", None)]},
