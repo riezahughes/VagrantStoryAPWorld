@@ -480,8 +480,14 @@ location_tables = {
     # Town Centre South
     "Forcas Rise": [VagrantStoryLocationData("TCS - Forcas Rise Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED)],
     "Valdiman Gates": [VagrantStoryLocationData("TCS - Valdiman Gates Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED)],
-    "Rue Aliano": [VagrantStoryLocationData("TCS - Rue Aliano - Mandrake Sigil Unlock", "Vera Root", VagrantStoryLocationCategory.SIGIL_UNLOCKS)],
-    "The House Khazabas": [VagrantStoryLocationData("TCS - The House Khazabas - Chest", "Vera Root", VagrantStoryLocationCategory.CHEST)],
+    "Rue Aliano": [
+        VagrantStoryLocationData("TCS - Rue Aliano - Mandrake Sigil Unlock", "Vera Root", VagrantStoryLocationCategory.SIGIL_UNLOCKS),
+        VagrantStoryLocationData("TCS - Rue Aliano Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
+    ],
+    "The House Khazabas": [
+        VagrantStoryLocationData("TCS - The House Khazabas - Chest", "Vera Root", VagrantStoryLocationCategory.CHEST),
+        VagrantStoryLocationData("TCS - The House Khazabas Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
+    ],
     "Zebel's Walk": [VagrantStoryLocationData("TCS - Zebel's Walk Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED)],
     "Rue Volnac": [VagrantStoryLocationData("TCS - Rue Volnac Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED)],
     "Rue Faltes": [VagrantStoryLocationData("TCS - Rue Faltes Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED)],
