@@ -21,8 +21,9 @@ class VagrantStoryItemCategory(IntEnum):
     GRIP_PARTS = 13
     SHIELDS = 14
     ARMOUR = 15
-    TRAP = 16
-    SKIP = 17
+    ACCESSORY = 16
+    TRAP = 17
+    SKIP = 18
 
 
 class VagrantStoryItemData(NamedTuple):
@@ -1500,6 +1501,38 @@ _all_items: List[VagrantStoryItemData] = [
     VagrantStoryItemData("Hagane Dread Shield", 965, VagrantStoryItemCategory.SHIELDS, False),
     VagrantStoryItemData("Silver Dread Shield", 966, VagrantStoryItemCategory.SHIELDS, False),
     VagrantStoryItemData("Damascus Dread Shield", 967, VagrantStoryItemCategory.SHIELDS, False),
+    # Accessories
+    VagrantStoryItemData("Rood Necklace", 968, VagrantStoryItemCategory.ACCESSORY, False),
+    VagrantStoryItemData("Rune Earrings", 969, VagrantStoryItemCategory.ACCESSORY, False),
+    VagrantStoryItemData("Lionhead", 970, VagrantStoryItemCategory.ACCESSORY, False),
+    VagrantStoryItemData("Rusted Nails", 971, VagrantStoryItemCategory.ACCESSORY, False),
+    VagrantStoryItemData("Sylphid Ring", 972, VagrantStoryItemCategory.ACCESSORY, False),
+    VagrantStoryItemData("Marduk", 973, VagrantStoryItemCategory.ACCESSORY, False),
+    VagrantStoryItemData("Salamander Ring", 974, VagrantStoryItemCategory.ACCESSORY, False),
+    VagrantStoryItemData("Tamulis Tongue", 975, VagrantStoryItemCategory.ACCESSORY, False),
+    VagrantStoryItemData("Gnome Bracelet", 976, VagrantStoryItemCategory.ACCESSORY, False),
+    VagrantStoryItemData("Palolos Ring", 977, VagrantStoryItemCategory.ACCESSORY, False),
+    VagrantStoryItemData("Undine Bracelet", 978, VagrantStoryItemCategory.ACCESSORY, False),
+    VagrantStoryItemData("Talian Ring", 979, VagrantStoryItemCategory.ACCESSORY, False),
+    VagrantStoryItemData("Agrias Balm", 980, VagrantStoryItemCategory.ACCESSORY, False),
+    VagrantStoryItemData("Kadesh Ring", 981, VagrantStoryItemCategory.ACCESSORY, False),
+    VagrantStoryItemData("Agrippas Choker", 982, VagrantStoryItemCategory.ACCESSORY, False),
+    VagrantStoryItemData("Diadras Earring", 983, VagrantStoryItemCategory.ACCESSORY, False),
+    VagrantStoryItemData("Titans Ring", 984, VagrantStoryItemCategory.ACCESSORY, False),
+    VagrantStoryItemData("Lau Feis Armlet", 985, VagrantStoryItemCategory.ACCESSORY, False),
+    VagrantStoryItemData("Swan Song", 986, VagrantStoryItemCategory.ACCESSORY, False),
+    VagrantStoryItemData("Pushpaka", 987, VagrantStoryItemCategory.ACCESSORY, False),
+    VagrantStoryItemData("Edgars Earrings", 988, VagrantStoryItemCategory.ACCESSORY, False),
+    VagrantStoryItemData("Cross Choker", 989, VagrantStoryItemCategory.ACCESSORY, False),
+    VagrantStoryItemData("Ghost Hound", 990, VagrantStoryItemCategory.ACCESSORY, False),
+    VagrantStoryItemData("Beaded Anklet", 991, VagrantStoryItemCategory.ACCESSORY, False),
+    VagrantStoryItemData("Dragonhead", 992, VagrantStoryItemCategory.ACCESSORY, False),
+    VagrantStoryItemData("Fafnirs Tear", 993, VagrantStoryItemCategory.ACCESSORY, False),
+    VagrantStoryItemData("Agales Chain", 994, VagrantStoryItemCategory.ACCESSORY, False),
+    VagrantStoryItemData("Balam Ring", 995, VagrantStoryItemCategory.ACCESSORY, False),
+    VagrantStoryItemData("Nimjes Coif", 996, VagrantStoryItemCategory.ACCESSORY, False),
+    VagrantStoryItemData("Morgans Nails", 997, VagrantStoryItemCategory.ACCESSORY, False),
+    VagrantStoryItemData("Marlenes Ring", 998, VagrantStoryItemCategory.ACCESSORY, False),
 ]
 # Convert raw list of tuples into MedievilItemData NamedTuple instances
 # _all_items = [VagrantStoryItemData(row[0], row[1], row[2], row[3]) for row in _all_items]
