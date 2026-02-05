@@ -9,7 +9,17 @@ from worlds.generic.Rules import set_rule, add_rule, add_item_rule
 
 from .Items import VagrantStoryItem, VagrantStoryItemCategory, item_dictionary, key_item_names, item_descriptions, BuildItemPool
 from .Locations import VagrantStoryLocation, VagrantStoryLocationCategory, VagrantStoryLocationData, location_tables, location_dictionary
-from .Options import VagrantStoryOption, GoalOptions, NewGamePlusToggle, IncludePuzzleModeChecks, PanelSanityToggle, RoomSanityToggle
+from .Options import (
+    VagrantStoryOption,
+    ProgressionOptions,
+    OpenWorldOption,
+    GoalOptions,
+    NewGamePlusToggle,
+    IncludePuzzleModeChecks,
+    PanelSanityToggle,
+    RoomSanityToggle,
+    IncludePrologueToggle,
+)
 from .Rules import set_vanilla_progression
 from .VictoryConditions import defeat_guildenstern_dark_angel_victory
 from .rooms import all_minor_regions
@@ -116,18 +126,45 @@ class VagrantStoryWorld(World):
                         name = f"{region_name} -> {exit_target[0]}"
                     create_room_connections(region_name, exit_target[0], name)
 
+        list_of_starting_points = [
+            "Workshop 'Godhands'",
+            "Workshop 'Junction Point'",
+            "Workshop 'Metal Works'",
+            "Workshop 'Magic Hammer'",
+            "Workshop 'Keane's Crafts'",
+            "Workshop 'Work of Art'",
+        ]
+
+        starting_index_choice = (
+            self.world.random.randrange(0, 4)
+            if self.options.progression_option.value == ProgressionOptions.OPEN
+            and self.options.open_world_option.value == self.options.open_world_option.value == "random"
+            else self.options.open_world_option.value
+        )
+
+        first_room = (
+            list_of_starting_points[starting_index_choice]
+            if self.options.progression_option.value == ProgressionOptions.OPEN
+            else "Entrance to Darkness"
+        )
+
         create_connection("Menu", "Ashley")
         create_connection("Ashley", "Menu")
-        create_connection("Menu", "Prologue")
-        create_connection("Prologue", "Menu")
-        create_connection("Menu", "Entrance to Darkness")
-        create_connection("Prologue", "Entrance to Darkness")
+
+        if self.options.include_prologue.value == IncludePrologueToggle.option_true:
+            create_connection("Menu", "Prologue")
+            create_connection("Prologue", "Menu")
+            create_connection("Prologue", first_room)
+
+        create_connection("Menu", first_room)
         create_connection("Dome", "Credits")
 
     # For each region, add the associated locations retrieved from the corresponding location_table
     def create_region(self, region_name, location_table) -> Region:
         new_region = Region(region_name, self.player, self.multiworld)
         for location in location_table:
+            if self.options.include_prologue.value == IncludePrologueToggle.option_false and "PR - Prologue" in location.name:
+                continue
             if self.options.panelsanity.value == PanelSanityToggle.option_false and location.category == VagrantStoryLocationCategory.FLOOR_TRAPS:
                 continue
             if self.options.roomsanity.value == RoomSanityToggle.option_false and location.category == VagrantStoryLocationCategory.ROOM_ENTERED:
@@ -253,14 +290,16 @@ class VagrantStoryWorld(World):
 
         slot_data = {
             "options": {
-                "guaranteed_items": self.options.guaranteed_items.value,
                 "goal": self.options.goal.value,
-                "deathlink": self.options.deathlink.value,
-                "roomsanity": self.options.roomsanity.value,
-                "panelsanity": self.options.panelsanity.value,
+                "progression_option": self.options.progression_option.value,
+                "open_world_option": self.options.open_world_option.value,
+                "include_prologue": self.options.include_prologue.value,
                 "include_new_game_plus": self.options.include_new_game_plus.value,
                 "include_puzzle_mode_checks": self.options.include_puzzle_mode_checks.value,
-                "progression_option": self.options.progression_option.value,
+                "roomsanity": self.options.roomsanity.value,
+                "panelsanity": self.options.panelsanity.value,
+                "deathlink": self.options.deathlink.value,
+                "guaranteed_items": self.options.guaranteed_items.value,
             },
             "seed": self.multiworld.seed_name,  # to verify the server's multiworld
             "slot": self.multiworld.player_name[self.player],  # to connect to server

@@ -9,7 +9,16 @@ class GoalOptions:
 
 class ProgressionOptions:
     VANILLA = 0
-    RANDOM = 1
+    OPEN = 1
+
+
+class OpenWorldOptions:
+    MAGIC_HAMMER = 0
+    JUNTION_POINT = 1
+    METAL_WORKS = 2
+    GODHANDS = 3
+    KEANES_CRAFT = 4
+    WORK_OF_ART = 5
 
 
 class GuaranteedItemsOption(ItemDict):
@@ -35,6 +44,38 @@ class ProgressionOption(Choice):
     display_name = "Game Progression Options"
     default = ProgressionOptions.VANILLA
     option_vanilla = ProgressionOptions.VANILLA
+    option_open = ProgressionOptions.OPEN
+
+
+class OpenWorldOption(Choice):
+    """If you've chosen open world, then select how you would like to begin. You can start
+    from any of the workshops. Alternatively, it can be randomized
+    - Magic Hammer (Town City East)
+    - Junction Point (Town City East)
+    - Metal Works (Town City East)
+    - GodHands (Undercity West)
+    - Keane's Craft (The Keep)
+    - Work of Art (Catacombs)
+    - Random (any of them)
+    """
+
+    display_name = "Open World beginning choice"
+    default = "random"
+    option_magic_hammer = OpenWorldOptions.MAGIC_HAMMER
+    option_junction_point = OpenWorldOptions.JUNTION_POINT
+    option_metal_works = OpenWorldOptions.METAL_WORKS
+    option_godhands = OpenWorldOptions.GODHANDS
+    option_keanes_craft = OpenWorldOptions.KEANES_CRAFT
+    option_work_of_art = OpenWorldOptions.WORK_OF_ART
+
+
+class IncludePrologueToggle(Toggle):
+    """Include Prologue checks (May work? Not 100% sure. There's been a lot going on)"""
+
+    display_name = "Include Prologue Checks"
+    default = 0
+    option_true = 1
+    option_false = 0
 
 
 class DeathLinkToggle(Toggle):
@@ -86,6 +127,8 @@ class NewGamePlusToggle(Toggle):
 class VagrantStoryOption(PerGameCommonOptions):
     goal: GoalOption
     progression_option: ProgressionOption
+    open_world_option: OpenWorldOption
+    include_prologue: IncludePrologueToggle
     include_new_game_plus: NewGamePlusToggle
     include_puzzle_mode_checks: IncludePuzzleModeChecks
     roomsanity: RoomSanityToggle
