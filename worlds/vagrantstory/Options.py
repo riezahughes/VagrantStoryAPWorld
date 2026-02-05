@@ -65,7 +65,7 @@ class RoomSanityToggle(Toggle):
 
 
 class PanelSanityToggle(Toggle):
-    """Include every trap floor in the game as a check. If you have put on NG+ options, then it will include those as well."""
+    """Include every trap floor in the game as a check. If you have put on NG+ options, then it will include those as well. (DOES NOT WORK)"""
 
     display_name = "Panelsanity"
     default = 0
