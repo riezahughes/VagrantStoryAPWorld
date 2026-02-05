@@ -14,7 +14,7 @@ class ProgressionOptions:
 
 class OpenWorldOptions:
     MAGIC_HAMMER = 0
-    JUNTION_POINT = 1
+    JUNCTION_POINT = 1
     METAL_WORKS = 2
     GODHANDS = 3
     KEANES_CRAFT = 4
@@ -62,7 +62,7 @@ class OpenWorldOption(Choice):
     display_name = "Open World beginning choice"
     default = "random"
     option_magic_hammer = OpenWorldOptions.MAGIC_HAMMER
-    option_junction_point = OpenWorldOptions.JUNTION_POINT
+    option_junction_point = OpenWorldOptions.JUNCTION_POINT
     option_metal_works = OpenWorldOptions.METAL_WORKS
     option_godhands = OpenWorldOptions.GODHANDS
     option_keanes_craft = OpenWorldOptions.KEANES_CRAFT
@@ -73,6 +73,33 @@ class IncludePrologueToggle(Toggle):
     """Include Prologue checks (May work? Not 100% sure. There's been a lot going on)"""
 
     display_name = "Include Prologue Checks"
+    default = 0
+    option_true = 1
+    option_false = 0
+
+
+class IncludeTeleportSpellToggle(Toggle):
+    """Start the game with the teleport spell (NOT WORKING)"""
+
+    display_name = "Start With Teleport Spell"
+    default = 0
+    option_true = 1
+    option_false = 0
+
+
+class SetTeleportZeroCostToggle(Toggle):
+    """The Teleport Spell will be Zero MP cost (NOT WORKING)"""
+
+    display_name = "Teleport has zero MP Cost"
+    default = 0
+    option_true = 1
+    option_false = 0
+
+
+class OpenAllTeleportLocationsToggle(Toggle):
+    """Allow all teleport locations to be available (NOT WORKING)"""
+
+    display_name = "Teleport anywhere"
     default = 0
     option_true = 1
     option_false = 0
@@ -131,6 +158,9 @@ class VagrantStoryOption(PerGameCommonOptions):
     include_prologue: IncludePrologueToggle
     include_new_game_plus: NewGamePlusToggle
     include_puzzle_mode_checks: IncludePuzzleModeChecks
+    include_teleport: IncludeTeleportSpellToggle
+    zero_mp_teleport: SetTeleportZeroCostToggle
+    open_teleport_locations: OpenAllTeleportLocationsToggle
     roomsanity: RoomSanityToggle
     panelsanity: PanelSanityToggle
     deathlink: DeathLinkToggle
