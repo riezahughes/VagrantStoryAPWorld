@@ -257,7 +257,7 @@ location_tables = {
         VagrantStoryLocationData("WC - Hall of Struggle Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
     ],
     "Smokebarrel Stair": [
-        VagrantStoryLocationData("WC - Smokebarrel Stair - Heal Panel Floor Trap", "Vera Root", VagrantStoryLocationCategory.FLOOR_TRAPS),
+        VagrantStoryLocationData("WC - Smokebarrel Stair - Gust Panel Floor Trap", "Vera Root", VagrantStoryLocationCategory.FLOOR_TRAPS),
         VagrantStoryLocationData("WC - Smokebarrel Stair - Chamomile Sigil Unlock", "Vera Root", VagrantStoryLocationCategory.BOSS_UNLOCKS_PLUS),
         VagrantStoryLocationData("WC - Smokebarrel Stair Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
     ],
