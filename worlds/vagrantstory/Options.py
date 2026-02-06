@@ -79,7 +79,7 @@ class IncludePrologueToggle(Toggle):
 
 
 class IncludeTeleportSpellToggle(Toggle):
-    """Start the game with the teleport spell (NOT WORKING)"""
+    """Start the game with the teleport spell"""
 
     display_name = "Start With Teleport Spell"
     default = 0
@@ -88,7 +88,7 @@ class IncludeTeleportSpellToggle(Toggle):
 
 
 class SetTeleportZeroCostToggle(Toggle):
-    """The Teleport Spell will be Zero MP cost (NOT WORKING)"""
+    """The Teleport Spell will be Zero MP cost"""
 
     display_name = "Teleport has zero MP Cost"
     default = 0
@@ -97,9 +97,9 @@ class SetTeleportZeroCostToggle(Toggle):
 
 
 class OpenAllTeleportLocationsToggle(Toggle):
-    """Allow all teleport locations to be available (NOT WORKING)"""
+    """Allow all teleport locations to be available"""
 
-    display_name = "Teleport anywhere"
+    display_name = "Teleport to any valid save point without finding it first."
     default = 0
     option_true = 1
     option_false = 0
