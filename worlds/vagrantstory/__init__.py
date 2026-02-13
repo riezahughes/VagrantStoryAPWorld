@@ -216,12 +216,12 @@ class VagrantStoryWorld(World):
         self.multiworld.itempool.extend(generated_items)
 
     def create_item(self, name: str) -> Item:
-        item_data = item_dictionary.get(name)
+        item_data = item_dictionary(self.options).get(name)
 
         if not item_data:
             # Fallback for unknown items. This indicates a data inconsistency.
             print(f"Warning: Attempted to create unknown item: {name}. Falling back to filler.")
-            return VagrantStoryItem(name, ItemClassification.filler, None, self.player)
+            return VagrantStoryItem(name, ItemClassification.filler, None, self.player, self.options)
 
         # Determine the Archipelago ItemClassification based on VagrantStoryItemData.
         item_classification: ItemClassification
@@ -237,7 +237,7 @@ class VagrantStoryWorld(World):
         else:  # Default for FILLER or other categories not explicitly useful/progression
             item_classification = ItemClassification.filler
 
-        return VagrantStoryItem(name, item_classification, VagrantStoryItem.get_name_to_id()[name], self.player)
+        return VagrantStoryItem(name, item_classification, VagrantStoryItem.get_name_to_id()[name], self.player, self.options)
 
     def get_filler_item_name(self) -> str:
         return "Gil (50)"  # this clearly needs looked into
@@ -264,7 +264,7 @@ class VagrantStoryWorld(World):
     def fill_slot_data(self) -> Dict[str, object]:
         slot_data: Dict[str, object] = {}
 
-        name_to_vagrant_story_code = {item.name: item.v_code for item in item_dictionary.values()}
+        name_to_vagrant_story_code = {item.name: item.v_code for item in item_dictionary(self.options).values()}
         # Create the mandatory lists to generate the player's output file
         items_id = []
         items_address = []
@@ -280,7 +280,7 @@ class VagrantStoryWorld(World):
 
             if location.player == self.player:
                 # we are the sender of the location check
-                locations_address.append(item_dictionary[location_dictionary[location.name].default_item].v_code)
+                locations_address.append(item_dictionary(self.options)[location_dictionary[location.name].default_item].v_code)
                 locations_id.append(location.address)
                 if location.item is not None:
                     if location.item.player == self.player:
@@ -296,6 +296,9 @@ class VagrantStoryWorld(World):
                 "include_prologue": self.options.include_prologue.value,
                 "include_new_game_plus": self.options.include_new_game_plus.value,
                 "include_puzzle_mode_checks": self.options.include_puzzle_mode_checks.value,
+                "item_drop_option": self.options.item_drop_option.value,
+                "chest_item_choices": self.options.chest_item_choices.value,
+                "boss_item_choices": self.options.boss_item_choices.value,
                 "include_teleport": self.options.include_teleport.value,
                 "zero_mp_teleport": self.options.zero_mp_teleport.value,
                 "open_teleport_locations": self.options.open_teleport_locations.value,

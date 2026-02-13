@@ -12,6 +12,17 @@ class ProgressionOptions:
     OPEN = 1
 
 
+class ItemPoolDropOptions:
+    VANILLA = 0
+    HEAVY = 1
+
+
+class ItemRewardDropOptions:
+    NOTHING = 0
+    HEAL_HEAVY = 1
+    RISK_HEAVY = 2
+
+
 class OpenWorldOptions:
     MAGIC_HAMMER = 0
     JUNCTION_POINT = 1
@@ -67,6 +78,46 @@ class OpenWorldOption(Choice):
     option_godhands = OpenWorldOptions.GODHANDS
     option_keanes_craft = OpenWorldOptions.KEANES_CRAFT
     option_work_of_art = OpenWorldOptions.WORK_OF_ART
+
+
+class ItemPoolDropOption(Choice):
+    """
+    There are two types of major choices for how you want the loot to go in the AP World
+    - "Vanilla"  will give you the item pool from the original game.
+    - "Heavy" will give you every possible combination of blades, weopons, gems and shields from the
+    game as well as vanilla.
+
+    Both options will use consumables for junk items.
+    """
+
+    display_name = "Basic Item Pool Choice"
+    default = ItemPoolDropOptions.VANILLA
+    option_vanilla = ItemPoolDropOptions.VANILLA
+    option_heavy = ItemPoolDropOptions.HEAVY
+
+
+class ChestItemChoices(Choice):
+    """
+    Select the kind of items you would like to be served from chests.
+    """
+
+    display_name = "Chest Item Rewards"
+    default = ItemRewardDropOptions.HEAL_HEAVY
+    option_none = ItemRewardDropOptions.NOTHING
+    option_healing_heavy = ItemRewardDropOptions.HEAL_HEAVY
+    option_risk_heavy = ItemRewardDropOptions.RISK_HEAVY
+
+
+class BossItemChoices(Choice):
+    """
+    Select the kind of items you would like to be served from boss and mini boss encounters.
+    """
+
+    display_name = "Boss Item Rewards"
+    default = ItemRewardDropOptions.HEAL_HEAVY
+    option_none = ItemRewardDropOptions.NOTHING
+    option_healing_heavy = ItemRewardDropOptions.HEAL_HEAVY
+    option_risk_heavy = ItemRewardDropOptions.RISK_HEAVY
 
 
 class IncludePrologueToggle(Toggle):
@@ -158,6 +209,9 @@ class VagrantStoryOption(PerGameCommonOptions):
     include_prologue: IncludePrologueToggle
     include_new_game_plus: NewGamePlusToggle
     include_puzzle_mode_checks: IncludePuzzleModeChecks
+    item_drop_option: ItemPoolDropOption
+    chest_item_choices: ChestItemChoices
+    boss_item_choices: BossItemChoices
     include_teleport: IncludeTeleportSpellToggle
     zero_mp_teleport: SetTeleportZeroCostToggle
     open_teleport_locations: OpenAllTeleportLocationsToggle

@@ -83,7 +83,7 @@ def set_vanilla_progression(self):
     )
     set_rule(self.get_entrance("The Cauldron -> Wooden Horse"), lambda state: has_sigil_required(self, "Tearose Sigil", state))
     set_rule(self.get_entrance("Wiping Blood from Blades -> Time Trial (Asura)"), lambda state: has_sigil_required(self, "Tigertail Sigil", state))
-    set_rule(self.get_entrance("Urge the Boy On -> Time Trial (Snow Dragon)"), lambda state: has_sigil_required(self, "Verbana Sigil", state))
+    set_rule(self.get_entrance("Urge the Boy On -> Time Trial (Snow Dragon)"), lambda state: has_sigil_required(self, "Verbena Sigil", state))
 
 
 def set_new_game_plus_rules(self, state):
