@@ -20,7 +20,7 @@ from .Options import (
     RoomSanityToggle,
     IncludePrologueToggle,
 )
-from .Rules import set_vanilla_progression
+from .Rules import set_vanilla_progression, set_open_progression
 from .VictoryConditions import defeat_guildenstern_dark_angel_victory
 from .rooms import all_minor_regions
 
@@ -254,7 +254,10 @@ class VagrantStoryWorld(World):
         if self.options.goal.value == GoalOptions.DEFEAT_ANGEL:
             self.multiworld.completion_condition[self.player] = lambda state: defeat_guildenstern_dark_angel_victory(self, state)
 
-        set_vanilla_progression(self)
+        if self.options.progression_option.value == ProgressionOptions.VANILLA:
+            set_vanilla_progression(self)
+        else:
+            set_open_progression(self)
         # Get a birds eye view of everything
 
         from Utils import visualize_regions
