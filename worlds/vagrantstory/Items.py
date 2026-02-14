@@ -1,6 +1,5 @@
 from enum import IntEnum
-from typing import NamedTuple, List, Optional
-import random
+from typing import NamedTuple, List, Optional, cast
 from BaseClasses import Item, ItemClassification
 from .Options import ItemPoolDropOptions, ItemPoolDropOptions
 
@@ -381,12 +380,10 @@ _vanilla_items: List[VagrantStoryItemData] = [
     VagrantStoryItemData("Runkasyle", 298, VagrantStoryItemCategory.GRIP_PARTS, False, 2),
     VagrantStoryItemData("Framea Pole", 299, VagrantStoryItemCategory.GRIP_PARTS, False, 1),
     VagrantStoryItemData("Spiral Pole", 300, VagrantStoryItemCategory.GRIP_PARTS, False, 1),
-    # Misc Filler Items
-    VagrantStoryItemData("Simple Bolt", 301, VagrantStoryItemCategory.FILLER, False, 1),
-    VagrantStoryItemData("Steel Bolt", 302, VagrantStoryItemCategory.FILLER, False, 1),
-    VagrantStoryItemData("Stone Bullet", 303, VagrantStoryItemCategory.FILLER, False, 1),
-    VagrantStoryItemData("Falarica Bolt", 304, VagrantStoryItemCategory.FILLER, False, 1),
-    VagrantStoryItemData("Rusty Nail", 305, VagrantStoryItemCategory.FILLER, False, 1),
+    VagrantStoryItemData("Simple Bolt", 301, VagrantStoryItemCategory.GRIP_PARTS, False, 1),
+    VagrantStoryItemData("Steel Bolt", 302, VagrantStoryItemCategory.GRIP_PARTS, False, 1),
+    VagrantStoryItemData("Stone Bullet", 303, VagrantStoryItemCategory.GRIP_PARTS, False, 1),
+    VagrantStoryItemData("Falarica Bolt", 304, VagrantStoryItemCategory.GRIP_PARTS, False, 1),
     # Chain Abilities
     VagrantStoryItemData("Crimson Pain Chain Ability", 306, VagrantStoryItemCategory.CHAIN_ABILITY, False),
     VagrantStoryItemData("Dulling Impact Chain Ability", 307, VagrantStoryItemCategory.CHAIN_ABILITY, False),
@@ -2032,66 +2029,61 @@ def item_dictionary(options) -> dict[str, VagrantStoryItemData]:
     return {item_data.name: item_data for item_data in item_list}
 
 
-def BuildItemPool(count: int, options) -> List[str]:
-    """
-    Generates a list of item names to be used for the item pool.
-    This function does NOT create Archipelago Item objects; it only provides their names.
-    The actual Item objects are created in VagrantStoryWorld.create_items.
-
-    Args:
-        count (int): The total number of item names to generate.
-        options: The options object from the Archipelago multiworld, used for guaranteed items.
-
-    Returns:
-        List[str]: A shuffled list of item names.
-    """
+def BuildItemPool(count: int, self) -> List[str]:
     item_pool_names: List[str] = []
 
-    # Add any guaranteed items specified in the options first
-    if hasattr(options, "guaranteed_items") and options.guaranteed_items.value:
-        for item_name in options.guaranteed_items.value:
-            if item_name in item_dictionary(options):
+    # 1. Start with Guaranteed Items
+    if hasattr(self.options, "guaranteed_items") and self.options.guaranteed_items.value:
+        for item_name in self.options.guaranteed_items.value:
+            if item_name in item_dictionary(self.options):
                 item_pool_names.append(item_name)
-            else:
-                print(f"Warning: Guaranteed item '{item_name}' not found in item_dictionary. Skipping.")
 
+    # Determine the item source (Vanilla vs All)
     item_list_choice = (
-        _vanilla_items if hasattr(options, "item_drop_option") and options.item_drop_option.value == ItemPoolDropOptions.VANILLA else _all_items
+        _vanilla_items
+        if hasattr(self.options, "item_drop_option") and self.options.item_drop_option.value == ItemPoolDropOptions.VANILLA
+        else _all_items
     )
 
-    # this needs adjusted for VS
-    progression_items = [
-        item_data.name
-        for item_data in item_list_choice
-        if item_data.category == VagrantStoryItemCategory.KEYS or item_data.category == VagrantStoryItemCategory.SIGILS
+    # 2. Add Progression (Keys/Sigils)
+    progression_items = [item.name for item in item_list_choice if item.category in [VagrantStoryItemCategory.KEYS, VagrantStoryItemCategory.SIGILS]]
+    for name in progression_items:
+        if name not in item_pool_names and len(item_pool_names) < count:
+            item_pool_names.append(name)
+
+    # 3. Handle Heavy Drops (Select exactly X random unique Blade/Grip parts)
+    if self.options.item_drop_option == ItemPoolDropOptions.HEAVY:
+        # Filter the large list down to ONLY blades and grips
+        all_heavy_candidates = [
+            item.name for item in item_list_choice if item.category in [VagrantStoryItemCategory.BLADE_PARTS, VagrantStoryItemCategory.GRIP_PARTS]
+        ]
+
+        # Determine how many we can actually take
+        num_to_pick = min(len(all_heavy_candidates), self.options.heavy_drop_limit.value)
+
+        # Select 20 (or heavy_drop_limit) unique items from the filtered list
+        selected_heavy = self.multiworld.random.sample(all_heavy_candidates, num_to_pick)
+
+        # Add them to the pool (ensuring we don't exceed the total pool count)
+        for item in selected_heavy:
+            if len(item_pool_names) < count:
+                item_pool_names.append(item)
+
+    # 4. Fill the remaining slots with Recovery/Stats
+    filler_candidates = [
+        item.name for item in item_list_choice if item.category in [VagrantStoryItemCategory.RECOVERY, VagrantStoryItemCategory.PERM_STAT_BOOST]
     ]
 
-    for item_name in progression_items:
-        if item_name not in item_pool_names and len(item_pool_names) < count:
-            item_pool_names.append(item_name)
-
-    # Populate the rest of the pool with random filler items
-    filler_item_names = [
-        item_data.name
-        for item_data in item_list_choice
-        if item_data.category == VagrantStoryItemCategory.RECOVERY
-        or item_data.category == VagrantStoryItemCategory.FILLER
-        or item_data.category == VagrantStoryItemCategory.PERM_STAT_BOOST
-        or (
-            hasattr(options, "item_drop_option")
-            and options.item_drop_option == ItemPoolDropOptions.HEAVY
-            and (item_data.category == VagrantStoryItemCategory.BLADE_PARTS or item_data.category == VagrantStoryItemCategory.GRIP_PARTS)
-        )
-    ]
-
-    for _ in range(count - len(item_pool_names)):
-        if filler_item_names:
-            item_name_to_add = random.choice(filler_item_names)
-            item_pool_names.append(item_name_to_add)
+    # Fill until we hit the requested 'count'
+    while len(item_pool_names) < count:
+        if filler_candidates:
+            # Using choice here allows recovery items to repeat if the pool is very large
+            item_pool_names.append(self.multiworld.random.choice(filler_candidates))
         else:
-            print("Warning: Ran out of filler items for Vagrant Story. Duplicating from all available items.")
-            # Fallback: if no specific filler items left, pick from any available item
-            item_pool_names.append(random.choice(list(item_dictionary(options).keys())))
+            # Extreme fallback if even recovery items are missing
+            item_pool_names.append("Cure Bulb")
+            if len(item_pool_names) >= count:
+                break
 
-    random.shuffle(item_pool_names)  # Shuffle the final list of item names
+    self.multiworld.random.shuffle(item_pool_names)
     return item_pool_names

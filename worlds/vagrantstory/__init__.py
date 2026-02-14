@@ -203,9 +203,10 @@ class VagrantStoryWorld(World):
         print(f"Requesting itempool size for randomized locations: {randomized_location_count}")
 
         # Call BuildItemPool to get a list of item NAMES (strings)
-        item_names_to_add = BuildItemPool(randomized_location_count, self.options)
+        item_names_to_add = BuildItemPool(randomized_location_count, self)
 
         generated_items: List[Item] = []
+
         for item_name in item_names_to_add:
             new_item = self.create_item(item_name)
             generated_items.append(new_item)
@@ -297,6 +298,7 @@ class VagrantStoryWorld(World):
                 "include_new_game_plus": self.options.include_new_game_plus.value,
                 "include_puzzle_mode_checks": self.options.include_puzzle_mode_checks.value,
                 "item_drop_option": self.options.item_drop_option.value,
+                "heavy_drop_limit": self.options.heavy_drop_limit.value,
                 "chest_item_choices": self.options.chest_item_choices.value,
                 "boss_item_choices": self.options.boss_item_choices.value,
                 "include_teleport": self.options.include_teleport.value,

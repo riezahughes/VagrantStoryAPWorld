@@ -96,6 +96,12 @@ class ItemPoolDropOption(Choice):
     option_heavy = ItemPoolDropOptions.HEAVY
 
 
+class HeavyDropLimitOption(Range):
+    range_start = 0
+    range_end = 200
+    default = 20
+
+
 class ChestItemChoices(Choice):
     """
     Select the kind of items you would like to be served from chests.
@@ -210,6 +216,7 @@ class VagrantStoryOption(PerGameCommonOptions):
     include_new_game_plus: NewGamePlusToggle
     include_puzzle_mode_checks: IncludePuzzleModeChecks
     item_drop_option: ItemPoolDropOption
+    heavy_drop_limit: HeavyDropLimitOption
     chest_item_choices: ChestItemChoices
     boss_item_choices: BossItemChoices
     include_teleport: IncludeTeleportSpellToggle
