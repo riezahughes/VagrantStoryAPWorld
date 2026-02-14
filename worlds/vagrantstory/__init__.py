@@ -173,6 +173,9 @@ class VagrantStoryWorld(World):
                 location.category == VagrantStoryLocationCategory.BOSS_PLUS or location.category == VagrantStoryLocationCategory.BOSS_UNLOCKS_PLUS
             ):
                 continue
+            # adding this line while we decide what to do with those locations.
+            if location.category == VagrantStoryLocationCategory.KEY_UNLOCKS or location.category == VagrantStoryLocationCategory.SIGIL_UNLOCKS:
+                continue
             if location.category in self.enabled_location_categories:
                 new_location = VagrantStoryLocation(
                     self.player,
