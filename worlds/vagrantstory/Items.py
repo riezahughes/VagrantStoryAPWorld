@@ -64,6 +64,8 @@ class VagrantStoryItem(Item):
 
 key_item_names = {}
 
+
+# Quantity for Vanilla Items isn't working yet. At the moment you're only going to get served 1 of each.
 _vanilla_items: List[VagrantStoryItemData] = [
     # Recovery Items
     # 1. Recovery Items (1-21)
@@ -93,7 +95,7 @@ _vanilla_items: List[VagrantStoryItemData] = [
     VagrantStoryItemData("Elixir of Mages", 23, VagrantStoryItemCategory.PERM_STAT_BOOST, False, 7),
     VagrantStoryItemData("Elixir of Kings", 24, VagrantStoryItemCategory.PERM_STAT_BOOST, False, 7),
     VagrantStoryItemData("Elixir of Sages", 25, VagrantStoryItemCategory.PERM_STAT_BOOST, False, 8),
-    VagrantStoryItemData("Elixir of Dragoon", 26, VagrantStoryItemCategory.PERM_STAT_BOOST, False, 5),
+    VagrantStoryItemData("Elixir of Dragoons", 26, VagrantStoryItemCategory.PERM_STAT_BOOST, False, 5),
     VagrantStoryItemData("Audentia", 27, VagrantStoryItemCategory.PERM_STAT_BOOST, False, 1),
     VagrantStoryItemData("Virtus", 28, VagrantStoryItemCategory.PERM_STAT_BOOST, False, 1),
     VagrantStoryItemData("Valens", 29, VagrantStoryItemCategory.PERM_STAT_BOOST, False, 4),
@@ -475,7 +477,7 @@ _all_items: List[VagrantStoryItemData] = [
     VagrantStoryItemData("Elixir of Mages", 23, VagrantStoryItemCategory.PERM_STAT_BOOST, False),
     VagrantStoryItemData("Elixir of Kings", 24, VagrantStoryItemCategory.PERM_STAT_BOOST, False),
     VagrantStoryItemData("Elixir of Sages", 25, VagrantStoryItemCategory.PERM_STAT_BOOST, False),
-    VagrantStoryItemData("Elixir of Dragoon", 26, VagrantStoryItemCategory.PERM_STAT_BOOST, False),
+    VagrantStoryItemData("Elixir of Dragoons", 26, VagrantStoryItemCategory.PERM_STAT_BOOST, False),
     VagrantStoryItemData("Audentia", 27, VagrantStoryItemCategory.PERM_STAT_BOOST, False),
     VagrantStoryItemData("Virtus", 28, VagrantStoryItemCategory.PERM_STAT_BOOST, False),
     VagrantStoryItemData("Valens", 29, VagrantStoryItemCategory.PERM_STAT_BOOST, False),
