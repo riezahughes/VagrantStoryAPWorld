@@ -120,77 +120,58 @@ class VagrantStoryLocation(Location):
 location_tables = {
     "Ashley": [
         # Defence and Chain Ability Unlocks
-        VagrantStoryLocationData("Ability: Heavy Shot", "Vera Root", VagrantStoryLocationCategory.ABILITY_UNLOCKS),
-        VagrantStoryLocationData("Ability: Gain Life", "Vera Root", VagrantStoryLocationCategory.ABILITY_UNLOCKS),
-        VagrantStoryLocationData("Ability: Mind Assault", "Vera Root", VagrantStoryLocationCategory.ABILITY_UNLOCKS),
-        VagrantStoryLocationData("Ability: Gain Magic", "Vera Root", VagrantStoryLocationCategory.ABILITY_UNLOCKS),
-        VagrantStoryLocationData("Ability: Raging Ache", "Vera Root", VagrantStoryLocationCategory.ABILITY_UNLOCKS),
-        VagrantStoryLocationData("Ability: Mind Ache", "Vera Root", VagrantStoryLocationCategory.ABILITY_UNLOCKS),
-        VagrantStoryLocationData("Ability: Temper", "Vera Root", VagrantStoryLocationCategory.ABILITY_UNLOCKS),
-        VagrantStoryLocationData("Ability: Crimson Pain", "Vera Root", VagrantStoryLocationCategory.ABILITY_UNLOCKS),
-        VagrantStoryLocationData("Ability: Instill", "Vera Root", VagrantStoryLocationCategory.ABILITY_UNLOCKS),
-        VagrantStoryLocationData("Ability: Phantom Pain", "Vera Root", VagrantStoryLocationCategory.ABILITY_UNLOCKS),
-        VagrantStoryLocationData("Ability: Paralysis Pulse", "Vera Root", VagrantStoryLocationCategory.ABILITY_UNLOCKS),
-        VagrantStoryLocationData("Ability: Numbing Claw", "Vera Root", VagrantStoryLocationCategory.ABILITY_UNLOCKS),
-        VagrantStoryLocationData("Ability: Dulling Impact", "Vera Root", VagrantStoryLocationCategory.ABILITY_UNLOCKS),
-        VagrantStoryLocationData("Ability: Snake Venom", "Vera Root", VagrantStoryLocationCategory.ABILITY_UNLOCKS),
-        VagrantStoryLocationData("Ability: Ward", "Vera Root", VagrantStoryLocationCategory.ABILITY_UNLOCKS),
-        VagrantStoryLocationData("Ability: Siphon Soul", "Vera Root", VagrantStoryLocationCategory.ABILITY_UNLOCKS),
-        VagrantStoryLocationData("Ability: Reflect Magic", "Vera Root", VagrantStoryLocationCategory.ABILITY_UNLOCKS),
-        VagrantStoryLocationData("Ability: Reflect Damage", "Vera Root", VagrantStoryLocationCategory.ABILITY_UNLOCKS),
-        VagrantStoryLocationData("Ability: Absorb Magic", "Vera Root", VagrantStoryLocationCategory.ABILITY_UNLOCKS),
-        VagrantStoryLocationData("Ability: Absorb Damage", "Vera Root", VagrantStoryLocationCategory.ABILITY_UNLOCKS),
-        VagrantStoryLocationData("Ability: Impact Guard", "Vera Root", VagrantStoryLocationCategory.ABILITY_UNLOCKS),
-        VagrantStoryLocationData("Ability: Wind Break", "Vera Root", VagrantStoryLocationCategory.ABILITY_UNLOCKS),
-        VagrantStoryLocationData("Ability: Fire Proof", "Vera Root", VagrantStoryLocationCategory.ABILITY_UNLOCKS),
-        VagrantStoryLocationData("Ability: Terra Ward", "Vera Root", VagrantStoryLocationCategory.ABILITY_UNLOCKS),
-        VagrantStoryLocationData("Ability: Aqua Ward", "Vera Root", VagrantStoryLocationCategory.ABILITY_UNLOCKS),
-        VagrantStoryLocationData("Ability: Shadow Guard", "Vera Root", VagrantStoryLocationCategory.ABILITY_UNLOCKS),
-        VagrantStoryLocationData("Ability: Demonscale", "Vera Root", VagrantStoryLocationCategory.ABILITY_UNLOCKS),
-        VagrantStoryLocationData("Ability: Phantom Shield", "Vera Root", VagrantStoryLocationCategory.ABILITY_UNLOCKS),
-        # Grimoire Unlocks
-        VagrantStoryLocationData("Grimoire: Degenerate", "Vera Root", VagrantStoryLocationCategory.GRIMOIRE_UNLOCKS),
-        VagrantStoryLocationData("Grimoire: Psychodrain", "Vera Root", VagrantStoryLocationCategory.GRIMOIRE_UNLOCKS),
-        VagrantStoryLocationData("Grimoire: Leadbones", "Vera Root", VagrantStoryLocationCategory.GRIMOIRE_UNLOCKS),
-        VagrantStoryLocationData("Grimoire: Tarnish", "Vera Root", VagrantStoryLocationCategory.GRIMOIRE_UNLOCKS),
-        VagrantStoryLocationData("Grimoire: Analyze", "Vera Root", VagrantStoryLocationCategory.GRIMOIRE_UNLOCKS),
-        VagrantStoryLocationData("Grimoire: Herakles", "Vera Root", VagrantStoryLocationCategory.GRIMOIRE_UNLOCKS),
-        VagrantStoryLocationData("Grimoire: Enlighten", "Vera Root", VagrantStoryLocationCategory.GRIMOIRE_UNLOCKS),
-        VagrantStoryLocationData("Grimoire: Invigorate", "Vera Root", VagrantStoryLocationCategory.GRIMOIRE_UNLOCKS),
-        VagrantStoryLocationData("Grimoire: Prostasia", "Vera Root", VagrantStoryLocationCategory.GRIMOIRE_UNLOCKS),
-        VagrantStoryLocationData("Grimoire: Luft Fusion", "Vera Root", VagrantStoryLocationCategory.GRIMOIRE_UNLOCKS),
-        VagrantStoryLocationData("Grimoire: Spark Fusion", "Vera Root", VagrantStoryLocationCategory.GRIMOIRE_UNLOCKS),
-        VagrantStoryLocationData("Grimoire: Soil Fusion", "Vera Root", VagrantStoryLocationCategory.GRIMOIRE_UNLOCKS),
-        VagrantStoryLocationData("Grimoire: Frost Fusion", "Vera Root", VagrantStoryLocationCategory.GRIMOIRE_UNLOCKS),
-        VagrantStoryLocationData("Grimoire: Aero Guard", "Vera Root", VagrantStoryLocationCategory.GRIMOIRE_UNLOCKS),
-        VagrantStoryLocationData("Grimoire: Pyro Guard", "Vera Root", VagrantStoryLocationCategory.GRIMOIRE_UNLOCKS),
-        VagrantStoryLocationData("Grimoire: Terra Guard", "Vera Root", VagrantStoryLocationCategory.GRIMOIRE_UNLOCKS),
-        VagrantStoryLocationData("Grimoire: Silence", "Vera Root", VagrantStoryLocationCategory.GRIMOIRE_UNLOCKS),
-        VagrantStoryLocationData("Grimoire: Magic Ward", "Vera Root", VagrantStoryLocationCategory.GRIMOIRE_UNLOCKS),
-        VagrantStoryLocationData("Grimoire: Surging Balm", "Vera Root", VagrantStoryLocationCategory.GRIMOIRE_UNLOCKS),
-        VagrantStoryLocationData("Grimoire: Fixate", "Vera Root", VagrantStoryLocationCategory.GRIMOIRE_UNLOCKS),
-        VagrantStoryLocationData("Grimoire: Dispel", "Vera Root", VagrantStoryLocationCategory.GRIMOIRE_UNLOCKS),
-        VagrantStoryLocationData("Grimoire: Stun Cloud", "Vera Root", VagrantStoryLocationCategory.GRIMOIRE_UNLOCKS),
-        VagrantStoryLocationData("Grimoire: Poison Mist", "Vera Root", VagrantStoryLocationCategory.GRIMOIRE_UNLOCKS),
-        VagrantStoryLocationData("Grimoire: Curse", "Vera Root", VagrantStoryLocationCategory.GRIMOIRE_UNLOCKS),
-        VagrantStoryLocationData("Grimoire: Restoration", "Vera Root", VagrantStoryLocationCategory.GRIMOIRE_UNLOCKS),
-        VagrantStoryLocationData("Grimoire: Antidote", "Vera Root", VagrantStoryLocationCategory.GRIMOIRE_UNLOCKS),
-        VagrantStoryLocationData("Grimoire: Blessing", "Vera Root", VagrantStoryLocationCategory.GRIMOIRE_UNLOCKS),
-        VagrantStoryLocationData("Grimoire: Clearance", "Vera Root", VagrantStoryLocationCategory.GRIMOIRE_UNLOCKS),
-        VagrantStoryLocationData("Grimoire: Unlock", "Vera Root", VagrantStoryLocationCategory.GRIMOIRE_UNLOCKS),
-        VagrantStoryLocationData("Grimoire: Eureka", "Vera Root", VagrantStoryLocationCategory.GRIMOIRE_UNLOCKS),
-        VagrantStoryLocationData("Grimoire: Drain Heart", "Vera Root", VagrantStoryLocationCategory.GRIMOIRE_UNLOCKS),
-        VagrantStoryLocationData("Grimoire: Drain Mind", "Vera Root", VagrantStoryLocationCategory.GRIMOIRE_UNLOCKS),
-        VagrantStoryLocationData("Grimoire: Heal", "Vera Root", VagrantStoryLocationCategory.GRIMOIRE_UNLOCKS),
-        VagrantStoryLocationData("Grimoire: Solid Shock", "Vera Root", VagrantStoryLocationCategory.GRIMOIRE_UNLOCKS),
-        VagrantStoryLocationData("Grimoire: Lightning Bolt", "Vera Root", VagrantStoryLocationCategory.GRIMOIRE_UNLOCKS),
-        VagrantStoryLocationData("Grimoire: Fireball", "Vera Root", VagrantStoryLocationCategory.GRIMOIRE_UNLOCKS),
-        VagrantStoryLocationData("Grimoire: Vulcan Lance", "Vera Root", VagrantStoryLocationCategory.GRIMOIRE_UNLOCKS),
-        VagrantStoryLocationData("Grimoire: Aqua Blast", "Vera Root", VagrantStoryLocationCategory.GRIMOIRE_UNLOCKS),
-        VagrantStoryLocationData("Grimoire: Spirit Surge", "Vera Root", VagrantStoryLocationCategory.GRIMOIRE_UNLOCKS),
-        VagrantStoryLocationData("Grimoire: Dark Chant", "Vera Root", VagrantStoryLocationCategory.GRIMOIRE_UNLOCKS),
-        VagrantStoryLocationData("Grimoire: Exorcism", "Vera Root", VagrantStoryLocationCategory.GRIMOIRE_UNLOCKS),
-        VagrantStoryLocationData("Grimoire: Banish", "Vera Root", VagrantStoryLocationCategory.GRIMOIRE_UNLOCKS),
+        # removed to try a chain unlock system instead
+        # VagrantStoryLocationData("Ability: Heavy Shot", "Vera Root", VagrantStoryLocationCategory.ABILITY_UNLOCKS),
+        # VagrantStoryLocationData("Ability: Gain Life", "Vera Root", VagrantStoryLocationCategory.ABILITY_UNLOCKS),
+        # VagrantStoryLocationData("Ability: Mind Assault", "Vera Root", VagrantStoryLocationCategory.ABILITY_UNLOCKS),
+        # VagrantStoryLocationData("Ability: Gain Magic", "Vera Root", VagrantStoryLocationCategory.ABILITY_UNLOCKS),
+        # VagrantStoryLocationData("Ability: Raging Ache", "Vera Root", VagrantStoryLocationCategory.ABILITY_UNLOCKS),
+        # VagrantStoryLocationData("Ability: Mind Ache", "Vera Root", VagrantStoryLocationCategory.ABILITY_UNLOCKS),
+        # VagrantStoryLocationData("Ability: Temper", "Vera Root", VagrantStoryLocationCategory.ABILITY_UNLOCKS),
+        # VagrantStoryLocationData("Ability: Crimson Pain", "Vera Root", VagrantStoryLocationCategory.ABILITY_UNLOCKS),
+        # VagrantStoryLocationData("Ability: Instill", "Vera Root", VagrantStoryLocationCategory.ABILITY_UNLOCKS),
+        # VagrantStoryLocationData("Ability: Phantom Pain", "Vera Root", VagrantStoryLocationCategory.ABILITY_UNLOCKS),
+        # VagrantStoryLocationData("Ability: Paralysis Pulse", "Vera Root", VagrantStoryLocationCategory.ABILITY_UNLOCKS),
+        # VagrantStoryLocationData("Ability: Numbing Claw", "Vera Root", VagrantStoryLocationCategory.ABILITY_UNLOCKS),
+        # VagrantStoryLocationData("Ability: Dulling Impact", "Vera Root", VagrantStoryLocationCategory.ABILITY_UNLOCKS),
+        # VagrantStoryLocationData("Ability: Snake Venom", "Vera Root", VagrantStoryLocationCategory.ABILITY_UNLOCKS),
+        # VagrantStoryLocationData("Ability: Ward", "Vera Root", VagrantStoryLocationCategory.ABILITY_UNLOCKS),
+        # VagrantStoryLocationData("Ability: Siphon Soul", "Vera Root", VagrantStoryLocationCategory.ABILITY_UNLOCKS),
+        # VagrantStoryLocationData("Ability: Reflect Magic", "Vera Root", VagrantStoryLocationCategory.ABILITY_UNLOCKS),
+        # VagrantStoryLocationData("Ability: Reflect Damage", "Vera Root", VagrantStoryLocationCategory.ABILITY_UNLOCKS),
+        # VagrantStoryLocationData("Ability: Absorb Magic", "Vera Root", VagrantStoryLocationCategory.ABILITY_UNLOCKS),
+        # VagrantStoryLocationData("Ability: Absorb Damage", "Vera Root", VagrantStoryLocationCategory.ABILITY_UNLOCKS),
+        # VagrantStoryLocationData("Ability: Impact Guard", "Vera Root", VagrantStoryLocationCategory.ABILITY_UNLOCKS),
+        # VagrantStoryLocationData("Ability: Wind Break", "Vera Root", VagrantStoryLocationCategory.ABILITY_UNLOCKS),
+        # VagrantStoryLocationData("Ability: Fire Proof", "Vera Root", VagrantStoryLocationCategory.ABILITY_UNLOCKS),
+        # VagrantStoryLocationData("Ability: Terra Ward", "Vera Root", VagrantStoryLocationCategory.ABILITY_UNLOCKS),
+        # VagrantStoryLocationData("Ability: Aqua Ward", "Vera Root", VagrantStoryLocationCategory.ABILITY_UNLOCKS),
+        # VagrantStoryLocationData("Ability: Shadow Guard", "Vera Root", VagrantStoryLocationCategory.ABILITY_UNLOCKS),
+        # VagrantStoryLocationData("Ability: Demonscale", "Vera Root", VagrantStoryLocationCategory.ABILITY_UNLOCKS),
+        # VagrantStoryLocationData("Ability: Phantom Shield", "Vera Root", VagrantStoryLocationCategory.ABILITY_UNLOCKS),
+        VagrantStoryLocationData("Chain Unlock 1", "Vera Root", VagrantStoryLocationCategory.ABILITY_UNLOCKS),
+        VagrantStoryLocationData("Chain Unlock 2", "Vera Root", VagrantStoryLocationCategory.ABILITY_UNLOCKS),
+        VagrantStoryLocationData("Chain Unlock 3", "Vera Root", VagrantStoryLocationCategory.ABILITY_UNLOCKS),
+        VagrantStoryLocationData("Chain Unlock 4", "Vera Root", VagrantStoryLocationCategory.ABILITY_UNLOCKS),
+        VagrantStoryLocationData("Chain Unlock 5", "Vera Root", VagrantStoryLocationCategory.ABILITY_UNLOCKS),
+        VagrantStoryLocationData("Chain Unlock 6", "Vera Root", VagrantStoryLocationCategory.ABILITY_UNLOCKS),
+        VagrantStoryLocationData("Chain Unlock 7", "Vera Root", VagrantStoryLocationCategory.ABILITY_UNLOCKS),
+        VagrantStoryLocationData("Chain Unlock 8", "Vera Root", VagrantStoryLocationCategory.ABILITY_UNLOCKS),
+        VagrantStoryLocationData("Chain Unlock 9", "Vera Root", VagrantStoryLocationCategory.ABILITY_UNLOCKS),
+        VagrantStoryLocationData("Chain Unlock 10", "Vera Root", VagrantStoryLocationCategory.ABILITY_UNLOCKS),
+        VagrantStoryLocationData("Chain Unlock 11", "Vera Root", VagrantStoryLocationCategory.ABILITY_UNLOCKS),
+        VagrantStoryLocationData("Chain Unlock 12", "Vera Root", VagrantStoryLocationCategory.ABILITY_UNLOCKS),
+        VagrantStoryLocationData("Chain Unlock 13", "Vera Root", VagrantStoryLocationCategory.ABILITY_UNLOCKS),
+        VagrantStoryLocationData("Chain Unlock 14", "Vera Root", VagrantStoryLocationCategory.ABILITY_UNLOCKS),
+        VagrantStoryLocationData("Chain Unlock 15", "Vera Root", VagrantStoryLocationCategory.ABILITY_UNLOCKS),
+        VagrantStoryLocationData("Chain Unlock 16", "Vera Root", VagrantStoryLocationCategory.ABILITY_UNLOCKS),
+        VagrantStoryLocationData("Chain Unlock 17", "Vera Root", VagrantStoryLocationCategory.ABILITY_UNLOCKS),
+        VagrantStoryLocationData("Chain Unlock 18", "Vera Root", VagrantStoryLocationCategory.ABILITY_UNLOCKS),
+        VagrantStoryLocationData("Chain Unlock 19", "Vera Root", VagrantStoryLocationCategory.ABILITY_UNLOCKS),
+        VagrantStoryLocationData("Chain Unlock 20", "Vera Root", VagrantStoryLocationCategory.ABILITY_UNLOCKS),
+        VagrantStoryLocationData("Chain Unlock 21", "Vera Root", VagrantStoryLocationCategory.ABILITY_UNLOCKS),
+        VagrantStoryLocationData("Chain Unlock 22", "Vera Root", VagrantStoryLocationCategory.ABILITY_UNLOCKS),
+        # Grimoire Unlocks moved to their respective rooms
         # Levelable Grimoires
         VagrantStoryLocationData("Grimoire: Explosion Max Level", "Vera Root", VagrantStoryLocationCategory.GRIMOIRE_UNLOCKS),
         VagrantStoryLocationData("Grimoire: Thunderburst Max Level", "Vera Root", VagrantStoryLocationCategory.GRIMOIRE_UNLOCKS),
@@ -199,47 +180,47 @@ location_tables = {
         VagrantStoryLocationData("Grimoire: Avalanche Max Level", "Vera Root", VagrantStoryLocationCategory.GRIMOIRE_UNLOCKS),
         VagrantStoryLocationData("Grimoire: Radial Surge Max Level", "Vera Root", VagrantStoryLocationCategory.GRIMOIRE_UNLOCKS),
         VagrantStoryLocationData("Grimoire: Meteor Max Level", "Vera Root", VagrantStoryLocationCategory.GRIMOIRE_UNLOCKS),
-        # Break Skill Unlocks
-        VagrantStoryLocationData("Break: Whistle Sting", "Vera Root", VagrantStoryLocationCategory.BREAK_UNLOCKS),
-        VagrantStoryLocationData("Break: Shadoweave", "Vera Root", VagrantStoryLocationCategory.BREAK_UNLOCKS),
-        VagrantStoryLocationData("Break: Double Fang", "Vera Root", VagrantStoryLocationCategory.BREAK_UNLOCKS),
-        VagrantStoryLocationData("Break: Wyrm Scorn", "Vera Root", VagrantStoryLocationCategory.BREAK_UNLOCKS),
-        VagrantStoryLocationData("Break: Rending Gale", "Vera Root", VagrantStoryLocationCategory.BREAK_UNLOCKS),
-        VagrantStoryLocationData("Break: Vile Scar", "Vera Root", VagrantStoryLocationCategory.BREAK_UNLOCKS),
-        VagrantStoryLocationData("Break: Cherry Ronde", "Vera Root", VagrantStoryLocationCategory.BREAK_UNLOCKS),
-        VagrantStoryLocationData("Break: Papillon Reel", "Vera Root", VagrantStoryLocationCategory.BREAK_UNLOCKS),
-        VagrantStoryLocationData("Break: Sunder", "Vera Root", VagrantStoryLocationCategory.BREAK_UNLOCKS),
-        VagrantStoryLocationData("Break: Thunderwave", "Vera Root", VagrantStoryLocationCategory.BREAK_UNLOCKS),
-        VagrantStoryLocationData("Break: Swallow Slash", "Vera Root", VagrantStoryLocationCategory.BREAK_UNLOCKS),
-        VagrantStoryLocationData("Break: Advent Sign", "Vera Root", VagrantStoryLocationCategory.BREAK_UNLOCKS),
-        VagrantStoryLocationData("Break: Mistral Edge", "Vera Root", VagrantStoryLocationCategory.BREAK_UNLOCKS),
-        VagrantStoryLocationData("Break: Glacial Gale", "Vera Root", VagrantStoryLocationCategory.BREAK_UNLOCKS),
-        VagrantStoryLocationData("Break: Killer Mantis", "Vera Root", VagrantStoryLocationCategory.BREAK_UNLOCKS),
-        VagrantStoryLocationData("Break: Black Nebula", "Vera Root", VagrantStoryLocationCategory.BREAK_UNLOCKS),
-        VagrantStoryLocationData("Break: Bear Claw", "Vera Root", VagrantStoryLocationCategory.BREAK_UNLOCKS),
-        VagrantStoryLocationData("Break: Accursed Umbra", "Vera Root", VagrantStoryLocationCategory.BREAK_UNLOCKS),
-        VagrantStoryLocationData("Break: Iron Ripper", "Vera Root", VagrantStoryLocationCategory.BREAK_UNLOCKS),
-        VagrantStoryLocationData("Break: Emetic Bomb", "Vera Root", VagrantStoryLocationCategory.BREAK_UNLOCKS),
-        VagrantStoryLocationData("Break: Sirocco", "Vera Root", VagrantStoryLocationCategory.BREAK_UNLOCKS),
-        VagrantStoryLocationData("Break: Riskbreak", "Vera Root", VagrantStoryLocationCategory.BREAK_UNLOCKS),
-        VagrantStoryLocationData("Break: Gravis Aether", "Vera Root", VagrantStoryLocationCategory.BREAK_UNLOCKS),
-        VagrantStoryLocationData("Break: Trinity Pulse", "Vera Root", VagrantStoryLocationCategory.BREAK_UNLOCKS),
-        VagrantStoryLocationData("Break: Bonecrusher", "Vera Root", VagrantStoryLocationCategory.BREAK_UNLOCKS),
-        VagrantStoryLocationData("Break: Quickshock", "Vera Root", VagrantStoryLocationCategory.BREAK_UNLOCKS),
-        VagrantStoryLocationData("Break: Ignis Wheel", "Vera Root", VagrantStoryLocationCategory.BREAK_UNLOCKS),
-        VagrantStoryLocationData("Break: Hex Flux", "Vera Root", VagrantStoryLocationCategory.BREAK_UNLOCKS),
-        VagrantStoryLocationData("Break: Ruination Polearm", "Vera Root", VagrantStoryLocationCategory.BREAK_UNLOCKS),
-        VagrantStoryLocationData("Break: Scythe Wind", "Vera Root", VagrantStoryLocationCategory.BREAK_UNLOCKS),
-        VagrantStoryLocationData("Break: Giga Tempest", "Vera Root", VagrantStoryLocationCategory.BREAK_UNLOCKS),
-        VagrantStoryLocationData("Break: Spiral Scourge", "Vera Root", VagrantStoryLocationCategory.BREAK_UNLOCKS),
-        VagrantStoryLocationData("Break: Brimstone Hail", "Vera Root", VagrantStoryLocationCategory.BREAK_UNLOCKS),
-        VagrantStoryLocationData("Break: Heaven's Scorn", "Vera Root", VagrantStoryLocationCategory.BREAK_UNLOCKS),
-        VagrantStoryLocationData("Break: Death Wail", "Vera Root", VagrantStoryLocationCategory.BREAK_UNLOCKS),
-        VagrantStoryLocationData("Break: Sanctus Flare", "Vera Root", VagrantStoryLocationCategory.BREAK_UNLOCKS),
-        VagrantStoryLocationData("Break: Lotus Palm", "Vera Root", VagrantStoryLocationCategory.BREAK_UNLOCKS),
-        VagrantStoryLocationData("Break: Vertigo", "Vera Root", VagrantStoryLocationCategory.BREAK_UNLOCKS),
-        VagrantStoryLocationData("Break: Vermillion Aura", "Vera Root", VagrantStoryLocationCategory.BREAK_UNLOCKS),
-        VagrantStoryLocationData("Break: Retribution", "Vera Root", VagrantStoryLocationCategory.BREAK_UNLOCKS),
+        # Break Skill Unlocks have been removed till we can work out how to get them doing the thing.
+        # VagrantStoryLocationData("Break: Whistle Sting", "Vera Root", VagrantStoryLocationCategory.BREAK_UNLOCKS),
+        # VagrantStoryLocationData("Break: Shadoweave", "Vera Root", VagrantStoryLocationCategory.BREAK_UNLOCKS),
+        # VagrantStoryLocationData("Break: Double Fang", "Vera Root", VagrantStoryLocationCategory.BREAK_UNLOCKS),
+        # VagrantStoryLocationData("Break: Wyrm Scorn", "Vera Root", VagrantStoryLocationCategory.BREAK_UNLOCKS),
+        # VagrantStoryLocationData("Break: Rending Gale", "Vera Root", VagrantStoryLocationCategory.BREAK_UNLOCKS),
+        # VagrantStoryLocationData("Break: Vile Scar", "Vera Root", VagrantStoryLocationCategory.BREAK_UNLOCKS),
+        # VagrantStoryLocationData("Break: Cherry Ronde", "Vera Root", VagrantStoryLocationCategory.BREAK_UNLOCKS),
+        # VagrantStoryLocationData("Break: Papillon Reel", "Vera Root", VagrantStoryLocationCategory.BREAK_UNLOCKS),
+        # VagrantStoryLocationData("Break: Sunder", "Vera Root", VagrantStoryLocationCategory.BREAK_UNLOCKS),
+        # VagrantStoryLocationData("Break: Thunderwave", "Vera Root", VagrantStoryLocationCategory.BREAK_UNLOCKS),
+        # VagrantStoryLocationData("Break: Swallow Slash", "Vera Root", VagrantStoryLocationCategory.BREAK_UNLOCKS),
+        # VagrantStoryLocationData("Break: Advent Sign", "Vera Root", VagrantStoryLocationCategory.BREAK_UNLOCKS),
+        # VagrantStoryLocationData("Break: Mistral Edge", "Vera Root", VagrantStoryLocationCategory.BREAK_UNLOCKS),
+        # VagrantStoryLocationData("Break: Glacial Gale", "Vera Root", VagrantStoryLocationCategory.BREAK_UNLOCKS),
+        # VagrantStoryLocationData("Break: Killer Mantis", "Vera Root", VagrantStoryLocationCategory.BREAK_UNLOCKS),
+        # VagrantStoryLocationData("Break: Black Nebula", "Vera Root", VagrantStoryLocationCategory.BREAK_UNLOCKS),
+        # VagrantStoryLocationData("Break: Bear Claw", "Vera Root", VagrantStoryLocationCategory.BREAK_UNLOCKS),
+        # VagrantStoryLocationData("Break: Accursed Umbra", "Vera Root", VagrantStoryLocationCategory.BREAK_UNLOCKS),
+        # VagrantStoryLocationData("Break: Iron Ripper", "Vera Root", VagrantStoryLocationCategory.BREAK_UNLOCKS),
+        # VagrantStoryLocationData("Break: Emetic Bomb", "Vera Root", VagrantStoryLocationCategory.BREAK_UNLOCKS),
+        # VagrantStoryLocationData("Break: Sirocco", "Vera Root", VagrantStoryLocationCategory.BREAK_UNLOCKS),
+        # VagrantStoryLocationData("Break: Riskbreak", "Vera Root", VagrantStoryLocationCategory.BREAK_UNLOCKS),
+        # VagrantStoryLocationData("Break: Gravis Aether", "Vera Root", VagrantStoryLocationCategory.BREAK_UNLOCKS),
+        # VagrantStoryLocationData("Break: Trinity Pulse", "Vera Root", VagrantStoryLocationCategory.BREAK_UNLOCKS),
+        # VagrantStoryLocationData("Break: Bonecrusher", "Vera Root", VagrantStoryLocationCategory.BREAK_UNLOCKS),
+        # VagrantStoryLocationData("Break: Quickshock", "Vera Root", VagrantStoryLocationCategory.BREAK_UNLOCKS),
+        # VagrantStoryLocationData("Break: Ignis Wheel", "Vera Root", VagrantStoryLocationCategory.BREAK_UNLOCKS),
+        # VagrantStoryLocationData("Break: Hex Flux", "Vera Root", VagrantStoryLocationCategory.BREAK_UNLOCKS),
+        # VagrantStoryLocationData("Break: Ruination Polearm", "Vera Root", VagrantStoryLocationCategory.BREAK_UNLOCKS),
+        # VagrantStoryLocationData("Break: Scythe Wind", "Vera Root", VagrantStoryLocationCategory.BREAK_UNLOCKS),
+        # VagrantStoryLocationData("Break: Giga Tempest", "Vera Root", VagrantStoryLocationCategory.BREAK_UNLOCKS),
+        # VagrantStoryLocationData("Break: Spiral Scourge", "Vera Root", VagrantStoryLocationCategory.BREAK_UNLOCKS),
+        # VagrantStoryLocationData("Break: Brimstone Hail", "Vera Root", VagrantStoryLocationCategory.BREAK_UNLOCKS),
+        # VagrantStoryLocationData("Break: Heaven's Scorn", "Vera Root", VagrantStoryLocationCategory.BREAK_UNLOCKS),
+        # VagrantStoryLocationData("Break: Death Wail", "Vera Root", VagrantStoryLocationCategory.BREAK_UNLOCKS),
+        # VagrantStoryLocationData("Break: Sanctus Flare", "Vera Root", VagrantStoryLocationCategory.BREAK_UNLOCKS),
+        # VagrantStoryLocationData("Break: Lotus Palm", "Vera Root", VagrantStoryLocationCategory.BREAK_UNLOCKS),
+        # VagrantStoryLocationData("Break: Vertigo", "Vera Root", VagrantStoryLocationCategory.BREAK_UNLOCKS),
+        # VagrantStoryLocationData("Break: Vermillion Aura", "Vera Root", VagrantStoryLocationCategory.BREAK_UNLOCKS),
+        # VagrantStoryLocationData("Break: Retribution", "Vera Root", VagrantStoryLocationCategory.BREAK_UNLOCKS),
     ],
     "Prologue": [
         VagrantStoryLocationData("PR - Prologue - Injured Wyvern Boss", "Vera Root", VagrantStoryLocationCategory.BOSS),
@@ -296,6 +277,8 @@ location_tables = {
         VagrantStoryLocationData("WC - Blackmarket of Wines Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
     ],
     "The Gallows": [
+        VagrantStoryLocationData("WC - The Gallows - Minotaur Boss - Grimoire Debile", "Vera Root", VagrantStoryLocationCategory.GRIMOIRE_UNLOCKS),
+        VagrantStoryLocationData("WC - The Gallows - Minotaur Boss - Grimoire Guerir", "Vera Root", VagrantStoryLocationCategory.GRIMOIRE_UNLOCKS),
         VagrantStoryLocationData("WC - The Gallows - Minotaur Boss", "Vera Root", VagrantStoryLocationCategory.BOSS),
         VagrantStoryLocationData("WC - The Gallows (Again) - Minotaur Zombie Boss", "Vera Root", VagrantStoryLocationCategory.BOSS_PLUS),
         VagrantStoryLocationData("WC - The Gallows (Again) - Chest", "Vera Root", VagrantStoryLocationCategory.CHEST),
@@ -317,6 +300,9 @@ location_tables = {
         VagrantStoryLocationData("WC - The Greedy One's Den Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
     ],
     "The Hero's Winehall": [
+        VagrantStoryLocationData(
+            "WC - The Hero's Winehall - Dullahan Boss - Grimoire Lux", "Vera Root", VagrantStoryLocationCategory.GRIMOIRE_UNLOCKS
+        ),
         VagrantStoryLocationData("WC - The Hero's Winehall - Dullahan Boss", "Vera Root", VagrantStoryLocationCategory.BOSS),
         VagrantStoryLocationData("WC - The Hero's Winehall - Chest", "Vera Root", VagrantStoryLocationCategory.CHEST),
         VagrantStoryLocationData("WC - The Hero's Winehall Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
@@ -333,6 +319,9 @@ location_tables = {
         VagrantStoryLocationData("UW - Sewer of Ravenous Rats Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
     ],
     "Underdark Fishmarket": [
+        VagrantStoryLocationData(
+            "UW - Underdark Fishmarket - Giant Crab Boss - Grimoire Sylphe", "Vera Root", VagrantStoryLocationCategory.GRIMOIRE_UNLOCKS
+        ),
         VagrantStoryLocationData("UW - Underdark Fishmarket - Giant Crab Boss", "Vera Root", VagrantStoryLocationCategory.BOSS),
         VagrantStoryLocationData("UW - Underdark Fishmarket Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
     ],
@@ -368,10 +357,16 @@ location_tables = {
         VagrantStoryLocationData("UW - Sinner's Corner Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
     ],
     "Fear of the Fall": [
+        VagrantStoryLocationData(
+            "UW - Fear of the Fall - Dark Elemental Boss - Grimoire Meteore", "Vera Root", VagrantStoryLocationCategory.GRIMOIRE_UNLOCKS
+        ),
         VagrantStoryLocationData("UW - Fear of the Fall - Dark Elemental Boss", "Vera Root", VagrantStoryLocationCategory.BOSS),
         VagrantStoryLocationData("UW - Fear of the Fall Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
     ],
     "The Children's Hideout": [
+        VagrantStoryLocationData(
+            "UW - The Children's Hideout - Chest - Grimoire Dissiper", "Vera Root", VagrantStoryLocationCategory.GRIMOIRE_UNLOCKS
+        ),
         VagrantStoryLocationData("UW - The Children's Hideout - Chest", "Vera Root", VagrantStoryLocationCategory.CHEST),
         VagrantStoryLocationData("UW - The Children's Hideout Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
     ],
@@ -432,6 +427,9 @@ location_tables = {
     # Undercity East
     "Hall to a New World": [VagrantStoryLocationData("UE - Hall to a New World Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED)],
     "Place of Free Words": [
+        VagrantStoryLocationData(
+            "UE - Place of Free Words - Harpy Boss - Grimoire Intensite", "Vera Root", VagrantStoryLocationCategory.GRIMOIRE_UNLOCKS
+        ),
         VagrantStoryLocationData("UE - Place of Free Words - Harpy Boss", "Vera Root", VagrantStoryLocationCategory.BOSS),
         VagrantStoryLocationData("UE - Place of Free Words Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
     ],
@@ -444,6 +442,7 @@ location_tables = {
         VagrantStoryLocationData("UE - Noble Gold and Silk Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
     ],
     "Weapons Not Allowed": [
+        VagrantStoryLocationData("UE - Weapons Not Allowed - Chest - Grimoire Nuageux", "Vera Root", VagrantStoryLocationCategory.GRIMOIRE_UNLOCKS),
         VagrantStoryLocationData("UE - Weapons Not Allowed - Chest", "Vera Root", VagrantStoryLocationCategory.CHEST),
         VagrantStoryLocationData("UE - Weapons Not Allowed Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
     ],
@@ -451,11 +450,15 @@ location_tables = {
         VagrantStoryLocationData("UE - A Knight Sells his Sword Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED)
     ],
     "Gemsword Blackmarket": [
+        VagrantStoryLocationData(
+            "UE - Gemsword Blackmarket - Nightstalker Boss - Grimoire Eclairer", "Vera Root", VagrantStoryLocationCategory.GRIMOIRE_UNLOCKS
+        ),
         VagrantStoryLocationData("UE - Gemsword Blackmarket - Nightstalker Boss", "Vera Root", VagrantStoryLocationCategory.BOSS),
         VagrantStoryLocationData("UE - Gemsword Blackmarket Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
     ],
     "The Pirate's Son": [VagrantStoryLocationData("UE - The Pirate's Son Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED)],
     "Sale of the Sword": [
+        VagrantStoryLocationData("UE - Sale of the Sword - Chest - Grimoire Tardif", "Vera Root", VagrantStoryLocationCategory.GRIMOIRE_UNLOCKS),
         VagrantStoryLocationData("UE - Sale of the Sword - Chest", "Vera Root", VagrantStoryLocationCategory.CHEST),
         VagrantStoryLocationData("UE - Sale of the Sword Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
     ],
@@ -472,6 +475,9 @@ location_tables = {
         VagrantStoryLocationData("UEN - Arms Against Invaders Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED)
     ],
     "Catspaw Blackmarket": [
+        VagrantStoryLocationData(
+            "UEN - Catspaw Blackmarket - Chest - Grimoire Paralysie", "Vera Root", VagrantStoryLocationCategory.GRIMOIRE_UNLOCKS
+        ),
         VagrantStoryLocationData("UEN - Catspaw Blackmarket - Diabolos Floor Trap", "Vera Root", VagrantStoryLocationCategory.FLOOR_TRAPS),
         VagrantStoryLocationData("UEN - Catspaw Blackmarket - Trap Clear Floor Trap", "Vera Root", VagrantStoryLocationCategory.FLOOR_TRAPS),
         VagrantStoryLocationData("UEN - Catspaw Blackmarket - Chest", "Vera Root", VagrantStoryLocationCategory.CHEST),
@@ -485,6 +491,7 @@ location_tables = {
         VagrantStoryLocationData("TCS - Rue Aliano Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
     ],
     "The House Khazabas": [
+        VagrantStoryLocationData("TCS - The House Khazabas - Chest - Grimoire Muet", "Vera Root", VagrantStoryLocationCategory.GRIMOIRE_UNLOCKS),
         VagrantStoryLocationData("TCS - The House Khazabas - Chest", "Vera Root", VagrantStoryLocationCategory.CHEST),
         VagrantStoryLocationData("TCS - The House Khazabas Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
     ],
@@ -539,6 +546,12 @@ location_tables = {
     ],
     "Rue Mal Fallde": [VagrantStoryLocationData("TCW - Rue Mal Fallde Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED)],
     "Tircolas Flow (North)": [
+        VagrantStoryLocationData(
+            "TCW - Tircolas Flow (North) - Duane Boss - Grimoire Clef", "Vera Root", VagrantStoryLocationCategory.GRIMOIRE_UNLOCKS
+        ),
+        VagrantStoryLocationData(
+            "TCW - Tircolas Flow (North) - Duane Boss - Grimoire Demolir", "Vera Root", VagrantStoryLocationCategory.GRIMOIRE_UNLOCKS
+        ),
         VagrantStoryLocationData("TCW - Tircolas Flow (North) - Duane Boss", "Vera Root", VagrantStoryLocationCategory.BOSS),
         VagrantStoryLocationData("TCW - Tircolas Flow (North) Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
     ],
@@ -626,6 +639,9 @@ location_tables = {
         VagrantStoryLocationData("TOK - The Dark Coast Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
     ],
     "Hall of Prayer": [
+        VagrantStoryLocationData(
+            "TOK - Hall of Prayer - Last Crusader Boss - Grimoire Purifier", "Vera Root", VagrantStoryLocationCategory.GRIMOIRE_UNLOCKS
+        ),
         VagrantStoryLocationData("TOK - Hall of Prayer - Last Crusader Boss", "Vera Root", VagrantStoryLocationCategory.BOSS),
         VagrantStoryLocationData("TOK - Hall of Prayer Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
     ],
@@ -661,7 +677,13 @@ location_tables = {
     "Golden Egg Way": [VagrantStoryLocationData("SFF - Golden Egg Way Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED)],
     "Traces of the Beast": [VagrantStoryLocationData("SFF - Traces of the Beast Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED)],
     "Fluttering Hope": [VagrantStoryLocationData("SFF - Fluttering Hope Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED)],
-    "Return to the Land": [VagrantStoryLocationData("SFF - Return to the Land Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED)],
+    "Return to the Land": [
+        VagrantStoryLocationData(
+            "SFF - Return to the Land - Earth Dragon Boss - Grimoire Parebrise", "Vera Root", VagrantStoryLocationCategory.GRIMOIRE_UNLOCKS
+        ),
+        VagrantStoryLocationData("SFF - Return to the Land - Earth Dragon Boss ", "Vera Root", VagrantStoryLocationCategory.BOSS),
+        VagrantStoryLocationData("SFF - Return to the Land Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
+    ],
     "The Yellow Wood": [VagrantStoryLocationData("SFF - The Yellow Wood Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED)],
     "They Also Feed": [VagrantStoryLocationData("SFF - They Also Feed Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED)],
     "The Spirit Trees": [VagrantStoryLocationData("SFF - The Spirit Trees Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED)],
@@ -669,6 +691,7 @@ location_tables = {
         VagrantStoryLocationData("SFF - Where Soft Rains Fell Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED)
     ],
     "Forest River": [
+        VagrantStoryLocationData("SFF - Forest River - Chest - Grimoire Agilite", "Vera Root", VagrantStoryLocationCategory.GRIMOIRE_UNLOCKS),
         VagrantStoryLocationData("SFF - Forest River - Cure Panel Floor Trap", "Vera Root", VagrantStoryLocationCategory.FLOOR_TRAPS),
         VagrantStoryLocationData("SFF - Forest River - Chest", "Vera Root", VagrantStoryLocationCategory.CHEST),
         VagrantStoryLocationData("SFF - Forest River Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
@@ -682,6 +705,15 @@ location_tables = {
     "You Are the Prey": [VagrantStoryLocationData("SFF - You Are the Prey Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED)],
     "The Secret Path": [VagrantStoryLocationData("SFF - The Secret Path Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED)],
     "Hewn from Nature": [
+        VagrantStoryLocationData(
+            "SFF - Hewn from Nature - Dark Crusader Boss - Grimoire Deteriorer", "Vera Root", VagrantStoryLocationCategory.GRIMOIRE_UNLOCKS
+        ),
+        VagrantStoryLocationData(
+            "SFF - Hewn from Nature - Grissom Boss - Grimoire Gnome", "Vera Root", VagrantStoryLocationCategory.GRIMOIRE_UNLOCKS
+        ),
+        VagrantStoryLocationData(
+            "SFF - Hewn from Nature - Grissom Boss - Grimoire Annuler", "Vera Root", VagrantStoryLocationCategory.GRIMOIRE_UNLOCKS
+        ),
         VagrantStoryLocationData("SFF - Hewn from Nature - Grissom Boss", "Vera Root", VagrantStoryLocationCategory.BOSS),
         VagrantStoryLocationData("SFF - Hewn from Nature - Dark Crusader Boss", "Vera Root", VagrantStoryLocationCategory.BOSS),
         VagrantStoryLocationData("SFF - Hewn from Nature - Chest", "Vera Root", VagrantStoryLocationCategory.CHEST),
@@ -714,6 +746,7 @@ location_tables = {
     ],
     "Priests' Confinement": [VagrantStoryLocationData("SNC - Priests' Confinement Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED)],
     "Alchemists' Laboratory": [
+        VagrantStoryLocationData("SNC - Alchemists' Laboratory - Chest - Grimoire Halte", "Vera Root", VagrantStoryLocationCategory.GRIMOIRE_UNLOCKS),
         VagrantStoryLocationData("SNC - Alchemists' Laboratory - Chest", "Vera Root", VagrantStoryLocationCategory.CHEST),
         VagrantStoryLocationData("SNC - Alchemists' Laboratory Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
     ],
@@ -726,6 +759,9 @@ location_tables = {
     ],
     "Hallowed Hope": [VagrantStoryLocationData("SNC - Hallowed Hope Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED)],
     "Hall of Sacrilege": [
+        VagrantStoryLocationData(
+            "SNC - Hall of Sacrilege - Golem Boss - Grimoire Ameliorer", "Vera Root", VagrantStoryLocationCategory.GRIMOIRE_UNLOCKS
+        ),
         VagrantStoryLocationData("SNC - Hall of Sacrilege - Golem Boss", "Vera Root", VagrantStoryLocationCategory.BOSS),
         VagrantStoryLocationData("SNC - Hall of Sacrilege Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
     ],
@@ -745,6 +781,9 @@ location_tables = {
         VagrantStoryLocationData("SNC - Advent Ground (North) Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED)
     ],
     "The Cleansing Chantry": [
+        VagrantStoryLocationData(
+            "SNC - The Cleansing Chantry - Dragon Boss - Grimoire Analyse", "Vera Root", VagrantStoryLocationCategory.GRIMOIRE_UNLOCKS
+        ),
         VagrantStoryLocationData("SNC - The Cleansing Chantry - Dragon Boss", "Vera Root", VagrantStoryLocationCategory.BOSS),
         VagrantStoryLocationData("SNC - The Cleansing Chantry Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
     ],
@@ -754,6 +793,9 @@ location_tables = {
     # Limestone Quarry
     "Dark Abhors Light": [VagrantStoryLocationData("LQ - Dark Abhors Light Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED)],
     "Dream of the Holy Land": [
+        VagrantStoryLocationData(
+            "LQ - Dream of the Holy Land - Water Elemental Boss - Grimoire Avalanche", "Vera Root", VagrantStoryLocationCategory.GRIMOIRE_UNLOCKS
+        ),
         VagrantStoryLocationData("LQ - Dream of the Holy Land - Water Elemental Boss", "Vera Root", VagrantStoryLocationCategory.BOSS),
         VagrantStoryLocationData("LQ - Dream of the Holy Land - Aster Sigil Unlock", "Vera Root", VagrantStoryLocationCategory.SIGIL_UNLOCKS),
         VagrantStoryLocationData("LQ - Dream of the Holy Land Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
@@ -764,6 +806,7 @@ location_tables = {
         VagrantStoryLocationData("LQ - The Air Stirs Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
     ],
     "Bonds of Friendship": [
+        VagrantStoryLocationData("LQ - Bonds of Friendship - Chest - Grimoire Benir", "Vera Root", VagrantStoryLocationCategory.GRIMOIRE_UNLOCKS),
         VagrantStoryLocationData("LQ - Bonds of Friendship - Chest", "Vera Root", VagrantStoryLocationCategory.CHEST),
         VagrantStoryLocationData("LQ - Bonds of Friendship Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
     ],
@@ -793,6 +836,7 @@ location_tables = {
         VagrantStoryLocationData("LQ - The Timely Dew of Sleep Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
     ],
     "Companions in Arms": [
+        VagrantStoryLocationData("LQ - Companions in Arms - Chest - Grimoire Fleau", "Vera Root", VagrantStoryLocationCategory.GRIMOIRE_UNLOCKS),
         VagrantStoryLocationData("LQ - Companions in Arms - Chest", "Vera Root", VagrantStoryLocationCategory.CHEST),
         VagrantStoryLocationData("LQ - Companions in Arms Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
     ],
@@ -817,6 +861,9 @@ location_tables = {
         VagrantStoryLocationData("LQ - The Laborer's Bonfire Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
     ],
     "Stone and Sulfurous Fire": [
+        VagrantStoryLocationData(
+            "LQ - Stone and Sulfurous Fire - Chest - Grimoire Egout", "Vera Root", VagrantStoryLocationCategory.GRIMOIRE_UNLOCKS
+        ),
         VagrantStoryLocationData("LQ - Stone and Sulfurous Fire - Chest", "Vera Root", VagrantStoryLocationCategory.CHEST),
         VagrantStoryLocationData("LQ - Stone and Sulfurous Fire Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
     ],
@@ -826,6 +873,7 @@ location_tables = {
     ],
     "Way Down": [VagrantStoryLocationData("LQ - Way Down Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED)],
     "Excavated Hollow": [
+        VagrantStoryLocationData("LQ - Excavated Hollow - Chest - Grimoire Flamme", "Vera Root", VagrantStoryLocationCategory.GRIMOIRE_UNLOCKS),
         VagrantStoryLocationData("LQ - Excavated Hollow - Chest", "Vera Root", VagrantStoryLocationCategory.CHEST),
         VagrantStoryLocationData("LQ - Excavated Hollow Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
     ],
@@ -835,6 +883,9 @@ location_tables = {
         VagrantStoryLocationData("LQ - Dust Shall Eat the Days Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED)
     ],
     "Hall of the Wage-Paying": [
+        VagrantStoryLocationData(
+            "LQ - Hall of the Wage-Paying - Snow Dragon Boss - Grimoire Barrer", "Vera Root", VagrantStoryLocationCategory.GRIMOIRE_UNLOCKS
+        ),
         VagrantStoryLocationData("LQ - Hall of the Wage-Paying - Snow Dragon Boss", "Vera Root", VagrantStoryLocationCategory.BOSS),
         VagrantStoryLocationData("LQ - Hall of the Wage-Paying Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
     ],
@@ -844,6 +895,7 @@ location_tables = {
     # Iron Maiden B1
     "The Cage": [VagrantStoryLocationData("IM1 - The Cage Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED)],
     "The Cauldron": [
+        VagrantStoryLocationData("IM1 - The Cauldron - Wraith Boss - Grimoire Exsorcer", "Vera Root", VagrantStoryLocationCategory.GRIMOIRE_UNLOCKS),
         VagrantStoryLocationData("IM1 - The Cauldron - Gargoyle Boss", "Vera Root", VagrantStoryLocationCategory.BOSS),
         VagrantStoryLocationData("IM1 - The Cauldron - Wraith Boss", "Vera Root", VagrantStoryLocationCategory.BOSS),
         VagrantStoryLocationData("IM1 - The Cauldron - Tearose Sigil Unlock", "Vera Root", VagrantStoryLocationCategory.SIGIL_UNLOCKS),
@@ -851,6 +903,7 @@ location_tables = {
     ],
     "Wooden Horse": [VagrantStoryLocationData("IM1 - Wooden Horse Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED)],
     "Starvation": [
+        VagrantStoryLocationData("IM1 - Starvation - Wraith Boss - Grimoire Venin", "Vera Root", VagrantStoryLocationCategory.GRIMOIRE_UNLOCKS),
         VagrantStoryLocationData("IM1 - Starvation - Wraith Boss", "Vera Root", VagrantStoryLocationCategory.BOSS),
         VagrantStoryLocationData("IM1 - Starvation - Mummy Boss", "Vera Root", VagrantStoryLocationCategory.BOSS),
         VagrantStoryLocationData("IM1 - Starvation Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
@@ -1001,12 +1054,12 @@ location_tables = {
         VagrantStoryLocationData("GC1 - Sin and Punishment - Eruption Floor Trap", "Vera Root", VagrantStoryLocationCategory.FLOOR_TRAPS),
         VagrantStoryLocationData("GC1 - Sin and Punishment Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
     ],
-    # //////////////////////////////////////////
     "A Light in the Dark": [
         VagrantStoryLocationData("GC1 - A Light in the Dark - Arch Dragon Boss", "Vera Root", VagrantStoryLocationCategory.BOSS),
         VagrantStoryLocationData("GC1 - A Light in the Dark Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
     ],
     "Monk's Leap": [
+        VagrantStoryLocationData("GC1 - Monk's Leap - Lich Boss - Grimoire Demolir", "Vera Root", VagrantStoryLocationCategory.GRIMOIRE_UNLOCKS),
         VagrantStoryLocationData("GC1 - Monk's Leap - Lich Boss", "Vera Root", VagrantStoryLocationCategory.BOSS),
         VagrantStoryLocationData("GC1 - Monk's Leap Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
     ],
@@ -1014,6 +1067,9 @@ location_tables = {
         VagrantStoryLocationData("GC1 - Hieratic Recollections Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED)
     ],
     "The Flayed Confessional": [
+        VagrantStoryLocationData(
+            "GC1 - The Flayed Confessional - Djinn Boss - Grimoire Foudre", "Vera Root", VagrantStoryLocationCategory.GRIMOIRE_UNLOCKS
+        ),
         VagrantStoryLocationData("GC1 - The Flayed Confessional - Djinn Boss", "Vera Root", VagrantStoryLocationCategory.BOSS),
         VagrantStoryLocationData("GC1 - The Flayed Confessional - Chest", "Vera Root", VagrantStoryLocationCategory.CHEST),
         VagrantStoryLocationData("GC1 - The Flayed Confessional Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
@@ -1029,11 +1085,15 @@ location_tables = {
         VagrantStoryLocationData("GCB - Struggle for the Soul Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
     ],
     "Order and Chaos": [
+        VagrantStoryLocationData(
+            "GCB - Order and Chaos - Marid Boss - Grimoire Avalanche", "Vera Root", VagrantStoryLocationCategory.GRIMOIRE_UNLOCKS
+        ),
         VagrantStoryLocationData("GCB - Order and Chaos - Marid Boss", "Vera Root", VagrantStoryLocationCategory.BOSS),
         VagrantStoryLocationData("GCB - Order and Chaos Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
     ],
     "An Offering of Souls": [VagrantStoryLocationData("GCB - An Offering of Souls Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED)],
     "Truth and Lies": [
+        VagrantStoryLocationData("GCB - Truth and Lies - Ifrit Boss - Grimoire Flamme", "Vera Root", VagrantStoryLocationCategory.GRIMOIRE_UNLOCKS),
         VagrantStoryLocationData("GCB - Truth and Lies - Ifrit Boss", "Vera Root", VagrantStoryLocationCategory.BOSS),
         VagrantStoryLocationData("GCB - Truth and Lies Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
     ],
@@ -1074,6 +1134,9 @@ location_tables = {
         VagrantStoryLocationData("GC2 - The Acolyte's Weakness Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED)
     ],
     "Maelstrom of Malice": [
+        VagrantStoryLocationData(
+            "GC2 - Maelstrom of Malice - Lich Lord Boss - Grimoire Radius", "Vera Root", VagrantStoryLocationCategory.GRIMOIRE_UNLOCKS
+        ),
         VagrantStoryLocationData("GC2 - Maelstrom of Malice - Lich Lord Boss", "Vera Root", VagrantStoryLocationCategory.BOSS),
         VagrantStoryLocationData("GC2 - Maelstrom of Malice Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
     ],
@@ -1082,6 +1145,9 @@ location_tables = {
         VagrantStoryLocationData("GC2 - The Melodics of Madness Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
     ],
     "What Ails You, Kills You": [
+        VagrantStoryLocationData(
+            "GC2 - What Ails You, Kills You - Nightmare Boss - Grimoire Meteore", "Vera Root", VagrantStoryLocationCategory.GRIMOIRE_UNLOCKS
+        ),
         VagrantStoryLocationData("GC2 - What Ails You, Kills You - Nightmare Boss", "Vera Root", VagrantStoryLocationCategory.BOSS),
         VagrantStoryLocationData("GC2 - What Ails You, Kills You Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
     ],
@@ -1100,6 +1166,9 @@ location_tables = {
         VagrantStoryLocationData("GC3 - Despair of the Fallen Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED)
     ],
     "Hopes of the Idealist": [
+        VagrantStoryLocationData(
+            "GC3 - Hopes of the Idealist - Dao Boss - Grimoire Gaea", "Vera Root", VagrantStoryLocationCategory.GRIMOIRE_UNLOCKS
+        ),
         VagrantStoryLocationData("GC3 - Hopes of the Idealist - Dao Boss", "Vera Root", VagrantStoryLocationCategory.BOSS),
         VagrantStoryLocationData("GC3 - Hopes of the Idealist Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
     ],
@@ -1141,6 +1210,8 @@ location_tables = {
         VagrantStoryLocationData("ESC - Shelter From the Quake Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
     ],
     "Buried Alive": [
+        VagrantStoryLocationData("ESC - Buried Alive - Chest - Grimoire Meteore", "Vera Root", VagrantStoryLocationCategory.GRIMOIRE_UNLOCKS),
+        VagrantStoryLocationData("ESC - Buried Alive - Chest - Grimoire Radius", "Vera Root", VagrantStoryLocationCategory.GRIMOIRE_UNLOCKS),
         VagrantStoryLocationData("ESC - Buried Alive - Chest", "Vera Root", VagrantStoryLocationCategory.CHEST),
         VagrantStoryLocationData("ESC - Buried Alive Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
     ],
@@ -1151,6 +1222,12 @@ location_tables = {
     ],
     "The Darkness Drinks": [VagrantStoryLocationData("ESC - The Darkness Drinks Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED)],
     "Fear and Loathing": [
+        VagrantStoryLocationData(
+            "ESC - Fear and Loathing - Ifrit Boss - Grimoire Flamme", "Vera Root", VagrantStoryLocationCategory.GRIMOIRE_UNLOCKS
+        ),
+        VagrantStoryLocationData(
+            "ESC - Fear and Loathing - Marid Boss - Grimoire Avalanche", "Vera Root", VagrantStoryLocationCategory.GRIMOIRE_UNLOCKS
+        ),
         VagrantStoryLocationData("ESC - Fear and Loathing - Ifrit Boss", "Vera Root", VagrantStoryLocationCategory.BOSS),
         VagrantStoryLocationData("ESC - Fear and Loathing - Marid Boss", "Vera Root", VagrantStoryLocationCategory.BOSS),
         VagrantStoryLocationData("ESC - Fear and Loathing Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
@@ -1263,6 +1340,9 @@ location_tables = {
     ],
     "Hallway of Heroes": [VagrantStoryLocationData("CAT - Hallway of Heroes Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED)],
     "The Beast's Domain": [
+        VagrantStoryLocationData(
+            "Cat - The Beast's Domain - Lizardman Boss - Grimoire Antidote", "Vera Root", VagrantStoryLocationCategory.GRIMOIRE_UNLOCKS
+        ),
         VagrantStoryLocationData("CAT - The Beast's Domain - Lizardman Boss", "Vera Root", VagrantStoryLocationCategory.BOSS),
         VagrantStoryLocationData("CAT - The Beast's Domain Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
     ],
@@ -1270,6 +1350,7 @@ location_tables = {
     "Dreamers' Entrance": [VagrantStoryLocationData("AM1 - Dreamers' Entrance Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED)],
     "The Crossing": [VagrantStoryLocationData("AM1 - The Crossing Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED)],
     "Miners' Resting Hall": [
+        VagrantStoryLocationData("AM1 - Miners' Resting Hall - Chest - Grimoire Visible", "Vera Root", VagrantStoryLocationCategory.GRIMOIRE_UNLOCKS),
         VagrantStoryLocationData("AM1 - Miners' Resting Hall - Chest", "Vera Root", VagrantStoryLocationCategory.CHEST),
         VagrantStoryLocationData("AM1 - Miners' Resting Hall Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
     ],
@@ -1288,6 +1369,9 @@ location_tables = {
     ],
     "The Suicide King": [VagrantStoryLocationData("AM1 - The Suicide King Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED)],
     "The Battle's Beginning": [
+        VagrantStoryLocationData(
+            "AM1 - The Battle's Beginning - Wyvern Boss - Grimoire Ignifuge", "Vera Root", VagrantStoryLocationCategory.GRIMOIRE_UNLOCKS
+        ),
         VagrantStoryLocationData("AM1 - The Battle's Beginning - Wyvern Boss", "Vera Root", VagrantStoryLocationCategory.BOSS),
         VagrantStoryLocationData("AM1 - The Battle's Beginning Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
     ],
@@ -1314,10 +1398,14 @@ location_tables = {
         VagrantStoryLocationData("AM1 - Mining Regrets Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
     ],
     "Rust in Peace": [
+        VagrantStoryLocationData("AM1 - Rust in Peace - Chest - Grimoire Undine", "Vera Root", VagrantStoryLocationCategory.GRIMOIRE_UNLOCKS),
         VagrantStoryLocationData("AM1 - Rust in Peace - Chest", "Vera Root", VagrantStoryLocationCategory.CHEST),
         VagrantStoryLocationData("AM1 - Rust in Peace Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
     ],
     "The Smeltry": [
+        VagrantStoryLocationData(
+            "AM1 - The Smeltry - Fire Elemental Boss - Grimoire Flamme", "Vera Root", VagrantStoryLocationCategory.GRIMOIRE_UNLOCKS
+        ),
         VagrantStoryLocationData("AM1 - The Smeltry - Fire Elemental Boss", "Vera Root", VagrantStoryLocationCategory.BOSS),
         VagrantStoryLocationData("AM1 - The Smeltry Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
     ],
@@ -1334,6 +1422,9 @@ location_tables = {
         VagrantStoryLocationData("AM1 - Pray to the Mineral Gods Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
     ],
     "Traitor's Parting": [
+        VagrantStoryLocationData(
+            "AM1 - Traitor's Parting - Ogre Boss - Grimoire Rempart", "Vera Root", VagrantStoryLocationCategory.GRIMOIRE_UNLOCKS
+        ),
         VagrantStoryLocationData("AM1 - Traitor's Parting - Ogre Boss", "Vera Root", VagrantStoryLocationCategory.BOSS),
         VagrantStoryLocationData("AM1 - Traitor's Parting Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
     ],
@@ -1341,6 +1432,9 @@ location_tables = {
     # Abandoned Mine B2
     "Subtellurian Horrors": [VagrantStoryLocationData("AM2 - Subtellurian Horrors Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED)],
     "Dining in Darkness": [
+        VagrantStoryLocationData(
+            "AM2 - Dining in Darkness - Sky Dragon Boss - Grimoire Demance", "Vera Root", VagrantStoryLocationCategory.GRIMOIRE_UNLOCKS
+        ),
         VagrantStoryLocationData("AM2 - Dining in Darkness - Sky Dragon Boss", "Vera Root", VagrantStoryLocationCategory.BOSS),
         VagrantStoryLocationData("AM2 - Dining in Darkness Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
     ],
@@ -1349,6 +1443,9 @@ location_tables = {
         VagrantStoryLocationData("AM2 - Bandit's Hollow Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
     ],
     "Delusions of Happiness": [
+        VagrantStoryLocationData(
+            "AM2 - Delusions of Happiness - Chest - Grimoire Salamandre", "Vera Root", VagrantStoryLocationCategory.GRIMOIRE_UNLOCKS
+        ),
         VagrantStoryLocationData("AM2 - Delusions of Happiness - Chest", "Vera Root", VagrantStoryLocationCategory.CHEST),
         VagrantStoryLocationData("AM2 - Delusions of Happiness Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
     ],
@@ -1356,6 +1453,9 @@ location_tables = {
     "Rock Bottom": [VagrantStoryLocationData("AM2 - Rock Bottom Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED)],
     "The Lunatic Veins": [VagrantStoryLocationData("AM2 - The Lunatic Veins Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED)],
     "Tomb of the Reborn": [
+        VagrantStoryLocationData(
+            "AM2 - Tomb of the Reborn - Earth Elemental Boss - Grimoire Gaea", "Vera Root", VagrantStoryLocationCategory.GRIMOIRE_UNLOCKS
+        ),
         VagrantStoryLocationData("AM2 - Tomb of the Reborn - Earth Elemental Boss", "Vera Root", VagrantStoryLocationCategory.BOSS),
         VagrantStoryLocationData("AM2 - Tomb of the Reborn Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
     ],
@@ -1398,6 +1498,7 @@ location_tables = {
         VagrantStoryLocationData("AM2 - Hall of the Empty Sconce Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED)
     ],
     "Acolyte's Burial Vault": [
+        VagrantStoryLocationData("AM2 - Acolyte's Burial Vault - Chest - Grimoire Vie", "Vera Root", VagrantStoryLocationCategory.GRIMOIRE_UNLOCKS),
         VagrantStoryLocationData("AM2 - Acolyte's Burial Vault - Chest", "Vera Root", VagrantStoryLocationCategory.CHEST),
         VagrantStoryLocationData("AM2 - Acolyte's Burial Vault Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
     ],
@@ -1420,11 +1521,15 @@ location_tables = {
     ],
     "Way of Lost Children": [VagrantStoryLocationData("AM2 - Way of Lost Children Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED)],
     "Hidden Resources": [
+        VagrantStoryLocationData("AM2 - Hidden Resources - Chest - Grimoire Mollesse", "Vera Root", VagrantStoryLocationCategory.GRIMOIRE_UNLOCKS),
         VagrantStoryLocationData("AM2 - Hidden Resources - Chest", "Vera Root", VagrantStoryLocationCategory.CHEST),
         VagrantStoryLocationData("AM2 - Hidden Resources Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
     ],
     "Treaty Room": [VagrantStoryLocationData("AM2 - Treaty Room Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED)],
     "The Miner's End": [
+        VagrantStoryLocationData(
+            "AM2 - The Miner's End - Air Elemental Boss - Grimoire Foudre", "Vera Root", VagrantStoryLocationCategory.GRIMOIRE_UNLOCKS
+        ),
         VagrantStoryLocationData("AM2 - The Miner's End - Air Elemental Boss", "Vera Root", VagrantStoryLocationCategory.BOSS),
         VagrantStoryLocationData("AM2 - The Miner's End Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
     ],

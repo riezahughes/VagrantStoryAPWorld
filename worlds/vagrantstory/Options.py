@@ -126,6 +126,12 @@ class BossItemChoices(Choice):
     option_risk_heavy = ItemRewardDropOptions.RISK_HEAVY
 
 
+# class CountPerChainUnlock(Range):
+#     """
+#     Set how much BP you need per chain ability unlock
+#     """
+
+
 class IncludePrologueToggle(Toggle):
     """Include Prologue checks (May work? Not 100% sure. There's been a lot going on)"""
 
