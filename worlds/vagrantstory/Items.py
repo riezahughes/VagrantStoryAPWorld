@@ -489,7 +489,7 @@ _all_items: List[VagrantStoryItemData] = [
     VagrantStoryItemData("Eye of Argo", 33, VagrantStoryItemCategory.TEMP_STAT_BOOST, False),
     # Grimoires
     VagrantStoryItemData("Grimoire Guerir", 34, VagrantStoryItemCategory.GRIMOIRE, False),
-    VagrantStoryItemData("Grimoire Mollese", 35, VagrantStoryItemCategory.GRIMOIRE, False),
+    VagrantStoryItemData("Grimoire Mollesse", 35, VagrantStoryItemCategory.GRIMOIRE, False),
     VagrantStoryItemData("Grimoire Antidote", 36, VagrantStoryItemCategory.GRIMOIRE, False),
     VagrantStoryItemData("Grimoire Benir", 37, VagrantStoryItemCategory.GRIMOIRE, False),
     VagrantStoryItemData("Grimoire Purifier", 38, VagrantStoryItemCategory.GRIMOIRE, False),
@@ -519,14 +519,14 @@ _all_items: List[VagrantStoryItemData] = [
     VagrantStoryItemData("Grimoire Radius", 62, VagrantStoryItemCategory.GRIMOIRE, False),
     VagrantStoryItemData("Grimoire Meteore", 63, VagrantStoryItemCategory.GRIMOIRE, False),
     VagrantStoryItemData("Grimoire Egout", 64, VagrantStoryItemCategory.GRIMOIRE, False),
-    VagrantStoryItemData("Grimoire Deamance", 65, VagrantStoryItemCategory.GRIMOIRE, False),
+    VagrantStoryItemData("Grimoire Demance", 65, VagrantStoryItemCategory.GRIMOIRE, False),
     VagrantStoryItemData("Grimoire Intensite", 66, VagrantStoryItemCategory.GRIMOIRE, False),
     VagrantStoryItemData("Grimoire Debile", 67, VagrantStoryItemCategory.GRIMOIRE, False),
     VagrantStoryItemData("Grimoire Eclairer", 68, VagrantStoryItemCategory.GRIMOIRE, False),
-    VagrantStoryItemData("Grimoire Naugeux", 69, VagrantStoryItemCategory.GRIMOIRE, False),
+    VagrantStoryItemData("Grimoire Nuageux", 69, VagrantStoryItemCategory.GRIMOIRE, False),
     VagrantStoryItemData("Grimoire Agilite", 70, VagrantStoryItemCategory.GRIMOIRE, False),
     VagrantStoryItemData("Grimoire Tardif", 71, VagrantStoryItemCategory.GRIMOIRE, False),
-    VagrantStoryItemData("Grimoire Ameliore", 72, VagrantStoryItemCategory.GRIMOIRE, False),
+    VagrantStoryItemData("Grimoire Ameliorer", 72, VagrantStoryItemCategory.GRIMOIRE, False),
     VagrantStoryItemData("Grimoire Deteriorer", 73, VagrantStoryItemCategory.GRIMOIRE, False),
     VagrantStoryItemData("Grimoire Annuler", 74, VagrantStoryItemCategory.GRIMOIRE, False),
     VagrantStoryItemData("Grimoire Paralysie", 75, VagrantStoryItemCategory.GRIMOIRE, False),
@@ -537,7 +537,7 @@ _all_items: List[VagrantStoryItemData] = [
     VagrantStoryItemData("Grimoire Dissiper", 80, VagrantStoryItemCategory.GRIMOIRE, False),
     VagrantStoryItemData("Grimoire Clef", 81, VagrantStoryItemCategory.GRIMOIRE, False),
     VagrantStoryItemData("Grimoire Visible", 82, VagrantStoryItemCategory.GRIMOIRE, False),
-    VagrantStoryItemData("Grimoire Analysis", 83, VagrantStoryItemCategory.GRIMOIRE, False),
+    VagrantStoryItemData("Grimoire Analyse", 83, VagrantStoryItemCategory.GRIMOIRE, False),
     # Keys
     VagrantStoryItemData("Bronze Key", 84, VagrantStoryItemCategory.KEYS, True),
     VagrantStoryItemData("Chest Key", 85, VagrantStoryItemCategory.KEYS, True),
@@ -2037,7 +2037,12 @@ def BuildItemPool(count: int, self) -> List[str]:
     )
 
     # 2. Add Progression (Keys/Sigils)
-    progression_items = [item.name for item in item_list_choice if item.category in [VagrantStoryItemCategory.KEYS, VagrantStoryItemCategory.SIGILS]]
+    progression_items = [
+        item.name
+        for item in item_list_choice
+        if item.category
+        in [VagrantStoryItemCategory.KEYS, VagrantStoryItemCategory.SIGILS, VagrantStoryItemCategory.GRIMOIRE, VagrantStoryItemCategory.GEMS]
+    ]
     for name in progression_items:
         if name not in item_pool_names and len(item_pool_names) < count:
             item_pool_names.append(name)
