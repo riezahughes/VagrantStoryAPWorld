@@ -18,7 +18,11 @@ def is_boss_defeated(self, boss: str, state: CollectionState):  # can used later
     return state.has("Boss: " + boss, self.player, 1)
 
 
-def set_vanilla_progression(self):
+def player_has_location(self, location: str, state: CollectionState):  # can used later
+    return state.can_reach_location(location, self.player)
+
+
+def set_vanilla_key_item_progression(self):
     # Bronze Key
     set_rule(self.get_entrance("Shasras Hill Park -> Hall to a New World"), lambda state: has_key_required(self, "Bronze Key", state))
 
@@ -84,6 +88,17 @@ def set_vanilla_progression(self):
     set_rule(self.get_entrance("The Cauldron -> Wooden Horse"), lambda state: has_sigil_required(self, "Tearose Sigil", state))
     set_rule(self.get_entrance("Wiping Blood from Blades -> Time Trial (Asura)"), lambda state: has_sigil_required(self, "Tigertail Sigil", state))
     set_rule(self.get_entrance("Urge the Boy On -> Time Trial (Snow Dragon)"), lambda state: has_sigil_required(self, "Verbena Sigil", state))
+
+
+def set_vanilla_boss_progression(self):
+    add_rule(
+        self.get_entrance("Smokebarrel Stair -> Room of Cheap Red Wine"),
+        lambda state: player_has_location(self, "WC - The Gallows - Minotaur Boss", state),
+    )
+    add_rule(
+        self.get_entrance("The Hero's Winehall -> Hall of Sworn Revenge"),
+        lambda state: player_has_location(self, "WC - The Hero's Winehall - Dullahan Boss", state),
+    )
 
 
 def set_open_progression(self):

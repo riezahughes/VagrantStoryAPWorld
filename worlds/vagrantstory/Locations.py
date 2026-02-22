@@ -239,7 +239,7 @@ location_tables = {
     ],
     "Smokebarrel Stair": [
         VagrantStoryLocationData("WC - Smokebarrel Stair - Gust Panel Floor Trap", "Vera Root", VagrantStoryLocationCategory.FLOOR_TRAPS),
-        VagrantStoryLocationData("WC - Smokebarrel Stair - Chamomile Sigil Unlock", "Vera Root", VagrantStoryLocationCategory.BOSS_UNLOCKS_PLUS),
+        VagrantStoryLocationData("WC - Smokebarrel Stair - Chamomile Sigil Unlock", "Vera Root", VagrantStoryLocationCategory.SIGIL_UNLOCKS),
         VagrantStoryLocationData("WC - Smokebarrel Stair Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
     ],
     "Wine Guild Hall": [
@@ -1341,7 +1341,7 @@ location_tables = {
     "Hallway of Heroes": [VagrantStoryLocationData("CAT - Hallway of Heroes Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED)],
     "The Beast's Domain": [
         VagrantStoryLocationData(
-            "Cat - The Beast's Domain - Lizardman Boss - Grimoire Antidote", "Vera Root", VagrantStoryLocationCategory.GRIMOIRE_UNLOCKS
+            "CAT - The Beast's Domain - Lizardman Boss - Grimoire Antidote", "Vera Root", VagrantStoryLocationCategory.GRIMOIRE_UNLOCKS
         ),
         VagrantStoryLocationData("CAT - The Beast's Domain - Lizardman Boss", "Vera Root", VagrantStoryLocationCategory.BOSS),
         VagrantStoryLocationData("CAT - The Beast's Domain Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
