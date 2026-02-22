@@ -99,6 +99,10 @@ def set_vanilla_boss_progression(self):
         self.get_entrance("The Hero's Winehall -> Hall of Sworn Revenge"),
         lambda state: player_has_location(self, "WC - The Hero's Winehall - Dullahan Boss", state),
     )
+    set_rule(
+        self.get_entrance("Shrine to the Martyrs -> Hall of Dying Hope"),
+        lambda state: player_has_location(self, "CAT - The Lamenting Mother (West) - Ghost Boss", state),
+    )
 
 
 def set_open_progression(self):
