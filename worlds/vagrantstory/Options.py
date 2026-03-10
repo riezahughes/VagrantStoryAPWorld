@@ -17,6 +17,16 @@ class ItemPoolDropOptions:
     HEAVY = 1
 
 
+class ChainSkillUnlockOptions:
+    VANILLA = 0
+    SET = 1
+
+
+class BreakArtUnlockOptions:
+    VANILLA = 0
+    SET = 1
+
+
 class ItemRewardDropOptions:
     NOTHING = 0
     HEAL_HEAVY = 1
@@ -126,10 +136,52 @@ class BossItemChoices(Choice):
     option_risk_heavy = ItemRewardDropOptions.RISK_HEAVY
 
 
-# class CountPerChainUnlock(Range):
-#     """
-#     Set how much BP you need per chain ability unlock
-#     """
+class ChainSkillUnlockOptionChoice(Choice):
+    """
+    Set how you want to unlock chain skills.
+
+    vanilla - As it was in the original game with the same values
+    set - uses a set number per unlock instead, allowing for faster unlocking
+    """
+
+    display_name = "Chain Skill Unlock Option"
+    default = ChainSkillUnlockOptions.SET
+    options_vanilla = ChainSkillUnlockOptions.VANILLA
+    options_set = ChainSkillUnlockOptions.SET
+
+
+class CountPerChainUnlock(Range):
+    """
+    Set how much BP you need per chain ability unlock (Requires SET in Chain Skill Unlock Option)
+    """
+
+    range_start = 1
+    range_end = 50
+    default = 20
+
+
+class BreakArtUnlockOptionChoice(Choice):
+    """
+    Set how you want to unlock break arts.
+
+    vanilla - As it was in the original game with the same values
+    set - uses a set number per unlock instead, allowing for faster unlocking
+    """
+
+    display_name = "Break Art Unlock Option"
+    default = BreakArtUnlockOptions.SET
+    options_vanilla = BreakArtUnlockOptions.VANILLA
+    options_set = BreakArtUnlockOptions.SET
+
+
+class CountPerBreakUnlock(Range):
+    """
+    Set how many points needed per break art unlock (Requires SET in Break Skill Unlock Option)
+    """
+
+    range_start = 1
+    range_end = 50
+    default = 15
 
 
 class IncludePrologueToggle(Toggle):
@@ -225,6 +277,10 @@ class VagrantStoryOption(PerGameCommonOptions):
     heavy_drop_limit: HeavyDropLimitOption
     chest_item_choices: ChestItemChoices
     boss_item_choices: BossItemChoices
+    chain_skill_unlock_option: ChainSkillUnlockOptionChoice
+    chain_skill_counter: CountPerChainUnlock
+    break_art_unlock_option: BreakArtUnlockOptionChoice
+    break_art_counter: CountPerBreakUnlock
     include_teleport: IncludeTeleportSpellToggle
     zero_mp_teleport: SetTeleportZeroCostToggle
     open_teleport_locations: OpenAllTeleportLocationsToggle
