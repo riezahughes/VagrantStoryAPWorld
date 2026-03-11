@@ -139,20 +139,19 @@ class BossItemChoices(Choice):
 class ChainSkillUnlockOptionChoice(Choice):
     """
     Set how you want to unlock chain skills.
-
     vanilla - As it was in the original game with the same values
     set - uses a set number per unlock instead, allowing for faster unlocking
     """
 
     display_name = "Chain Skill Unlock Option"
     default = ChainSkillUnlockOptions.SET
-    options_vanilla = ChainSkillUnlockOptions.VANILLA
-    options_set = ChainSkillUnlockOptions.SET
+    option_vanilla = ChainSkillUnlockOptions.VANILLA
+    option_set = ChainSkillUnlockOptions.SET
 
 
 class CountPerChainUnlock(Range):
     """
-    Set how much BP you need per chain ability unlock (Requires SET in Chain Skill Unlock Option)
+    Set how much BP you need per chain ability unlock - Requires SET in Chain Skill Unlock Option
     """
 
     range_start = 1
@@ -163,20 +162,19 @@ class CountPerChainUnlock(Range):
 class BreakArtUnlockOptionChoice(Choice):
     """
     Set how you want to unlock break arts.
-
     vanilla - As it was in the original game with the same values
     set - uses a set number per unlock instead, allowing for faster unlocking
     """
 
     display_name = "Break Art Unlock Option"
     default = BreakArtUnlockOptions.SET
-    options_vanilla = BreakArtUnlockOptions.VANILLA
-    options_set = BreakArtUnlockOptions.SET
+    option_vanilla = BreakArtUnlockOptions.VANILLA
+    option_set = BreakArtUnlockOptions.SET
 
 
 class CountPerBreakUnlock(Range):
     """
-    Set how many points needed per break art unlock (Requires SET in Break Skill Unlock Option)
+    Set how many points needed per break art unlock - Requires SET in Break Skill Unlock Option
     """
 
     range_start = 1
