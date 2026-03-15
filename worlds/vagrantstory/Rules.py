@@ -1,5 +1,6 @@
 from worlds.generic.Rules import set_rule, add_rule
 from BaseClasses import CollectionState, Iterable
+from .Items import VagrantStoryWeaponType
 
 
 def has_key_required(self, key: str, state: CollectionState):

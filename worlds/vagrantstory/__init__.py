@@ -185,6 +185,12 @@ class VagrantStoryWorld(World):
                     self.location_name_to_id[location.name],
                     new_region,
                 )
+                # Temporary fix to allow easy logic.
+                if (
+                    location.category == VagrantStoryLocationCategory.BREAK_UNLOCKS
+                    or location.category == VagrantStoryLocationCategory.ABILITY_UNLOCKS
+                ):
+                    add_item_rule(new_location, lambda item: item.classification != ItemClassification.progression)
             else:
                 event_item = self.create_item(location.default_item)
                 new_location = VagrantStoryLocation(self.player, location.name, location.category, location.default_item, None, new_region)
