@@ -1,7 +1,7 @@
 from enum import IntEnum
 from typing import NamedTuple, List, Optional, cast
 from BaseClasses import Item, ItemClassification
-from .Options import ItemPoolDropOptions, ItemPoolDropOptions
+from .Options import ItemPoolDropOptions, ItemPoolDropOptions, TeleportPoolOptions, NewGamePlusOptions
 
 
 class VagrantStoryItemCategory(IntEnum):
@@ -22,8 +22,10 @@ class VagrantStoryItemCategory(IntEnum):
     SHIELDS = 14
     ARMOUR = 15
     ACCESSORY = 16
-    TRAP = 17
-    SKIP = 18
+    TELEPORT = 17
+    ROOD_INVERSE = 18
+    TRAP = 19
+    SKIP = 20
 
 
 class VagrantStoryWeaponType(IntEnum):
@@ -74,8 +76,14 @@ class VagrantStoryItem(Item):
     @staticmethod
     def get_name_to_id() -> dict:
         base_id = 9901000
-        # Create a dictionary mapping item names to their unique Archipelago IDs.
-        return {item_data.name: (base_id + item_data.v_code) for item_data in _all_items if item_data.v_code is not None}
+
+        result = {item_data.name: (base_id + item_data.v_code) for item_data in _all_items if item_data.v_code is not None}
+
+        # Provides codes for optional items.
+        result["Teleport"] = 9910000
+        result["Rood Inverse"] = 9920000
+
+        return result
 
 
 key_item_names = {}
@@ -141,11 +149,8 @@ _vanilla_items_raw: List[VagrantStoryItemData] = [
     VagrantStoryItemData("Grimoire Halte", VagrantStoryItemCategory.GRIMOIRE, False, 1),
     VagrantStoryItemData("Grimoire Ameliorer", VagrantStoryItemCategory.GRIMOIRE, False, 1),
     VagrantStoryItemData("Grimoire Analyse", VagrantStoryItemCategory.GRIMOIRE, False, 1),
-    VagrantStoryItemData("Grimoire Demolir", VagrantStoryItemCategory.GRIMOIRE, False, 2),
     VagrantStoryItemData("Grimoire Clef", VagrantStoryItemCategory.GRIMOIRE, False, 1),
     VagrantStoryItemData("Grimoire Visible", VagrantStoryItemCategory.GRIMOIRE, False, 1),
-    VagrantStoryItemData("Grimoire Flamme", VagrantStoryItemCategory.GRIMOIRE, False, 5),
-    VagrantStoryItemData("Grimoire Meteore", VagrantStoryItemCategory.GRIMOIRE, False, 3),
     VagrantStoryItemData("Grimoire Dissiper", VagrantStoryItemCategory.GRIMOIRE, False, 1),
     VagrantStoryItemData("Grimoire Agilite", VagrantStoryItemCategory.GRIMOIRE, False, 1),
     VagrantStoryItemData("Grimoire Annuler", VagrantStoryItemCategory.GRIMOIRE, False, 1),
@@ -154,17 +159,21 @@ _vanilla_items_raw: List[VagrantStoryItemData] = [
     VagrantStoryItemData("Grimoire Exsorcer", VagrantStoryItemCategory.GRIMOIRE, False, 1),
     VagrantStoryItemData("Grimoire Venin", VagrantStoryItemCategory.GRIMOIRE, False, 1),
     VagrantStoryItemData("Grimoire Demance", VagrantStoryItemCategory.GRIMOIRE, False, 1),
-    VagrantStoryItemData("Grimoire Gaea", VagrantStoryItemCategory.GRIMOIRE, False, 2),
-    VagrantStoryItemData("Grimoire Foudre", VagrantStoryItemCategory.GRIMOIRE, False, 4),
     VagrantStoryItemData("Grimoire Intensite", VagrantStoryItemCategory.GRIMOIRE, False, 1),
     VagrantStoryItemData("Grimoire Nuageux", VagrantStoryItemCategory.GRIMOIRE, False, 1),
     VagrantStoryItemData("Grimoire Eclairer", VagrantStoryItemCategory.GRIMOIRE, False, 1),
     VagrantStoryItemData("Grimoire Tardif", VagrantStoryItemCategory.GRIMOIRE, False, 1),
     VagrantStoryItemData("Grimoire Paralysie", VagrantStoryItemCategory.GRIMOIRE, False, 1),
-    VagrantStoryItemData("Grimoire Avalanche", VagrantStoryItemCategory.GRIMOIRE, False, 3),
     VagrantStoryItemData("Grimoire Fleau", VagrantStoryItemCategory.GRIMOIRE, False, 1),
     VagrantStoryItemData("Grimoire Egout", VagrantStoryItemCategory.GRIMOIRE, False, 1),
+    # upgradable spells
+    VagrantStoryItemData("Grimoire Demolir", VagrantStoryItemCategory.GRIMOIRE, False, 2),
+    VagrantStoryItemData("Grimoire Foudre", VagrantStoryItemCategory.GRIMOIRE, False, 4),
+    VagrantStoryItemData("Grimoire Flamme", VagrantStoryItemCategory.GRIMOIRE, False, 5),
+    VagrantStoryItemData("Grimoire Gaea", VagrantStoryItemCategory.GRIMOIRE, False, 2),
+    VagrantStoryItemData("Grimoire Avalanche", VagrantStoryItemCategory.GRIMOIRE, False, 3),
     VagrantStoryItemData("Grimoire Radius", VagrantStoryItemCategory.GRIMOIRE, False, 2),
+    VagrantStoryItemData("Grimoire Meteore", VagrantStoryItemCategory.GRIMOIRE, False, 3),
     # 5. Keys (78-85)
     VagrantStoryItemData("Crimson Key", VagrantStoryItemCategory.KEYS, False, 1),
     VagrantStoryItemData("Gold Key", VagrantStoryItemCategory.KEYS, False, 1),
@@ -670,7 +679,6 @@ _all_items_raw: List[VagrantStoryItemData] = [
     VagrantStoryItemData("Gold Key", VagrantStoryItemCategory.KEYS, True),
     VagrantStoryItemData("Iron Key", VagrantStoryItemCategory.KEYS, True),
     VagrantStoryItemData("Platinum Key", VagrantStoryItemCategory.KEYS, True),
-    VagrantStoryItemData("Rood Inverse", VagrantStoryItemCategory.KEYS, True),
     VagrantStoryItemData("Silver Key", VagrantStoryItemCategory.KEYS, True),
     VagrantStoryItemData("Steel Key", VagrantStoryItemCategory.KEYS, True),
     # Sigils (93-116)
@@ -1832,23 +1840,41 @@ def item_dictionary(options) -> dict[str, VagrantStoryItemData]:
     item_list = (
         _vanilla_items if hasattr(options, "item_drop_option") and options.item_drop_option.value == ItemPoolDropOptions.VANILLA else _all_items
     )
-    return {item_data.name: item_data for item_data in item_list}
+    result = {item_data.name: item_data for item_data in item_list}
+
+    # Add conditional items to the dictionary
+    if hasattr(options, "include_teleport") and options.include_teleport.value == TeleportPoolOptions.IN_POOL:
+        result["Teleport"] = VagrantStoryItemData("Teleport", VagrantStoryItemCategory.TELEPORT, True, 1)
+
+    if hasattr(options, "include_new_game_plus") and options.include_new_game_plus.value == NewGamePlusOptions.IN_POOL:
+        result["Rood Inverse"] = VagrantStoryItemData("Rood Inverse", VagrantStoryItemCategory.ROOD_INVERSE, True)
+
+    return result
 
 
 def BuildItemPool(count: int, self) -> List[str]:
     item_pool_names: List[str] = []
 
-    # 1. Start with Guaranteed Items
     if hasattr(self.options, "guaranteed_items") and self.options.guaranteed_items.value:
         for item_name in self.options.guaranteed_items.value:
             if item_name in item_dictionary(self.options):
                 item_pool_names.append(item_name)
 
-    # Determine the item source (Vanilla vs All)
     item_list_choice = (
-        _vanilla_items
+        _vanilla_items.copy()
         if hasattr(self.options, "item_drop_option") and self.options.item_drop_option.value == ItemPoolDropOptions.VANILLA
-        else _all_items
+        else _all_items.copy()
+    )
+
+    teleport_item = (
+        VagrantStoryItemData("Teleport", VagrantStoryItemCategory.TELEPORT, True, 1)
+        if (hasattr(self.options, "include_teleport") and self.options.include_teleport.value == TeleportPoolOptions.IN_POOL)
+        else None
+    )
+    rood_inverse_item = (
+        VagrantStoryItemData("Rood Inverse", VagrantStoryItemCategory.ROOD_INVERSE, True)
+        if (hasattr(self.options, "include_new_game_plus") and self.options.include_new_game_plus.value == NewGamePlusOptions.IN_POOL)
+        else None
     )
 
     # 2. Add Progression (Keys/Sigils)
@@ -1858,6 +1884,14 @@ def BuildItemPool(count: int, self) -> List[str]:
         if item.category
         in [VagrantStoryItemCategory.KEYS, VagrantStoryItemCategory.SIGILS, VagrantStoryItemCategory.GRIMOIRE, VagrantStoryItemCategory.GEMS]
     ]
+
+    if teleport_item is not None:
+        item_list_choice.append(teleport_item)
+        progression_items.append(teleport_item.name)
+    if rood_inverse_item is not None:
+        item_list_choice.append(rood_inverse_item)
+        progression_items.append(rood_inverse_item.name)
+
     for name in progression_items:
         if name not in item_pool_names and len(item_pool_names) < count:
             item_pool_names.append(name)

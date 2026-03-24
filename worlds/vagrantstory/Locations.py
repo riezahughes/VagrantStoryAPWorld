@@ -19,10 +19,11 @@ class VagrantStoryLocationCategory(IntEnum):
     ROOD_INVERSE_UNLOCKS = 9
     ABILITY_UNLOCKS = 10
     BREAK_UNLOCKS = 11
-    FLOOR_TRAPS = 12
-    PUZZLE_CLEAR = 13
-    ROOM_ENTERED = 14
-    GAME_END = 15
+    TELEPORT_UNLOCK = 12
+    FLOOR_TRAPS = 13
+    PUZZLE_CLEAR = 14
+    ROOM_ENTERED = 15
+    GAME_END = 16
 
 
 class VagrantStoryLocationData(NamedTuple):
@@ -209,7 +210,7 @@ location_tables = {
         VagrantStoryLocationData("WC - Hall of Struggle Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
     ],
     "Smokebarrel Stair": [
-        VagrantStoryLocationData("WC - Smokebarrel Stair - Gust Panel Floor Trap", "Vera Root", VagrantStoryLocationCategory.FLOOR_TRAPS),
+        VagrantStoryLocationData("WC - Smokebarrel Stair - Gust Floor Trap", "Vera Root", VagrantStoryLocationCategory.FLOOR_TRAPS),
         VagrantStoryLocationData("WC - Smokebarrel Stair - Chamomile Sigil Unlock", "Vera Root", VagrantStoryLocationCategory.SIGIL_UNLOCKS),
         VagrantStoryLocationData("WC - Smokebarrel Stair Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
     ],
@@ -237,8 +238,7 @@ location_tables = {
         VagrantStoryLocationData("WC - The Rich Drown in Wine Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
     ],
     "Room of Rotten Grapes": [
-        VagrantStoryLocationData("WC - Room of Rotten Grapes - Heal Panel Floor Trap", "Vera Root", VagrantStoryLocationCategory.FLOOR_TRAPS),
-        VagrantStoryLocationData("WC - Room of Rotten Grapes - Curse Panel Floor Trap", "Vera Root", VagrantStoryLocationCategory.FLOOR_TRAPS),
+        VagrantStoryLocationData("WC - Room of Rotten Grapes - Heal Floor Trap", "Vera Root", VagrantStoryLocationCategory.FLOOR_TRAPS),
         VagrantStoryLocationData("WC - Room of Rotten Grapes Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
     ],
     "Blackmarket of Wines": [
@@ -258,7 +258,7 @@ location_tables = {
     ],
     "Room of Cheap Red Wine": [
         VagrantStoryLocationData("WC - Room of Cheap Red Wine - Mandel Boss", "Vera Root", VagrantStoryLocationCategory.BOSS),
-        VagrantStoryLocationData("WC - Room of Cheap Red Wine - Heal Panel Floor Trap", "Vera Root", VagrantStoryLocationCategory.FLOOR_TRAPS),
+        VagrantStoryLocationData("WC - Room of Cheap Red Wine - Heal Floor Trap", "Vera Root", VagrantStoryLocationCategory.FLOOR_TRAPS),
         VagrantStoryLocationData("WC - Room of Cheap Red Wine Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
     ],
     "Room of Cheap White Wine": [
@@ -316,8 +316,8 @@ location_tables = {
     ],
     "The Washing-Woman's Way": [
         VagrantStoryLocationData("UW - The Washing-Woman's Way - Silver Key Unlock", "Vera Root", VagrantStoryLocationCategory.KEY_UNLOCKS),
-        VagrantStoryLocationData("UW - The Washing-Woman's Way - Heal Panel Floor Trap", "Vera Root", VagrantStoryLocationCategory.FLOOR_TRAPS),
-        VagrantStoryLocationData("UW - The Washing-Woman's Way - Cure Panel Floor Trap", "Vera Root", VagrantStoryLocationCategory.FLOOR_TRAPS),
+        VagrantStoryLocationData("UW - The Washing-Woman's Way - Heal Floor Trap", "Vera Root", VagrantStoryLocationCategory.FLOOR_TRAPS),
+        VagrantStoryLocationData("UW - The Washing-Woman's Way - Cure Floor Trap", "Vera Root", VagrantStoryLocationCategory.FLOOR_TRAPS),
         VagrantStoryLocationData("UW - The Washing-Woman's Way Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
     ],
     "Nameless Dark Oblivion": [
@@ -364,7 +364,7 @@ location_tables = {
     "Salvation for the Mother": [
         VagrantStoryLocationData("UW - Salvation for the Mother - Gold Key Unlock", "Vera Root", VagrantStoryLocationCategory.KEY_UNLOCKS),
         VagrantStoryLocationData("UW - Salvation for the Mother - Diabolos Floor Trap", "Vera Root", VagrantStoryLocationCategory.FLOOR_TRAPS),
-        VagrantStoryLocationData("UW - Salvation for the Mother - Poison Panel Floor Trap", "Vera Root", VagrantStoryLocationCategory.FLOOR_TRAPS),
+        VagrantStoryLocationData("UW - Salvation for the Mother - Poison Floor Trap", "Vera Root", VagrantStoryLocationCategory.FLOOR_TRAPS),
         VagrantStoryLocationData("UW - Salvation for the Mother Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
     ],
     "The Body Fragile Yields": [
@@ -406,6 +406,7 @@ location_tables = {
     ],
     "Bazaar of the Bizarre": [
         VagrantStoryLocationData("UE - Bazaar of the Bizarre - Lich Boss", "Vera Root", VagrantStoryLocationCategory.BOSS),
+        VagrantStoryLocationData("UE - Bazaar of the Bizarre - Teleport Unlock", "Vera Root", VagrantStoryLocationCategory.TELEPORT_UNLOCK),
         VagrantStoryLocationData("UE - Bazaar of the Bizarre Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
     ],
     "Noble Gold and Silk": [
@@ -450,7 +451,6 @@ location_tables = {
             "UEN - Catspaw Blackmarket - Chest - Grimoire Paralysie", "Vera Root", VagrantStoryLocationCategory.GRIMOIRE_UNLOCKS
         ),
         VagrantStoryLocationData("UEN - Catspaw Blackmarket - Diabolos Floor Trap", "Vera Root", VagrantStoryLocationCategory.FLOOR_TRAPS),
-        VagrantStoryLocationData("UEN - Catspaw Blackmarket - Trap Clear Floor Trap", "Vera Root", VagrantStoryLocationCategory.FLOOR_TRAPS),
         VagrantStoryLocationData("UEN - Catspaw Blackmarket - Chest", "Vera Root", VagrantStoryLocationCategory.CHEST),
         VagrantStoryLocationData("UEN - Catspaw Blackmarket Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
     ],
@@ -481,7 +481,7 @@ location_tables = {
         VagrantStoryLocationData("TCE - Workshop 'Junction Point' Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED)
     ],
     "Rue Fisserano": [
-        VagrantStoryLocationData("TCE - Rue Fisserano - Heal Panel Floor Trap", "Vera Root", VagrantStoryLocationCategory.FLOOR_TRAPS),
+        VagrantStoryLocationData("TCE - Rue Fisserano - Heal Floor Trap", "Vera Root", VagrantStoryLocationCategory.FLOOR_TRAPS),
         VagrantStoryLocationData("TCE - Rue Fisserano Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
     ],
     "Workshop 'Metal Works'": [
@@ -500,7 +500,7 @@ location_tables = {
         VagrantStoryLocationData("TCE - Gharmes Walk Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
     ],
     "Plateia Lumitar": [
-        VagrantStoryLocationData("TCE - Plateia Lumitar - Cure Panel Floor Trap", "Vera Root", VagrantStoryLocationCategory.FLOOR_TRAPS),
+        VagrantStoryLocationData("TCE - Plateia Lumitar - Cure Floor Trap", "Vera Root", VagrantStoryLocationCategory.FLOOR_TRAPS),
         VagrantStoryLocationData("TCE - Plateia Lumitar Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
     ],
     # Towen Centre West
@@ -509,7 +509,7 @@ location_tables = {
         VagrantStoryLocationData("TCW - Rue Vermillion Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
     ],
     "The Rene Coastroad": [
-        VagrantStoryLocationData("TCW - The Rene Coastroad - Heal Panel Floor Trap", "Vera Root", VagrantStoryLocationCategory.FLOOR_TRAPS),
+        VagrantStoryLocationData("TCW - The Rene Coastroad - Heal Floor Trap", "Vera Root", VagrantStoryLocationCategory.FLOOR_TRAPS),
         VagrantStoryLocationData("TCW - The Rene Coastroad Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
     ],
     "Workshop 'Magic Hammer'": [
@@ -606,7 +606,7 @@ location_tables = {
     # Temple of Kiltia
     "The Dark Coast": [
         VagrantStoryLocationData("TOK - The Dark Coast - Trap Clear Floor Trap", "Vera Root", VagrantStoryLocationCategory.FLOOR_TRAPS),
-        VagrantStoryLocationData("TOK - The Dark Coast - Heal Panel Floor Trap", "Vera Root", VagrantStoryLocationCategory.FLOOR_TRAPS),
+        VagrantStoryLocationData("TOK - The Dark Coast - Heal Floor Trap", "Vera Root", VagrantStoryLocationCategory.FLOOR_TRAPS),
         VagrantStoryLocationData("TOK - The Dark Coast Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
     ],
     "Hall of Prayer": [
@@ -663,7 +663,7 @@ location_tables = {
     ],
     "Forest River": [
         VagrantStoryLocationData("SFF - Forest River - Chest - Grimoire Agilite", "Vera Root", VagrantStoryLocationCategory.GRIMOIRE_UNLOCKS),
-        VagrantStoryLocationData("SFF - Forest River - Cure Panel Floor Trap", "Vera Root", VagrantStoryLocationCategory.FLOOR_TRAPS),
+        VagrantStoryLocationData("SFF - Forest River - Cure Floor Trap", "Vera Root", VagrantStoryLocationCategory.FLOOR_TRAPS),
         VagrantStoryLocationData("SFF - Forest River - Chest", "Vera Root", VagrantStoryLocationCategory.CHEST),
         VagrantStoryLocationData("SFF - Forest River Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
     ],
@@ -790,11 +790,11 @@ location_tables = {
     "The Rotten Core": [VagrantStoryLocationData("LQ - The Rotten Core Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED)],
     "The Dreamer's Climb": [
         VagrantStoryLocationData("LQ - The Dreamer's Climb - Eulelia Sigil Unlock", "Vera Root", VagrantStoryLocationCategory.SIGIL_UNLOCKS),
-        VagrantStoryLocationData("LQ - The Dreamer's Climb - Heal Panel Floor Trap", "Vera Root", VagrantStoryLocationCategory.FLOOR_TRAPS),
+        VagrantStoryLocationData("LQ - The Dreamer's Climb - Heal Floor Trap", "Vera Root", VagrantStoryLocationCategory.FLOOR_TRAPS),
         VagrantStoryLocationData("LQ - The Dreamer's Climb Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
     ],
     "The Ore-Bearers": [
-        VagrantStoryLocationData("LQ - The Ore-Bearers - Poison Panel Floor Trap", "Vera Root", VagrantStoryLocationCategory.FLOOR_TRAPS),
+        VagrantStoryLocationData("LQ - The Ore-Bearers - Poison Floor Trap", "Vera Root", VagrantStoryLocationCategory.FLOOR_TRAPS),
         VagrantStoryLocationData("LQ - The Ore-Bearers Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
     ],
     "Screams of the Wounded": [
@@ -828,7 +828,7 @@ location_tables = {
     ],
     "The Laborer's Bonfire": [
         VagrantStoryLocationData("LQ - The Laborer's Bonfire - Melissa Sigil Unlock", "Vera Root", VagrantStoryLocationCategory.SIGIL_UNLOCKS),
-        VagrantStoryLocationData("LQ - The Laborer's Bonfire - Paralysis Panel Floor Trap", "Vera Root", VagrantStoryLocationCategory.FLOOR_TRAPS),
+        VagrantStoryLocationData("LQ - The Laborer's Bonfire - Paralysis Floor Trap", "Vera Root", VagrantStoryLocationCategory.FLOOR_TRAPS),
         VagrantStoryLocationData("LQ - The Laborer's Bonfire Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
     ],
     "Stone and Sulfurous Fire": [
@@ -867,7 +867,8 @@ location_tables = {
     "The Cage": [VagrantStoryLocationData("IM1 - The Cage Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED)],
     "The Cauldron": [
         VagrantStoryLocationData("IM1 - The Cauldron - Wraith Boss - Grimoire Exsorcer", "Vera Root", VagrantStoryLocationCategory.GRIMOIRE_UNLOCKS),
-        VagrantStoryLocationData("IM1 - The Cauldron - Gargoyle Boss", "Vera Root", VagrantStoryLocationCategory.BOSS),
+        VagrantStoryLocationData("IM1 - The Cauldron - Gargoyle Boss 1", "Vera Root", VagrantStoryLocationCategory.BOSS),
+        VagrantStoryLocationData("IM1 - The Cauldron - Gargoyle Boss 2", "Vera Root", VagrantStoryLocationCategory.BOSS),
         VagrantStoryLocationData("IM1 - The Cauldron - Wraith Boss", "Vera Root", VagrantStoryLocationCategory.BOSS),
         VagrantStoryLocationData("IM1 - The Cauldron - Tearose Sigil Unlock", "Vera Root", VagrantStoryLocationCategory.SIGIL_UNLOCKS),
         VagrantStoryLocationData("IM1 - The Cauldron Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
@@ -959,9 +960,9 @@ location_tables = {
         VagrantStoryLocationData("IM2 - The Saw Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
     ],
     "The Cold's Bridle": [
-        VagrantStoryLocationData("IM2 - The Cold's Bridle - Curse Panel Floor Trap", "Vera Root", VagrantStoryLocationCategory.FLOOR_TRAPS),
+        VagrantStoryLocationData("IM2 - The Cold's Bridle - Curse Floor Trap", "Vera Root", VagrantStoryLocationCategory.FLOOR_TRAPS),
         VagrantStoryLocationData("IM2 - The Cold's Bridle - Death Vapor Floor Trap", "Vera Root", VagrantStoryLocationCategory.FLOOR_TRAPS),
-        VagrantStoryLocationData("IM2 - The Cold's Bridle - Poison Panel Floor Trap", "Vera Root", VagrantStoryLocationCategory.FLOOR_TRAPS),
+        VagrantStoryLocationData("IM2 - The Cold's Bridle - Poison Floor Trap", "Vera Root", VagrantStoryLocationCategory.FLOOR_TRAPS),
         VagrantStoryLocationData("IM2 - The Cold's Bridle Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
     ],
     "The Shin-Vice": [
@@ -972,12 +973,12 @@ location_tables = {
     "The Spider": [VagrantStoryLocationData("IM2 - The Spider Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED)],
     "Lead Sprinkler": [
         VagrantStoryLocationData("IM2 - Lead Sprinkler - Chest", "Vera Root", VagrantStoryLocationCategory.CHEST),
-        VagrantStoryLocationData("IM2 - Lead Sprinkler - Paralysis Panel Floor Trap", "Vera Root", VagrantStoryLocationCategory.FLOOR_TRAPS),
+        VagrantStoryLocationData("IM2 - Lead Sprinkler - Paralysis Floor Trap", "Vera Root", VagrantStoryLocationCategory.FLOOR_TRAPS),
         VagrantStoryLocationData("IM2 - Lead Sprinkler Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
     ],
     "Squassation": [
         VagrantStoryLocationData("IM2 - Squassation - Chest", "Vera Root", VagrantStoryLocationCategory.CHEST),
-        VagrantStoryLocationData("IM2 - Squassation - Poison Panel Floor Trap", "Vera Root", VagrantStoryLocationCategory.FLOOR_TRAPS),
+        VagrantStoryLocationData("IM2 - Squassation - Poison Floor Trap", "Vera Root", VagrantStoryLocationCategory.FLOOR_TRAPS),
         VagrantStoryLocationData("IM2 - Squassation - Terra Thrust Floor Trap", "Vera Root", VagrantStoryLocationCategory.FLOOR_TRAPS),
         VagrantStoryLocationData("IM2 - Squassation Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
     ],
@@ -985,11 +986,11 @@ location_tables = {
     "The Strappado": [VagrantStoryLocationData("IM2 - The Strappado Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED)],
     "Thumbscrews": [VagrantStoryLocationData("IM2 - Thumbscrews Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED)],
     "Pendulum": [
-        VagrantStoryLocationData("IM2 - Pendulum - Curse Panel Floor Trap", "Vera Root", VagrantStoryLocationCategory.FLOOR_TRAPS),
+        VagrantStoryLocationData("IM2 - Pendulum - Curse Floor Trap", "Vera Root", VagrantStoryLocationCategory.FLOOR_TRAPS),
         VagrantStoryLocationData("IM2 - Pendulum Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
     ],
     "Dragging": [
-        VagrantStoryLocationData("IM2 - Dragging - Curse Panel Floor Trap", "Vera Root", VagrantStoryLocationCategory.FLOOR_TRAPS),
+        VagrantStoryLocationData("IM2 - Dragging - Curse Floor Trap", "Vera Root", VagrantStoryLocationCategory.FLOOR_TRAPS),
         VagrantStoryLocationData("IM2 - Dragging Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
     ],
     "Strangulation": [VagrantStoryLocationData("IM2 - Strangulation Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED)],
@@ -1021,7 +1022,7 @@ location_tables = {
         VagrantStoryLocationData("GC1 - The Poisoned Chapel Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
     ],
     "Sin and Punishment": [
-        VagrantStoryLocationData("GC1 - Sin and Punishment - Curse Panel Floor Trap", "Vera Root", VagrantStoryLocationCategory.FLOOR_TRAPS),
+        VagrantStoryLocationData("GC1 - Sin and Punishment - Curse Floor Trap", "Vera Root", VagrantStoryLocationCategory.FLOOR_TRAPS),
         VagrantStoryLocationData("GC1 - Sin and Punishment - Eruption Floor Trap", "Vera Root", VagrantStoryLocationCategory.FLOOR_TRAPS),
         VagrantStoryLocationData("GC1 - Sin and Punishment Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
     ],
@@ -1052,7 +1053,7 @@ location_tables = {
     ],
     # The Great Cathedral B1
     "Struggle for the Soul": [
-        VagrantStoryLocationData("GCB - Struggle for the Soul - Heal Panel Floor Trap", "Vera Root", VagrantStoryLocationCategory.FLOOR_TRAPS),
+        VagrantStoryLocationData("GCB - Struggle for the Soul - Heal Floor Trap", "Vera Root", VagrantStoryLocationCategory.FLOOR_TRAPS),
         VagrantStoryLocationData("GCB - Struggle for the Soul Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
     ],
     "Order and Chaos": [
@@ -1078,9 +1079,9 @@ location_tables = {
         VagrantStoryLocationData("GC2 - Free from Base Desires Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED)
     ],
     "Abasement from Above": [
-        VagrantStoryLocationData("GC2 - Abasement from Above - Poison Panel Floor Trap", "Vera Root", VagrantStoryLocationCategory.FLOOR_TRAPS),
-        VagrantStoryLocationData("GC2 - Abasement from Above - Paralysis Panel Floor Trap", "Vera Root", VagrantStoryLocationCategory.FLOOR_TRAPS),
-        VagrantStoryLocationData("GC2 - Abasement from Above - Curse Panel Floor Trap", "Vera Root", VagrantStoryLocationCategory.FLOOR_TRAPS),
+        VagrantStoryLocationData("GC2 - Abasement from Above - Poison Floor Trap", "Vera Root", VagrantStoryLocationCategory.FLOOR_TRAPS),
+        VagrantStoryLocationData("GC2 - Abasement from Above - Paralysis Floor Trap", "Vera Root", VagrantStoryLocationCategory.FLOOR_TRAPS),
+        VagrantStoryLocationData("GC2 - Abasement from Above - Curse Floor Trap", "Vera Root", VagrantStoryLocationCategory.FLOOR_TRAPS),
         VagrantStoryLocationData("GC2 - Abasement from Above Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
     ],
     "The Convent Room": [VagrantStoryLocationData("GC2 - The Convent Room Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED)],
@@ -1098,7 +1099,7 @@ location_tables = {
     ],
     "He Screams for Mercy": [
         VagrantStoryLocationData("GC2 - He Screams for Mercy - Terra Thrust Floor Trap", "Vera Root", VagrantStoryLocationCategory.FLOOR_TRAPS),
-        VagrantStoryLocationData("GC2 - He Screams for Mercy - Cure Panel Floor Trap", "Vera Root", VagrantStoryLocationCategory.FLOOR_TRAPS),
+        VagrantStoryLocationData("GC2 - He Screams for Mercy - Cure Floor Trap", "Vera Root", VagrantStoryLocationCategory.FLOOR_TRAPS),
         VagrantStoryLocationData("GC2 - He Screams for Mercy Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
     ],
     "The Acolyte's Weakness": [
@@ -1162,7 +1163,7 @@ location_tables = {
         VagrantStoryLocationData("FP - Slaughter of the Innocent Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
     ],
     "The Oracle Sins No More": [
-        VagrantStoryLocationData("FP - The Oracle Sins No More - Curse Panel Floor Trap", "Vera Root", VagrantStoryLocationCategory.FLOOR_TRAPS),
+        VagrantStoryLocationData("FP - The Oracle Sins No More - Curse Floor Trap", "Vera Root", VagrantStoryLocationCategory.FLOOR_TRAPS),
         VagrantStoryLocationData("FP - The Oracle Sins No More - Holy Light Floor Trap", "Vera Root", VagrantStoryLocationCategory.FLOOR_TRAPS),
         VagrantStoryLocationData("FP - The Oracle Sins No More Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
     ],
@@ -1204,7 +1205,7 @@ location_tables = {
         VagrantStoryLocationData("ESC - Fear and Loathing Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
     ],
     "Blood and The Beast": [
-        VagrantStoryLocationData("ESC - Blood and The Beast - Poison Panel Floor Trap", "Vera Root", VagrantStoryLocationCategory.FLOOR_TRAPS),
+        VagrantStoryLocationData("ESC - Blood and The Beast - Poison Floor Trap", "Vera Root", VagrantStoryLocationCategory.FLOOR_TRAPS),
         VagrantStoryLocationData("ESC - Blood and The Beast Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
     ],
     "Where Body and Soul Part": [
@@ -1264,8 +1265,8 @@ location_tables = {
     "The Cornered Savage": [VagrantStoryLocationData("CWE - The Cornered Savage Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED)],
     # Catacombs
     "Hall of Sworn Revenge": [
-        VagrantStoryLocationData("CAT - Hall of Sworn Revenge - Heal Panel Floor Trap", "Vera Root", VagrantStoryLocationCategory.FLOOR_TRAPS),
-        VagrantStoryLocationData("CAT - Hall of Sworn Revenge - Cure Panel Floor Trap", "Vera Root", VagrantStoryLocationCategory.FLOOR_TRAPS),
+        VagrantStoryLocationData("CAT - Hall of Sworn Revenge - Heal Floor Trap", "Vera Root", VagrantStoryLocationCategory.FLOOR_TRAPS),
+        VagrantStoryLocationData("CAT - Hall of Sworn Revenge - Cure Floor Trap", "Vera Root", VagrantStoryLocationCategory.FLOOR_TRAPS),
         VagrantStoryLocationData("CAT - Hall of Sworn Revenge Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
     ],
     "The Last Blessing": [VagrantStoryLocationData("CAT - The Last Blessing Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED)],
@@ -1306,7 +1307,7 @@ location_tables = {
     "Repent, O ye Sinners": [VagrantStoryLocationData("CAT - Repent, O ye Sinners Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED)],
     "The Reaper's Victims": [VagrantStoryLocationData("CAT - The Reaper's Victims Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED)],
     "The Last Stab of Hope": [
-        VagrantStoryLocationData("CAT - The Last Stab of Hope - Cure Panel Floor Trap", "Vera Root", VagrantStoryLocationCategory.FLOOR_TRAPS),
+        VagrantStoryLocationData("CAT - The Last Stab of Hope - Cure Floor Trap", "Vera Root", VagrantStoryLocationCategory.FLOOR_TRAPS),
         VagrantStoryLocationData("CAT - The Last Stab of Hope Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
     ],
     "Hallway of Heroes": [VagrantStoryLocationData("CAT - Hallway of Heroes Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED)],
@@ -1314,7 +1315,8 @@ location_tables = {
         VagrantStoryLocationData(
             "CAT - The Beast's Domain - Lizardman Boss - Grimoire Antidote", "Vera Root", VagrantStoryLocationCategory.GRIMOIRE_UNLOCKS
         ),
-        VagrantStoryLocationData("CAT - The Beast's Domain - Lizardman Boss", "Vera Root", VagrantStoryLocationCategory.BOSS),
+        VagrantStoryLocationData("CAT - The Beast's Domain - Lizardman Boss 1", "Vera Root", VagrantStoryLocationCategory.BOSS),
+        VagrantStoryLocationData("CAT - The Beast's Domain - Lizardman Boss 2", "Vera Root", VagrantStoryLocationCategory.BOSS),
         VagrantStoryLocationData("CAT - The Beast's Domain Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
     ],
     # Abandoned Mine B1
@@ -1334,7 +1336,7 @@ location_tables = {
     ],
     "Coal Mine Storage": [
         VagrantStoryLocationData("AM1 - Coal Mine Storage - Chest", "Vera Root", VagrantStoryLocationCategory.CHEST),
-        VagrantStoryLocationData("AM1 - Coal Mine Storage - Poison Panel Floor Trap", "Vera Root", VagrantStoryLocationCategory.FLOOR_TRAPS),
+        VagrantStoryLocationData("AM1 - Coal Mine Storage - Poison Floor Trap", "Vera Root", VagrantStoryLocationCategory.FLOOR_TRAPS),
         VagrantStoryLocationData("AM1 - Coal Mine Storage - Trap Clear Floor Trap", "Vera Root", VagrantStoryLocationCategory.FLOOR_TRAPS),
         VagrantStoryLocationData("AM1 - Coal Mine Storage Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
     ],
@@ -1347,7 +1349,7 @@ location_tables = {
         VagrantStoryLocationData("AM1 - The Battle's Beginning Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
     ],
     "What Lies Ahead?": [
-        VagrantStoryLocationData("AM1 - What Lies Ahead? - Heal Panel Floor Trap", "Vera Root", VagrantStoryLocationCategory.FLOOR_TRAPS),
+        VagrantStoryLocationData("AM1 - What Lies Ahead? - Heal Floor Trap", "Vera Root", VagrantStoryLocationCategory.FLOOR_TRAPS),
         VagrantStoryLocationData("AM1 - What Lies Ahead? Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
     ],
     "The Fruits of Friendship": [
@@ -1431,9 +1433,7 @@ location_tables = {
         VagrantStoryLocationData("AM2 - Tomb of the Reborn Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
     ],
     "Fool's Gold, Fool's Loss": [
-        VagrantStoryLocationData(
-            "AM2 - Fool's Gold, Fool's Loss - Paralysis Panel Floor Trap", "Vera Root", VagrantStoryLocationCategory.FLOOR_TRAPS
-        ),
+        VagrantStoryLocationData("AM2 - Fool's Gold, Fool's Loss - Paralysis Floor Trap", "Vera Root", VagrantStoryLocationCategory.FLOOR_TRAPS),
         VagrantStoryLocationData("AM2 - Fool's Gold, Fool's Loss Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
     ],
     "Kilroy Was Here": [VagrantStoryLocationData("AM2 - Kilroy Was Here Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED)],
@@ -1441,14 +1441,14 @@ location_tables = {
         VagrantStoryLocationData("AM2 - A Wager of Noble Gold Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED)
     ],
     "Lambs to the Slaughter": [
-        VagrantStoryLocationData("AM2 - Lambs to the Slaughter - Heal Panel Floor Trap", "Vera Root", VagrantStoryLocationCategory.FLOOR_TRAPS),
+        VagrantStoryLocationData("AM2 - Lambs to the Slaughter - Heal Floor Trap", "Vera Root", VagrantStoryLocationCategory.FLOOR_TRAPS),
         VagrantStoryLocationData("AM2 - Lambs to the Slaughter Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
     ],
     "The Ore of Legend": [VagrantStoryLocationData("AM2 - The Ore of Legend Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED)],
     "Suicidal Desires": [
         VagrantStoryLocationData("AM2 - Suicidal Desires - Chest", "Vera Root", VagrantStoryLocationCategory.CHEST),
         VagrantStoryLocationData("AM2 - Suicidal Desires - Death Vapor Floor Trap", "Vera Root", VagrantStoryLocationCategory.FLOOR_TRAPS),
-        VagrantStoryLocationData("AM2 - Suicidal Desires - Paralysis Panel Floor Trap", "Vera Root", VagrantStoryLocationCategory.FLOOR_TRAPS),
+        VagrantStoryLocationData("AM2 - Suicidal Desires - Paralysis Floor Trap", "Vera Root", VagrantStoryLocationCategory.FLOOR_TRAPS),
         VagrantStoryLocationData("AM2 - Suicidal Desires - Holy Light Floor Trap", "Vera Root", VagrantStoryLocationCategory.FLOOR_TRAPS),
         VagrantStoryLocationData("AM2 - Suicidal Desires - Terra Thrust Floor Trap", "Vera Root", VagrantStoryLocationCategory.FLOOR_TRAPS),
         VagrantStoryLocationData("AM2 - Suicidal Desires - Gust Floor Trap", "Vera Root", VagrantStoryLocationCategory.FLOOR_TRAPS),
@@ -1483,11 +1483,11 @@ location_tables = {
     ],
     "Senses Lost": [
         VagrantStoryLocationData("AM2 - Senses Lost - Eruption Floor Trap", "Vera Root", VagrantStoryLocationCategory.FLOOR_TRAPS),
-        VagrantStoryLocationData("AM2 - Senses Lost - Poison Panel Floor Trap", "Vera Root", VagrantStoryLocationCategory.FLOOR_TRAPS),
+        VagrantStoryLocationData("AM2 - Senses Lost - Poison Floor Trap", "Vera Root", VagrantStoryLocationCategory.FLOOR_TRAPS),
         VagrantStoryLocationData("AM2 - Senses Lost Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
     ],
     "Desire's Passage": [
-        VagrantStoryLocationData("AM2 - Desire's Passage - Cure Panel Floor Trap", "Vera Root", VagrantStoryLocationCategory.FLOOR_TRAPS),
+        VagrantStoryLocationData("AM2 - Desire's Passage - Cure Floor Trap", "Vera Root", VagrantStoryLocationCategory.FLOOR_TRAPS),
         VagrantStoryLocationData("AM2 - Desire's Passage Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
     ],
     "Way of Lost Children": [VagrantStoryLocationData("AM2 - Way of Lost Children Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED)],

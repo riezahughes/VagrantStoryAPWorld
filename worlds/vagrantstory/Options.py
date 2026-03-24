@@ -33,6 +33,18 @@ class ItemRewardDropOptions:
     RISK_HEAVY = 2
 
 
+class NewGamePlusOptions:
+    OFF = 0
+    ON = 1
+    IN_POOL = 2
+
+
+class TeleportPoolOptions:
+    OFF = 0
+    ON = 1
+    IN_POOL = 2
+
+
 class OpenWorldOptions:
     MAGIC_HAMMER = 0
     JUNCTION_POINT = 1
@@ -191,13 +203,14 @@ class IncludePrologueToggle(Toggle):
     option_false = 0
 
 
-class IncludeTeleportSpellToggle(Toggle):
+class IncludeTeleportSpellToggle(Choice):
     """Start the game with the teleport spell"""
 
-    display_name = "Start With Teleport Spell"
-    default = 0
-    option_true = 1
-    option_false = 0
+    display_name = "Teleport Spell Toggle"
+    default = TeleportPoolOptions.ON
+    option_on = TeleportPoolOptions.ON
+    option_off = TeleportPoolOptions.OFF
+    option_inpool = TeleportPoolOptions.IN_POOL
 
 
 class SetTeleportZeroCostToggle(Toggle):
@@ -254,13 +267,19 @@ class PanelSanityToggle(Toggle):
     option_false = 0
 
 
-class NewGamePlusToggle(Toggle):
-    """Adds new game plus locations (rood inverse doors, extra bosses, etc)"""
+class NewGamePlusToggle(Choice):
+    """
+    Provides options to include the New Game + content in your run.
+    ON: Provides you the Rood Inverse immediately allowing you to open all doors.
+    OFF: Removes the ability to go into any ng+ content
+    IN_POOL: Provides the Rood Inverse as an item pickup in your item pool.
+    """
 
-    display_name = "New Game Plus Locations"
-    default = 0
-    option_true = 1
-    option_false = 0
+    display_name = "New Game Plus Settings"
+    default = NewGamePlusOptions.IN_POOL
+    option_on = NewGamePlusOptions.ON
+    option_off = NewGamePlusOptions.OFF
+    option_inpool = NewGamePlusOptions.IN_POOL
 
 
 @dataclass

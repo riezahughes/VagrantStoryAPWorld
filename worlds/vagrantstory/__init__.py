@@ -169,7 +169,7 @@ class VagrantStoryWorld(World):
                 continue
             if self.options.roomsanity.value == RoomSanityToggle.option_false and location.category == VagrantStoryLocationCategory.ROOM_ENTERED:
                 continue
-            if self.options.include_new_game_plus.value == NewGamePlusToggle.option_false and (
+            if self.options.include_new_game_plus.value == NewGamePlusToggle.option_off and (
                 location.category == VagrantStoryLocationCategory.BOSS_PLUS or location.category == VagrantStoryLocationCategory.BOSS_UNLOCKS_PLUS
             ):
                 continue
