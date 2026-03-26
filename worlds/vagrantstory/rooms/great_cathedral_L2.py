@@ -15,6 +15,6 @@ room_data = {
     "He Screams for Mercy": {"exits": [("The Hall of Broken Vows", None), ("Maelstrom of Malice", None), ("The Acolyte's Weakness", None)]},
     "The Acolyte's Weakness": {"exits": [("He Screams for Mercy", None), ("Monk's Leap", None)]},
     "Maelstrom of Malice": {"exits": [("He Screams for Mercy", None)]},
-    "The Melodics of Madness": {"exits": [("The Hall of Broken Vows", None), ("What Ails You, Kills You", "Palm Sigil")]},
-    "What Ails You, Kills You": {"exits": [("The Melodics of Madness", None), ("Despair of the Fallen", None)]},
+    "The Melodics of Madness": {"exits": [("The Hall of Broken Vows", "Acacia Sigil"), ("What Ails You, Kills You", "Palm Sigil")]},
+    "What Ails You, Kills You": {"exits": [("The Melodics of Madness", "Palm Sigil"), ("Despair of the Fallen", None)]},
 }

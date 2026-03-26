@@ -9,7 +9,7 @@ room_data = {
     },
     "Traces of Invasion Past": {
         "exits": [
-            ("From Squire to Knight", None),
+            ("From Squire to Knight", "Iron Key"),
             ("A Knight Sells his Sword", None),  # To Undercity East
         ]
     },
@@ -24,7 +24,7 @@ room_data = {
     },
     "A Welcome Invasion": {
         "exits": [
-            ("From Boy to Hero", None),
+            ("From Boy to Hero", "Clematis Sigil"),
             ("The Greengrocer's Stair", None),  # To Undercity East (North)
         ]
     },

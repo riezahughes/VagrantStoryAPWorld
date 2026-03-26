@@ -26,7 +26,7 @@ room_data = {
             ("The Earthquake's Mark", None),  # This allows the latch to be opened from this side
         ]
     },
-    "The Passion of Lovers": {"exits": [("The Earthquake's Mark", None), ("The Hall of Hope", None)]},
+    "The Passion of Lovers": {"exits": [("The Earthquake's Mark", "Hyacinth Sigil"), ("The Hall of Hope", None)]},
     "The Hall of Hope": {"exits": [("The Passion of Lovers", None), ("The Dark Tunnel", None)]},
     "The Dark Tunnel": {"exits": [("The Hall of Hope", None), ("Everwant Passage", None), ("Rust in Peace", None), ("The Smeltry", None)]},
     "Everwant Passage": {"exits": [("The Dark Tunnel", None), ("Mining Regrets", "Silver Key")]},
@@ -36,7 +36,7 @@ room_data = {
     "Clash of Hyaenas": {"exits": [("The Smeltry", None), ("Greed Knows No Bounds", None)]},
     "Greed Knows No Bounds": {"exits": [("Clash of Hyaenas", None), ("Live Long and Prosper", None)]},
     "Live Long and Prosper": {"exits": [("Greed Knows No Bounds", None), ("Pray to the Mineral Gods", "Fern Sigil")]},
-    "Pray to the Mineral Gods": {"exits": [("Live Long and Prosper", None), ("Traitor's Parting", None)]},
+    "Pray to the Mineral Gods": {"exits": [("Live Long and Prosper", "Fern Sigil"), ("Traitor's Parting", None)]},
     "Traitor's Parting": {"exits": [("Pray to the Mineral Gods", None), ("Escapeway", None)]},
     "Escapeway": {"exits": [("Traitor's Parting", None), ("Rue Bouquet", None)]},
 }

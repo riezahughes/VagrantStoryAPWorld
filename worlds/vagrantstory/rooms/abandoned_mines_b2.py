@@ -5,7 +5,7 @@ room_data = {
     "Delusions of Happiness": {"exits": [("Bandit's Hollow", None)]},
     "Work, Then Die": {"exits": [("Bandit's Hollow", "One-Way"), ("Hope Obstructed", None)]},
     "Senses Lost": {"exits": [("Crossing of Blood", None), ("Desire's Passage", None)]},
-    "The Lunatic Veins": {"exits": [("Bandit's Hollow", "One-Way"), ("Tomb of the Reborn", None)]},
+    "The Lunatic Veins": {"exits": [("Bandit's Hollow", None), ("Tomb of the Reborn", None)]},
     "Tomb of the Reborn": {"exits": [("The Lunatic Veins", None), ("Fool's Gold, Fool's Loss", None)]},
     "Fool's Gold, Fool's Loss": {"exits": [("Tomb of the Reborn", None), ("Kilroy Was Here", None), ("Crossing of Blood", None)]},
     "Kilroy Was Here": {"exits": [("Fool's Gold, Fool's Loss", None), ("A Wager of Noble Gold", None)]},
@@ -29,5 +29,5 @@ room_data = {
     "The Miner's End": {"exits": [("Treaty Room", None), ("Gambler's Passage", None)]},
     "Gambler's Passage": {"exits": [("The Miner's End", None), ("Revelation Shaft", None)]},
     "Revelation Shaft": {"exits": [("Gambler's Passage", None), ("Corridor of Shade", None)]},
-    "Corridor of Shade": {"exits": [("Revelation Shaft", None), ("Rue Morgue", None)]},
+    "Corridor of Shade": {"exits": [("Revelation Shaft", None), ("Rue Morgue", "Bronze Key")]},
 }

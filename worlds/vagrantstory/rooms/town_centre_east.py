@@ -19,7 +19,6 @@ room_data = {
             ("Kesch Bridge", None),
             ("Workshop 'Junction Point'", "Cattleya Sigil"),
             ("Rue Fisserano", None),
-            ("The House Gilgitte", None),  # Latch connection
         ]
     },
     "Workshop 'Junction Point'": {

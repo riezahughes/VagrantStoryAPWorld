@@ -66,7 +66,7 @@ def set_vanilla_key_item_progression(self):
         self.get_entrance("Wiping Blood from Blades -> Time Trial (Death + Ogre Zombie)"),
         lambda state: has_sigil_required(self, "Azalea Sigil", state),
     )
-    set_rule(self.get_entrance("The Heretics' Story (Lower) -> Hopes of the Idealist"), lambda state: has_sigil_required(self, "Calla Sigil", state))
+    set_rule(self.get_entrance("The Heretics' Story -> Hopes of the Idealist"), lambda state: has_sigil_required(self, "Calla Sigil", state))
     set_rule(self.get_entrance("Rue Crimnade -> Workshop 'Junction Point'"), lambda state: has_sigil_required(self, "Cattleya Sigil", state))
     set_rule(self.get_entrance("Smokebarrel Stair -> Room of Cheap Red Wine"), lambda state: has_sigil_required(self, "Chamomile Sigil", state))
     set_rule(self.get_entrance("From Boy to Hero -> A Welcome Invasion"), lambda state: has_sigil_required(self, "Clematis Sigil", state))
@@ -90,6 +90,64 @@ def set_vanilla_key_item_progression(self):
     set_rule(self.get_entrance("Wiping Blood from Blades -> Time Trial (Asura)"), lambda state: has_sigil_required(self, "Tigertail Sigil", state))
     set_rule(self.get_entrance("Urge the Boy On -> Time Trial (Snow Dragon)"), lambda state: has_sigil_required(self, "Verbena Sigil", state))
 
+    set_rule(self.get_entrance("Hall to a New World -> Shasras Hill Park"), lambda state: has_key_required(self, "Bronze Key", state))
+    # Crimson Key
+    set_rule(self.get_entrance("Students of Death -> Rue Vermillion"), lambda state: has_key_required(self, "Crimson Key", state))
+    # Gold Key
+    set_rule(self.get_entrance("Salvation for the Mother -> Corner of Prayers"), lambda state: has_key_required(self, "Gold Key", state))
+    set_rule(self.get_entrance("Corner of Prayers -> Salvation for the Mother"), lambda state: has_key_required(self, "Gold Key", state))
+    set_rule(self.get_entrance("Salvation for the Mother -> The Body Fragile Yields"), lambda state: has_key_required(self, "Gold Key", state))
+    set_rule(self.get_entrance("Stair to the Sinners -> The Soldier's Bedding"), lambda state: has_key_required(self, "Gold Key", state))
+    set_rule(self.get_entrance("Companions in Arms -> The Timely Dew of Sleep"), lambda state: has_key_required(self, "Gold Key", state))
+    set_rule(self.get_entrance("Buried Alive -> Shelter From the Quake"), lambda state: has_key_required(self, "Gold Key", state))
+    # Iron Key
+    set_rule(self.get_entrance("A Knight Sells his Sword -> Noble Gold and Silk"), lambda state: has_key_required(self, "Iron Key", state))
+    set_rule(self.get_entrance("Dark Abhors Light -> The Sunless Way"), lambda state: has_key_required(self, "Iron Key", state))
+    set_rule(self.get_entrance("Larder for a Lean Winter -> Remembering Days of Yore"), lambda state: has_key_required(self, "Iron Key", state))
+    set_rule(self.get_entrance("Traces of Invasion Past -> From Squire to Knight"), lambda state: has_key_required(self, "Iron Key", state))
+    # Platinum Key
+    set_rule(self.get_entrance("Knotting -> Impalement"), lambda state: has_key_required(self, "Platinum Key", state))
+    # Silver Key
+    set_rule(self.get_entrance("Beggars of the Mouthharp -> Sewer of Ravenous Rats"), lambda state: has_key_required(self, "Silver Key", state))
+    set_rule(self.get_entrance("Nameless Dark Oblivion -> The Washing-Woman's Way"), lambda state: has_key_required(self, "Silver Key", state))
+    set_rule(self.get_entrance("Ants Prepare for Winter -> Those who Drink the Dark"), lambda state: has_key_required(self, "Silver Key", state))
+    set_rule(self.get_entrance("Those who Fear the Light -> The Resentful Ones"), lambda state: has_key_required(self, "Silver Key", state))
+    set_rule(self.get_entrance("Ascension -> The Auction Block"), lambda state: has_key_required(self, "Silver Key", state))
+    set_rule(self.get_entrance("Mining Regrets -> Everwant Passage"), lambda state: has_key_required(self, "Silver Key", state))
+    set_rule(self.get_entrance("Movement of Fear -> Shelter From the Quake"), lambda state: has_key_required(self, "Silver Key", state))
+    # Steel Key
+    set_rule(self.get_entrance("Impalement -> Hanging"), lambda state: has_key_required(self, "Steel Key", state))
+    set_rule(self.get_entrance("The Melodics of Madness -> The Hall of Broken Vows"), lambda state: has_sigil_required(self, "Acacia Sigil", state))
+    set_rule(self.get_entrance("Time Trial (Earth Dragon) -> Urge the Boy On"), lambda state: has_sigil_required(self, "Anemone Sigil", state))
+    set_rule(self.get_entrance("The Ore Road -> Dream of the Holy Land"), lambda state: has_sigil_required(self, "Aster Sigil", state))
+    set_rule(
+        self.get_entrance("Time Trial (Death + Ogre Zombie) -> Wiping Blood from Blades"),
+        lambda state: has_sigil_required(self, "Azalea Sigil", state),
+    )
+    set_rule(self.get_entrance("Hopes of the Idealist -> The Heretics' Story"), lambda state: has_sigil_required(self, "Calla Sigil", state))
+    set_rule(self.get_entrance("Workshop 'Junction Point' -> Rue Crimnade"), lambda state: has_sigil_required(self, "Cattleya Sigil", state))
+    set_rule(self.get_entrance("Room of Cheap Red Wine -> Smokebarrel Stair"), lambda state: has_sigil_required(self, "Chamomile Sigil", state))
+    set_rule(self.get_entrance("A Welcome Invasion -> From Boy to Hero"), lambda state: has_sigil_required(self, "Clematis Sigil", state))
+    set_rule(self.get_entrance("Time Trial (Dragon) -> A Storm of Arrows"), lambda state: has_sigil_required(self, "Colombine Sigil", state))
+    set_rule(self.get_entrance("Sinner's Sustenence -> The Dreamer's Climb"), lambda state: has_sigil_required(self, "Eulelia Sigil", state))
+    set_rule(self.get_entrance("Pray to the Mineral Gods -> Live Long and Prosper"), lambda state: has_sigil_required(self, "Fern Sigil", state))
+    set_rule(self.get_entrance("The Passion of Lovers -> The Earthquake's Mark"), lambda state: has_sigil_required(self, "Hyacinth Sigil", state))
+    set_rule(self.get_entrance("Time Trial (Minotaur) -> A Storm of Arrows"), lambda state: has_sigil_required(self, "Kalmia Sigil", state))
+    set_rule(self.get_entrance("A Light in the Dark -> The Poisoned Chapel"), lambda state: has_sigil_required(self, "Laurel Sigil", state))
+    set_rule(self.get_entrance("Prisoners' Niche -> The Withered Spring"), lambda state: has_sigil_required(self, "Lily Sigil", state))
+    set_rule(self.get_entrance("The House Khazabas -> Rue Aliano"), lambda state: has_sigil_required(self, "Mandrake Sigil", state))
+    set_rule(
+        self.get_entrance("Time Trial (Damascus Crab) -> A Taste of the Spoils"), lambda state: has_sigil_required(self, "Marigold Sigil", state)
+    )
+    set_rule(self.get_entrance("Torture Without End -> The Laborer's Bonfire"), lambda state: has_sigil_required(self, "Melissa Sigil", state))
+    set_rule(self.get_entrance("What Ails You, Kills You -> The Melodics of Madness"), lambda state: has_sigil_required(self, "Palm Sigil", state))
+    set_rule(
+        self.get_entrance("Time Trial (Damascus Golem) -> A Taste of the Spoils"), lambda state: has_sigil_required(self, "Schirra Sigil", state)
+    )
+    set_rule(self.get_entrance("Wooden Horse -> The Cauldron"), lambda state: has_sigil_required(self, "Tearose Sigil", state))
+    set_rule(self.get_entrance("Time Trial (Asura) -> Wiping Blood from Blades"), lambda state: has_sigil_required(self, "Tigertail Sigil", state))
+    set_rule(self.get_entrance("Time Trial (Snow Dragon) -> Urge the Boy On"), lambda state: has_sigil_required(self, "Verbena Sigil", state))
+
 
 def set_vanilla_boss_progression(self):
     add_rule(
@@ -102,7 +160,21 @@ def set_vanilla_boss_progression(self):
     )
     set_rule(
         self.get_entrance("Shrine to the Martyrs -> Hall of Dying Hope"),
-        lambda state: player_has_location(self, "CAT - The Lamenting Mother (West) - Ghost Boss", state),
+        lambda state: player_has_location(self, "CAT - The Lamenting Mother - Ghost Boss", state),
+    )
+    # turn the cloudstone on
+    set_rule(
+        self.get_entrance("Corridor of the Clerics -> Advent Ground"),
+        lambda state: player_has_location(self, "SNC - Hall of Sacrilege - Golem Boss", state),
+    )
+    # beat dragon in sanctum
+    set_rule(
+        self.get_entrance("The Cleansing Chantry -> Stairway to the Light"),
+        lambda state: player_has_location(self, "SNC - The Cleansing Chantry - Dragon Boss", state),
+    )
+    set_rule(
+        self.get_entrance("The Battle's Beginning -> What Lies Ahead?"),
+        lambda state: player_has_location(self, "AM1 - The Battle's Beginning - Wyvern Boss", state),
     )
 
 
@@ -149,7 +221,7 @@ def set_open_progression(self):
         self.get_entrance("Wiping Blood from Blades -> Time Trial (Death + Ogre Zombie)"),
         lambda state: has_sigil_required(self, "Azalea Sigil", state),
     )
-    set_rule(self.get_entrance("The Heretics' Story (Lower) -> Hopes of the Idealist"), lambda state: has_sigil_required(self, "Calla Sigil", state))
+    set_rule(self.get_entrance("The Heretics' Story -> Hopes of the Idealist"), lambda state: has_sigil_required(self, "Calla Sigil", state))
     set_rule(self.get_entrance("Rue Crimnade -> Workshop 'Junction Point'"), lambda state: has_sigil_required(self, "Cattleya Sigil", state))
     set_rule(self.get_entrance("Smokebarrel Stair -> Room of Cheap Red Wine"), lambda state: has_sigil_required(self, "Chamomile Sigil", state))
     set_rule(self.get_entrance("From Boy to Hero -> A Welcome Invasion"), lambda state: has_sigil_required(self, "Clematis Sigil", state))
@@ -172,6 +244,64 @@ def set_open_progression(self):
     set_rule(self.get_entrance("The Cauldron -> Wooden Horse"), lambda state: has_sigil_required(self, "Tearose Sigil", state))
     set_rule(self.get_entrance("Wiping Blood from Blades -> Time Trial (Asura)"), lambda state: has_sigil_required(self, "Tigertail Sigil", state))
     set_rule(self.get_entrance("Urge the Boy On -> Time Trial (Snow Dragon)"), lambda state: has_sigil_required(self, "Verbena Sigil", state))
+
+    set_rule(self.get_entrance("Hall to a New World -> Shasras Hill Park"), lambda state: has_key_required(self, "Bronze Key", state))
+    # Crimson Key
+    set_rule(self.get_entrance("Students of Death -> Rue Vermillion"), lambda state: has_key_required(self, "Crimson Key", state))
+    # Gold Key
+    set_rule(self.get_entrance("Salvation for the Mother -> Corner of Prayers"), lambda state: has_key_required(self, "Gold Key", state))
+    set_rule(self.get_entrance("Corner of Prayers -> Salvation for the Mother"), lambda state: has_key_required(self, "Gold Key", state))
+    set_rule(self.get_entrance("Salvation for the Mother -> The Body Fragile Yields"), lambda state: has_key_required(self, "Gold Key", state))
+    set_rule(self.get_entrance("Stair to the Sinners -> The Soldier's Bedding"), lambda state: has_key_required(self, "Gold Key", state))
+    set_rule(self.get_entrance("Companions in Arms -> The Timely Dew of Sleep"), lambda state: has_key_required(self, "Gold Key", state))
+    set_rule(self.get_entrance("Buried Alive -> Shelter From the Quake"), lambda state: has_key_required(self, "Gold Key", state))
+    # Iron Key
+    set_rule(self.get_entrance("A Knight Sells his Sword -> Noble Gold and Silk"), lambda state: has_key_required(self, "Iron Key", state))
+    set_rule(self.get_entrance("Dark Abhors Light -> The Sunless Way"), lambda state: has_key_required(self, "Iron Key", state))
+    set_rule(self.get_entrance("Larder for a Lean Winter -> Remembering Days of Yore"), lambda state: has_key_required(self, "Iron Key", state))
+    set_rule(self.get_entrance("Traces of Invasion Past -> From Squire to Knight"), lambda state: has_key_required(self, "Iron Key", state))
+    # Platinum Key
+    set_rule(self.get_entrance("Knotting -> Impalement"), lambda state: has_key_required(self, "Platinum Key", state))
+    # Silver Key
+    set_rule(self.get_entrance("Beggars of the Mouthharp -> Sewer of Ravenous Rats"), lambda state: has_key_required(self, "Silver Key", state))
+    set_rule(self.get_entrance("Nameless Dark Oblivion -> The Washing-Woman's Way"), lambda state: has_key_required(self, "Silver Key", state))
+    set_rule(self.get_entrance("Ants Prepare for Winter -> Those who Drink the Dark"), lambda state: has_key_required(self, "Silver Key", state))
+    set_rule(self.get_entrance("Those who Fear the Light -> The Resentful Ones"), lambda state: has_key_required(self, "Silver Key", state))
+    set_rule(self.get_entrance("Ascension -> The Auction Block"), lambda state: has_key_required(self, "Silver Key", state))
+    set_rule(self.get_entrance("Mining Regrets -> Everwant Passage"), lambda state: has_key_required(self, "Silver Key", state))
+    set_rule(self.get_entrance("Movement of Fear -> Shelter From the Quake"), lambda state: has_key_required(self, "Silver Key", state))
+    # Steel Key
+    set_rule(self.get_entrance("Impalement -> Hanging"), lambda state: has_key_required(self, "Steel Key", state))
+    set_rule(self.get_entrance("The Melodics of Madness -> The Hall of Broken Vows"), lambda state: has_sigil_required(self, "Acacia Sigil", state))
+    set_rule(self.get_entrance("Time Trial (Earth Dragon) -> Urge the Boy On"), lambda state: has_sigil_required(self, "Anemone Sigil", state))
+    set_rule(self.get_entrance("The Ore Road -> Dream of the Holy Land"), lambda state: has_sigil_required(self, "Aster Sigil", state))
+    set_rule(
+        self.get_entrance("Time Trial (Death + Ogre Zombie) -> Wiping Blood from Blades"),
+        lambda state: has_sigil_required(self, "Azalea Sigil", state),
+    )
+    set_rule(self.get_entrance("Hopes of the Idealist -> The Heretics' Story"), lambda state: has_sigil_required(self, "Calla Sigil", state))
+    set_rule(self.get_entrance("Workshop 'Junction Point' -> Rue Crimnade"), lambda state: has_sigil_required(self, "Cattleya Sigil", state))
+    set_rule(self.get_entrance("Room of Cheap Red Wine -> Smokebarrel Stair"), lambda state: has_sigil_required(self, "Chamomile Sigil", state))
+    set_rule(self.get_entrance("A Welcome Invasion -> From Boy to Hero"), lambda state: has_sigil_required(self, "Clematis Sigil", state))
+    set_rule(self.get_entrance("Time Trial (Dragon) -> A Storm of Arrows"), lambda state: has_sigil_required(self, "Colombine Sigil", state))
+    set_rule(self.get_entrance("Sinner's Sustenence -> The Dreamer's Climb"), lambda state: has_sigil_required(self, "Eulelia Sigil", state))
+    set_rule(self.get_entrance("Pray to the Mineral Gods -> Live Long and Prosper"), lambda state: has_sigil_required(self, "Fern Sigil", state))
+    set_rule(self.get_entrance("The Passion of Lovers -> The Earthquake's Mark"), lambda state: has_sigil_required(self, "Hyacinth Sigil", state))
+    set_rule(self.get_entrance("Time Trial (Minotaur) -> A Storm of Arrows"), lambda state: has_sigil_required(self, "Kalmia Sigil", state))
+    set_rule(self.get_entrance("A Light in the Dark -> The Poisoned Chapel"), lambda state: has_sigil_required(self, "Laurel Sigil", state))
+    set_rule(self.get_entrance("Prisoners' Niche -> The Withered Spring"), lambda state: has_sigil_required(self, "Lily Sigil", state))
+    set_rule(self.get_entrance("The House Khazabas -> Rue Aliano"), lambda state: has_sigil_required(self, "Mandrake Sigil", state))
+    set_rule(
+        self.get_entrance("Time Trial (Damascus Crab) -> A Taste of the Spoils"), lambda state: has_sigil_required(self, "Marigold Sigil", state)
+    )
+    set_rule(self.get_entrance("Torture Without End -> The Laborer's Bonfire"), lambda state: has_sigil_required(self, "Melissa Sigil", state))
+    set_rule(self.get_entrance("What Ails You, Kills You -> The Melodics of Madness"), lambda state: has_sigil_required(self, "Palm Sigil", state))
+    set_rule(
+        self.get_entrance("Time Trial (Damascus Golem) -> A Taste of the Spoils"), lambda state: has_sigil_required(self, "Schirra Sigil", state)
+    )
+    set_rule(self.get_entrance("Wooden Horse -> The Cauldron"), lambda state: has_sigil_required(self, "Tearose Sigil", state))
+    set_rule(self.get_entrance("Time Trial (Asura) -> Wiping Blood from Blades"), lambda state: has_sigil_required(self, "Tigertail Sigil", state))
+    set_rule(self.get_entrance("Time Trial (Snow Dragon) -> Urge the Boy On"), lambda state: has_sigil_required(self, "Verbena Sigil", state))
 
 
 def set_new_game_plus_rules(self, state):

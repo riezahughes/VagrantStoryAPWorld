@@ -375,19 +375,14 @@ location_tables = {
         VagrantStoryLocationData("UW - Bite the Master's Wounds Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED)
     ],
     "Workshop 'Godhands'": [VagrantStoryLocationData("UW - Workshop 'Godhands' Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED)],
-    "The Crumbling Market (South)": [
-        VagrantStoryLocationData("UW - The Crumbling Market (South) Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED)
-    ],
-    "The Crumbling Market (North)": [
-        VagrantStoryLocationData("UW - The Crumbling Market (North) - Chest", "Vera Root", VagrantStoryLocationCategory.CHEST),
-        VagrantStoryLocationData("UW - The Crumbling Market (North) - Eruption Floor Trap", "Vera Root", VagrantStoryLocationCategory.FLOOR_TRAPS),
-        VagrantStoryLocationData("UW - The Crumbling Market (North) - Freeze Floor Trap", "Vera Root", VagrantStoryLocationCategory.FLOOR_TRAPS),
-        VagrantStoryLocationData("UW - The Crumbling Market (North) - Gust Floor Trap", "Vera Root", VagrantStoryLocationCategory.FLOOR_TRAPS),
-        VagrantStoryLocationData(
-            "UW - The Crumbling Market (North) - Terra Thrust Floor Trap", "Vera Root", VagrantStoryLocationCategory.FLOOR_TRAPS
-        ),
-        VagrantStoryLocationData("UW - The Crumbling Market (North) - Holy Light Floor Trap", "Vera Root", VagrantStoryLocationCategory.FLOOR_TRAPS),
-        VagrantStoryLocationData("UW - The Crumbling Market (North) Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
+    "The Crumbling Market": [
+        VagrantStoryLocationData("UW - The Crumbling Market - Chest", "Vera Root", VagrantStoryLocationCategory.CHEST),
+        VagrantStoryLocationData("UW - The Crumbling Market - Eruption Floor Trap", "Vera Root", VagrantStoryLocationCategory.FLOOR_TRAPS),
+        VagrantStoryLocationData("UW - The Crumbling Market - Freeze Floor Trap", "Vera Root", VagrantStoryLocationCategory.FLOOR_TRAPS),
+        VagrantStoryLocationData("UW - The Crumbling Market - Gust Floor Trap", "Vera Root", VagrantStoryLocationCategory.FLOOR_TRAPS),
+        VagrantStoryLocationData("UW - The Crumbling Market - Terra Thrust Floor Trap", "Vera Root", VagrantStoryLocationCategory.FLOOR_TRAPS),
+        VagrantStoryLocationData("UW - The Crumbling Market - Holy Light Floor Trap", "Vera Root", VagrantStoryLocationCategory.FLOOR_TRAPS),
+        VagrantStoryLocationData("UW - The Crumbling Market Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
     ],
     "Where Flood Waters Ran": [
         VagrantStoryLocationData("UW - Where Flood Waters Ran Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED)
@@ -516,18 +511,11 @@ location_tables = {
         VagrantStoryLocationData("TCW - Workshop 'Magic Hammer' Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED)
     ],
     "Rue Mal Fallde": [VagrantStoryLocationData("TCW - Rue Mal Fallde Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED)],
-    "Tircolas Flow (North)": [
-        VagrantStoryLocationData(
-            "TCW - Tircolas Flow (North) - Duane Boss - Grimoire Clef", "Vera Root", VagrantStoryLocationCategory.GRIMOIRE_UNLOCKS
-        ),
-        VagrantStoryLocationData(
-            "TCW - Tircolas Flow (North) - Duane Boss - Grimoire Demolir", "Vera Root", VagrantStoryLocationCategory.GRIMOIRE_UNLOCKS
-        ),
-        VagrantStoryLocationData("TCW - Tircolas Flow (North) - Duane Boss", "Vera Root", VagrantStoryLocationCategory.BOSS),
-        VagrantStoryLocationData("TCW - Tircolas Flow (North) Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
-    ],
-    "Tircolas Flow (South)": [
-        VagrantStoryLocationData("TCW - Tircolas Flow (South) Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED)
+    "Tircolas Flow": [
+        VagrantStoryLocationData("TCW - Tircolas Flow - Duane Boss - Grimoire Clef", "Vera Root", VagrantStoryLocationCategory.GRIMOIRE_UNLOCKS),
+        VagrantStoryLocationData("TCW - Tircolas Flow - Duane Boss - Grimoire Demolir", "Vera Root", VagrantStoryLocationCategory.GRIMOIRE_UNLOCKS),
+        VagrantStoryLocationData("TCW - Tircolas Flow - Duane Boss", "Vera Root", VagrantStoryLocationCategory.BOSS),
+        VagrantStoryLocationData("TCW - Tircolas Flow Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
     ],
     "Rue Bouquet": [VagrantStoryLocationData("TCW - Rue Bouquet Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED)],
     "Glacialdra Kirk Ruins": [
@@ -736,20 +724,10 @@ location_tables = {
         VagrantStoryLocationData("SNC - Hall of Sacrilege - Golem Boss", "Vera Root", VagrantStoryLocationCategory.BOSS),
         VagrantStoryLocationData("SNC - Hall of Sacrilege Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
     ],
-    "Advent Ground (South)": [
-        VagrantStoryLocationData("SNC - Advent Ground (South) Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED)
-    ],
-    "Passage of the Refugees (South)": [
-        VagrantStoryLocationData(
-            "SNC - Passage of the Refugees (South) - Hall of Sacrilege Unlock", "Vera Root", VagrantStoryLocationCategory.SIGIL_UNLOCKS
-        ),
-        VagrantStoryLocationData("SNC - Passage of the Refugees (South) Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
-    ],
-    "Passage of the Refugees (North)": [
-        VagrantStoryLocationData("SNC - Passage of the Refugees (North) Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED)
-    ],
-    "Advent Ground (North)": [
-        VagrantStoryLocationData("SNC - Advent Ground (North) Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED)
+    "Advent Ground": [VagrantStoryLocationData("SNC - Advent Ground Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED)],
+    "Passage of the Refugees": [
+        VagrantStoryLocationData("SNC - Passage of the Refugees - Hall of Sacrilege Unlock", "Vera Root", VagrantStoryLocationCategory.SIGIL_UNLOCKS),
+        VagrantStoryLocationData("SNC - Passage of the Refugees Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
     ],
     "The Cleansing Chantry": [
         VagrantStoryLocationData(
@@ -1127,12 +1105,9 @@ location_tables = {
     "The Wine-Lecher's Fall": [
         VagrantStoryLocationData("GC3 - The Wine-Lecher's Fall Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED)
     ],
-    "The Heretics' Story (Lower)": [
-        VagrantStoryLocationData("GC3 - The Heretics' Story (Lower) - Calla Sigil Unlock", "Vera Root", VagrantStoryLocationCategory.SIGIL_UNLOCKS),
-        VagrantStoryLocationData("GC3 - The Heretics' Story (Lower) Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
-    ],
-    "The Heretics' Story (Upper)": [
-        VagrantStoryLocationData("GC3 - The Heretics' Story (Upper) Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED)
+    "The Heretics' Story": [
+        VagrantStoryLocationData("GC3 - The Heretics' Story - Calla Sigil Unlock", "Vera Root", VagrantStoryLocationCategory.SIGIL_UNLOCKS),
+        VagrantStoryLocationData("GC3 - The Heretics' Story Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
     ],
     "Despair of the Fallen": [
         VagrantStoryLocationData("GC3 - Despair of the Fallen Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED)
@@ -1282,13 +1257,10 @@ location_tables = {
     "Shrine to the Martyrs": [
         VagrantStoryLocationData("CAT - Shrine to the Martyrs Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED)
     ],
-    "The Lamenting Mother (West)": [
-        VagrantStoryLocationData("CAT - The Lamenting Mother (West) - Ghost Boss", "Vera Root", VagrantStoryLocationCategory.BOSS),
-        VagrantStoryLocationData("CAT - The Lamenting Mother (West) Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
-    ],
-    "The Lamenting Mother (East)": [
-        VagrantStoryLocationData("CAT - The Lamenting Mother (East) - Chest", "Vera Root", VagrantStoryLocationCategory.CHEST),
-        VagrantStoryLocationData("CAT - The Lamenting Mother (East) Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
+    "The Lamenting Mother": [
+        VagrantStoryLocationData("CAT - The Lamenting Mother - Ghost Boss", "Vera Root", VagrantStoryLocationCategory.BOSS),
+        VagrantStoryLocationData("CAT - The Lamenting Mother - Chest", "Vera Root", VagrantStoryLocationCategory.CHEST),
+        VagrantStoryLocationData("CAT - The Lamenting Mother Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
     ],
     "Hall of Dying Hope": [VagrantStoryLocationData("CAT - Hall of Dying Hope Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED)],
     "Bandits' Hideout": [

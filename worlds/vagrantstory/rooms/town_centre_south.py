@@ -47,7 +47,7 @@ room_data = {
     "Rue Morgue": {
         "exits": [
             ("Rue Faltes", None),
-            ("Corridor of Shade", None),
+            ("Corridor of Shade", "Bronze Key"),
         ]
     },
 }

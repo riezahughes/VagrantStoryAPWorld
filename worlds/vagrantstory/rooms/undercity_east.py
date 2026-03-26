@@ -1,11 +1,11 @@
 room_data = {
     # --- UNDERCITY EAST ---
-    "Hall to a New World": {"exits": [("Shasras Hill Park", None), ("Place of Free Words", None)]},
+    "Hall to a New World": {"exits": [("Shasras Hill Park", "Bronze Key"), ("Place of Free Words", None)]},
     "Place of Free Words": {"exits": [("Hall to a New World", None), ("Bazaar of the Bizarre", None)]},
     "Bazaar of the Bizarre": {"exits": [("Place of Free Words", None), ("Noble Gold and Silk", None)]},
     "Noble Gold and Silk": {"exits": [("Bazaar of the Bizarre", None), ("Weapons Not Allowed", None), ("A Knight Sells his Sword", "Iron Key")]},
     "Weapons Not Allowed": {"exits": [("Noble Gold and Silk", None)]},
-    "A Knight Sells his Sword": {"exits": [("Noble Gold and Silk", None), ("Traces of Invasion Past", None), ("Gemsword Blackmarket", None)]},
+    "A Knight Sells his Sword": {"exits": [("Noble Gold and Silk", "Iron Key"), ("Traces of Invasion Past", None), ("Gemsword Blackmarket", None)]},
     "Gemsword Blackmarket": {"exits": [("A Knight Sells his Sword", None), ("The Pirate's Son", None)]},
     "The Pirate's Son": {"exits": [("Gemsword Blackmarket", None), ("Sale of the Sword", None)]},
     "Sale of the Sword": {"exits": [("The Pirate's Son", None)]},

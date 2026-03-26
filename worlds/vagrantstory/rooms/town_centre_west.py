@@ -3,7 +3,7 @@ room_data = {
     "Rue Vermillion": {
         "exits": [
             ("Stairway to the Light", None),
-            ("Tircolas Flow (North)", None),
+            ("Tircolas Flow", None),
             ("The Rene Coastroad", None),
             ("Students of Death", "Crimson Key"),
         ]
@@ -23,33 +23,20 @@ room_data = {
     "Rue Mal Fallde": {
         "exits": [
             ("The Rene Coastroad", None),
-            ("Tircolas Flow (North)", None),
+            ("Tircolas Flow", None),
         ]
     },
-    "Tircolas Flow (North)": {
-        "exits": [
-            ("Rue Mal Fallde", None),
-            ("Rue Vermillion", None),
-            ("Tircolas Flow (South)", "Tircolas Flow (South)"),  # Event/Cloudstone requirement
-        ]
-    },
-    "Tircolas Flow (South)": {
-        "exits": [
-            ("Tircolas Flow (North)", None),
-            ("Rue Bouquet", None),
-            ("Glacialdra Kirk Ruins", None),
-        ]
-    },
+    "Tircolas Flow": {"exits": [("Rue Mal Fallde", None), ("Rue Vermillion", None)]},
     "Rue Bouquet": {
         "exits": [
-            ("Tircolas Flow (South)", None),
+            ("Tircolas Flow", None),
             ("Escapeway", None),
             ("Glacialdra Kirk Ruins", None),
         ]
     },
     "Glacialdra Kirk Ruins": {
         "exits": [
-            ("Tircolas Flow (South)", None),
+            ("Tircolas Flow", None),
             ("Rue Bouquet", None),
             ("Rue Sant D'alsa", None),
             ("Path to the Greengrocer", "Rood Inverse"),

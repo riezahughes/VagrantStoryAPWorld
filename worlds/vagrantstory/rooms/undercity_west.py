@@ -25,14 +25,13 @@ room_data = {
     "Crossroads of Rest": {"exits": [("Corner of the Wretched", "Rood Inverse"), ("Path to the Greengrocer", None), ("Path of the Children", None)]},
     "Path to the Greengrocer": {"exits": [("Crossroads of Rest", None), ("Glacialdra Kirk Ruins", "Rood Inverse")]},
     "Path of the Children": {"exits": [("Crossroads of Rest", None), ("Shelter From the Quake", None)]},
-    "Salvation for the Mother": {
-        "exits": [("Corner of Prayers", "Gold Key"), ("The Body Fragile Yields", "Gold Key"), ("Bite the Master's Wounds", None)]
-    },
-    "The Body Fragile Yields": {"exits": [("Tears from Empty Sockets", None), ("Salvation for the Mother", "Gold Key")]},
+    "Salvation for the Mother": {"exits": [("Corner of Prayers", "Gold Key"), ("The Body Fragile Yields", None), ("Bite the Master's Wounds", None)]},
+    "The Body Fragile Yields": {"exits": [("Tears from Empty Sockets", "Gold Key"), ("Salvation for the Mother", None)]},
     "Bite the Master's Wounds": {"exits": [("Salvation for the Mother", None), ("Workshop 'Godhands'", None)]},
     "Workshop 'Godhands'": {"exits": [("Bite the Master's Wounds", None)]},
-    "The Crumbling Market (South)": {"exits": [("Hall of Poverty", None), ("Tears from Empty Sockets", None), ("Subtellurian Horrors", None)]},
-    "The Crumbling Market (North)": {"exits": [("Where Flood Waters Ran", None), ("The Crumbling Market (South)", None)]},
+    "The Crumbling Market": {
+        "exits": [("Hall of Poverty", None), ("Tears from Empty Sockets", None), ("Subtellurian Horrors", None), ("Where Flood Waters Ran", None)]
+    },
     "Where Flood Waters Ran": {"exits": [("The Crumbling Market (North)", None), ("The Darkness Drinks", None)]},
-    "Tears from Empty Sockets": {"exits": [("The Body Fragile Yields", None), ("The Crumbling Market (South)", None), ("Rue Lejour", None)]},
+    "Tears from Empty Sockets": {"exits": [("The Body Fragile Yields", None), ("The Crumbling Market", None), ("Rue Lejour", None)]},
 }

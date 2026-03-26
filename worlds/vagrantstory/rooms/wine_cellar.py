@@ -14,7 +14,7 @@ room_data = {
     "Room of Rotten Grapes": {"exits": [("The Rich Drown in Wine", None), ("Blackmarket of Wines", None)]},
     "Blackmarket of Wines": {"exits": [("Room of Rotten Grapes", None), ("The Gallows", None)]},
     "The Gallows": {"exits": [("Blackmarket of Wines", None)]},
-    "Room of Cheap Red Wine": {"exits": [("Smokebarrel Stair", None), ("Room of Cheap White Wine", None)]},
+    "Room of Cheap Red Wine": {"exits": [("Smokebarrel Stair", "Chamomile Sigil"), ("Room of Cheap White Wine", None)]},
     "Room of Cheap White Wine": {"exits": [("Room of Cheap Red Wine", None), ("The Greedy One's Den", None)]},
     "The Greedy One's Den": {"exits": [("Room of Cheap White Wine", None), ("The Hero's Winehall", None)]},
     "The Hero's Winehall": {"exits": [("The Greedy One's Den", None), ("Hall of Sworn Revenge", None)]},

@@ -10,7 +10,7 @@ room_data = {
         "exits": [("Those who Drink the Dark", None)],
     },
     "The Resentful Ones": {"exits": [("Hall of Prayer", None), ("Those who Fear the Light", "Silver Key")]},
-    "Those who Fear the Light": {"exits": [("The Resentful Ones", None), ("Chamber of Reason", None)]},
+    "Those who Fear the Light": {"exits": [("The Resentful Ones", "Silver Key"), ("Chamber of Reason", None)]},
     "Chamber of Reason": {"exits": [("Those who Fear the Light", None), ("Exit to City Center", None)]},
     "Exit to City Center": {"exits": [("Chamber of Reason", None), ("Plateia Lumitar", None)]},
 }
