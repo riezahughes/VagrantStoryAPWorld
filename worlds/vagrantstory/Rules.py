@@ -278,6 +278,10 @@ def set_open_progression(self):
     set_rule(self.get_entrance("Torture Without End -> The Laborer's Bonfire"), lambda state: has_sigil_required(self, "Melissa Sigil", state))
     set_rule(self.get_entrance("What Ails You, Kills You -> The Melodics of Madness"), lambda state: has_sigil_required(self, "Palm Sigil", state))
     set_rule(self.get_entrance("Wooden Horse -> The Cauldron"), lambda state: has_sigil_required(self, "Tearose Sigil", state))
+    set_rule(
+        self.get_entrance("The Heretics' Story -> Where the Soul Rots"),
+        lambda state: has_sigil_required(self, "Palm Sigil", state) and has_sigil_required(self, "Acacia Sigil", state),
+    )
 
 
 # Time trail rules are OFF for now till a solution can be found.
