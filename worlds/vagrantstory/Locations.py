@@ -210,7 +210,7 @@ location_tables = {
         VagrantStoryLocationData("WC - Hall of Struggle Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
     ],
     "Smokebarrel Stair": [
-        VagrantStoryLocationData("WC - Smokebarrel Stair - Gust Floor Trap", "Vera Root", VagrantStoryLocationCategory.FLOOR_TRAPS),
+        VagrantStoryLocationData("WC - Smokebarrel Stair - Heal Floor Trap", "Vera Root", VagrantStoryLocationCategory.FLOOR_TRAPS),
         VagrantStoryLocationData("WC - Smokebarrel Stair - Chamomile Sigil Unlock", "Vera Root", VagrantStoryLocationCategory.SIGIL_UNLOCKS),
         VagrantStoryLocationData("WC - Smokebarrel Stair Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
     ],
@@ -251,10 +251,12 @@ location_tables = {
         VagrantStoryLocationData("WC - The Gallows - Minotaur Boss - Grimoire Debile", "Vera Root", VagrantStoryLocationCategory.GRIMOIRE_UNLOCKS),
         VagrantStoryLocationData("WC - The Gallows - Minotaur Boss - Grimoire Guerir", "Vera Root", VagrantStoryLocationCategory.GRIMOIRE_UNLOCKS),
         VagrantStoryLocationData("WC - The Gallows - Minotaur Boss", "Vera Root", VagrantStoryLocationCategory.BOSS),
-        VagrantStoryLocationData("WC - The Gallows (Again) - Minotaur Zombie Boss", "Vera Root", VagrantStoryLocationCategory.BOSS_PLUS),
-        VagrantStoryLocationData("WC - The Gallows (Again) - Chest", "Vera Root", VagrantStoryLocationCategory.CHEST),
         VagrantStoryLocationData("WC - The Gallows - Chest", "Vera Root", VagrantStoryLocationCategory.CHEST),
         VagrantStoryLocationData("WC - The Gallows Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
+    ],
+    "The Gallows Again": [
+        VagrantStoryLocationData("WC - The Gallows Again - Minotaur Zombie Boss", "Vera Root", VagrantStoryLocationCategory.BOSS_PLUS),
+        VagrantStoryLocationData("WC - The Gallows Again - Chest", "Vera Root", VagrantStoryLocationCategory.CHEST),
     ],
     "Room of Cheap Red Wine": [
         VagrantStoryLocationData("WC - Room of Cheap Red Wine - Mandel Boss", "Vera Root", VagrantStoryLocationCategory.BOSS),

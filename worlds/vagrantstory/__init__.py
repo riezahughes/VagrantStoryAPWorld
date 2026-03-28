@@ -19,8 +19,9 @@ from .Options import (
     PanelSanityToggle,
     RoomSanityToggle,
     IncludePrologueToggle,
+    IncludeTimeTrialToggle,
 )
-from .Rules import set_vanilla_key_item_progression, set_vanilla_boss_progression, set_open_progression
+from .Rules import set_vanilla_key_item_progression, set_vanilla_boss_progression, set_open_progression, set_time_trial_rules
 from .VictoryConditions import defeat_guildenstern_dark_angel_victory
 from .rooms import all_minor_regions
 
@@ -267,6 +268,9 @@ class VagrantStoryWorld(World):
             set_open_progression(self)
         # Get a birds eye view of everything
 
+        if self.options.include_time_trial.value == IncludeTimeTrialToggle.option_true:
+            set_time_trial_rules(self)
+
         from Utils import visualize_regions
 
         state = self.multiworld.get_all_state(False)
@@ -308,6 +312,7 @@ class VagrantStoryWorld(World):
                 "progression_option": self.options.progression_option.value,
                 "open_world_option": self.options.open_world_option.value,
                 "include_prologue": self.options.include_prologue.value,
+                "include_time_trial": self.options.include_time_trial.value,
                 "include_new_game_plus": self.options.include_new_game_plus.value,
                 "include_puzzle_mode_checks": self.options.include_puzzle_mode_checks.value,
                 "item_drop_option": self.options.item_drop_option.value,

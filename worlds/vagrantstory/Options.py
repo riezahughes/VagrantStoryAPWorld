@@ -195,10 +195,19 @@ class CountPerBreakUnlock(Range):
 
 
 class IncludePrologueToggle(Toggle):
-    """Include Prologue checks (May work? Not 100% sure. There's been a lot going on)"""
+    """Include Prologue checks (DOES NOT WORK)"""
 
     display_name = "Include Prologue Checks"
     default = 0
+    option_true = 1
+    option_false = 0
+
+
+class IncludeTimeTrialToggle(Toggle):
+    """Include Time Trial Room Checks (DON'T TOUCH THIS, LEAVE IT ON.)"""
+
+    display_name = "Include Time Trial Room and Boss Checks"
+    default = 1
     option_true = 1
     option_false = 0
 
@@ -288,6 +297,7 @@ class VagrantStoryOption(PerGameCommonOptions):
     progression_option: ProgressionOption
     open_world_option: OpenWorldOption
     include_prologue: IncludePrologueToggle
+    include_time_trial: IncludeTimeTrialToggle
     include_new_game_plus: NewGamePlusToggle
     include_puzzle_mode_checks: IncludePuzzleModeChecks
     item_drop_option: ItemPoolDropOption
