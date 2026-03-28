@@ -117,6 +117,7 @@ def set_vanilla_key_item_progression(self):
     set_rule(self.get_entrance("Movement of Fear -> Shelter From the Quake"), lambda state: has_key_required(self, "Silver Key", state))
     # Steel Key
     set_rule(self.get_entrance("Impalement -> Hanging"), lambda state: has_key_required(self, "Steel Key", state))
+    # Sigils
     set_rule(self.get_entrance("The Melodics of Madness -> The Hall of Broken Vows"), lambda state: has_sigil_required(self, "Acacia Sigil", state))
     set_rule(self.get_entrance("Time Trial (Earth Dragon) -> Urge the Boy On"), lambda state: has_sigil_required(self, "Anemone Sigil", state))
     set_rule(self.get_entrance("The Ore Road -> Dream of the Holy Land"), lambda state: has_sigil_required(self, "Aster Sigil", state))
@@ -147,6 +148,10 @@ def set_vanilla_key_item_progression(self):
     set_rule(self.get_entrance("Wooden Horse -> The Cauldron"), lambda state: has_sigil_required(self, "Tearose Sigil", state))
     set_rule(self.get_entrance("Time Trial (Asura) -> Wiping Blood from Blades"), lambda state: has_sigil_required(self, "Tigertail Sigil", state))
     set_rule(self.get_entrance("Time Trial (Snow Dragon) -> Urge the Boy On"), lambda state: has_sigil_required(self, "Verbena Sigil", state))
+    set_rule(
+        self.get_entrance("The Heretics' Story -> Where the Soul Rots"),
+        lambda state: has_sigil_required(self, "Palm Sigil", state) and has_sigil_required(self, "Acacia Sigil", state),
+    )
 
 
 def set_vanilla_boss_progression(self):
