@@ -196,6 +196,8 @@ location_tables = {
     ],
     "Prologue": [
         VagrantStoryLocationData("PR - Prologue - Injured Wyvern Boss", "Vera Root", VagrantStoryLocationCategory.BOSS),
+        VagrantStoryLocationData("PR - Prologue - Entrance to Manor Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
+        VagrantStoryLocationData("PR - Prologue - Alter Room Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
         # two soldiers at start?
     ],
     # Wine Cellar
@@ -259,14 +261,10 @@ location_tables = {
         VagrantStoryLocationData("WC - The Gallows Again - Chest", "Vera Root", VagrantStoryLocationCategory.CHEST),
     ],
     "Room of Cheap Red Wine": [
-        VagrantStoryLocationData("WC - Room of Cheap Red Wine - Mandel Boss", "Vera Root", VagrantStoryLocationCategory.BOSS),
         VagrantStoryLocationData("WC - Room of Cheap Red Wine - Heal Floor Trap", "Vera Root", VagrantStoryLocationCategory.FLOOR_TRAPS),
         VagrantStoryLocationData("WC - Room of Cheap Red Wine Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
     ],
     "Room of Cheap White Wine": [
-        VagrantStoryLocationData("WC - Room of Cheap White Wine - Zombie Fighter Boss", "Vera Root", VagrantStoryLocationCategory.BOSS),
-        VagrantStoryLocationData("WC - Room of Cheap White Wine - Zombie Boss", "Vera Root", VagrantStoryLocationCategory.BOSS),
-        VagrantStoryLocationData("WC - Room of Cheap White Wine - Ghoul Boss", "Vera Root", VagrantStoryLocationCategory.BOSS),
         VagrantStoryLocationData("WC - Room of Cheap White Wine Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
     ],
     "The Greedy One's Den": [
@@ -433,8 +431,9 @@ location_tables = {
     ],
     # Undercity East (North Side)
     "The Greengrocer's Stair": [
-        VagrantStoryLocationData("UEN - The Greengrocer's Stair - Neesa Boss", "Vera Root", VagrantStoryLocationCategory.BOSS),
-        VagrantStoryLocationData("UEN - The Greengrocer's Stair - Tieger Boss", "Vera Root", VagrantStoryLocationCategory.BOSS),
+        # Don't spawn due to game state
+        # VagrantStoryLocationData("UEN - The Greengrocer's Stair - Neesa Boss", "Vera Root", VagrantStoryLocationCategory.BOSS),
+        # VagrantStoryLocationData("UEN - The Greengrocer's Stair - Tieger Boss", "Vera Root", VagrantStoryLocationCategory.BOSS),
         VagrantStoryLocationData("UEN - The Greengrocer's Stair Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
     ],
     "Where Black Waters Ran": [
@@ -586,7 +585,8 @@ location_tables = {
         VagrantStoryLocationData("KEP - Time Trial (Asura) Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
     ],
     "The Warrior's Rest": [
-        VagrantStoryLocationData("KEP - The Warrior's Rest - Rosencrantz Boss", "Vera Root", VagrantStoryLocationCategory.BOSS),
+        # Does not spawn due to game state
+        # VagrantStoryLocationData("KEP - The Warrior's Rest - Rosencrantz Boss", "Vera Root", VagrantStoryLocationCategory.BOSS),
         VagrantStoryLocationData("KEP - The Warrior's Rest - Chest", "Vera Root", VagrantStoryLocationCategory.CHEST),
         VagrantStoryLocationData("KEP - The Warrior's Rest Entered", "Vera Root", VagrantStoryLocationCategory.ROOM_ENTERED),
     ],
