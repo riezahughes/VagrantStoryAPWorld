@@ -72,7 +72,7 @@ class GoalOption(Choice):
 class ProgressionOption(Choice):
     """Lets users choose how they wish to progress
     Vanilla - Plays the game like normal
-    (Will only do Vanilla for now)"""
+    Open - Allows you to start from a number of set positions"""
 
     display_name = "Game Progression Options"
     default = ProgressionOptions.VANILLA
@@ -119,6 +119,10 @@ class ItemPoolDropOption(Choice):
 
 
 class HeavyDropLimitOption(Range):
+    """
+    Sets the maxinum number of heavy drop items before you revert back to regular items for junk.
+    """
+
     range_start = 0
     range_end = 200
     default = 20
@@ -127,23 +131,39 @@ class HeavyDropLimitOption(Range):
 class ChestItemChoices(Choice):
     """
     Select the kind of items you would like to be served from chests.
+    Healing Heavy will provide:
+    - 1 x Cure Bulb
+    - 1 x Vera Root
+    - 1 x Alchemist's Reagent
+
+    Risk Heavy will provide:
+    - 1 x Cure Root
+    - 1 x Vera Bulb
+    - 1 x Alchemist's Reagent
     """
 
     display_name = "Chest Item Rewards"
     default = ItemRewardDropOptions.HEAL_HEAVY
-    option_none = ItemRewardDropOptions.NOTHING
     option_healing_heavy = ItemRewardDropOptions.HEAL_HEAVY
     option_risk_heavy = ItemRewardDropOptions.RISK_HEAVY
 
 
 class BossItemChoices(Choice):
     """
-    Select the kind of items you would like to be served from boss and mini boss encounters.
+    Select the kind of items you would like to be served from boss encounters.
+    Healing Heavy will provide:
+    - 1 x Cure Bulb
+    - 1 x Vera Root
+    - 1 x Alchemist's Reagent
+
+    Risk Heavy will provide:
+    - 1 x Cure Root
+    - 1 x Vera Bulb
+    - 1 x Alchemist's Reagent
     """
 
     display_name = "Boss Item Rewards"
     default = ItemRewardDropOptions.HEAL_HEAVY
-    option_none = ItemRewardDropOptions.NOTHING
     option_healing_heavy = ItemRewardDropOptions.HEAL_HEAVY
     option_risk_heavy = ItemRewardDropOptions.RISK_HEAVY
 
@@ -195,7 +215,7 @@ class CountPerBreakUnlock(Range):
 
 
 class IncludePrologueToggle(Toggle):
-    """Include Prologue checks (DOES NOT WORK)"""
+    """Include Prologue checks. 3 simple checks for you going through the prologue if you want to."""
 
     display_name = "Include Prologue Checks"
     default = 0
@@ -204,7 +224,7 @@ class IncludePrologueToggle(Toggle):
 
 
 class IncludeTimeTrialToggle(Toggle):
-    """Include Time Trial Room Checks (DON'T TOUCH THIS, LEAVE IT ON.)"""
+    """Include Time Trial Room Checks (DON'T TOUCH THIS, LEAVE IT ON, PLEASE.)"""
 
     display_name = "Include Time Trial Room and Boss Checks"
     default = 1
@@ -241,7 +261,7 @@ class OpenAllTeleportLocationsToggle(Toggle):
 
 
 class DeathLinkToggle(Toggle):
-    """Sets if you want deathlink or not (DOES NOT WORK)"""
+    """Sets if you want deathlink or not"""
 
     display_name = "Death Link"
     default = 0
@@ -250,7 +270,7 @@ class DeathLinkToggle(Toggle):
 
 
 class IncludePuzzleModeChecks(Toggle):
-    """An optional way to add puzzle mode checks to the game if you really hate yourself (DOES NOT WORK)"""
+    """An optional way to add puzzle mode checks to the game if you really hate yourself (NO IMPLIMENTATION YET)"""
 
     display_name = "Include Puzzle Mode Checks"
     default = 0
@@ -268,7 +288,7 @@ class RoomSanityToggle(Toggle):
 
 
 class PanelSanityToggle(Toggle):
-    """Include every trap floor in the game as a check. If you have put on NG+ options, then it will include those as well. (DOES NOT WORK)"""
+    """Include every trap floor in the game as a check. If you have put on NG+ options, then it will include those as well."""
 
     display_name = "Panelsanity"
     default = 0
