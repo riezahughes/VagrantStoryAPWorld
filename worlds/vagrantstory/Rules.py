@@ -308,3 +308,125 @@ def set_new_game_plus_rules(self, state):
     set_rule(self.get_entrance("Corner of the Wretched -> Crossroads of Rest"), lambda state: has_rood_inverse(self, state))
     set_rule(self.get_entrance("Path to the Greengrocer -> Glacialdra Kirk Ruins"), lambda state: has_rood_inverse(self, state))
     set_rule(self.get_entrance("Train and Grow Strong -> Steady the Boar-Spears"), lambda state: has_rood_inverse(self, state))
+
+
+# Maps the weapon type name used in break art location names to the item_name_groups key
+_BREAK_ART_WEAPON_GROUPS = {
+    "Dagger": "Dagger Blades",
+    "Sword": "Sword Blades",
+    "Great Sword": "Great Sword Blades",
+    "Axes & Maces": "Axe Mace Blades",
+    "Great Axe": "Great Axe Blades",
+    "Stave": "Staff Blades",
+    "Heavy Mace": "Heavy Mace Blades",
+    "Polearm": "Polearm Blades",
+    "Crossbow": "Crossbow Blades",
+    "Bare Hands": "Bare Hands Blades",
+}
+
+
+def set_break_art_rules(self):
+    """
+    Gates each break art location behind:
+      - Having any blade of the relevant weapon type (Level 1+)
+      - Plus a Blood Sin Piece threshold that scales with blood_sin_quantity:
+          Level 2: 20% of total, Level 3: 40%, Level 4: 60%
+    Bare Hands has no weapon requirement, only the Blood Sin Piece tier gate.
+    """
+    total = self.options.blood_sin_quantity.value
+    tier = [
+        0,  # Level 1 — no Blood Sin gate
+        max(1, total // 5),  # Level 2 — ~20%
+        max(1, (2 * total) // 5),  # Level 3 — ~40%
+        max(1, (3 * total) // 5),  # Level 4 — ~60%
+    ]
+
+    for weapon_type, group_name in _BREAK_ART_WEAPON_GROUPS.items():
+        for level in range(1, 5):
+            loc_name = f"Break Art {weapon_type} Level {level}"
+            blood_sin_needed = tier[level - 1]
+
+            if weapon_type == "Bare Hands":
+                if blood_sin_needed == 0:
+                    continue  # No gate at all for Level 1 bare hands
+                set_rule(
+                    self.get_location(loc_name),
+                    lambda state, bsp=blood_sin_needed: state.has("Blood Sin Piece", self.player, bsp),
+                )
+            elif blood_sin_needed == 0:
+                set_rule(
+                    self.get_location(loc_name),
+                    lambda state, gn=group_name: state.has_group(gn, self.player),
+                )
+            else:
+                set_rule(
+                    self.get_location(loc_name),
+                    lambda state, gn=group_name, bsp=blood_sin_needed: (
+                        state.has_group(gn, self.player) and state.has("Blood Sin Piece", self.player, bsp)
+                    ),
+                )
+
+
+def set_chain_unlock_rules(self):
+    """
+    Splits 22 chain unlock locations into three tiers gated by Blood Sin Pieces.
+    Thresholds scale with blood_sin_quantity:
+      - Unlocks 1-7:   no gate
+      - Unlocks 8-15:  ~20% of total
+      - Unlocks 16-22: ~40% of total
+    """
+    total = self.options.blood_sin_quantity.value
+    tier1 = max(1, total // 5)
+    tier2 = max(1, (2 * total) // 5)
+
+    for i in range(1, 23):
+        loc_name = f"Chain Unlock {i}"
+        if i <= 7:
+            continue
+        elif i <= 15:
+            set_rule(
+                self.get_location(loc_name),
+                lambda state, n=tier1: state.has("Blood Sin Piece", self.player, n),
+            )
+        else:
+            set_rule(
+                self.get_location(loc_name),
+                lambda state, n=tier2: state.has("Blood Sin Piece", self.player, n),
+            )
+
+
+def set_blood_sin_endgame_rule(self):
+    """Requires all Blood Sin Pieces (configured via blood_sin_quantity) to enter the Dome."""
+    total = self.options.blood_sin_quantity.value
+    set_rule(
+        self.get_entrance("The Atrium -> Dome"),
+        lambda state, n=total: state.has("Blood Sin Piece", self.player, n),
+    )
+
+
+def set_vanilla_break_art_prerequisite(self):
+    """
+    In vanilla mode the first workshop (Work of Art) isn't reachable until the Catacombs.
+    Without a workshop the player can't craft weapons, so break arts are inaccessible
+    regardless of what blades they've been given.
+    Gate every break art location behind having reached The Withered Spring, which is the
+    checkpoint that confirms the player is close enough to a workshop to start crafting.
+    """
+    for weapon_type in _BREAK_ART_WEAPON_GROUPS:
+        for level in range(1, 5):
+            add_rule(
+                self.get_location(f"Break Art {weapon_type} Level {level}"),
+                lambda state: state.can_reach_region("The Withered Spring", self.player),
+            )
+
+
+def set_one_way_door_rules(self):
+    # The House Gilgitte has a one-way door to Rue Crimnade. The entrance from
+    # Rue Crimnade back in is only openable from inside, so the player must have
+    # already reached the room via Gharmes Walk (Plateia Lumitar path) first.
+    # Using can_reach_region rather than a ROOM_ENTERED location so this works
+    # regardless of whether roomsanity is enabled.
+    set_rule(
+        self.get_entrance("Rue Crimnade -> The House Gilgitte"),
+        lambda state: state.can_reach_region("The House Gilgitte", self.player),
+    )
