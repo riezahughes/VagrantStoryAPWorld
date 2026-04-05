@@ -20,6 +20,7 @@ from .Options import (
     RoomSanityToggle,
     IncludePrologueToggle,
     IncludeTimeTrialToggle,
+    BloodSinQuanity,
 )
 from .Rules import set_vanilla_key_item_progression, set_vanilla_boss_progression, set_open_progression, set_time_trial_rules, set_chain_unlock_rules, set_break_art_rules, set_blood_sin_endgame_rule, set_one_way_door_rules, set_vanilla_break_art_prerequisite
 from .VictoryConditions import defeat_guildenstern_dark_angel_victory
@@ -362,6 +363,7 @@ class VagrantStoryWorld(World):
                 "panelsanity": self.options.panelsanity.value,
                 "deathlink": self.options.deathlink.value,
                 "guaranteed_items": self.options.guaranteed_items.value,
+                "blood_sin_quanity": self.options.blood_sin_quanity.value,
             },
             "seed": self.multiworld.seed_name,  # to verify the server's multiworld
             "slot": self.multiworld.player_name[self.player],  # to connect to server

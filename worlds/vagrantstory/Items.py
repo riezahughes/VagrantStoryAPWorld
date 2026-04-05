@@ -1868,8 +1868,9 @@ def BuildItemPool(count: int, self) -> List[str]:
             if item_name in item_dictionary(self.options):
                 item_pool_names.append(item_name)
 
-    # Always add 5 Blood Sin Pieces — required to reach the Dome (endgame gate)
-    for _ in range(5):
+    # Add Blood Sin Pieces equal to the configured quantity — required to reach the Dome
+    blood_sin_total = self.options.blood_sin_quanity.value
+    for _ in range(blood_sin_total):
         if len(item_pool_names) < count:
             item_pool_names.append("Blood Sin Piece")
 

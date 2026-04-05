@@ -329,13 +329,22 @@ def set_break_art_rules(self):
     """
     Gates each break art location behind:
       - Having any blade of the relevant weapon type (Level 1+)
-      - Plus Blood Sin Pieces equal to level - 1 (Level 2 needs 1, Level 3 needs 2, Level 4 needs 3)
+      - Plus a Blood Sin Piece threshold that scales with blood_sin_quanity:
+          Level 2: 20% of total, Level 3: 40%, Level 4: 60%
     Bare Hands has no weapon requirement, only the Blood Sin Piece tier gate.
     """
+    total = self.options.blood_sin_quanity.value
+    tier = [
+        0,                          # Level 1 — no Blood Sin gate
+        max(1, total // 5),         # Level 2 — ~20%
+        max(1, (2 * total) // 5),   # Level 3 — ~40%
+        max(1, (3 * total) // 5),   # Level 4 — ~60%
+    ]
+
     for weapon_type, group_name in _BREAK_ART_WEAPON_GROUPS.items():
         for level in range(1, 5):
             loc_name = f"Break Art {weapon_type} Level {level}"
-            blood_sin_needed = level - 1
+            blood_sin_needed = tier[level - 1]
 
             if weapon_type == "Bare Hands":
                 if blood_sin_needed == 0:
@@ -360,11 +369,16 @@ def set_break_art_rules(self):
 
 def set_chain_unlock_rules(self):
     """
-    Splits 22 chain unlock locations into three tiers gated by Blood Sin Pieces:
+    Splits 22 chain unlock locations into three tiers gated by Blood Sin Pieces.
+    Thresholds scale with blood_sin_quanity:
       - Unlocks 1-7:   no gate
-      - Unlocks 8-15:  requires 1 Blood Sin Piece
-      - Unlocks 16-22: requires 2 Blood Sin Pieces
+      - Unlocks 8-15:  ~20% of total
+      - Unlocks 16-22: ~40% of total
     """
+    total = self.options.blood_sin_quanity.value
+    tier1 = max(1, total // 5)
+    tier2 = max(1, (2 * total) // 5)
+
     for i in range(1, 23):
         loc_name = f"Chain Unlock {i}"
         if i <= 7:
@@ -372,20 +386,21 @@ def set_chain_unlock_rules(self):
         elif i <= 15:
             set_rule(
                 self.get_location(loc_name),
-                lambda state, n=1: state.has("Blood Sin Piece", self.player, n),
+                lambda state, n=tier1: state.has("Blood Sin Piece", self.player, n),
             )
         else:
             set_rule(
                 self.get_location(loc_name),
-                lambda state, n=2: state.has("Blood Sin Piece", self.player, n),
+                lambda state, n=tier2: state.has("Blood Sin Piece", self.player, n),
             )
 
 
 def set_blood_sin_endgame_rule(self):
-    """Requires all 5 Blood Sin Pieces to enter the Dome (final boss area)."""
+    """Requires all Blood Sin Pieces (configured via blood_sin_quanity) to enter the Dome."""
+    total = self.options.blood_sin_quanity.value
     set_rule(
         self.get_entrance("The Atrium -> Dome"),
-        lambda state: state.has("Blood Sin Piece", self.player, 5),
+        lambda state, n=total: state.has("Blood Sin Piece", self.player, n),
     )
 
 

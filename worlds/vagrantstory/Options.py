@@ -269,6 +269,19 @@ class DeathLinkToggle(Toggle):
     option_false = 0
 
 
+class BloodSinQuanity(Range):
+    """
+    Sets how many Blood Sin Pieces are required to reach the Dome (final boss area).
+    The same total is added to the item pool and used to scale all intermediate
+    Blood Sin milestones (break art tiers, chain unlock tiers).
+    """
+
+    display_name = "Blood Sin Quantity"
+    range_start = 1
+    range_end = 50
+    default = 5
+
+
 class IncludePuzzleModeChecks(Toggle):
     """An optional way to add puzzle mode checks to the game if you really hate yourself (NO IMPLIMENTATION YET)"""
 
@@ -335,3 +348,4 @@ class VagrantStoryOption(PerGameCommonOptions):
     panelsanity: PanelSanityToggle
     deathlink: DeathLinkToggle
     guaranteed_items: GuaranteedItemsOption
+    blood_sin_quanity: BloodSinQuanity
