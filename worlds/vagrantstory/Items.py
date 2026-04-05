@@ -82,6 +82,7 @@ class VagrantStoryItem(Item):
         # Provides codes for optional items.
         result["Teleport"] = 9910000
         result["Rood Inverse"] = 9920000
+        result["Blood Sin Piece"] = 9930000
 
         return result
 
@@ -167,13 +168,13 @@ _vanilla_items_raw: List[VagrantStoryItemData] = [
     VagrantStoryItemData("Grimoire Fleau", VagrantStoryItemCategory.GRIMOIRE, False, 1),
     VagrantStoryItemData("Grimoire Egout", VagrantStoryItemCategory.GRIMOIRE, False, 1),
     # upgradable spells
-    VagrantStoryItemData("Grimoire Demolir", VagrantStoryItemCategory.GRIMOIRE, False, 2),
-    VagrantStoryItemData("Grimoire Foudre", VagrantStoryItemCategory.GRIMOIRE, False, 4),
-    VagrantStoryItemData("Grimoire Flamme", VagrantStoryItemCategory.GRIMOIRE, False, 5),
-    VagrantStoryItemData("Grimoire Gaea", VagrantStoryItemCategory.GRIMOIRE, False, 2),
-    VagrantStoryItemData("Grimoire Avalanche", VagrantStoryItemCategory.GRIMOIRE, False, 3),
-    VagrantStoryItemData("Grimoire Radius", VagrantStoryItemCategory.GRIMOIRE, False, 2),
-    VagrantStoryItemData("Grimoire Meteore", VagrantStoryItemCategory.GRIMOIRE, False, 3),
+    VagrantStoryItemData("Progressive Grimoire Demolir", VagrantStoryItemCategory.GRIMOIRE, False, 2),
+    VagrantStoryItemData("Progressive Grimoire Foudre", VagrantStoryItemCategory.GRIMOIRE, False, 4),
+    VagrantStoryItemData("Progressive Grimoire Flamme", VagrantStoryItemCategory.GRIMOIRE, False, 5),
+    VagrantStoryItemData("Progressive Grimoire Gaea", VagrantStoryItemCategory.GRIMOIRE, False, 2),
+    VagrantStoryItemData("Progressive Grimoire Avalanche", VagrantStoryItemCategory.GRIMOIRE, False, 3),
+    VagrantStoryItemData("Progressive Grimoire Radius", VagrantStoryItemCategory.GRIMOIRE, False, 2),
+    VagrantStoryItemData("Progressive Grimoire Meteore", VagrantStoryItemCategory.GRIMOIRE, False, 3),
     # 5. Keys (78-85)
     VagrantStoryItemData("Crimson Key", VagrantStoryItemCategory.KEYS, False, 1),
     VagrantStoryItemData("Gold Key", VagrantStoryItemCategory.KEYS, False, 1),
@@ -302,6 +303,10 @@ _vanilla_items_raw: List[VagrantStoryItemData] = [
     VagrantStoryItemData("Iron Goblin Club", VagrantStoryItemCategory.BLADE_PARTS, False, 1, [VagrantStoryWeaponType.AXE_MACE]),
     VagrantStoryItemData("Bronze Broad Sword", VagrantStoryItemCategory.BLADE_PARTS, False, 1, [VagrantStoryWeaponType.SWORD]),
     VagrantStoryItemData("Bronze Knuckles", VagrantStoryItemCategory.BLADE_PARTS, False, 4, [VagrantStoryWeaponType.BARE_HANDS]),
+    VagrantStoryItemData("Bronze Battle Knife", VagrantStoryItemCategory.BLADE_PARTS, False, 1, [VagrantStoryWeaponType.DAGGER]),
+    VagrantStoryItemData("Bronze Bastard Sword", VagrantStoryItemCategory.BLADE_PARTS, False, 1, [VagrantStoryWeaponType.GREAT_SWORD]),
+    VagrantStoryItemData("Bronze Wizard Staff", VagrantStoryItemCategory.BLADE_PARTS, False, 1, [VagrantStoryWeaponType.STAFF]),
+    VagrantStoryItemData("Bronze Griever", VagrantStoryItemCategory.BLADE_PARTS, False, 1, [VagrantStoryWeaponType.HEAVY_MACE]),
     VagrantStoryItemData("Silver Scramasax", VagrantStoryItemCategory.BLADE_PARTS, False, 1, [VagrantStoryWeaponType.DAGGER]),
     VagrantStoryItemData("Bronze Glaive", VagrantStoryItemCategory.BLADE_PARTS, False, 2, [VagrantStoryWeaponType.POLEARM]),
     VagrantStoryItemData("Bronze Langdebeve", VagrantStoryItemCategory.BLADE_PARTS, False, 1, [VagrantStoryWeaponType.POLEARM]),
@@ -645,13 +650,13 @@ _all_items_raw: List[VagrantStoryItemData] = [
     VagrantStoryItemData("Grimoire Patir", VagrantStoryItemCategory.GRIMOIRE, False),
     VagrantStoryItemData("Grimoire Exsorcer", VagrantStoryItemCategory.GRIMOIRE, False),
     VagrantStoryItemData("Grimoire Banish", VagrantStoryItemCategory.GRIMOIRE, False),
-    VagrantStoryItemData("Grimoire Demolir", VagrantStoryItemCategory.GRIMOIRE, False),
-    VagrantStoryItemData("Grimoire Foudre", VagrantStoryItemCategory.GRIMOIRE, False),
-    VagrantStoryItemData("Grimoire Flamme", VagrantStoryItemCategory.GRIMOIRE, False),
-    VagrantStoryItemData("Grimoire Gaea", VagrantStoryItemCategory.GRIMOIRE, False),
-    VagrantStoryItemData("Grimoire Avalanche", VagrantStoryItemCategory.GRIMOIRE, False),
-    VagrantStoryItemData("Grimoire Radius", VagrantStoryItemCategory.GRIMOIRE, False),
-    VagrantStoryItemData("Grimoire Meteore", VagrantStoryItemCategory.GRIMOIRE, False),
+    VagrantStoryItemData("Progressive Grimoire Demolir", VagrantStoryItemCategory.GRIMOIRE, False, 4),
+    VagrantStoryItemData("Progressive Grimoire Foudre", VagrantStoryItemCategory.GRIMOIRE, False, 4),
+    VagrantStoryItemData("Progressive Grimoire Flamme", VagrantStoryItemCategory.GRIMOIRE, False, 4),
+    VagrantStoryItemData("Progressive Grimoire Gaea", VagrantStoryItemCategory.GRIMOIRE, False, 4),
+    VagrantStoryItemData("Progressive Grimoire Avalanche", VagrantStoryItemCategory.GRIMOIRE, False, 4),
+    VagrantStoryItemData("Progressive Grimoire Radius", VagrantStoryItemCategory.GRIMOIRE, False, 4),
+    VagrantStoryItemData("Progressive Grimoire Meteore", VagrantStoryItemCategory.GRIMOIRE, False, 4),
     VagrantStoryItemData("Grimoire Egout", VagrantStoryItemCategory.GRIMOIRE, False),
     VagrantStoryItemData("Grimoire Demance", VagrantStoryItemCategory.GRIMOIRE, False),
     VagrantStoryItemData("Grimoire Intensite", VagrantStoryItemCategory.GRIMOIRE, False),
@@ -1849,6 +1854,9 @@ def item_dictionary(options) -> dict[str, VagrantStoryItemData]:
     if hasattr(options, "include_new_game_plus") and options.include_new_game_plus.value == NewGamePlusOptions.IN_POOL:
         result["Rood Inverse"] = VagrantStoryItemData("Rood Inverse", VagrantStoryItemCategory.ROOD_INVERSE, True)
 
+    # Always available — AP-only McGuffin, not a real game item (v_code 30000 is reserved for client)
+    result["Blood Sin Piece"] = VagrantStoryItemData("Blood Sin Piece", VagrantStoryItemCategory.KEYS, True, 1, None, 30000)
+
     return result
 
 
@@ -1859,6 +1867,29 @@ def BuildItemPool(count: int, self) -> List[str]:
         for item_name in self.options.guaranteed_items.value:
             if item_name in item_dictionary(self.options):
                 item_pool_names.append(item_name)
+
+    # Always add 5 Blood Sin Pieces — required to reach the Dome (endgame gate)
+    for _ in range(5):
+        if len(item_pool_names) < count:
+            item_pool_names.append("Blood Sin Piece")
+
+    # Always add one guaranteed blade per weapon type so break art rules are satisfiable.
+    # These are classified as progression in create_item() so the AP sphere logic tracks them.
+    _GUARANTEED_STARTER_BLADES = [
+        "Bronze Rapier",       # Sword
+        "Bronze Spear",        # Polearm
+        "Bronze Hand Axe",     # Axe & Mace
+        "Bronze Gastraph Bow", # Crossbow
+        "Bronze Guisarme",     # Great Axe
+        "Bronze Bastard Sword",# Great Sword
+        "Bronze Battle Knife", # Dagger
+        "Bronze Wizard Staff", # Staff
+        "Bronze Griever",      # Heavy Mace
+        "Bronze Knuckles",     # Bare Hands
+    ]
+    for blade in _GUARANTEED_STARTER_BLADES:
+        if blade not in item_pool_names and len(item_pool_names) < count:
+            item_pool_names.append(blade)
 
     item_list_choice = (
         _vanilla_items.copy()
@@ -1877,12 +1908,13 @@ def BuildItemPool(count: int, self) -> List[str]:
         else None
     )
 
-    # 2. Add Progression (Keys/Sigils)
+    # 2. Add Progression (Keys/Sigils/Grimoires/Gems) — quantity copies of each
     progression_items = [
         item.name
         for item in item_list_choice
         if item.category
         in [VagrantStoryItemCategory.KEYS, VagrantStoryItemCategory.SIGILS, VagrantStoryItemCategory.GRIMOIRE, VagrantStoryItemCategory.GEMS]
+        for _ in range(item.quantity or 1)
     ]
 
     if teleport_item is not None:
@@ -1893,20 +1925,23 @@ def BuildItemPool(count: int, self) -> List[str]:
         progression_items.append(rood_inverse_item.name)
 
     for name in progression_items:
-        if name not in item_pool_names and len(item_pool_names) < count:
+        if len(item_pool_names) < count:
             item_pool_names.append(name)
 
-    # 3. Handle Heavy Drops (Select exactly X random unique Blade/Grip parts)
+    # 3. Handle Heavy Drops (Select exactly X random Blade/Grip parts, weighted by quantity)
     if self.options.item_drop_option == ItemPoolDropOptions.HEAVY:
-        # Filter the large list down to ONLY blades and grips
+        # Expand each blade/grip by its quantity so higher-quantity items can appear multiple times
         all_heavy_candidates = [
-            item.name for item in item_list_choice if item.category in [VagrantStoryItemCategory.BLADE_PARTS, VagrantStoryItemCategory.GRIP_PARTS]
+            item.name
+            for item in item_list_choice
+            if item.category in [VagrantStoryItemCategory.BLADE_PARTS, VagrantStoryItemCategory.GRIP_PARTS]
+            for _ in range(item.quantity or 1)
         ]
 
         # Determine how many we can actually take
         num_to_pick = min(len(all_heavy_candidates), self.options.heavy_drop_limit.value)
 
-        # Select 20 (or heavy_drop_limit) unique items from the filtered list
+        # Select up to heavy_drop_limit items from the expanded list (allows duplicates per quantity)
         selected_heavy = self.multiworld.random.sample(all_heavy_candidates, num_to_pick)
 
         # Add them to the pool (ensuring we don't exceed the total pool count)
@@ -1914,9 +1949,12 @@ def BuildItemPool(count: int, self) -> List[str]:
             if len(item_pool_names) < count:
                 item_pool_names.append(item)
 
-    # 4. Fill the remaining slots with Recovery/Stats
+    # 4. Fill the remaining slots with Recovery/Stats — expanded by quantity for weighted selection
     filler_candidates = [
-        item.name for item in item_list_choice if item.category in [VagrantStoryItemCategory.RECOVERY, VagrantStoryItemCategory.PERM_STAT_BOOST]
+        item.name
+        for item in item_list_choice
+        if item.category in [VagrantStoryItemCategory.RECOVERY, VagrantStoryItemCategory.PERM_STAT_BOOST]
+        for _ in range(item.quantity or 1)
     ]
 
     # Fill until we hit the requested 'count'

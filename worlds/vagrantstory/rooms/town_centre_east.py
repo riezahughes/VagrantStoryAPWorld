@@ -19,6 +19,7 @@ room_data = {
             ("Kesch Bridge", None),
             ("Workshop 'Junction Point'", "Cattleya Sigil"),
             ("Rue Fisserano", None),
+            ("The House Gilgitte", None),
         ]
     },
     "Workshop 'Junction Point'": {
@@ -58,9 +59,9 @@ room_data = {
     },
     "Plateia Lumitar": {
         "exits": [
-            ("Gharmes Walk", None),
             ("Exit to City Center", None),
             ("Into Holy Battle", None),
+            ("Gharmes Walk", None),
         ]
     },
 }

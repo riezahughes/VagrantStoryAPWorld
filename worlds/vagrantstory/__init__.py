@@ -5,7 +5,7 @@ from BaseClasses import MultiWorld, Region, Item, Entrance, Tutorial, ItemClassi
 from Options import Toggle
 
 from worlds.AutoWorld import World, WebWorld
-from worlds.generic.Rules import set_rule, add_rule, add_item_rule
+from worlds.generic.Rules import set_rule, add_rule
 
 from .Items import VagrantStoryItem, VagrantStoryItemCategory, item_dictionary, key_item_names, item_descriptions, BuildItemPool
 from .Locations import VagrantStoryLocation, VagrantStoryLocationCategory, VagrantStoryLocationData, location_tables, location_dictionary
@@ -21,9 +21,25 @@ from .Options import (
     IncludePrologueToggle,
     IncludeTimeTrialToggle,
 )
-from .Rules import set_vanilla_key_item_progression, set_vanilla_boss_progression, set_open_progression, set_time_trial_rules
+from .Rules import set_vanilla_key_item_progression, set_vanilla_boss_progression, set_open_progression, set_time_trial_rules, set_chain_unlock_rules, set_break_art_rules, set_blood_sin_endgame_rule, set_one_way_door_rules, set_vanilla_break_art_prerequisite
 from .VictoryConditions import defeat_guildenstern_dark_angel_victory
 from .rooms import all_minor_regions
+
+
+# One guaranteed blade per weapon type — always added to the item pool and classified as
+# progression so the AP sphere solver can track them for break art access rules.
+_GUARANTEED_STARTER_BLADES: frozenset = frozenset([
+    "Bronze Rapier",        # Sword
+    "Bronze Spear",         # Polearm
+    "Bronze Hand Axe",      # Axe & Mace
+    "Bronze Gastraph Bow",  # Crossbow
+    "Bronze Guisarme",      # Great Axe
+    "Bronze Bastard Sword", # Great Sword
+    "Bronze Battle Knife",  # Dagger
+    "Bronze Wizard Staff",  # Staff
+    "Bronze Griever",       # Heavy Mace
+    "Bronze Knuckles",      # Bare Hands
+])
 
 
 class VagrantStoryWeb(WebWorld):
@@ -58,7 +74,18 @@ class VagrantStoryWorld(World):
     required_client_version = (0, 5, 0)
     item_name_to_id = VagrantStoryItem.get_name_to_id()
     location_name_to_id = VagrantStoryLocation.get_name_to_id()
-    item_name_groups = {}
+    item_name_groups = {
+        "Dagger Blades":      ["Bronze Battle Knife", "Silver Scramasax", "Hagane Khukuri", "Hagane Baselard", "Silver Kris", "Silver Kudi"],
+        "Sword Blades":       ["Bronze Rapier", "Bronze Broad Sword", "Iron Shamshir", "Iron Firangi", "Hagane Katana", "Hagane Khora", "Damascus Falchion", "Damascus Executioner"],
+        "Great Sword Blades": ["Bronze Bastard Sword", "Hagane Bastard Sword", "Damascus Schiavona"],
+        "Axe Mace Blades":    ["Bronze Hand Axe", "Iron Goblin Club", "Iron Tabar", "Hagane Francisca", "Hagane Bullova", "Hagane Morning Star", "Hagane Footman's Mace 1H"],
+        "Great Axe Blades":   ["Bronze Guisarme", "Hagane Double Blade", "Hagane Bec de Corbin", "Hagane Sabre Halberd", "Silver Balbriggan"],
+        "Heavy Mace Blades":  ["Bronze Griever", "Hagane Griever", "Hagane Footman's Mace 2H"],
+        "Polearm Blades":     ["Bronze Spear", "Bronze Glaive", "Bronze Langdebeve", "Bronze Stinger", "Bronze Voulge", "Hagane Pole Axe", "Silver Corcesca"],
+        "Staff Blades":       ["Bronze Wizard Staff", "Silver Wizard Staff", "Iron Summoner Baton"],
+        "Crossbow Blades":    ["Bronze Gastraph Bow", "Hagane Target Bow", "Hagane Cranequin"],
+        "Bare Hands Blades":  ["Bronze Knuckles"],
+    }
     item_descriptions = item_descriptions
 
     def __init__(self, multiworld: MultiWorld, player: int):
@@ -186,12 +213,6 @@ class VagrantStoryWorld(World):
                     self.location_name_to_id[location.name],
                     new_region,
                 )
-                # Temporary fix to allow easy logic.
-                if (
-                    location.category == VagrantStoryLocationCategory.BREAK_UNLOCKS
-                    or location.category == VagrantStoryLocationCategory.ABILITY_UNLOCKS
-                ):
-                    add_item_rule(new_location, lambda item: item.classification != ItemClassification.progression)
             else:
                 event_item = self.create_item(location.default_item)
                 new_location = VagrantStoryLocation(self.player, location.name, location.category, location.default_item, None, new_region)
@@ -248,6 +269,10 @@ class VagrantStoryWorld(World):
         else:  # Default for FILLER or other categories not explicitly useful/progression
             item_classification = ItemClassification.filler
 
+        # Guaranteed starter blades must be progression so has_group() can track them in rules
+        if name in _GUARANTEED_STARTER_BLADES:
+            item_classification = ItemClassification.progression
+
         return VagrantStoryItem(name, item_classification, VagrantStoryItem.get_name_to_id()[name], self.player, self.options)
 
     def get_filler_item_name(self) -> str:
@@ -270,6 +295,13 @@ class VagrantStoryWorld(World):
 
         if self.options.include_time_trial.value == IncludeTimeTrialToggle.option_true:
             set_time_trial_rules(self)
+
+        set_chain_unlock_rules(self)
+        set_break_art_rules(self)
+        if self.options.progression_option.value == ProgressionOptions.VANILLA:
+            set_vanilla_break_art_prerequisite(self)
+        set_blood_sin_endgame_rule(self)
+        set_one_way_door_rules(self)
 
         from Utils import visualize_regions
 
