@@ -1869,7 +1869,7 @@ def BuildItemPool(count: int, self) -> List[str]:
                 item_pool_names.append(item_name)
 
     # Add Blood Sin Pieces equal to the configured quantity — required to reach the Dome
-    blood_sin_total = self.options.blood_sin_quanity.value
+    blood_sin_total = self.options.blood_sin_quantity.value
     for _ in range(blood_sin_total):
         if len(item_pool_names) < count:
             item_pool_names.append("Blood Sin Piece")
@@ -1877,16 +1877,16 @@ def BuildItemPool(count: int, self) -> List[str]:
     # Always add one guaranteed blade per weapon type so break art rules are satisfiable.
     # These are classified as progression in create_item() so the AP sphere logic tracks them.
     _GUARANTEED_STARTER_BLADES = [
-        "Bronze Rapier",       # Sword
-        "Bronze Spear",        # Polearm
-        "Bronze Hand Axe",     # Axe & Mace
-        "Bronze Gastraph Bow", # Crossbow
-        "Bronze Guisarme",     # Great Axe
-        "Bronze Bastard Sword",# Great Sword
-        "Bronze Battle Knife", # Dagger
-        "Bronze Wizard Staff", # Staff
-        "Bronze Griever",      # Heavy Mace
-        "Bronze Knuckles",     # Bare Hands
+        "Bronze Rapier",  # Sword
+        "Bronze Spear",  # Polearm
+        "Bronze Hand Axe",  # Axe & Mace
+        "Bronze Gastraph Bow",  # Crossbow
+        "Bronze Guisarme",  # Great Axe
+        "Bronze Bastard Sword",  # Great Sword
+        "Bronze Battle Knife",  # Dagger
+        "Bronze Wizard Staff",  # Staff
+        "Bronze Griever",  # Heavy Mace
+        "Bronze Knuckles",  # Bare Hands
     ]
     for blade in _GUARANTEED_STARTER_BLADES:
         if blade not in item_pool_names and len(item_pool_names) < count:

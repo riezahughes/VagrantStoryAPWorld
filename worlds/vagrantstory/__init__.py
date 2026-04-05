@@ -20,27 +20,39 @@ from .Options import (
     RoomSanityToggle,
     IncludePrologueToggle,
     IncludeTimeTrialToggle,
-    BloodSinQuanity,
+    BloodSinQuantity,
 )
-from .Rules import set_vanilla_key_item_progression, set_vanilla_boss_progression, set_open_progression, set_time_trial_rules, set_chain_unlock_rules, set_break_art_rules, set_blood_sin_endgame_rule, set_one_way_door_rules, set_vanilla_break_art_prerequisite
+from .Rules import (
+    set_vanilla_key_item_progression,
+    set_vanilla_boss_progression,
+    set_open_progression,
+    set_time_trial_rules,
+    set_chain_unlock_rules,
+    set_break_art_rules,
+    set_blood_sin_endgame_rule,
+    set_one_way_door_rules,
+    set_vanilla_break_art_prerequisite,
+)
 from .VictoryConditions import defeat_guildenstern_dark_angel_victory
 from .rooms import all_minor_regions
 
 
 # One guaranteed blade per weapon type — always added to the item pool and classified as
 # progression so the AP sphere solver can track them for break art access rules.
-_GUARANTEED_STARTER_BLADES: frozenset = frozenset([
-    "Bronze Rapier",        # Sword
-    "Bronze Spear",         # Polearm
-    "Bronze Hand Axe",      # Axe & Mace
-    "Bronze Gastraph Bow",  # Crossbow
-    "Bronze Guisarme",      # Great Axe
-    "Bronze Bastard Sword", # Great Sword
-    "Bronze Battle Knife",  # Dagger
-    "Bronze Wizard Staff",  # Staff
-    "Bronze Griever",       # Heavy Mace
-    "Bronze Knuckles",      # Bare Hands
-])
+_GUARANTEED_STARTER_BLADES: frozenset = frozenset(
+    [
+        "Bronze Rapier",  # Sword
+        "Bronze Spear",  # Polearm
+        "Bronze Hand Axe",  # Axe & Mace
+        "Bronze Gastraph Bow",  # Crossbow
+        "Bronze Guisarme",  # Great Axe
+        "Bronze Bastard Sword",  # Great Sword
+        "Bronze Battle Knife",  # Dagger
+        "Bronze Wizard Staff",  # Staff
+        "Bronze Griever",  # Heavy Mace
+        "Bronze Knuckles",  # Bare Hands
+    ]
+)
 
 
 class VagrantStoryWeb(WebWorld):
@@ -76,16 +88,41 @@ class VagrantStoryWorld(World):
     item_name_to_id = VagrantStoryItem.get_name_to_id()
     location_name_to_id = VagrantStoryLocation.get_name_to_id()
     item_name_groups = {
-        "Dagger Blades":      ["Bronze Battle Knife", "Silver Scramasax", "Hagane Khukuri", "Hagane Baselard", "Silver Kris", "Silver Kudi"],
-        "Sword Blades":       ["Bronze Rapier", "Bronze Broad Sword", "Iron Shamshir", "Iron Firangi", "Hagane Katana", "Hagane Khora", "Damascus Falchion", "Damascus Executioner"],
+        "Dagger Blades": ["Bronze Battle Knife", "Silver Scramasax", "Hagane Khukuri", "Hagane Baselard", "Silver Kris", "Silver Kudi"],
+        "Sword Blades": [
+            "Bronze Rapier",
+            "Bronze Broad Sword",
+            "Iron Shamshir",
+            "Iron Firangi",
+            "Hagane Katana",
+            "Hagane Khora",
+            "Damascus Falchion",
+            "Damascus Executioner",
+        ],
         "Great Sword Blades": ["Bronze Bastard Sword", "Hagane Bastard Sword", "Damascus Schiavona"],
-        "Axe Mace Blades":    ["Bronze Hand Axe", "Iron Goblin Club", "Iron Tabar", "Hagane Francisca", "Hagane Bullova", "Hagane Morning Star", "Hagane Footman's Mace 1H"],
-        "Great Axe Blades":   ["Bronze Guisarme", "Hagane Double Blade", "Hagane Bec de Corbin", "Hagane Sabre Halberd", "Silver Balbriggan"],
-        "Heavy Mace Blades":  ["Bronze Griever", "Hagane Griever", "Hagane Footman's Mace 2H"],
-        "Polearm Blades":     ["Bronze Spear", "Bronze Glaive", "Bronze Langdebeve", "Bronze Stinger", "Bronze Voulge", "Hagane Pole Axe", "Silver Corcesca"],
-        "Staff Blades":       ["Bronze Wizard Staff", "Silver Wizard Staff", "Iron Summoner Baton"],
-        "Crossbow Blades":    ["Bronze Gastraph Bow", "Hagane Target Bow", "Hagane Cranequin"],
-        "Bare Hands Blades":  ["Bronze Knuckles"],
+        "Axe Mace Blades": [
+            "Bronze Hand Axe",
+            "Iron Goblin Club",
+            "Iron Tabar",
+            "Hagane Francisca",
+            "Hagane Bullova",
+            "Hagane Morning Star",
+            "Hagane Footman's Mace 1H",
+        ],
+        "Great Axe Blades": ["Bronze Guisarme", "Hagane Double Blade", "Hagane Bec de Corbin", "Hagane Sabre Halberd", "Silver Balbriggan"],
+        "Heavy Mace Blades": ["Bronze Griever", "Hagane Griever", "Hagane Footman's Mace 2H"],
+        "Polearm Blades": [
+            "Bronze Spear",
+            "Bronze Glaive",
+            "Bronze Langdebeve",
+            "Bronze Stinger",
+            "Bronze Voulge",
+            "Hagane Pole Axe",
+            "Silver Corcesca",
+        ],
+        "Staff Blades": ["Bronze Wizard Staff", "Silver Wizard Staff", "Iron Summoner Baton"],
+        "Crossbow Blades": ["Bronze Gastraph Bow", "Hagane Target Bow", "Hagane Cranequin"],
+        "Bare Hands Blades": ["Bronze Knuckles"],
     }
     item_descriptions = item_descriptions
 
@@ -363,7 +400,7 @@ class VagrantStoryWorld(World):
                 "panelsanity": self.options.panelsanity.value,
                 "deathlink": self.options.deathlink.value,
                 "guaranteed_items": self.options.guaranteed_items.value,
-                "blood_sin_quanity": self.options.blood_sin_quanity.value,
+                "blood_sin_quantity": self.options.blood_sin_quantity.value,
             },
             "seed": self.multiworld.seed_name,  # to verify the server's multiworld
             "slot": self.multiworld.player_name[self.player],  # to connect to server

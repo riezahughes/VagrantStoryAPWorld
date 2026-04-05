@@ -269,7 +269,7 @@ class DeathLinkToggle(Toggle):
     option_false = 0
 
 
-class BloodSinQuanity(Range):
+class BloodSinQuantity(Range):
     """
     Sets how many Blood Sin Pieces are required to reach the Dome (final boss area).
     The same total is added to the item pool and used to scale all intermediate
@@ -329,6 +329,7 @@ class VagrantStoryOption(PerGameCommonOptions):
     goal: GoalOption
     progression_option: ProgressionOption
     open_world_option: OpenWorldOption
+    blood_sin_quantity: BloodSinQuantity
     include_prologue: IncludePrologueToggle
     include_time_trial: IncludeTimeTrialToggle
     include_new_game_plus: NewGamePlusToggle
@@ -348,4 +349,3 @@ class VagrantStoryOption(PerGameCommonOptions):
     panelsanity: PanelSanityToggle
     deathlink: DeathLinkToggle
     guaranteed_items: GuaranteedItemsOption
-    blood_sin_quanity: BloodSinQuanity
