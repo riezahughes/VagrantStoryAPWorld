@@ -79,9 +79,6 @@ class VagrantStoryLocation(Location):
         item.location = self
 
 
-# Gold shield ammo is used as a default. If you start picking up a lot, there's something wrong
-
-
 # 1	    Wine Cellar
 # 2     Catacombs
 # 3     Sanctum
@@ -144,14 +141,14 @@ location_tables = {
         VagrantStoryLocationData("Chain Unlock 21", "Vera Root", VagrantStoryLocationCategory.ABILITY_UNLOCKS),
         VagrantStoryLocationData("Chain Unlock 22", "Vera Root", VagrantStoryLocationCategory.ABILITY_UNLOCKS),
         # Grimoire Unlocks moved to their respective rooms
-        # Levelable Grimoires
-        VagrantStoryLocationData("Grimoire: Explosion Max Level", "Vera Root", VagrantStoryLocationCategory.GRIMOIRE_UNLOCKS),
-        VagrantStoryLocationData("Grimoire: Thunderburst Max Level", "Vera Root", VagrantStoryLocationCategory.GRIMOIRE_UNLOCKS),
-        VagrantStoryLocationData("Grimoire: Flame Sphere Max Level", "Vera Root", VagrantStoryLocationCategory.GRIMOIRE_UNLOCKS),
-        VagrantStoryLocationData("Grimoire: Gaea Strike Max Level", "Vera Root", VagrantStoryLocationCategory.GRIMOIRE_UNLOCKS),
-        VagrantStoryLocationData("Grimoire: Avalanche Max Level", "Vera Root", VagrantStoryLocationCategory.GRIMOIRE_UNLOCKS),
-        VagrantStoryLocationData("Grimoire: Radial Surge Max Level", "Vera Root", VagrantStoryLocationCategory.GRIMOIRE_UNLOCKS),
-        VagrantStoryLocationData("Grimoire: Meteor Max Level", "Vera Root", VagrantStoryLocationCategory.GRIMOIRE_UNLOCKS),
+        # Levelable Grimoires have been removed as locations for now.
+        # VagrantStoryLocationData("Grimoire: Explosion Max Level", "Vera Root", VagrantStoryLocationCategory.GRIMOIRE_UNLOCKS),
+        # VagrantStoryLocationData("Grimoire: Thunderburst Max Level", "Vera Root", VagrantStoryLocationCategory.GRIMOIRE_UNLOCKS),
+        # VagrantStoryLocationData("Grimoire: Flame Sphere Max Level", "Vera Root", VagrantStoryLocationCategory.GRIMOIRE_UNLOCKS),
+        # VagrantStoryLocationData("Grimoire: Gaea Strike Max Level", "Vera Root", VagrantStoryLocationCategory.GRIMOIRE_UNLOCKS),
+        # VagrantStoryLocationData("Grimoire: Avalanche Max Level", "Vera Root", VagrantStoryLocationCategory.GRIMOIRE_UNLOCKS),
+        # VagrantStoryLocationData("Grimoire: Radial Surge Max Level", "Vera Root", VagrantStoryLocationCategory.GRIMOIRE_UNLOCKS),
+        # VagrantStoryLocationData("Grimoire: Meteor Max Level", "Vera Root", VagrantStoryLocationCategory.GRIMOIRE_UNLOCKS),
         # Break Arts
         VagrantStoryLocationData("Break Art Dagger Level 1", "Vera Root", VagrantStoryLocationCategory.BREAK_UNLOCKS),
         VagrantStoryLocationData("Break Art Dagger Level 2", "Vera Root", VagrantStoryLocationCategory.BREAK_UNLOCKS),

@@ -192,13 +192,14 @@ class VagrantStoryWorld(World):
                         name = f"{region_name} -> {exit_target[0]}"
                     create_room_connections(region_name, exit_target[0], name)
 
+        # Order MUST match OpenWorldOptions in Options.py (index == open_world_option value).
         list_of_starting_points = [
-            "Workshop 'Godhands'",
-            "Workshop 'Junction Point'",
-            "Workshop 'Metal Works'",
-            "Workshop 'Magic Hammer'",
-            "Workshop 'Keane's Crafts'",
-            "Workshop 'Work of Art'",
+            "Workshop 'Magic Hammer'",  # 0 MAGIC_HAMMER
+            "Workshop 'Junction Point'",  # 1 JUNCTION_POINT
+            "Workshop 'Metal Works'",  # 2 METAL_WORKS
+            "Workshop 'Godhands'",  # 3 GODHANDS
+            "Workshop 'Keane's Crafts'",  # 4 KEANES_CRAFT
+            "Workshop 'Work of Art'",  # 5 WORK_OF_ART
         ]
 
         starting_index_choice = (
@@ -302,6 +303,7 @@ class VagrantStoryWorld(World):
             item_data.category == VagrantStoryItemCategory.GRIMOIRE
             or item_data.category == VagrantStoryItemCategory.CHAIN_ABILITY
             or item_data.category == VagrantStoryItemCategory.DEFENCE_ABILITY
+            or item_data.category == VagrantStoryItemCategory.BREAK_ARTS
         ):
             item_classification = ItemClassification.useful
         else:  # Default for FILLER or other categories not explicitly useful/progression

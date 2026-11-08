@@ -1681,11 +1681,11 @@ _all_items_raw: List[VagrantStoryItemData] = [
     VagrantStoryItemData("Hagane Bishop's Crosier", VagrantStoryItemCategory.BLADE_PARTS, False, 1, [VagrantStoryWeaponType.STAFF]),
     VagrantStoryItemData("Silver Bishop's Crosier", VagrantStoryItemCategory.BLADE_PARTS, False, 1, [VagrantStoryWeaponType.STAFF]),
     VagrantStoryItemData("Damascus Bishop's Crosier", VagrantStoryItemCategory.BLADE_PARTS, False, 1, [VagrantStoryWeaponType.STAFF]),
-    VagrantStoryItemData("Bronze Sage Cane", VagrantStoryItemCategory.BLADE_PARTS, False, 1, [VagrantStoryWeaponType.STAFF]),
-    VagrantStoryItemData("Iron Sage Cane", VagrantStoryItemCategory.BLADE_PARTS, False, 1, [VagrantStoryWeaponType.STAFF]),
-    VagrantStoryItemData("Hagane Sage Cane", VagrantStoryItemCategory.BLADE_PARTS, False, 1, [VagrantStoryWeaponType.STAFF]),
-    VagrantStoryItemData("Silver Sage Cane", VagrantStoryItemCategory.BLADE_PARTS, False, 1, [VagrantStoryWeaponType.STAFF]),
-    VagrantStoryItemData("Damascus Sage Cane", VagrantStoryItemCategory.BLADE_PARTS, False, 1, [VagrantStoryWeaponType.STAFF]),
+    VagrantStoryItemData("Bronze Sage's Cane", VagrantStoryItemCategory.BLADE_PARTS, False, 1, [VagrantStoryWeaponType.STAFF]),
+    VagrantStoryItemData("Iron Sage's Cane", VagrantStoryItemCategory.BLADE_PARTS, False, 1, [VagrantStoryWeaponType.STAFF]),
+    VagrantStoryItemData("Hagane Sage's  Cane", VagrantStoryItemCategory.BLADE_PARTS, False, 1, [VagrantStoryWeaponType.STAFF]),
+    VagrantStoryItemData("Silver Sage's Cane", VagrantStoryItemCategory.BLADE_PARTS, False, 1, [VagrantStoryWeaponType.STAFF]),
+    VagrantStoryItemData("Damascus Sage's Cane", VagrantStoryItemCategory.BLADE_PARTS, False, 1, [VagrantStoryWeaponType.STAFF]),
     # Heavy Maces
     VagrantStoryItemData("Bronze Langdebeve", VagrantStoryItemCategory.BLADE_PARTS, False, 1, [VagrantStoryWeaponType.HEAVY_MACE]),
     VagrantStoryItemData("Iron Langdebeve", VagrantStoryItemCategory.BLADE_PARTS, False, 1, [VagrantStoryWeaponType.HEAVY_MACE]),
@@ -1860,6 +1860,20 @@ def item_dictionary(options) -> dict[str, VagrantStoryItemData]:
     return result
 
 
+# Abilities the client unlocks at the start of every game (PlayerStateHelpers.SetVanillaBattleSkills), so they are not
+# placed in the item pool.
+_STARTING_ABILITIES = frozenset(
+    [
+        "Heavy Shot Chain Ability",
+        "Gain Life Chain Ability",
+        "Temper Chain Ability",
+        "Ward Defence Ability",
+        "Reflect Damage Defence Ability",
+        "Impact Guard Defence Ability",
+    ]
+)
+
+
 def BuildItemPool(count: int, self) -> List[str]:
     item_pool_names: List[str] = []
 
@@ -1927,6 +1941,23 @@ def BuildItemPool(count: int, self) -> List[str]:
 
     for name in progression_items:
         if len(item_pool_names) < count:
+            item_pool_names.append(name)
+
+    # 2b. Ashley's skills. The client (VagrantStoryArchipelago ItemHelpers) unlocks these when they are RECEIVED, and it
+    # resets every break art to locked on connect, so all 40 break arts must come from the pool. The 28 chain/defence
+    # abilities include 6 the client grants at the start (SetVanillaBattleSkills); the other 22 are the pool items that
+    # pair with the 22 "Chain Unlock N" locations.
+    skill_items = [
+        item.name
+        for item in item_list_choice
+        if item.category == VagrantStoryItemCategory.BREAK_ARTS
+        or (
+            item.category in [VagrantStoryItemCategory.CHAIN_ABILITY, VagrantStoryItemCategory.DEFENCE_ABILITY]
+            and item.name not in _STARTING_ABILITIES
+        )
+    ]
+    for name in skill_items:
+        if len(item_pool_names) < count and name not in item_pool_names:
             item_pool_names.append(name)
 
     # 3. Handle Heavy Drops (Select exactly X random Blade/Grip parts, weighted by quantity)
