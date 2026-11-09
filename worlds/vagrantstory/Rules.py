@@ -160,6 +160,17 @@ def set_vanilla_key_item_progression(self):
         lambda state: has_sigil_required(self, "Palm Sigil", state) and has_sigil_required(self, "Acacia Sigil", state),
     )
 
+    # Doors that lock on both sides in the game (the client locks the side the original game left open)
+    set_rule(self.get_entrance("Rue Morgue -> Corridor of Shade"), lambda state: has_key_required(self, "Bronze Key", state))
+    set_rule(self.get_entrance("Corridor of Shade -> Rue Morgue"), lambda state: has_key_required(self, "Bronze Key", state))
+    set_rule(self.get_entrance("Crossroads of Rest -> Path of the Children"), lambda state: has_key_required(self, "Iron Key", state))
+    set_rule(self.get_entrance("Path of the Children -> Crossroads of Rest"), lambda state: has_key_required(self, "Iron Key", state))
+    set_rule(self.get_entrance("Tears from Empty Sockets -> The Body Fragile Yields"), lambda state: has_key_required(self, "Gold Key", state))
+    set_rule(self.get_entrance("The Body Fragile Yields -> Tears from Empty Sockets"), lambda state: has_key_required(self, "Gold Key", state))
+    set_rule(self.get_entrance("Blackmarket of Wines -> The Gallows"), lambda state: has_sigil_required(self, "Stock Sigil", state))
+    set_rule(self.get_entrance("The Gallows -> Blackmarket of Wines"), lambda state: has_sigil_required(self, "Stock Sigil", state))
+    set_rule(self.get_entrance("The Gallows Again -> Blackmarket of Wines"), lambda state: has_sigil_required(self, "Stock Sigil", state))
+
 
 def set_vanilla_boss_progression(self):
     add_rule(
@@ -296,6 +307,17 @@ def set_open_progression(self):
         self.get_entrance("The Heretics' Story -> Where the Soul Rots"),
         lambda state: has_sigil_required(self, "Palm Sigil", state) and has_sigil_required(self, "Acacia Sigil", state),
     )
+
+    # Doors that lock on both sides in the game (the client locks the side the original game left open)
+    set_rule(self.get_entrance("Rue Morgue -> Corridor of Shade"), lambda state: has_key_required(self, "Bronze Key", state))
+    set_rule(self.get_entrance("Corridor of Shade -> Rue Morgue"), lambda state: has_key_required(self, "Bronze Key", state))
+    set_rule(self.get_entrance("Crossroads of Rest -> Path of the Children"), lambda state: has_key_required(self, "Iron Key", state))
+    set_rule(self.get_entrance("Path of the Children -> Crossroads of Rest"), lambda state: has_key_required(self, "Iron Key", state))
+    set_rule(self.get_entrance("Tears from Empty Sockets -> The Body Fragile Yields"), lambda state: has_key_required(self, "Gold Key", state))
+    set_rule(self.get_entrance("The Body Fragile Yields -> Tears from Empty Sockets"), lambda state: has_key_required(self, "Gold Key", state))
+    set_rule(self.get_entrance("Blackmarket of Wines -> The Gallows"), lambda state: has_sigil_required(self, "Stock Sigil", state))
+    set_rule(self.get_entrance("The Gallows -> Blackmarket of Wines"), lambda state: has_sigil_required(self, "Stock Sigil", state))
+    set_rule(self.get_entrance("The Gallows Again -> Blackmarket of Wines"), lambda state: has_sigil_required(self, "Stock Sigil", state))
 
 
 # Time trail rules are OFF for now till a solution can be found.
