@@ -27,6 +27,13 @@ def set_vanilla_key_item_progression(self):
     # Bronze Key
     set_rule(self.get_entrance("Shasras Hill Park -> Hall to a New World"), lambda state: has_key_required(self, "Bronze Key", state))
 
+    # Chest Key
+    set_rule(self.get_location("WC - The Gallows - Chest"), lambda state: has_key_required(self, "Chest Key", state))
+    set_rule(self.get_location("AM2 - Hidden Resources - Chest"), lambda state: has_key_required(self, "Chest Key", state))
+    set_rule(self.get_location("AM2 - Hidden Resources - Chest - Grimoire Mollesse"), lambda state: has_key_required(self, "Chest Key", state))
+    set_rule(self.get_location("IM1 - The Branks - Chest"), lambda state: has_key_required(self, "Chest Key", state))
+    set_rule(self.get_location("KEP - The Warrior's Rest - Chest"), lambda state: has_key_required(self, "Chest Key", state))
+
     # Crimson Key
     set_rule(self.get_entrance("Rue Vermillion -> Students of Death"), lambda state: has_key_required(self, "Crimson Key", state))
 
@@ -187,6 +194,13 @@ def set_open_progression(self):
     # Bronze Key
     set_rule(self.get_entrance("Shasras Hill Park -> Hall to a New World"), lambda state: has_key_required(self, "Bronze Key", state))
 
+    # Chest Key
+    set_rule(self.get_location("WC - The Gallows - Chest"), lambda state: has_key_required(self, "Chest Key", state))
+    set_rule(self.get_location("AM2 - Hidden Resources - Chest"), lambda state: has_key_required(self, "Chest Key", state))
+    set_rule(self.get_location("AM2 - Hidden Resources - Chest - Grimoire Mollesse"), lambda state: has_key_required(self, "Chest Key", state))
+    set_rule(self.get_location("IM1 - The Branks - Chest"), lambda state: has_key_required(self, "Chest Key", state))
+    set_rule(self.get_location("KEP - The Warrior's Rest - Chest"), lambda state: has_key_required(self, "Chest Key", state))
+
     # Crimson Key
     set_rule(self.get_entrance("Rue Vermillion -> Students of Death"), lambda state: has_key_required(self, "Crimson Key", state))
 
@@ -311,6 +325,7 @@ def set_new_game_plus_rules(self, state):
 
 
 # Maps the weapon type name used in break art location names to the item_name_groups key
+# (groups are generated from the item data in Items.blade_name_groups, so every tier counts).
 _BREAK_ART_WEAPON_GROUPS = {
     "Dagger": "Dagger Blades",
     "Sword": "Sword Blades",
@@ -328,43 +343,29 @@ _BREAK_ART_WEAPON_GROUPS = {
 def set_break_art_rules(self):
     """
     Gates each break art location behind:
-      - Having any blade of the relevant weapon type (Level 1+)
+      - Having any blade of the relevant weapon type (any tier)
       - Plus a Blood Sin Piece threshold that scales with blood_sin_quantity:
           Level 2: 20% of total, Level 3: 40%, Level 4: 60%
-    Bare Hands has no weapon requirement, only the Blood Sin Piece tier gate.
+    The lowest-tier blade of every type is always in the pool and requested early
+    (see VagrantStoryWorld.generate_early).
     """
     total = self.options.blood_sin_quantity.value
     tier = [
-        0,  # Level 1 â€” no Blood Sin gate
-        max(1, total // 5),  # Level 2 â€” ~20%
-        max(1, (2 * total) // 5),  # Level 3 â€” ~40%
-        max(1, (3 * total) // 5),  # Level 4 â€” ~60%
+        0,  # Level 1 — no Blood Sin gate
+        max(1, total // 5),  # Level 2 — ~20%
+        max(1, (2 * total) // 5),  # Level 3 — ~40%
+        max(1, (3 * total) // 5),  # Level 4 — ~60%
     ]
 
     for weapon_type, group_name in _BREAK_ART_WEAPON_GROUPS.items():
         for level in range(1, 5):
-            loc_name = f"Break Art {weapon_type} Level {level}"
             blood_sin_needed = tier[level - 1]
-
-            if weapon_type == "Bare Hands":
-                if blood_sin_needed == 0:
-                    continue  # No gate at all for Level 1 bare hands
-                set_rule(
-                    self.get_location(loc_name),
-                    lambda state, bsp=blood_sin_needed: state.has("Blood Sin Piece", self.player, bsp),
-                )
-            elif blood_sin_needed == 0:
-                set_rule(
-                    self.get_location(loc_name),
-                    lambda state, gn=group_name: state.has_group(gn, self.player),
-                )
-            else:
-                set_rule(
-                    self.get_location(loc_name),
-                    lambda state, gn=group_name, bsp=blood_sin_needed: (
-                        state.has_group(gn, self.player) and state.has("Blood Sin Piece", self.player, bsp)
-                    ),
-                )
+            set_rule(
+                self.get_location(f"Break Art {weapon_type} Level {level}"),
+                lambda state, gn=group_name, bsp=blood_sin_needed: (
+                    state.has_group(gn, self.player) and (bsp == 0 or state.has("Blood Sin Piece", self.player, bsp))
+                ),
+            )
 
 
 def set_chain_unlock_rules(self):
@@ -404,19 +405,28 @@ def set_blood_sin_endgame_rule(self):
     )
 
 
-def set_vanilla_break_art_prerequisite(self):
+_WORKSHOPS = [
+    "Workshop 'Magic Hammer'",
+    "Workshop 'Junction Point'",
+    "Workshop 'Metal Works'",
+    "Workshop 'Godhands'",
+    "Workshop 'Keane's Crafts'",
+    "Workshop 'Work of Art'",
+]
+
+
+def set_break_art_workshop_prerequisite(self):
     """
-    In vanilla mode the first workshop (Work of Art) isn't reachable until the Catacombs.
     Without a workshop the player can't craft weapons, so break arts are inaccessible
-    regardless of what blades they've been given.
-    Gate every break art location behind having reached The Withered Spring, which is the
-    checkpoint that confirms the player is close enough to a workshop to start crafting.
+    regardless of what blades they've been given. Gate every break art location behind
+    being able to reach at least one workshop (in vanilla that is Work of Art in the
+    Catacombs; in open mode the start room is itself a workshop).
     """
     for weapon_type in _BREAK_ART_WEAPON_GROUPS:
         for level in range(1, 5):
             add_rule(
                 self.get_location(f"Break Art {weapon_type} Level {level}"),
-                lambda state: state.can_reach_region("The Withered Spring", self.player),
+                lambda state: any(state.can_reach_region(w, self.player) for w in _WORKSHOPS),
             )
 
 

@@ -264,7 +264,7 @@ _vanilla_items_raw: List[VagrantStoryItemData] = [
     VagrantStoryItemData("Hagane Oval Shield", VagrantStoryItemCategory.SHIELDS, False, 1),  # Oval Shield.H
     VagrantStoryItemData("Hagane Hoplite Shield", VagrantStoryItemCategory.SHIELDS, False, 1),  # Hoplite Shield.H
     # 13. Armour (162-192)
-    VagrantStoryItemData("Leather Leather Glove", VagrantStoryItemCategory.ARMOUR, False, 1),  # Leather Glove.L
+    VagrantStoryItemData("Leather Glove", VagrantStoryItemCategory.ARMOUR, False, 1),  # Leather Glove.L
     VagrantStoryItemData("Leather Reinforced Glove", VagrantStoryItemCategory.ARMOUR, False, 1),  # Reinforced Glove.L
     VagrantStoryItemData("Leather Cuirass", VagrantStoryItemCategory.ARMOUR, False, 2),  # Cuirass.L
     VagrantStoryItemData("Leather Long Boots", VagrantStoryItemCategory.ARMOUR, False, 1),  # Long Boots.L
@@ -1151,7 +1151,7 @@ _all_items_raw: List[VagrantStoryItemData] = [
     VagrantStoryItemData("Damascus Dread Armour", VagrantStoryItemCategory.ARMOUR, False),
     # Gloves (433-494)
     VagrantStoryItemData("Leather Bandage", VagrantStoryItemCategory.ARMOUR, False),
-    VagrantStoryItemData("Leather Leather Glove", VagrantStoryItemCategory.ARMOUR, False),
+    VagrantStoryItemData("Leather Glove", VagrantStoryItemCategory.ARMOUR, False),
     VagrantStoryItemData("Leather Reinforced Glove", VagrantStoryItemCategory.ARMOUR, False),
     VagrantStoryItemData("Bronze Knuckles", VagrantStoryItemCategory.ARMOUR, False),
     VagrantStoryItemData("Iron Knuckles", VagrantStoryItemCategory.ARMOUR, False),
@@ -1860,6 +1860,65 @@ def item_dictionary(options) -> dict[str, VagrantStoryItemData]:
     return result
 
 
+# Break art item_name_groups key for each weapon type. Every BLADE_PARTS item of that type is a member.
+BLADE_GROUP_BY_TYPE = {
+    VagrantStoryWeaponType.DAGGER: "Dagger Blades",
+    VagrantStoryWeaponType.SWORD: "Sword Blades",
+    VagrantStoryWeaponType.GREAT_SWORD: "Great Sword Blades",
+    VagrantStoryWeaponType.AXE_MACE: "Axe Mace Blades",
+    VagrantStoryWeaponType.GREAT_AXE: "Great Axe Blades",
+    VagrantStoryWeaponType.STAFF: "Staff Blades",
+    VagrantStoryWeaponType.HEAVY_MACE: "Heavy Mace Blades",
+    VagrantStoryWeaponType.POLEARM: "Polearm Blades",
+    VagrantStoryWeaponType.CROSSBOW: "Crossbow Blades",
+    VagrantStoryWeaponType.BARE_HANDS: "Bare Hands Blades",
+}
+
+_BLADE_TIER_ORDER = ["Bronze", "Iron", "Hagane", "Silver", "Damascus"]
+
+
+def _blade_tier(name: str) -> int:
+    prefix = name.split(" ", 1)[0]
+    return _BLADE_TIER_ORDER.index(prefix) if prefix in _BLADE_TIER_ORDER else len(_BLADE_TIER_ORDER)
+
+
+def blade_weapon_type(item: "VagrantStoryItemData") -> Optional[VagrantStoryWeaponType]:
+    """Weapon type if the item is a blade. Knuckles are the Bare Hands blades, but the full item list
+    files them under ARMOUR, so they are matched by name."""
+    if item.name.endswith(" Knuckles"):
+        return VagrantStoryWeaponType.BARE_HANDS
+    if item.category == VagrantStoryItemCategory.BLADE_PARTS and item.weapon_type_reference:
+        return item.weapon_type_reference[0]
+    return None
+
+
+def blade_name_groups() -> dict[str, list[str]]:
+    """Group name -> every blade (all tiers, vanilla and heavy) of that weapon type."""
+    groups: dict[str, list[str]] = {name: [] for name in BLADE_GROUP_BY_TYPE.values()}
+    seen = set()
+    for item in _all_items:
+        wtype = blade_weapon_type(item)
+        if wtype is None or item.name in seen:
+            continue
+        seen.add(item.name)
+        group = BLADE_GROUP_BY_TYPE.get(wtype)
+        if group:
+            groups[group].append(item.name)
+    return groups
+
+
+def gate_blade_names(options) -> list[str]:
+    """The lowest-tier blade available in the active item pool for each weapon type (ties: pool order)."""
+    best: dict[VagrantStoryWeaponType, str] = {}
+    for item in item_dictionary(options).values():
+        wtype = blade_weapon_type(item)
+        if wtype is None:
+            continue
+        if wtype in BLADE_GROUP_BY_TYPE and (wtype not in best or _blade_tier(item.name) < _blade_tier(best[wtype])):
+            best[wtype] = item.name
+    return list(best.values())
+
+
 # Abilities the client unlocks at the start of every game (PlayerStateHelpers.SetVanillaBattleSkills), so they are not
 # placed in the item pool.
 _STARTING_ABILITIES = frozenset(
@@ -1888,21 +1947,10 @@ def BuildItemPool(count: int, self) -> List[str]:
         if len(item_pool_names) < count:
             item_pool_names.append("Blood Sin Piece")
 
-    # Always add one guaranteed blade per weapon type so break art rules are satisfiable.
-    # These are classified as progression in create_item() so the AP sphere logic tracks them.
-    _GUARANTEED_STARTER_BLADES = [
-        "Bronze Rapier",  # Sword
-        "Bronze Spear",  # Polearm
-        "Bronze Hand Axe",  # Axe & Mace
-        "Bronze Gastraph Bow",  # Crossbow
-        "Bronze Guisarme",  # Great Axe
-        "Bronze Bastard Sword",  # Great Sword
-        "Bronze Battle Knife",  # Dagger
-        "Bronze Wizard Staff",  # Staff
-        "Bronze Griever",  # Heavy Mace
-        "Bronze Knuckles",  # Bare Hands
-    ]
-    for blade in _GUARANTEED_STARTER_BLADES:
+    # Always add the lowest-tier blade of every weapon type so break art rules are satisfiable.
+    # These are classified as progression in create_item() so the AP sphere logic tracks them,
+    # and VagrantStoryWorld.generate_early asks for them to be placed early.
+    for blade in gate_blade_names(self.options):
         if blade not in item_pool_names and len(item_pool_names) < count:
             item_pool_names.append(blade)
 
