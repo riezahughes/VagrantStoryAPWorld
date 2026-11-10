@@ -26,11 +26,17 @@ room_data = {
             ("Tircolas Flow", None),
         ]
     },
-    "Tircolas Flow": {"exits": [("Rue Mal Fallde", None), ("Rue Vermillion", None)]},
+    "Tircolas Flow": {
+        "exits": [
+            ("Rue Mal Fallde", None),
+            ("Rue Vermillion", None),
+            ("Glacialdra Kirk Ruins", None),  # 0x0320 -> 0x0420 on the disc
+            ("Rue Bouquet", None),  # 0x0320 -> 0x0520 on the disc
+        ]
+    },
     "Rue Bouquet": {
         "exits": [
             ("Tircolas Flow", None),
-            ("Escapeway", None),
             ("Glacialdra Kirk Ruins", None),
         ]
     },
