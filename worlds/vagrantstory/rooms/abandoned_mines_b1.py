@@ -38,5 +38,5 @@ room_data = {
     "Live Long and Prosper": {"exits": [("Greed Knows No Bounds", None), ("Pray to the Mineral Gods", "Fern Sigil")]},
     "Pray to the Mineral Gods": {"exits": [("Live Long and Prosper", "Fern Sigil"), ("Traitor's Parting", None)]},
     "Traitor's Parting": {"exits": [("Pray to the Mineral Gods", None), ("Escapeway", None)]},
-    "Escapeway": {"exits": [("Traitor's Parting", None), ("Rue Bouquet", None)]},
+    "Escapeway": {"exits": [("Traitor's Parting", None)]},  # no usable route to Town Centre West (Rue Bouquet) in the game
 }
